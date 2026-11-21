@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8326273523657305486
+    second: VFX_fire_tornado_draft_0
+  - first:
+      213: 8697002124436655162
+    second: VFX_fire_tornado_draft_1
+  - first:
+      213: -8784995233512705699
+    second: VFX_fire_tornado_draft_2
+  - first:
+      213: 9058067135733826122
+    second: VFX_fire_tornado_draft_3
+  - first:
+      213: 373664303514951532
+    second: VFX_fire_tornado_draft_4
+  - first:
+      213: 8038202615028532245
+    second: VFX_fire_tornado_draft_5
+  - first:
+      213: 2832258895013847526
+    second: VFX_fire_tornado_draft_6
+  - first:
+      213: 4357577220310584816
+    second: VFX_fire_tornado_draft_7
+  - first:
+      213: -7211679875717763848
+    second: VFX_fire_tornado_draft_8
+  - first:
+      213: -4397219023510788840
+    second: VFX_fire_tornado_draft_9
+  - first:
+      213: -4219161045027203135
+    second: VFX_fire_tornado_draft_10
+  - first:
+      213: -271666828812736092
+    second: VFX_fire_tornado_draft_11
+  - first:
+      213: -4173928298838083946
+    second: VFX_fire_tornado_draft_12
+  - first:
+      213: -3305914597042516091
+    second: VFX_fire_tornado_draft_13
+  - first:
+      213: -1459177432883734375
+    second: VFX_fire_tornado_draft_14
+  - first:
+      213: -6749612941437179002
+    second: VFX_fire_tornado_draft_15
+  - first:
+      213: 6945441245234311445
+    second: VFX_fire_tornado_draft_16
+  - first:
+      213: 4687385961961410130
+    second: VFX_fire_tornado_draft_17
+  - first:
+      213: 9015494046740399927
+    second: VFX_fire_tornado_draft_18
+  - first:
+      213: 3154085751051633402
+    second: VFX_fire_tornado_draft_19
+  - first:
+      213: 6130767444698483792
+    second: VFX_fire_tornado_draft_20
+  - first:
+      213: -5936385953947203626
+    second: VFX_fire_tornado_draft_21
+  - first:
+      213: -7593238576626841560
+    second: VFX_fire_tornado_draft_22
+  - first:
+      213: 4333271909568618030
+    second: VFX_fire_tornado_draft_23
+  - first:
+      213: 351490698522990082
+    second: VFX_fire_tornado_draft_24
+  - first:
+      213: 5539043554684556225
+    second: VFX_fire_tornado_draft_25
+  - first:
+      213: -7196647559354859514
+    second: VFX_fire_tornado_draft_26
+  - first:
+      213: 3361116458566265152
+    second: VFX_fire_tornado_draft_27
+  - first:
+      213: 2851094193880845867
+    second: VFX_fire_tornado_draft_28
+  - first:
+      213: 7994114901383985709
+    second: VFX_fire_tornado_draft_29
+  - first:
+      213: -3965493794001329723
+    second: VFX_fire_tornado_draft_30
+  - first:
+      213: -999914418029055222
+    second: VFX_fire_tornado_draft_31
+  - first:
+      213: 163126073292613331
+    second: VFX_fire_tornado_draft_32
+  - first:
+      213: -1894200026528609170
+    second: VFX_fire_tornado_draft_33
+  - first:
+      213: -3409660285339598182
+    second: VFX_fire_tornado_draft_34
+  - first:
+      213: -3130824009156504009
+    second: VFX_fire_tornado_draft_35
+  - first:
+      213: 7281166178281286725
+    second: VFX_fire_tornado_draft_36
+  - first:
+      213: -5181947931458164010
+    second: VFX_fire_tornado_draft_37
+  - first:
+      213: 2562501209860104560
+    second: VFX_fire_tornado_draft_38
+  - first:
+      213: 3285034198735643730
+    second: VFX_fire_tornado_draft_39
+  - first:
+      213: 5621436028065877546
+    second: VFX_fire_tornado_draft_40
+  - first:
+      213: -2875024222015476462
+    second: VFX_fire_tornado_draft_41
+  - first:
+      213: -5113371388296741132
+    second: VFX_fire_tornado_draft_42
+  - first:
+      213: 6834767345384405396
+    second: VFX_fire_tornado_draft_43
+  - first:
+      213: 5350897128969376048
+    second: VFX_fire_tornado_draft_44
+  - first:
+      213: -135096933081293793
+    second: VFX_fire_tornado_draft_45
+  - first:
+      213: -3022743338052458252
+    second: VFX_fire_tornado_draft_46
+  - first:
+      213: -2177957111392026321
+    second: VFX_fire_tornado_draft_47
+  - first:
+      213: -5974788248076040119
+    second: VFX_fire_tornado_draft_48
+  - first:
+      213: -3026396772468722397
+    second: VFX_fire_tornado_draft_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2729aaf3852237c80800000000000000
+      internalID: -8326273523657305486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c4ddd7a55f1b870800000000000000
+      internalID: 8697002124436655162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51b9f8416d651680800000000000000
+      internalID: -8784995233512705699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a420e097118b4bd70800000000000000
+      internalID: 9058067135733826122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f904c44b58f2500800000000000000
+      internalID: 373664303514951532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_fire_tornado_draft_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514446da0be6d8f60800000000000000
+      internalID: 8038202615028532245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 84983cea55a2d4d3c914b6641f45985e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_fire_tornado_draft_0: -8326273523657305486
+      VFX_fire_tornado_draft_1: 8697002124436655162
+      VFX_fire_tornado_draft_2: -8784995233512705699
+      VFX_fire_tornado_draft_3: 9058067135733826122
+      VFX_fire_tornado_draft_4: 373664303514951532
+      VFX_fire_tornado_draft_5: 8038202615028532245
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

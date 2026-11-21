@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.0521934">
+  <test-suite type="TestSuite" id="1000" name="Starbind Witch" fullname="Starbind Witch" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.052193" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1011" name="Starbind.Tests.EditMode.dll" fullname="/Users/tsaoyiso/Desktop/Gary-dev/game/starbind-witch/Library/ScriptAssemblies/Starbind.Tests.EditMode.dll" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.047472" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="81495" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1012" name="Starbind" fullname="Starbind" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.047240" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1013" name="Tests" fullname="Starbind.Tests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.047085" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ProjectSetupTests" fullname="Starbind.Tests.ProjectSetupTests" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.046466" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1006" name="ArtTexturesImportAsPixelArt" fullname="Starbind.Tests.ProjectSetupTests.ArtTexturesImportAsPixelArt" methodname="ArtTexturesImportAsPixelArt" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="572424178" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.023294" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="GrassVariantsAreDeterministicAndAllUsed" fullname="Starbind.Tests.ProjectSetupTests.GrassVariantsAreDeterministicAndAllUsed" methodname="GrassVariantsAreDeterministicAndAllUsed" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="72270200" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.001111" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="GravityIsZero" fullname="Starbind.Tests.ProjectSetupTests.GravityIsZero" methodname="GravityIsZero" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="792544878" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.000596" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="PathAutotilePicksSpriteFromNeighbourMask" fullname="Starbind.Tests.ProjectSetupTests.PathAutotilePicksSpriteFromNeighbourMask" methodname="PathAutotilePicksSpriteFromNeighbourMask" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1592924488" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.006243" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="PhysicsLayersExist" fullname="Starbind.Tests.ProjectSetupTests.PhysicsLayersExist" methodname="PhysicsLayersExist" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="691643928" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.000343" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="PropPivotsSitOnWholePixels" fullname="Starbind.Tests.ProjectSetupTests.PropPivotsSitOnWholePixels" methodname="PropPivotsSitOnWholePixels" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="704742879" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.003061" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="Renderer2DSortsByCustomYAxis" fullname="Starbind.Tests.ProjectSetupTests.Renderer2DSortsByCustomYAxis" methodname="Renderer2DSortsByCustomYAxis" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="193797016" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.000892" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="SortingLayersExistInDesignOrder" fullname="Starbind.Tests.ProjectSetupTests.SortingLayersExistInDesignOrder" methodname="SortingLayersExistInDesignOrder" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1254171989" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.001218" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="VillageSceneIsInBuild" fullname="Starbind.Tests.ProjectSetupTests.VillageSceneIsInBuild" methodname="VillageSceneIsInBuild" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1040311364" result="Passed" start-time="2026-11-20 16:57:50Z" end-time="2026-11-20 16:57:50Z" duration="0.000514" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/tsaoyiso/Library/Application Support/Starbind/Starbind Witch/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

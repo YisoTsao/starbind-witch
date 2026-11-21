@@ -1,0 +1,130 @@
+{
+ "items": [
+  {
+   "name": "PROP_cottage_draft",
+   "w": 202,
+   "h": 110,
+   "pivotX": 101,
+   "pivotY": 15
+  },
+  {
+   "name": "PROP_tree_blossom_draft",
+   "w": 76,
+   "h": 100,
+   "pivotX": 38,
+   "pivotY": 5
+  },
+  {
+   "name": "PROP_tree_green_s_draft",
+   "w": 40,
+   "h": 38,
+   "pivotX": 20,
+   "pivotY": 2
+  },
+  {
+   "name": "PROP_tree_green_m_draft",
+   "w": 56,
+   "h": 50,
+   "pivotX": 28,
+   "pivotY": 0
+  },
+  {
+   "name": "PROP_tree_green_b_draft",
+   "w": 48,
+   "h": 44,
+   "pivotX": 24,
+   "pivotY": 3
+  },
+  {
+   "name": "PROP_rock_l_draft",
+   "w": 32,
+   "h": 32,
+   "pivotX": 16,
+   "pivotY": 3
+  },
+  {
+   "name": "PROP_rock_s_draft",
+   "w": 18,
+   "h": 18,
+   "pivotX": 9,
+   "pivotY": 3
+  },
+  {
+   "name": "PROP_rock_m_draft",
+   "w": 26,
+   "h": 24,
+   "pivotX": 13,
+   "pivotY": 3
+  },
+  {
+   "name": "PROP_stump_draft",
+   "w": 36,
+   "h": 28,
+   "pivotX": 18,
+   "pivotY": 4
+  },
+  {
+   "name": "PROP_mushroom_glow_draft",
+   "w": 34,
+   "h": 30,
+   "pivotX": 17,
+   "pivotY": 2
+  },
+  {
+   "name": "PROP_fence_long_draft",
+   "w": 94,
+   "h": 22,
+   "pivotX": 47,
+   "pivotY": 2
+  },
+  {
+   "name": "PROP_fence_mid_draft",
+   "w": 68,
+   "h": 28,
+   "pivotX": 34,
+   "pivotY": 3
+  },
+  {
+   "name": "PROP_fence_east_draft",
+   "w": 96,
+   "h": 20,
+   "pivotX": 48,
+   "pivotY": 4
+  },
+  {
+   "name": "PROP_sign_draft",
+   "w": 30,
+   "h": 52,
+   "pivotX": 15,
+   "pivotY": 2
+  },
+  {
+   "name": "PROP_stall_draft",
+   "w": 76,
+   "h": 72,
+   "pivotX": 38,
+   "pivotY": 4
+  },
+  {
+   "name": "PROP_crystal_fountain_draft",
+   "w": 52,
+   "h": 64,
+   "pivotX": 26,
+   "pivotY": 6
+  },
+  {
+   "name": "PROP_flowerbush_draft",
+   "w": 38,
+   "h": 18,
+   "pivotX": 19,
+   "pivotY": -1
+  },
+  {
+   "name": "CHR_witch_front_draft",
+   "w": 30,
+   "h": 36,
+   "pivotX": 15,
+   "pivotY": 4
+  }
+ ]
+}

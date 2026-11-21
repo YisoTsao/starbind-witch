@@ -1,0 +1,997 @@
+{
+ "status": "procedural draft (Needs Cleanup)",
+ "items": [
+  {
+   "name": "CHR_witch_draft",
+   "path": "Assets/_Game/Art/Characters/Draft/CHR_witch_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 18,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 8,
+   "rows": "down:0-5 up:6-11 side:12-17 (idle, walk1-4, cast)"
+  },
+  {
+   "name": "NPC_knight_draft",
+   "path": "Assets/_Game/Art/Characters/Draft/NPC_knight_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 18,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "NPC_priest_draft",
+   "path": "Assets/_Game/Art/Characters/Draft/NPC_priest_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 18,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "NPC_archer_draft",
+   "path": "Assets/_Game/Art/Characters/Draft/NPC_archer_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 18,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "NPC_ella_draft",
+   "path": "Assets/_Game/Art/Characters/Draft/NPC_ella_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 18,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "ENM_slime_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_slime_draft.png",
+   "w": 28,
+   "h": 24,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 2,
+   "fps": 8
+  },
+  {
+   "name": "ENM_spore_shroom_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_spore_shroom_draft.png",
+   "w": 28,
+   "h": 32,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_root_guard_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_root_guard_draft.png",
+   "w": 44,
+   "h": 48,
+   "frames": 4,
+   "pivotX": 22,
+   "pivotY": 2,
+   "fps": 5
+  },
+  {
+   "name": "ENM_wisp_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_wisp_draft.png",
+   "w": 20,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 3,
+   "fps": 10
+  },
+  {
+   "name": "ENM_spore_elite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_spore_elite_draft.png",
+   "w": 48,
+   "h": 52,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_mushroom_king_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_mushroom_king_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 6,
+   "pivotX": 48,
+   "pivotY": 4,
+   "fps": 6,
+   "rows": "idle:0-3 windup:4-5"
+  },
+  {
+   "name": "PROP_training_dummy_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_training_dummy_draft.png",
+   "w": 28,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_archery_target_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_archery_target_draft.png",
+   "w": 28,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_bridge_wood_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_bridge_wood_draft.png",
+   "w": 192,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 96,
+   "pivotY": 32,
+   "fps": 10
+  },
+  {
+   "name": "PROP_bridge_stone_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_bridge_stone_draft.png",
+   "w": 64,
+   "h": 192,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 96,
+   "fps": 10
+  },
+  {
+   "name": "PROP_bridge_stone_broken_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_bridge_stone_broken_draft.png",
+   "w": 64,
+   "h": 192,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 96,
+   "fps": 10
+  },
+  {
+   "name": "PROP_forest_oak_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_forest_oak_draft.png",
+   "w": 72,
+   "h": 84,
+   "frames": 1,
+   "pivotX": 36,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_forest_pine_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_forest_pine_draft.png",
+   "w": 52,
+   "h": 80,
+   "frames": 1,
+   "pivotX": 26,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_forest_dark_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_forest_dark_draft.png",
+   "w": 64,
+   "h": 72,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_village_round_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_village_round_draft.png",
+   "w": 56,
+   "h": 60,
+   "frames": 1,
+   "pivotX": 28,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_pillar_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_pillar_draft.png",
+   "w": 28,
+   "h": 60,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 2,
+   "fps": 10
+  },
+  {
+   "name": "PROP_altar_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_altar_draft.png",
+   "w": 64,
+   "h": 48,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 6,
+   "fps": 10
+  },
+  {
+   "name": "PROP_chest_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_chest_draft.png",
+   "w": 30,
+   "h": 26,
+   "frames": 1,
+   "pivotX": 15,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_chest_open_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_chest_open_draft.png",
+   "w": 30,
+   "h": 26,
+   "frames": 1,
+   "pivotX": 15,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_vine_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_vine_draft.png",
+   "w": 32,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_vine_burnt_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_vine_burnt_draft.png",
+   "w": 32,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_lever_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_lever_draft.png",
+   "w": 20,
+   "h": 26,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_lever_on_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_lever_on_draft.png",
+   "w": 20,
+   "h": 26,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_lamp_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_lamp_draft.png",
+   "w": 16,
+   "h": 50,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_crate_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_crate_draft.png",
+   "w": 24,
+   "h": 24,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_glow_shroom_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_glow_shroom_draft.png",
+   "w": 20,
+   "h": 18,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_bush_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_bush_draft.png",
+   "w": 32,
+   "h": 24,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_rock_dark_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_rock_dark_draft.png",
+   "w": 28,
+   "h": 20,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_log_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_log_draft.png",
+   "w": 48,
+   "h": 20,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_starplate_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_starplate_draft.png",
+   "w": 48,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 4,
+   "fps": 10
+  },
+  {
+   "name": "INT_bookshelf_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_bookshelf_draft.png",
+   "w": 48,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_bed_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_bed_draft.png",
+   "w": 40,
+   "h": 60,
+   "frames": 1,
+   "pivotX": 20,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_table_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_table_draft.png",
+   "w": 48,
+   "h": 36,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_chair_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_chair_draft.png",
+   "w": 16,
+   "h": 26,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_cauldron_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_cauldron_draft.png",
+   "w": 36,
+   "h": 34,
+   "frames": 1,
+   "pivotX": 18,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_alchemy_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_alchemy_draft.png",
+   "w": 56,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 28,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_lectern_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_lectern_draft.png",
+   "w": 32,
+   "h": 42,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_desk_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_desk_draft.png",
+   "w": 48,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_wardrobe_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_wardrobe_draft.png",
+   "w": 40,
+   "h": 62,
+   "frames": 1,
+   "pivotX": 20,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "INT_rug_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_rug_draft.png",
+   "w": 80,
+   "h": 52,
+   "frames": 1,
+   "pivotX": 40,
+   "pivotY": 26,
+   "fps": 10
+  },
+  {
+   "name": "INT_window_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_window_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "INT_door_in_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_door_in_draft.png",
+   "w": 32,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "INT_plant_draft",
+   "path": "Assets/_Game/Art/Props/Draft/INT_plant_draft.png",
+   "w": 20,
+   "h": 30,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PICK_xp_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PICK_xp_draft.png",
+   "w": 10,
+   "h": 10,
+   "frames": 1,
+   "pivotX": 5,
+   "pivotY": 5,
+   "fps": 10
+  },
+  {
+   "name": "PICK_potion_hp_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PICK_potion_hp_draft.png",
+   "w": 12,
+   "h": 14,
+   "frames": 1,
+   "pivotX": 6,
+   "pivotY": 7,
+   "fps": 10
+  },
+  {
+   "name": "PICK_potion_mp_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PICK_potion_mp_draft.png",
+   "w": 12,
+   "h": 14,
+   "frames": 1,
+   "pivotX": 6,
+   "pivotY": 7,
+   "fps": 10
+  },
+  {
+   "name": "PICK_page_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PICK_page_draft.png",
+   "w": 14,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 7,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "PICK_material_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PICK_material_draft.png",
+   "w": 10,
+   "h": 10,
+   "frames": 1,
+   "pivotX": 5,
+   "pivotY": 5,
+   "fps": 10
+  },
+  {
+   "name": "VFX_fireball_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_fireball_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 16
+  },
+  {
+   "name": "VFX_explosion_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_explosion_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 18
+  },
+  {
+   "name": "VFX_ice_shard_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_ice_shard_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 2,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 12
+  },
+  {
+   "name": "VFX_ice_burst_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_ice_burst_draft.png",
+   "w": 40,
+   "h": 40,
+   "frames": 5,
+   "pivotX": 20,
+   "pivotY": 20,
+   "fps": 16
+  },
+  {
+   "name": "VFX_lightning_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_lightning_draft.png",
+   "w": 24,
+   "h": 64,
+   "frames": 4,
+   "pivotX": 12,
+   "pivotY": 32,
+   "fps": 16
+  },
+  {
+   "name": "VFX_slash_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_slash_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 20
+  },
+  {
+   "name": "VFX_magic_bolt_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_magic_bolt_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 16
+  },
+  {
+   "name": "VFX_charge_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_charge_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 6,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 14
+  },
+  {
+   "name": "VFX_homing_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_homing_draft.png",
+   "w": 10,
+   "h": 10,
+   "frames": 2,
+   "pivotX": 5,
+   "pivotY": 5,
+   "fps": 12
+  },
+  {
+   "name": "VFX_starfire_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_starfire_draft.png",
+   "w": 14,
+   "h": 14,
+   "frames": 4,
+   "pivotX": 7,
+   "pivotY": 7,
+   "fps": 14
+  },
+  {
+   "name": "VFX_frost_blade_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_frost_blade_draft.png",
+   "w": 14,
+   "h": 14,
+   "frames": 1,
+   "pivotX": 7,
+   "pivotY": 7,
+   "fps": 1
+  },
+  {
+   "name": "VFX_thunder_ring_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_thunder_ring_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 5,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 16
+  },
+  {
+   "name": "VFX_vortex_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_vortex_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 14
+  },
+  {
+   "name": "VFX_fire_tornado_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_fire_tornado_draft.png",
+   "w": 48,
+   "h": 64,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 32,
+   "fps": 14
+  },
+  {
+   "name": "VFX_steam_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_steam_draft.png",
+   "w": 56,
+   "h": 56,
+   "frames": 6,
+   "pivotX": 28,
+   "pivotY": 28,
+   "fps": 14
+  },
+  {
+   "name": "VFX_overload_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_overload_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 6,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 16
+  },
+  {
+   "name": "VFX_shatter_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shatter_draft.png",
+   "w": 56,
+   "h": 56,
+   "frames": 6,
+   "pivotX": 28,
+   "pivotY": 28,
+   "fps": 16
+  },
+  {
+   "name": "VFX_hit_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_hit_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 24
+  },
+  {
+   "name": "VFX_poof_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_poof_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 5,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 16
+  },
+  {
+   "name": "VFX_dust_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_dust_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 14
+  },
+  {
+   "name": "VFX_spore_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_spore_draft.png",
+   "w": 10,
+   "h": 10,
+   "frames": 2,
+   "pivotX": 5,
+   "pivotY": 5,
+   "fps": 8
+  },
+  {
+   "name": "VFX_poison_pool_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_poison_pool_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 4,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 6
+  },
+  {
+   "name": "VFX_telegraph_circle_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_telegraph_circle_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 1
+  },
+  {
+   "name": "VFX_telegraph_rect_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_telegraph_rect_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 1
+  },
+  {
+   "name": "VFX_overdrive_aura_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_overdrive_aura_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 6,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 14
+  },
+  {
+   "name": "VFX_levelup_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_levelup_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 14
+  },
+  {
+   "name": "VFX_burn_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_burn_draft.png",
+   "w": 12,
+   "h": 12,
+   "frames": 3,
+   "pivotX": 6,
+   "pivotY": 6,
+   "fps": 10
+  },
+  {
+   "name": "VFX_chill_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_chill_draft.png",
+   "w": 12,
+   "h": 12,
+   "frames": 3,
+   "pivotX": 6,
+   "pivotY": 6,
+   "fps": 8
+  },
+  {
+   "name": "VFX_shock_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shock_draft.png",
+   "w": 14,
+   "h": 12,
+   "frames": 3,
+   "pivotX": 7,
+   "pivotY": 6,
+   "fps": 14
+  },
+  {
+   "name": "VFX_glow_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_glow_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 1
+  },
+  {
+   "name": "VFX_spark_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_spark_draft.png",
+   "w": 4,
+   "h": 4,
+   "frames": 1,
+   "pivotX": 2,
+   "pivotY": 2,
+   "fps": 1
+  },
+  {
+   "name": "VFX_shadow_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shadow_draft.png",
+   "w": 16,
+   "h": 6,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 3,
+   "fps": 1
+  },
+  {
+   "name": "VFX_portal_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_portal_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 10
+  },
+  {
+   "name": "UI_digits_draft",
+   "path": "Assets/_Game/Art/UI/Draft/UI_digits_draft.png",
+   "w": 6,
+   "h": 8,
+   "frames": 10,
+   "pivotX": 3,
+   "pivotY": 4,
+   "fps": 10
+  },
+  {
+   "name": "ICON_fire_bolt_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_fire_bolt_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_split_flame_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_split_flame_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_piercing_ice_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_piercing_ice_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_chain_spark_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_chain_spark_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_wind_pull_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_wind_pull_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_frost_orbit_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_frost_orbit_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_thunder_pulse_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_thunder_pulse_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_homing_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_homing_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_starfire_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_starfire_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_overdrive_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_overdrive_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_staff_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_staff_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  },
+  {
+   "name": "ICON_dash_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_dash_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 1,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 10
+  }
+ ]
+}

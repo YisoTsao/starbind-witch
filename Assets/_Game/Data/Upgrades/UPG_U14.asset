@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf891eeeade114505b57d2fc38adf14a, type: 3}
+  m_Name: UPG_U14
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.UpgradeDefinition
+  id: U14
+  displayName: "\u9023\u9396\u7CBE\u901A"
+  description: "\u5143\u7D20\u53CD\u61C9\u50B7\u5BB3 +15%\u3002"
+  kind: 3
+  weight: 7
+  maxStacks: 3
+  requiresSpell: 
+  excludesSpell: 
+  icon: ICON_chain_spark

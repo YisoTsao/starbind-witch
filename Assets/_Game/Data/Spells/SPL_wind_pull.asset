@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_wind_pull
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: wind_pull
+  displayName: "\u65CB\u98A8\u727D\u5F15"
+  description: "\u7279\u6B8A\u63A7\u5236\u30022 \u79D2\u65CB\u98A8\u628A\u6575\u4EBA\u5438\u5411\u4E2D\u5FC3\uFF1B\u9047\u5230\u71C3\u71D2\u7684\u6575\u4EBA\u5F62\u6210\u706B\u7130\u9F8D\u6372\u3002"
+  form: 3
+  element: 4
+  modifier: 0
+  trigger: 0
+  damage: 8
+  cooldown: 6
+  mpCost: 18
+  speed: 0
+  range: 6
+  radius: 2.5
+  statusDuration: 2
+  count: 1
+  pierce: 0
+  duration: 2
+  icon: ICON_wind_pull
+  vfx: 

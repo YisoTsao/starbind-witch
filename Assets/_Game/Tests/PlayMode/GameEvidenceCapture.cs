@@ -1,0 +1,302 @@
+using System.Collections;
+using System.IO;
+using System.Linq;
+using NUnit.Framework;
+using Starbind.CameraRig;
+using Starbind.Combat;
+using Starbind.Core;
+using Starbind.Enemies;
+using Starbind.Progression;
+using Starbind.World;
+using UnityEngine;
+using UnityEngine.TestTools;
+using UnityEngine.UI;
+
+namespace Starbind.Tests
+{
+    /// <summary>Real Play-mode frames through the game camera (Pixel Perfect 480x270 upscaled to
+    /// 1920x1080) with the HUD composited from a UI camera, into docs/evidence/final/. Category
+    /// "Evidence" so normal runs can filter it.</summary>
+    [Category("Evidence")]
+    public class GameEvidenceCapture : PlayTestBase
+    {
+        static string OutDir => Path.GetFullPath(Path.Combine(Application.dataPath, "../docs/evidence/final"));
+
+        Camera uiCam;
+        Canvas canvas;
+
+        IEnumerator Shot(string name, int settleFrames = 4)
+        {
+            Directory.CreateDirectory(OutDir);
+            var cam = Camera.main;
+            var world = new RenderTexture(1920, 1080, 24, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB) { filterMode = FilterMode.Point };
+            var ui = new RenderTexture(1920, 1080, 24, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB);
+            canvas = GameSession.Instance.UI.GetComponent<Canvas>();
+            if (uiCam == null)
+            {
+                var go = new GameObject("EvidenceUICamera");
+                uiCam = go.AddComponent<Camera>();
+                uiCam.orthographic = true;
+                uiCam.clearFlags = CameraClearFlags.SolidColor;
+                uiCam.backgroundColor = new Color(0, 0, 0, 0);
+                uiCam.cullingMask = 1 << 5;
+                uiCam.enabled = false;
+                go.transform.position = new Vector3(5000, 5000, -10);
+            }
+            SetLayer(canvas.transform, 5);
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = uiCam;
+            canvas.planeDistance = 5;
+            int mask = cam.cullingMask;
+            cam.cullingMask = mask & ~(1 << 5);
+            uiCam.targetTexture = ui;
+            uiCam.enabled = true;
+            cam.targetTexture = world;
+            for (int i = 0; i < settleFrames; i++)
+                yield return null;
+            var a = Read(world);
+            var b = Read(ui);
+            cam.targetTexture = null;
+            uiCam.targetTexture = null;
+            uiCam.enabled = false;
+            cam.cullingMask = mask;
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            var pa = a.GetPixels32();
+            var pb = b.GetPixels32();
+            for (int i = 0; i < pa.Length; i++)
+            {
+                float al = pb[i].a / 255f;
+                if (al <= 0) continue;
+                pa[i] = new Color32((byte)(pb[i].r * al + pa[i].r * (1 - al)), (byte)(pb[i].g * al + pa[i].g * (1 - al)), (byte)(pb[i].b * al + pa[i].b * (1 - al)), 255);
+            }
+            a.SetPixels32(pa);
+            a.Apply();
+            File.WriteAllBytes(Path.Combine(OutDir, name + ".png"), a.EncodeToPNG());
+            Debug.Log("[Evidence] wrote " + name);
+            Object.Destroy(a);
+            Object.Destroy(b);
+            world.Release();
+            ui.Release();
+        }
+
+        static void SetLayer(Transform t, int layer)
+        {
+            t.gameObject.layer = layer;
+            for (int i = 0; i < t.childCount; i++)
+                SetLayer(t.GetChild(i), layer);
+        }
+
+        static Texture2D Read(RenderTexture rt)
+        {
+            var prev = RenderTexture.active;
+            RenderTexture.active = rt;
+            var tex = new Texture2D(rt.width, rt.height, TextureFormat.RGBA32, false);
+            tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            tex.Apply();
+            RenderTexture.active = prev;
+            return tex;
+        }
+
+        IEnumerator Overview(string name, float w, float h)
+        {
+            var go = new GameObject("OverviewCamera");
+            var c = go.AddComponent<Camera>();
+            c.orthographic = true;
+            c.orthographicSize = h / 2f;
+            c.transform.position = new Vector3(w / 2f, h / 2f, -10f);
+            c.clearFlags = CameraClearFlags.SolidColor;
+            c.backgroundColor = Color.black;
+            c.cullingMask = ~(1 << 5);
+            var rt = new RenderTexture((int)(w * 32), (int)(h * 32), 24) { filterMode = FilterMode.Point };
+            c.targetTexture = rt;
+            for (int i = 0; i < 3; i++)
+                yield return null;
+            var t = Read(rt);
+            File.WriteAllBytes(Path.Combine(OutDir, name + ".png"), t.EncodeToPNG());
+            c.targetTexture = null;
+            rt.Release();
+            Object.Destroy(go);
+            Object.Destroy(t);
+        }
+
+        /// <summary>Real-time wait that auto-picks level-up cards (kills during captures level the run up,
+        /// and the card screen pauses scaled time).</summary>
+        static IEnumerator Wait(float seconds)
+        {
+            float end = Time.realtimeSinceStartup + seconds;
+            while (Time.realtimeSinceStartup < end)
+            {
+                var ui = GameSession.Instance.UI;
+                if (ui.OpenPanel == "upgrade" && !holdCards)
+                    ui.ChooseCard(0);
+                yield return null;
+            }
+        }
+
+        static bool holdCards;
+
+        IEnumerator At(Vector2 p)
+        {
+            player.Teleport(p);
+            CameraFollow2D.Main.SnapToTarget();
+            yield return Wait(0.4f);
+            CameraFollow2D.Main.SnapToTarget();
+        }
+
+        [UnityTest]
+        public IEnumerator CaptureVillage()
+        {
+            yield return Load("Village");
+            player.Build.Auto.Enabled = false;
+            yield return At(new Vector2(24.2f, 34.6f));
+            yield return Shot("V01_village_square_hud");
+            yield return At(new Vector2(9.0f, 15.6f));
+            yield return Shot("V02_bridge_archer");
+            yield return At(new Vector2(21.6f, 9.5f));
+            yield return Shot("V03_south_road_priest");
+            yield return At(new Vector2(36.0f, 12.0f));
+            yield return Shot("V04_training_ground");
+            // combat on the dummies: staff finisher + fire bolt explosion + steam burst
+            yield return At(new Vector2(33.4f, 11.75f));
+            player.Build.SetActive(1, "piercing_ice");
+            player.Combat.CastSlot(0, new Vector2(37f, 12.2f));
+            yield return Wait(0.3f);
+            player.Combat.CastSlot(1, new Vector2(37f, 12.2f));
+            yield return Wait(0.28f);
+            yield return Shot("V05_fire_then_ice_steam_burst", 2);
+            yield return At(new Vector2(37.0f, 10.85f));
+            player.Combat.Staff(new Vector2(37f, 12.2f));
+            yield return Wait(0.27f);
+            player.Combat.Staff(new Vector2(37f, 12.2f));
+            yield return Wait(0.29f);
+            player.Combat.Staff(new Vector2(37f, 12.2f));
+            yield return Wait(0.06f);
+            yield return Shot("V06_staff_finisher", 2);
+            var ella = Object.FindObjectsByType<Talkable>().First(t => t.Speaker == "艾拉");
+            yield return At(ella.transform.position + new Vector3(0.9f, -0.6f));
+            ella.GetComponent<Interactable>().Interact();
+            yield return Shot("V07_npc_dialogue");
+            GameSession.Instance.UI.CloseDialogue();
+            yield return Overview("V00_village_overview_native_1536x1280", 48, 40);
+        }
+
+        [UnityTest]
+        public IEnumerator CaptureWorkshop()
+        {
+            yield return Load("Workshop");
+            yield return At(new Vector2(7f, 3.2f));
+            yield return Shot("W01_workshop_interior");
+            GameSession.Instance.UI.ShowLoadout();
+            yield return Shot("W02_loadout_lectern");
+            GameSession.Instance.UI.CloseModal();
+            GameSession.Instance.Profile.starSand = 40;
+            GameSession.Instance.UI.ShowResearch();
+            yield return Shot("W03_research_desk");
+            GameSession.Instance.UI.CloseModal();
+            yield return Overview("W00_workshop_overview_native", 14, 10);
+        }
+
+        [UnityTest]
+        public IEnumerator CaptureForestCombat()
+        {
+            yield return Load("Forest");
+            var run = RunManager.Current;
+            run.Director.Running = false;
+            EnemySpawner.Instance.DespawnAll();
+            player.Vitals.Health.InvulnerableUntil = 9999f;
+            yield return At(new Vector2(32f, 3.0f));
+            yield return Shot("F01_forest_entrance_hud");
+
+            // mixed group + fire bolt + wind pull -> fire tornado
+            yield return At(new Vector2(17f, 22.5f));
+            var sp = EnemySpawner.Instance;
+            var c = new Vector2(17f, 25.5f);
+            foreach (var id in new[] { "slime", "slime", "spore_shroom", "wisp", "root_guard", "slime" })
+                sp.SpawnAt(id, sp.RandomAround(c, 1.6f));
+            yield return Wait(0.3f);
+            player.Combat.CastSlot(0, c);
+            yield return Wait(0.45f);
+            player.Combat.CastSlot(1, c);
+            int tornado = 0;
+            CombatWorld.Instance.Bus.ReactionTriggered += (r, p, h) => { if (r == ReactionType.FireTornado) tornado++; };
+            yield return WaitUntilOrTimeout(() => tornado > 0, 2.5f);
+            yield return Wait(0.25f);
+            yield return Shot("F02_fire_wind_fire_tornado", 2);
+
+            // overload + shatter storm on a fresh group
+            sp.DespawnAll();
+            yield return At(new Vector2(32f, 36f));
+            var g = new Vector2(32f, 39.5f);
+            var group = Enumerable.Range(0, 7).Select(i => sp.SpawnAt("root_guard", g + new Vector2((i % 4) * 1.0f - 1.5f, (i / 4) * 1.0f))).Where(e => e != null).ToList();
+            var world = CombatWorld.Instance;
+            foreach (var e in group)
+                world.Damage(new DamageEvent { CastId = CombatIds.NewCast(), Amount = 1, Element = ElementType.Ice, StatusDuration = 4, Source = HitSource.ActiveSpell }, e.Health);
+            player.Build.SetActive(0, "chain_spark");
+            player.Combat.CastSlot(0, g + new Vector2(0, 0.5f));
+            yield return Wait(0.24f);
+            yield return Shot("F03_ice_lightning_shatter_storm", 1);
+            foreach (var e in group.Where(e => !e.Health.IsDead))
+                world.Damage(new DamageEvent { CastId = CombatIds.NewCast(), Amount = 1, Element = ElementType.Fire, StatusDuration = 4, Source = HitSource.ActiveSpell }, e.Health);
+            yield return Wait(2.9f);
+            player.Combat.CastSlot(0, g + new Vector2(0, 0.5f));
+            yield return Wait(0.22f);
+            yield return Shot("F04_fire_lightning_overload", 1);
+
+            // overdrive + auto spells in a 60-enemy wave at the altar
+            sp.DespawnAll();
+            player.Build.AddAuto("frost_orbit");
+            player.Combat.Resonance.ForceFill();
+            player.Combat.TryOverdrive();
+            string[] mix = { "slime", "spore_shroom", "wisp", "slime", "root_guard", "slime" };
+            for (int i = 0; i < 70; i++)
+                sp.SpawnAt(mix[i % mix.Length], sp.RandomAround(new Vector2(32f, 39f), 9f));
+            yield return At(new Vector2(32f, 39f));
+            yield return Wait(1.2f);
+            yield return Shot("F05_wave_60_enemies_overdrive_autos");
+
+            // elite telegraphs
+            sp.DespawnAll();
+            var elite = sp.SpawnAt("spore_elite", new Vector2(50f, 24f));
+            yield return At(new Vector2(47.5f, 22.5f));
+            yield return WaitUntilOrTimeout(() => Telegraph.Active > 0, 5f);
+            yield return Wait(0.3f);
+            yield return Shot("F06_elite_telegraph");
+            sp.DespawnAll();
+        }
+
+        [UnityTest]
+        public IEnumerator CaptureBossAndResults()
+        {
+            yield return Load("Forest");
+            var run = RunManager.Current;
+            run.Director.Running = false;
+            EnemySpawner.Instance.DespawnAll();
+            player.Vitals.Health.InvulnerableUntil = 9999f;
+            yield return At(new Vector2(32f, 55.6f));
+            yield return WaitUntilOrTimeout(() => Enemy.ActiveBoss != null, 3f);
+            var boss = Enemy.ActiveBoss;
+            yield return WaitUntilOrTimeout(() => Telegraph.Active > 0, 6f);
+            yield return Wait(0.35f);
+            yield return Shot("F07_boss_phase1_telegraph");
+            CombatWorld.Instance.Damage(new DamageEvent { CastId = CombatIds.NewCast(), Amount = boss.Health.Max * 0.7f, Source = HitSource.ActiveSpell }, boss.Health);
+            yield return Wait(1.2f);
+            yield return WaitUntilOrTimeout(() => Telegraph.Active > 0, 6f);
+            yield return Wait(0.4f);
+            yield return Shot("F08_boss_phase3");
+            holdCards = true;
+            run.Run.AddXp(RunState.XpToNext(run.Run.Level));
+            yield return WaitUntilOrTimeout(() => GameSession.Instance.UI.OpenPanel == "upgrade", 2f);
+            yield return Shot("F09_level_up_cards");
+            GameSession.Instance.UI.ChooseCard(0);
+            holdCards = false;
+            boss.Health.InvulnerableUntil = 0;
+            CombatWorld.Instance.Damage(new DamageEvent { CastId = CombatIds.NewCast(), Amount = boss.Health.Max, Source = HitSource.ActiveSpell }, boss.Health);
+            yield return Wait(0.8f);
+            yield return Shot("F10_boss_defeated_portal");
+            run.Finish(true);
+            yield return Shot("F11_results_victory");
+            GameSession.Instance.UI.CloseModal();
+            yield return Overview("F00_forest_overview_native_2048", 64, 64);
+        }
+    }
+}

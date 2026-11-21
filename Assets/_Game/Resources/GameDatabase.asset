@@ -1,0 +1,689 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a2e2f1b31bb4de2a84fd699ee5e338, type: 3}
+  m_Name: GameDatabase
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Core.GameDatabase
+  sprites:
+  - name: CHR_witch_draft
+    fps: 8
+    frames:
+    - {fileID: -3856209960778335147, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 6876261267610546641, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 8731203832810322449, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -1426157728738136775, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 4937591869361920845, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -2803523878924878370, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -1078894903147292302, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 7507485738334006573, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -3917725378262222984, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -1213194769204697503, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -336041851840024603, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -651794458514353536, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 6762813929756416431, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 7597071820820321592, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 1479210013717620852, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: 4776760195066718661, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -9191406109473680852, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+    - {fileID: -7222571073618565566, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+  - name: NPC_knight_draft
+    fps: 6
+    frames:
+    - {fileID: -4819320076392063606, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 5102192345506853685, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -6771355264344605711, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 2936223210438056527, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -7973928073048015558, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -7862749453482090817, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 511593924085617449, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 2243598897728664401, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -2090200211601794566, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 278309695854105916, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -3313388641781913979, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -7088095989426819867, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -2264944292163216746, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 4438214031100633286, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: -6851664968572631197, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 2998784771347456602, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 5891590120781082080, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+    - {fileID: 4915931420434821869, guid: 14cb64c471001482cbc72ae8397ee81a, type: 3}
+  - name: NPC_priest_draft
+    fps: 6
+    frames:
+    - {fileID: -7771531419438449653, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -1791633255680286351, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -7353917536427161359, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -9177209091272477628, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -2860704076666832011, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -1905254673934448028, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -128336344454042453, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -2869055197196384139, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -575989150748771078, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -700706719805856794, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: 524503830379539673, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: 1128940488801416233, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -2093149938921615950, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: 6582415961651987615, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: 8525240764842501650, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -8056678471613533823, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -5402667291181079582, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+    - {fileID: -3618304238907390525, guid: 4c551da1799cb49f4beecb2412519ce3, type: 3}
+  - name: NPC_archer_draft
+    fps: 6
+    frames:
+    - {fileID: 7189747129033845515, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -61888295720531942, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 5054895834484953360, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -5519022736900580618, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -1751097655304738862, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -8237604793416357655, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 5906440445883843129, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 7316844981120110519, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 5126197460378430010, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 927008734404323335, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 4535589983522317004, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 6977578744096712823, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 289463330571304192, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -116813832526438108, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: -4302576642436046692, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 5474359546165195250, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 6030601267144406440, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+    - {fileID: 4001011025548828375, guid: 0cd9bc8c061f74fc7894557800f33d61, type: 3}
+  - name: NPC_ella_draft
+    fps: 6
+    frames:
+    - {fileID: 6466949213815605219, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -7096049960440792753, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -6554576871444338443, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -1533378567450321311, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -1512874654797523257, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 6692140879265372461, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 6099077305367019300, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 3055464265085552214, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -6717057342873121840, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 6460433816056586620, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -8599137817383199094, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 5015026691206186740, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 3379761264736310143, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: -2602265646038574925, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 5927734525753724815, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 7281865204534278153, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 8617843660915517840, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+    - {fileID: 6994301994618636540, guid: 3725121bd725a44e6aeb8996aede448b, type: 3}
+  - name: ENM_slime_draft
+    fps: 8
+    frames:
+    - {fileID: -7979457042832648968, guid: f96fd60a7b86c4b8b8d9f64afba52d5f, type: 3}
+    - {fileID: -4326427587264864555, guid: f96fd60a7b86c4b8b8d9f64afba52d5f, type: 3}
+    - {fileID: -8485713654921423015, guid: f96fd60a7b86c4b8b8d9f64afba52d5f, type: 3}
+    - {fileID: -6509742066977639643, guid: f96fd60a7b86c4b8b8d9f64afba52d5f, type: 3}
+  - name: ENM_spore_shroom_draft
+    fps: 6
+    frames:
+    - {fileID: -3977214235955922157, guid: bb41526211f314b42ad7d924c5115cbc, type: 3}
+    - {fileID: 425785689, guid: bb41526211f314b42ad7d924c5115cbc, type: 3}
+    - {fileID: -1819169206, guid: bb41526211f314b42ad7d924c5115cbc, type: 3}
+    - {fileID: 1399444647, guid: bb41526211f314b42ad7d924c5115cbc, type: 3}
+  - name: ENM_root_guard_draft
+    fps: 5
+    frames:
+    - {fileID: 4464169216708753479, guid: 97916b78b973742adb652577e7f09e15, type: 3}
+    - {fileID: -762649422, guid: 97916b78b973742adb652577e7f09e15, type: 3}
+    - {fileID: -1514928726, guid: 97916b78b973742adb652577e7f09e15, type: 3}
+    - {fileID: -1066224470, guid: 97916b78b973742adb652577e7f09e15, type: 3}
+  - name: ENM_wisp_draft
+    fps: 10
+    frames:
+    - {fileID: 2286602078770721855, guid: 2c519ca0e7edd42a6b745c9aa5faeafb, type: 3}
+    - {fileID: -4699629628022241070, guid: 2c519ca0e7edd42a6b745c9aa5faeafb, type: 3}
+    - {fileID: 8080569463637036920, guid: 2c519ca0e7edd42a6b745c9aa5faeafb, type: 3}
+    - {fileID: -796289246196140885, guid: 2c519ca0e7edd42a6b745c9aa5faeafb, type: 3}
+  - name: ENM_spore_elite_draft
+    fps: 6
+    frames:
+    - {fileID: 4984843116333109224, guid: e729c7a6b94e34563bfab9b984905b47, type: 3}
+    - {fileID: 6446229219840743865, guid: e729c7a6b94e34563bfab9b984905b47, type: 3}
+    - {fileID: -8368590379186809533, guid: e729c7a6b94e34563bfab9b984905b47, type: 3}
+    - {fileID: 3858743376431959797, guid: e729c7a6b94e34563bfab9b984905b47, type: 3}
+  - name: ENM_mushroom_king_draft
+    fps: 6
+    frames:
+    - {fileID: 1591927869985336685, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+    - {fileID: 5106531711553289937, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+    - {fileID: -917716062394188935, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+    - {fileID: -8849847259202138668, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+    - {fileID: 5495629083727927945, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+    - {fileID: -735100486388053705, guid: 56a9430e213274bdd8f031ce7a732e58, type: 3}
+  - name: PROP_training_dummy_draft
+    fps: 10
+    frames:
+    - {fileID: 3091705003808500171, guid: d56a28a56efa14761a0ab26f02e0c6e3, type: 3}
+  - name: PROP_archery_target_draft
+    fps: 10
+    frames:
+    - {fileID: -3489464126232159068, guid: fa39c1e9c17c941a18de8aeaab66ebbb, type: 3}
+  - name: PROP_bridge_wood_draft
+    fps: 10
+    frames:
+    - {fileID: -3109952424251796736, guid: d921a7d7ce82143ffa08c11901ebca2a, type: 3}
+  - name: PROP_bridge_stone_draft
+    fps: 10
+    frames:
+    - {fileID: 4364250532042812770, guid: aeb850ad6b6b14f2bbda7d8928c4e502, type: 3}
+  - name: PROP_bridge_stone_broken_draft
+    fps: 10
+    frames:
+    - {fileID: 760861768911968978, guid: e6112a39c676d4dc1a448170b0d0be60, type: 3}
+  - name: PROP_forest_oak_draft
+    fps: 10
+    frames:
+    - {fileID: 1586896317880474637, guid: 2aeafc9eed7a24be1b7a340443ef98eb, type: 3}
+  - name: PROP_forest_pine_draft
+    fps: 10
+    frames:
+    - {fileID: 6775223672380209153, guid: 27214b18f13d14d34a180b10f78c9913, type: 3}
+  - name: PROP_forest_dark_draft
+    fps: 10
+    frames:
+    - {fileID: 7730220822764378707, guid: 83eb6932c820e42029bbc85ed2d7736b, type: 3}
+  - name: PROP_village_round_draft
+    fps: 10
+    frames:
+    - {fileID: 1835296718572906935, guid: 3b95f93a5c1c14a9d9669a7acd5de648, type: 3}
+  - name: PROP_pillar_draft
+    fps: 10
+    frames:
+    - {fileID: 8068843764976133119, guid: f7789e315fa5e405a8cd67d95515f1ff, type: 3}
+  - name: PROP_altar_draft
+    fps: 10
+    frames:
+    - {fileID: 7598871174774745548, guid: 4e6709d036e42436fa21332bbde453e5, type: 3}
+  - name: PROP_chest_draft
+    fps: 10
+    frames:
+    - {fileID: -7781763586470800066, guid: f0eeab586dd8843f3b9b090f3243e768, type: 3}
+  - name: PROP_chest_open_draft
+    fps: 10
+    frames:
+    - {fileID: 6006792912549253451, guid: 336ee0bcd76304534bc4ba527735e5b1, type: 3}
+  - name: PROP_vine_draft
+    fps: 10
+    frames:
+    - {fileID: 5091939049783469329, guid: 79e0d04c0ff3d4cd4a0512b80ffd1e03, type: 3}
+  - name: PROP_vine_burnt_draft
+    fps: 10
+    frames:
+    - {fileID: 8146727297386179816, guid: ad2e8b88685e341ccb512237938a5370, type: 3}
+  - name: PROP_lever_draft
+    fps: 10
+    frames:
+    - {fileID: 1170853053840014585, guid: 7252cbef5baf648cfab386a073118f09, type: 3}
+  - name: PROP_lever_on_draft
+    fps: 10
+    frames:
+    - {fileID: 8168732964778206659, guid: f21bbfb2b735c4211a4f14a0459e43d8, type: 3}
+  - name: PROP_lamp_draft
+    fps: 10
+    frames:
+    - {fileID: -2520247051219395683, guid: 352224279137f407aae9df358508cf2f, type: 3}
+  - name: PROP_crate_draft
+    fps: 10
+    frames:
+    - {fileID: 8952805759283858769, guid: eb2a29e74710d43dc9b39a7f4b6ca8f6, type: 3}
+  - name: PROP_glow_shroom_draft
+    fps: 10
+    frames:
+    - {fileID: -424290379971621463, guid: e8b8a048e0d054363807f7162012a5f8, type: 3}
+  - name: PROP_bush_draft
+    fps: 10
+    frames:
+    - {fileID: -5839097331563689816, guid: 20455aea1981f4942982af829acdcdb9, type: 3}
+  - name: PROP_rock_dark_draft
+    fps: 10
+    frames:
+    - {fileID: -3983437819220988053, guid: 5db8b37ef12aa4671a58100a28266635, type: 3}
+  - name: PROP_log_draft
+    fps: 10
+    frames:
+    - {fileID: 6334770789733607702, guid: b3e284db4b5ca4918a7a57c12a1b34df, type: 3}
+  - name: PROP_starplate_draft
+    fps: 10
+    frames:
+    - {fileID: -6932095789884123097, guid: a1dee6639023d4b74b1c35f98712e459, type: 3}
+  - name: INT_bookshelf_draft
+    fps: 10
+    frames:
+    - {fileID: 2828549788687380168, guid: 710865e65cc454717a34841a3834160b, type: 3}
+  - name: INT_bed_draft
+    fps: 10
+    frames:
+    - {fileID: -7158896800437777824, guid: 9ae5b9b5204f34bac9d2ce366592cf45, type: 3}
+  - name: INT_table_draft
+    fps: 10
+    frames:
+    - {fileID: -3605471235126767897, guid: 61da87a5075cc4d76926dcd7af01bd5e, type: 3}
+  - name: INT_chair_draft
+    fps: 10
+    frames:
+    - {fileID: -1975866340894269924, guid: f0b2df177e1f741bbb5339f95fb7805a, type: 3}
+  - name: INT_cauldron_draft
+    fps: 10
+    frames:
+    - {fileID: 2864476340255034164, guid: e20b4218892d54cdaa682f43fe34a913, type: 3}
+  - name: INT_alchemy_draft
+    fps: 10
+    frames:
+    - {fileID: -3839177346095571066, guid: 34c79ef2679c64f49aa3db4d321655ab, type: 3}
+  - name: INT_lectern_draft
+    fps: 10
+    frames:
+    - {fileID: -1894172622421552079, guid: 881e4ef87bfcd451eb5b6a4064184358, type: 3}
+  - name: INT_desk_draft
+    fps: 10
+    frames:
+    - {fileID: -8071998005468169787, guid: ab8cc9aeb7b11414dbbf1676e018b72b, type: 3}
+  - name: INT_wardrobe_draft
+    fps: 10
+    frames:
+    - {fileID: -5862225784982145235, guid: 8f6e562e571d34848a255785ffa13b52, type: 3}
+  - name: INT_rug_draft
+    fps: 10
+    frames:
+    - {fileID: -2052543723708496780, guid: 61bc99535654e4a43aad3314ed8b41b4, type: 3}
+  - name: INT_window_draft
+    fps: 10
+    frames:
+    - {fileID: -638161326092568501, guid: aba4190b00d2b4904ab3590b161d4586, type: 3}
+  - name: INT_door_in_draft
+    fps: 10
+    frames:
+    - {fileID: -9019892840421007093, guid: aecd966785f414d4193e6012a6044df5, type: 3}
+  - name: INT_plant_draft
+    fps: 10
+    frames:
+    - {fileID: -1211296050231496762, guid: e51c2caf667344b3d805118c02c57700, type: 3}
+  - name: PICK_xp_draft
+    fps: 10
+    frames:
+    - {fileID: -4588852619923653457, guid: 66dda25ea2f05486b878f9c2d7421101, type: 3}
+  - name: PICK_potion_hp_draft
+    fps: 10
+    frames:
+    - {fileID: 8736982390240763993, guid: cc8cd4ce495b2435c9314e3f0007673b, type: 3}
+  - name: PICK_potion_mp_draft
+    fps: 10
+    frames:
+    - {fileID: 5238027337196866071, guid: 8d5f6f1b6102d4a929df3a3497beff64, type: 3}
+  - name: PICK_page_draft
+    fps: 10
+    frames:
+    - {fileID: -4306681920986425758, guid: bb4ac088886374f998383a63b869fc6f, type: 3}
+  - name: PICK_material_draft
+    fps: 10
+    frames:
+    - {fileID: -3668239936004412389, guid: 210dba774622e436796da118c5d88f67, type: 3}
+  - name: VFX_fireball_draft
+    fps: 16
+    frames:
+    - {fileID: -4140046333763396253, guid: 4e77c42da32324ba3b0f31aaaff049fc, type: 3}
+    - {fileID: 8521679566616794394, guid: 4e77c42da32324ba3b0f31aaaff049fc, type: 3}
+    - {fileID: 4414290008047894726, guid: 4e77c42da32324ba3b0f31aaaff049fc, type: 3}
+    - {fileID: 5955455745536856594, guid: 4e77c42da32324ba3b0f31aaaff049fc, type: 3}
+  - name: VFX_explosion_draft
+    fps: 18
+    frames:
+    - {fileID: 3321780743361928648, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+    - {fileID: -2422574950983195850, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+    - {fileID: 7257417253072496757, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+    - {fileID: 1474809156928396442, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+    - {fileID: -587365699856189164, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+    - {fileID: -894999410, guid: 5949d876b643f49b9825d98a45e91242, type: 3}
+  - name: VFX_ice_shard_draft
+    fps: 12
+    frames:
+    - {fileID: 3062223433307880579, guid: fc0e7c6525e49434b8f5bfb5a871714f, type: 3}
+    - {fileID: -8168976848043806398, guid: fc0e7c6525e49434b8f5bfb5a871714f, type: 3}
+  - name: VFX_ice_burst_draft
+    fps: 16
+    frames:
+    - {fileID: 7288549002243019624, guid: 757dbb62cf2da49429ad273655ec2196, type: 3}
+    - {fileID: -3183944030310944004, guid: 757dbb62cf2da49429ad273655ec2196, type: 3}
+    - {fileID: -7294749212073786273, guid: 757dbb62cf2da49429ad273655ec2196, type: 3}
+    - {fileID: 5855413946279643508, guid: 757dbb62cf2da49429ad273655ec2196, type: 3}
+    - {fileID: 6321024951739223564, guid: 757dbb62cf2da49429ad273655ec2196, type: 3}
+  - name: VFX_lightning_draft
+    fps: 16
+    frames:
+    - {fileID: 9064982104221161687, guid: 7507a3bd04d1c4814b7ab503128b527a, type: 3}
+    - {fileID: 4847939595792999092, guid: 7507a3bd04d1c4814b7ab503128b527a, type: 3}
+    - {fileID: 1696520799304661193, guid: 7507a3bd04d1c4814b7ab503128b527a, type: 3}
+    - {fileID: -3379332151436872766, guid: 7507a3bd04d1c4814b7ab503128b527a, type: 3}
+  - name: VFX_slash_draft
+    fps: 20
+    frames:
+    - {fileID: -906750227205715797, guid: ae6fd235b607a40978864b0ed635a030, type: 3}
+    - {fileID: 6303064817871030643, guid: ae6fd235b607a40978864b0ed635a030, type: 3}
+    - {fileID: -4088415605666868219, guid: ae6fd235b607a40978864b0ed635a030, type: 3}
+    - {fileID: -955388917541950231, guid: ae6fd235b607a40978864b0ed635a030, type: 3}
+  - name: VFX_magic_bolt_draft
+    fps: 16
+    frames:
+    - {fileID: -3273409346400415127, guid: 1d05cb9ad44fb41fb896edfdfbd9bde8, type: 3}
+    - {fileID: 8395359350253196984, guid: 1d05cb9ad44fb41fb896edfdfbd9bde8, type: 3}
+    - {fileID: -3463430536057579129, guid: 1d05cb9ad44fb41fb896edfdfbd9bde8, type: 3}
+    - {fileID: -4695117315792683823, guid: 1d05cb9ad44fb41fb896edfdfbd9bde8, type: 3}
+  - name: VFX_charge_draft
+    fps: 14
+    frames:
+    - {fileID: 556614834228519081, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+    - {fileID: -8448536442204338391, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+    - {fileID: 2229198849262571612, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+    - {fileID: -2537873635681367712, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+    - {fileID: 2534816215287573932, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+    - {fileID: 3495658701986244787, guid: a2d970df1aed94af88a2bb6f09db34dd, type: 3}
+  - name: VFX_homing_draft
+    fps: 12
+    frames:
+    - {fileID: 8905840871527483704, guid: cad8f98b559ea423883d3bf876be77d3, type: 3}
+    - {fileID: 7960841407363232678, guid: cad8f98b559ea423883d3bf876be77d3, type: 3}
+  - name: VFX_starfire_draft
+    fps: 14
+    frames:
+    - {fileID: -4035239142140618103, guid: ce98528da868f44bf999f33e5bb9a82d, type: 3}
+    - {fileID: -6441593370784160913, guid: ce98528da868f44bf999f33e5bb9a82d, type: 3}
+    - {fileID: -8199177712272509631, guid: ce98528da868f44bf999f33e5bb9a82d, type: 3}
+    - {fileID: -8238805081593796757, guid: ce98528da868f44bf999f33e5bb9a82d, type: 3}
+  - name: VFX_frost_blade_draft
+    fps: 1
+    frames:
+    - {fileID: -6687574360519868136, guid: 80a29d4a55eb44da6913f024150a8b5d, type: 3}
+  - name: VFX_thunder_ring_draft
+    fps: 16
+    frames:
+    - {fileID: 3521402800715122683, guid: ae73b2ee5a80340e39a137284f55ac7a, type: 3}
+    - {fileID: -3968007501030340274, guid: ae73b2ee5a80340e39a137284f55ac7a, type: 3}
+    - {fileID: -3395891693011577346, guid: ae73b2ee5a80340e39a137284f55ac7a, type: 3}
+    - {fileID: 7883855610640956229, guid: ae73b2ee5a80340e39a137284f55ac7a, type: 3}
+    - {fileID: -1878985676, guid: ae73b2ee5a80340e39a137284f55ac7a, type: 3}
+  - name: VFX_vortex_draft
+    fps: 14
+    frames:
+    - {fileID: -9195342412351000095, guid: 147845c83398e440586b9461a752a88e, type: 3}
+    - {fileID: 1232871755667976753, guid: 147845c83398e440586b9461a752a88e, type: 3}
+    - {fileID: -3808512640119829864, guid: 147845c83398e440586b9461a752a88e, type: 3}
+    - {fileID: -5695746574794969416, guid: 147845c83398e440586b9461a752a88e, type: 3}
+    - {fileID: -9070071114864709705, guid: 147845c83398e440586b9461a752a88e, type: 3}
+    - {fileID: -4347816639959872261, guid: 147845c83398e440586b9461a752a88e, type: 3}
+  - name: VFX_fire_tornado_draft
+    fps: 14
+    frames:
+    - {fileID: -8326273523657305486, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+    - {fileID: 8697002124436655162, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+    - {fileID: -8784995233512705699, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+    - {fileID: 9058067135733826122, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+    - {fileID: 373664303514951532, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+    - {fileID: 8038202615028532245, guid: 6ebbc1938bc3c41d8ae12e3194f6ea1a, type: 3}
+  - name: VFX_steam_draft
+    fps: 14
+    frames:
+    - {fileID: -4680702722428540470, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+    - {fileID: 976936293119490482, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+    - {fileID: 7913606856952773168, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+    - {fileID: 9074361125217255919, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+    - {fileID: 5190268175987844515, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+    - {fileID: -3479632070443029733, guid: 2e01ce980fedd4067a261b1622ea71c0, type: 3}
+  - name: VFX_overload_draft
+    fps: 16
+    frames:
+    - {fileID: 1362546096384092974, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+    - {fileID: 6141548402519143382, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+    - {fileID: 6533844198537542378, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+    - {fileID: -927722085918330232, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+    - {fileID: -3286899467942918361, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+    - {fileID: -1538994797, guid: 95f07ee9bd2a34156b4da7e895e1cd9b, type: 3}
+  - name: VFX_shatter_draft
+    fps: 16
+    frames:
+    - {fileID: 1130345459706988377, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+    - {fileID: 1803052437073087268, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+    - {fileID: -7943133331358920733, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+    - {fileID: 2310724112215397509, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+    - {fileID: -4729673328342121260, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+    - {fileID: 257427796620637498, guid: e9052c3a13b0748d0a8ea8e3aa02b562, type: 3}
+  - name: VFX_hit_draft
+    fps: 24
+    frames:
+    - {fileID: 8230587373413705299, guid: 38d14aae8620847ec9eb13f59dba318b, type: 3}
+    - {fileID: 2402564586969871423, guid: 38d14aae8620847ec9eb13f59dba318b, type: 3}
+    - {fileID: -6669555890408589180, guid: 38d14aae8620847ec9eb13f59dba318b, type: 3}
+    - {fileID: -913244967347019916, guid: 38d14aae8620847ec9eb13f59dba318b, type: 3}
+  - name: VFX_poof_draft
+    fps: 16
+    frames:
+    - {fileID: -5260775983808549623, guid: b6b1cd18d52ea4e098abe51daee8d000, type: 3}
+    - {fileID: 2259669477494751032, guid: b6b1cd18d52ea4e098abe51daee8d000, type: 3}
+    - {fileID: 3880900859958914144, guid: b6b1cd18d52ea4e098abe51daee8d000, type: 3}
+    - {fileID: 2854665985521507065, guid: b6b1cd18d52ea4e098abe51daee8d000, type: 3}
+    - {fileID: -5993262373936566151, guid: b6b1cd18d52ea4e098abe51daee8d000, type: 3}
+  - name: VFX_dust_draft
+    fps: 14
+    frames:
+    - {fileID: -4926845407395726557, guid: dfd6aa9010b8b429cb1e96090eff6f83, type: 3}
+    - {fileID: 8584283603848706546, guid: dfd6aa9010b8b429cb1e96090eff6f83, type: 3}
+    - {fileID: -8031400750337586303, guid: dfd6aa9010b8b429cb1e96090eff6f83, type: 3}
+    - {fileID: 1866699319, guid: dfd6aa9010b8b429cb1e96090eff6f83, type: 3}
+  - name: VFX_spore_draft
+    fps: 8
+    frames:
+    - {fileID: 5363435196710019987, guid: 46f834260f508467e8b3106bf088408e, type: 3}
+    - {fileID: -1673916957, guid: 46f834260f508467e8b3106bf088408e, type: 3}
+  - name: VFX_poison_pool_draft
+    fps: 6
+    frames:
+    - {fileID: 3446236354159504490, guid: d0eafad9b1a214eb6a90834342dbe758, type: 3}
+    - {fileID: -236587173754231483, guid: d0eafad9b1a214eb6a90834342dbe758, type: 3}
+    - {fileID: 3667660275786158404, guid: d0eafad9b1a214eb6a90834342dbe758, type: 3}
+    - {fileID: 3442539975314192896, guid: d0eafad9b1a214eb6a90834342dbe758, type: 3}
+  - name: VFX_telegraph_circle_draft
+    fps: 1
+    frames:
+    - {fileID: -5474900536687008343, guid: 81eb35927320b47cb8d262592f5dba5e, type: 3}
+  - name: VFX_telegraph_rect_draft
+    fps: 1
+    frames:
+    - {fileID: 334703593610277874, guid: bf6f5865eea1b420089d7355f5f85c8f, type: 3}
+  - name: VFX_overdrive_aura_draft
+    fps: 14
+    frames:
+    - {fileID: 6465181986721285934, guid: 7819f46027d98416497f592711bf9158, type: 3}
+    - {fileID: -4927312850570374010, guid: 7819f46027d98416497f592711bf9158, type: 3}
+    - {fileID: 4103612226656115180, guid: 7819f46027d98416497f592711bf9158, type: 3}
+    - {fileID: 3179669997031002414, guid: 7819f46027d98416497f592711bf9158, type: 3}
+    - {fileID: 8341566507131187492, guid: 7819f46027d98416497f592711bf9158, type: 3}
+    - {fileID: 1992276752642882648, guid: 7819f46027d98416497f592711bf9158, type: 3}
+  - name: VFX_levelup_draft
+    fps: 14
+    frames:
+    - {fileID: 940633365461159854, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+    - {fileID: 3749755091217399050, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+    - {fileID: 2476701862583800668, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+    - {fileID: -3151036551823766693, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+    - {fileID: -3334883354135333970, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+    - {fileID: -5647385470339614827, guid: b793adbceb1f84b1e856893c6c77bb42, type: 3}
+  - name: VFX_burn_draft
+    fps: 10
+    frames:
+    - {fileID: 6654804780165463272, guid: 4b6b606601b0040b0a338af00188c80f, type: 3}
+    - {fileID: 6998225745535569587, guid: 4b6b606601b0040b0a338af00188c80f, type: 3}
+    - {fileID: 4442892783391062085, guid: 4b6b606601b0040b0a338af00188c80f, type: 3}
+  - name: VFX_chill_draft
+    fps: 8
+    frames:
+    - {fileID: 1977508280721225900, guid: a1751c76cde39438a9f5f686258bc491, type: 3}
+    - {fileID: 266185881, guid: a1751c76cde39438a9f5f686258bc491, type: 3}
+    - {fileID: -1212562835, guid: a1751c76cde39438a9f5f686258bc491, type: 3}
+  - name: VFX_shock_draft
+    fps: 14
+    frames:
+    - {fileID: 1069278173761861650, guid: 1605efbea53ed4e8486afd18cc3581a2, type: 3}
+    - {fileID: -8104185537399612535, guid: 1605efbea53ed4e8486afd18cc3581a2, type: 3}
+    - {fileID: 5328384222677005044, guid: 1605efbea53ed4e8486afd18cc3581a2, type: 3}
+  - name: VFX_glow_draft
+    fps: 1
+    frames:
+    - {fileID: -1870763212763299809, guid: 5205d78ab216549e8906fd60839c0138, type: 3}
+  - name: VFX_spark_draft
+    fps: 1
+    frames:
+    - {fileID: 4616876142495725606, guid: 8a43c1f7e27fa4185a297e2de71fd3b6, type: 3}
+  - name: VFX_shadow_draft
+    fps: 1
+    frames:
+    - {fileID: -2652933536289017952, guid: 69d5b34c67c654e5ba0013a81382cf74, type: 3}
+  - name: VFX_portal_draft
+    fps: 10
+    frames:
+    - {fileID: 8720488124835792793, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+    - {fileID: -545842776741237742, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+    - {fileID: 7281389316223626946, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+    - {fileID: 4646011491384202599, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+    - {fileID: 7505913643474518269, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+    - {fileID: 9045893771402136881, guid: c17a073272c11421aacbfcce60e0051a, type: 3}
+  - name: UI_digits_draft
+    fps: 10
+    frames:
+    - {fileID: -8933958205325663759, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 8242010332142526081, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 5878199631222769746, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 7157022522049429400, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 3534239040127137810, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 7863100251672085271, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 6251523927671131192, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 8201789439320839120, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 2474078413317340011, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+    - {fileID: 6688394162023637407, guid: aa6e944e441a545309d4edd217b43c3f, type: 3}
+  - name: ICON_fire_bolt_draft
+    fps: 10
+    frames:
+    - {fileID: -5705468390088364036, guid: e336456e3b6db4b9ca7a636ef038f35f, type: 3}
+  - name: ICON_split_flame_draft
+    fps: 10
+    frames:
+    - {fileID: -2251363739965064406, guid: 636e576c4dead41cb815a6b3a6f24ead, type: 3}
+  - name: ICON_piercing_ice_draft
+    fps: 10
+    frames:
+    - {fileID: -5110822962327989267, guid: 269c72c81bf1f48e3a24bd1b8a99243c, type: 3}
+  - name: ICON_chain_spark_draft
+    fps: 10
+    frames:
+    - {fileID: -4403791306438588825, guid: f3be66ed05e744486b23aec5359ea5ff, type: 3}
+  - name: ICON_wind_pull_draft
+    fps: 10
+    frames:
+    - {fileID: -6072064421297958179, guid: ef31663abbc624e53a9a028522412c45, type: 3}
+  - name: ICON_frost_orbit_draft
+    fps: 10
+    frames:
+    - {fileID: 1277730856309832075, guid: 367901e26077f4533aeb7f2d2e657a93, type: 3}
+  - name: ICON_thunder_pulse_draft
+    fps: 10
+    frames:
+    - {fileID: -8070599017995108867, guid: 852aa4dec0c624d548379b3543e19099, type: 3}
+  - name: ICON_homing_draft
+    fps: 10
+    frames:
+    - {fileID: 9073484573078545019, guid: 2fbd0ed7a0b364ad6ad710fb352b9be8, type: 3}
+  - name: ICON_starfire_draft
+    fps: 10
+    frames:
+    - {fileID: -4508146163982930859, guid: b449a0c4fcc944dd3837101ce50374c7, type: 3}
+  - name: ICON_overdrive_draft
+    fps: 10
+    frames:
+    - {fileID: 8271762415572304017, guid: b98c0e8abddd942659a83fee2d2ab3ec, type: 3}
+  - name: ICON_staff_draft
+    fps: 10
+    frames:
+    - {fileID: -7567587045987833905, guid: c744c06cba459440988104badbd8db82, type: 3}
+  - name: ICON_dash_draft
+    fps: 10
+    frames:
+    - {fileID: 7526044598031788591, guid: ce7f09109427b497a8e58db8afef8395, type: 3}
+  spells:
+  - {fileID: 11400000, guid: 200f5a2148ed342e194f10a7cead665b, type: 2}
+  - {fileID: 11400000, guid: 8d34506e890d546f5bbf781656a8abbd, type: 2}
+  - {fileID: 11400000, guid: fa38e872346b24d8eb79aff482a054fc, type: 2}
+  - {fileID: 11400000, guid: e793b6ec8ceb7410faedecb25dbbe402, type: 2}
+  - {fileID: 11400000, guid: 22a5aca6658214fb997932caeff913e2, type: 2}
+  - {fileID: 11400000, guid: f1c1dee95a386403584950db6329938f, type: 2}
+  - {fileID: 11400000, guid: 3071c7166868a42d9bf47cc7b4a634ce, type: 2}
+  - {fileID: 11400000, guid: 82ff52f5b42fa47e68e1bc08d5a9bfb0, type: 2}
+  - {fileID: 11400000, guid: 782985713c0fe41ba9dc9c160412531e, type: 2}
+  enemies:
+  - {fileID: 11400000, guid: f5c2833c25183435ca6f1548c707537b, type: 2}
+  - {fileID: 11400000, guid: fcecbbd7075ad467bba0b8f39e6a2fc2, type: 2}
+  - {fileID: 11400000, guid: 684859801dc2a4bac951ca9811e38dd8, type: 2}
+  - {fileID: 11400000, guid: 4541f17e899524056b3304ea5b2d79a5, type: 2}
+  - {fileID: 11400000, guid: 232bb34c8ffdd4b07b60217d2ffbd250, type: 2}
+  - {fileID: 11400000, guid: e9a8cb2bdbacb41b08347aa50ef8f42a, type: 2}
+  upgrades:
+  - {fileID: 11400000, guid: 99b6292be47e74a8296cc7c4103b7dab, type: 2}
+  - {fileID: 11400000, guid: 12f382dcbeea64c6cb64e61d4b01e568, type: 2}
+  - {fileID: 11400000, guid: 43ff447dd1bd746e598b55c70cc5dd36, type: 2}
+  - {fileID: 11400000, guid: d8f0d1252ec6f4f5d9b76017579cd6c7, type: 2}
+  - {fileID: 11400000, guid: 43332a883b375405d9b44552cd21d9b2, type: 2}
+  - {fileID: 11400000, guid: d24ef4e202b9243a6a76b7cc8d1e2214, type: 2}
+  - {fileID: 11400000, guid: 623a83b9090fa401c8d194b0fd050949, type: 2}
+  - {fileID: 11400000, guid: 987a99877da8d42f6915ed5ca5bc9306, type: 2}
+  - {fileID: 11400000, guid: 96271c6a7760349848ace9638b2f316a, type: 2}
+  - {fileID: 11400000, guid: daf74719100a844779d6188e8d0407a1, type: 2}
+  - {fileID: 11400000, guid: b50b0e3b79c8f438aada6bf752aa0152, type: 2}
+  - {fileID: 11400000, guid: c3f615084f2274e03b51995066b77c06, type: 2}
+  - {fileID: 11400000, guid: c2bab62df7a964ad9b4f1764ff88f3d7, type: 2}
+  - {fileID: 11400000, guid: aa1e18dbd297b4d1bbd0499f1385e1ec, type: 2}
+  - {fileID: 11400000, guid: a55e778b7e2a64d40885a688790b70cb, type: 2}
+  unlitMaterial: {fileID: 2100000, guid: 7d21314e4a96c478ca826f62aa0a4d32, type: 2}
+  characterMaterial: {fileID: 2100000, guid: 0d93d718884e64445ac8e47205411fb2, type: 2}
+  sounds:
+  - {fileID: 8300000, guid: d77677a38a8dd4062a39b95b48be1232, type: 3}
+  - {fileID: 8300000, guid: 958f713b1571a49c5831d96b33120899, type: 3}
+  - {fileID: 8300000, guid: 5c0ee9fd869174a3495f2fa2e9a69585, type: 3}
+  - {fileID: 8300000, guid: 1d38c526b19eb40aea0af7a6e1d560c5, type: 3}
+  - {fileID: 8300000, guid: 12298d727e3c84569b88a17cf9009765, type: 3}
+  - {fileID: 8300000, guid: 0f0ff441e0d9446c19af4613c347c3bd, type: 3}
+  - {fileID: 8300000, guid: 3f8f082a788e643d38ea0d2f8223ec5a, type: 3}
+  - {fileID: 8300000, guid: e5042ad7374b3476aae9ea65cf5155d0, type: 3}
+  - {fileID: 8300000, guid: db01657ac44954e44935616838fea52a, type: 3}
+  - {fileID: 8300000, guid: 23148cee9739e4b09ad2966205d17589, type: 3}
+  - {fileID: 8300000, guid: 750932a05f47b4aedaec50c0636ff83c, type: 3}
+  - {fileID: 8300000, guid: 3aea30d1e603a470cb364f41a8663582, type: 3}
+  - {fileID: 8300000, guid: bd50321523f904b7ebd060096c663e5e, type: 3}
+  - {fileID: 8300000, guid: 71ff6e165e5134656a4983d9c82b5aac, type: 3}
+  - {fileID: 8300000, guid: 18d0bc76272a84d02a341a23a4973c42, type: 3}
+  - {fileID: 8300000, guid: 7cf74730bdd88400285380674e6c6bc4, type: 3}
+  - {fileID: 8300000, guid: feadbe3b7f319485bb5175e6413f2627, type: 3}
+  - {fileID: 8300000, guid: 7930f780b712a4515ac212e225b5e039, type: 3}
+  - {fileID: 8300000, guid: c92fcc11e124041908c2d53f5efc706d, type: 3}
+  - {fileID: 8300000, guid: 8e815c28672ca4db3ad862bf69340fdf, type: 3}
+  - {fileID: 8300000, guid: 2512313e6865f4b78a94f2e919d9d7aa, type: 3}
+  - {fileID: 8300000, guid: 625c879bb97c040afb9a7a2893a10355, type: 3}
+  - {fileID: 8300000, guid: 4acc9b8a768ae4dd8bd848ca59b58fe5, type: 3}
+  - {fileID: 8300000, guid: 211c9f92f18cc4d9d9047298539e8b66, type: 3}
+  - {fileID: 8300000, guid: 7156626dc900e448ba28c570a573a1fe, type: 3}
+  - {fileID: 8300000, guid: 7fbc44b9ead3e4352ba72bf3feeda250, type: 3}
+  - {fileID: 8300000, guid: b2927178983794133963168b31d96763, type: 3}
+  - {fileID: 8300000, guid: 72c036258661a461b8df254e1fde5d87, type: 3}
+  - {fileID: 8300000, guid: b0d6c92e31a49460d9afe21ad8f92e84, type: 3}
+  - {fileID: 8300000, guid: 89a5ed4ef25d848ad9536124da76f322, type: 3}
+  - {fileID: 8300000, guid: dc003248265b94da1a6095cb35550700, type: 3}
+  - {fileID: 8300000, guid: 8a3cdaa32aa0c46349c97108aae89a38, type: 3}
+  - {fileID: 8300000, guid: bb93629b7df7b48efb1b9b1c332990a7, type: 3}

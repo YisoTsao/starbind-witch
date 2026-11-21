@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_star_fire
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: star_fire
+  displayName: "\u661F\u706B\u8B77\u7B26"
+  description: "\u81EA\u52D5\u30FB\u706B\u3002\u5B9A\u671F\u767C\u5C04\u5C0F\u578B\u661F\u706B\u653B\u64CA\u6700\u8FD1\u6575\u4EBA\u3002"
+  form: 4
+  element: 1
+  modifier: 0
+  trigger: 1
+  damage: 10
+  cooldown: 3
+  mpCost: 0
+  speed: 9
+  range: 7
+  radius: 0.2
+  statusDuration: 3
+  count: 1
+  pierce: 0
+  duration: 0
+  icon: ICON_starfire
+  vfx: 

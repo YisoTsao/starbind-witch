@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb53df7a9c83e4457a92d36a74437976, type: 3}
+  m_Name: TL_cliff_face_draft
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Tiles.NeighborMaskTile
+  mode: 1
+  sprites:
+  - {fileID: -6103108967838224352, guid: 9408f46a8dc314ce988aa617c14c9645, type: 3}
+  - {fileID: -3312977897078826308, guid: 9408f46a8dc314ce988aa617c14c9645, type: 3}
+  - {fileID: 210388627798501545, guid: 9408f46a8dc314ce988aa617c14c9645, type: 3}
+  - {fileID: -6791623062669327308, guid: 9408f46a8dc314ce988aa617c14c9645, type: 3}
+  alsoMatches:
+  - {fileID: 11400000, guid: 65fc32996cc59448eb123b6e8cb56424, type: 2}

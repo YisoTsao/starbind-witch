@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - WorldSolid
+  - Hitbox
+  - Hurtbox
+  - Projectile
+  - Interactable
+  - Trigger
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3803529630
+    locked: 0
+  - name: GroundDecal
+    uniqueID: 2047639323
+    locked: 0
+  - name: World
+    uniqueID: 3714116915
+    locked: 0
+  - name: VFX
+    uniqueID: 219262143
+    locked: 0
+  - name: Telegraph
+    uniqueID: 227823951
+    locked: 0
+  - name: Foreground
+    uniqueID: 3647682272
+    locked: 0
+  - name: WorldUI
+    uniqueID: 1169190337
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []

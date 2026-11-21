@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_piercing_ice
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: piercing_ice
+  displayName: "\u7A7F\u900F\u51B0\u6676"
+  description: "\u98DB\u5F48\u30FB\u51B0\u30FB\u7A7F\u900F\u3002\u8CAB\u7A7F 2 \u540D\u6575\u4EBA\uFF0C\u9644\u52A0\u51B0\u7DE9 30%\u3002"
+  form: 0
+  element: 2
+  modifier: 2
+  trigger: 0
+  damage: 12
+  cooldown: 0.8
+  mpCost: 6
+  speed: 12
+  range: 9
+  radius: 0.22
+  statusDuration: 2.5
+  count: 1
+  pierce: 2
+  duration: 0
+  icon: ICON_piercing_ice
+  vfx: 

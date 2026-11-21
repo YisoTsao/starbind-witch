@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf891eeeade114505b57d2fc38adf14a, type: 3}
+  m_Name: UPG_U03
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.UpgradeDefinition
+  id: U03
+  displayName: "\u51B0\u971C\u9644\u8457"
+  description: "\u51B0\u72C0\u614B\u6301\u7E8C\u6642\u9593 +25%\u3002"
+  kind: 1
+  weight: 8
+  maxStacks: 3
+  requiresSpell: piercing_ice|frost_orbit
+  excludesSpell: 
+  icon: ICON_piercing_ice

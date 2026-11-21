@@ -1,0 +1,290 @@
+{
+ "id": "workshop",
+ "width": 14,
+ "height": 10,
+ "biome": "interior",
+ "layers": {
+  "wall": [
+   "TTTTTTTTTTTTTT",
+   "TFFFFFFFFFFFFT",
+   "T............T",
+   "T............T",
+   "T............T",
+   "T............T",
+   "T............T",
+   "T............T",
+   "T............T",
+   "TTTTTT..TTTTTT"
+  ],
+  "collision": [
+   "##############",
+   "##############",
+   "#............#",
+   "#............#",
+   "#............#",
+   "#............#",
+   "#............#",
+   "#............#",
+   "#............#",
+   "##############"
+  ]
+ },
+ "props": [
+  {
+   "sprite": "INT_bookshelf_draft",
+   "x": 1.9,
+   "y": 7.05,
+   "fade": false,
+   "box": [
+    1.4,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_bookshelf_draft",
+   "x": 3.5,
+   "y": 7.05,
+   "fade": false,
+   "box": [
+    1.4,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_window_draft",
+   "x": 6.0,
+   "y": 8.5,
+   "fade": false,
+   "layer": "Ground",
+   "order": 60
+  },
+  {
+   "sprite": "INT_window_draft",
+   "x": 8.4,
+   "y": 8.5,
+   "fade": false,
+   "layer": "Ground",
+   "order": 60
+  },
+  {
+   "sprite": "INT_wardrobe_draft",
+   "x": 10.6,
+   "y": 7.05,
+   "fade": false,
+   "box": [
+    1.1,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_bed_draft",
+   "x": 12.3,
+   "y": 5.1,
+   "fade": false,
+   "box": [
+    1.1,
+    1.7,
+    0,
+    0.9
+   ]
+  },
+  {
+   "sprite": "INT_rug_draft",
+   "x": 7.0,
+   "y": 4.3,
+   "fade": false,
+   "layer": "GroundDecal"
+  },
+  {
+   "sprite": "INT_desk_draft",
+   "x": 2.4,
+   "y": 4.9,
+   "fade": false,
+   "box": [
+    1.3,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_alchemy_draft",
+   "x": 2.2,
+   "y": 1.6,
+   "fade": false,
+   "box": [
+    1.6,
+    0.6,
+    0,
+    0.3
+   ]
+  },
+  {
+   "sprite": "INT_cauldron_draft",
+   "x": 4.3,
+   "y": 1.4,
+   "fade": false,
+   "box": [
+    0.9,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_lectern_draft",
+   "x": 7.0,
+   "y": 4.6,
+   "fade": false,
+   "box": [
+    0.6,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "INT_table_draft",
+   "x": 10.6,
+   "y": 2.0,
+   "fade": false,
+   "box": [
+    1.3,
+    0.5,
+    0,
+    0.25
+   ]
+  },
+  {
+   "sprite": "INT_chair_draft",
+   "x": 9.2,
+   "y": 1.8,
+   "fade": false,
+   "box": [
+    0.4,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "INT_chair_draft",
+   "x": 12.0,
+   "y": 1.8,
+   "fade": false,
+   "box": [
+    0.4,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "INT_plant_draft",
+   "x": 12.6,
+   "y": 7.1,
+   "fade": false,
+   "box": [
+    0.5,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "INT_plant_draft",
+   "x": 5.2,
+   "y": 7.1,
+   "fade": false,
+   "box": [
+    0.5,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "INT_door_in_draft",
+   "x": 7.0,
+   "y": 0.25,
+   "fade": false,
+   "layer": "Ground",
+   "order": 60
+  }
+ ],
+ "objects": [
+  {
+   "kind": "station",
+   "station": "Lectern",
+   "x": 7.0,
+   "y": 4.4,
+   "radius": 0.7,
+   "prompt": 1.9
+  },
+  {
+   "kind": "station",
+   "station": "Research",
+   "x": 2.4,
+   "y": 4.6,
+   "radius": 0.8,
+   "prompt": 1.9
+  },
+  {
+   "kind": "station",
+   "station": "Bed",
+   "x": 12.3,
+   "y": 4.4,
+   "radius": 0.9,
+   "prompt": 2.2
+  },
+  {
+   "kind": "door",
+   "x": 7.0,
+   "y": 0.7,
+   "scene": "Village",
+   "spawn": "spawn_from_workshop",
+   "radius": 0.7
+  }
+ ],
+ "spawns": [
+  {
+   "id": "spawn_from_village",
+   "x": 7.0,
+   "y": 1.7
+  },
+  {
+   "id": "spawn_bed",
+   "x": 11.2,
+   "y": 3.6
+  },
+  {
+   "id": "spawn_default",
+   "x": 7.0,
+   "y": 2.6
+  }
+ ],
+ "zones": [
+  {
+   "id": "workshop",
+   "name": "魔女小屋・工坊",
+   "rect": [
+    0,
+    0,
+    14,
+    10
+   ]
+  }
+ ],
+ "scene": {
+  "title": "魔女小屋・工坊",
+  "dim": 0.0,
+  "safe": true,
+  "objective": "魔典台配置法術・研究桌永久研究・床存檔"
+ }
+}

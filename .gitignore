@@ -1,0 +1,32 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+*.unityproj
+.vs/
+.idea/
+.vscode/
+*.pdb
+*.mdb
+crashlytics-buildid.txt
+sysinfo.txt
+*.apk
+*.aab
+*.app
+# OS
+.DS_Store
+# Test / capture output (evidence PNGs under docs/evidence are kept)
+/TestResults/

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_thunder_pulse
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: thunder_pulse
+  displayName: "\u81EA\u52D5\u96F7\u8108\u885D"
+  description: "\u81EA\u52D5\u30FB\u96F7\u3002\u6BCF 5 \u79D2\u5C0D\u9644\u8FD1\u6575\u4EBA\u843D\u96F7\u3002"
+  form: 5
+  element: 3
+  modifier: 0
+  trigger: 1
+  damage: 12
+  cooldown: 5
+  mpCost: 0
+  speed: 0
+  range: 6
+  radius: 1.3
+  statusDuration: 2
+  count: 1
+  pierce: 0
+  duration: 0
+  icon: ICON_thunder_pulse
+  vfx: 

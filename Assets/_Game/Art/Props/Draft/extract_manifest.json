@@ -1,0 +1,416 @@
+{
+  "PROP_cottage_draft": {
+    "w": 202,
+    "h": 110,
+    "pivot": [
+      0.5,
+      0.1364
+    ],
+    "pivot_px": [
+      101,
+      15
+    ],
+    "source_box": [
+      150,
+      0,
+      352,
+      110
+    ],
+    "native_pivot": [
+      251.0,
+      94.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_tree_blossom_draft": {
+    "w": 76,
+    "h": 100,
+    "pivot": [
+      0.5,
+      0.05
+    ],
+    "pivot_px": [
+      38,
+      5
+    ],
+    "source_box": [
+      404,
+      62,
+      480,
+      162
+    ],
+    "native_pivot": [
+      442.0,
+      156.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_tree_green_s_draft": {
+    "w": 40,
+    "h": 38,
+    "pivot": [
+      0.5,
+      0.0526
+    ],
+    "pivot_px": [
+      20,
+      2
+    ],
+    "source_box": [
+      324,
+      168,
+      368,
+      216
+    ],
+    "native_pivot": [
+      347.0,
+      212.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_tree_green_m_draft": {
+    "w": 56,
+    "h": 50,
+    "pivot": [
+      0.5,
+      0.0
+    ],
+    "pivot_px": [
+      28,
+      0
+    ],
+    "source_box": [
+      216,
+      226,
+      278,
+      290
+    ],
+    "native_pivot": [
+      247.0,
+      284.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_tree_green_b_draft": {
+    "w": 48,
+    "h": 44,
+    "pivot": [
+      0.5,
+      0.0682
+    ],
+    "pivot_px": [
+      24,
+      3
+    ],
+    "source_box": [
+      108,
+      108,
+      158,
+      154
+    ],
+    "native_pivot": [
+      134.0,
+      150.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_rock_l_draft": {
+    "w": 32,
+    "h": 32,
+    "pivot": [
+      0.5,
+      0.0938
+    ],
+    "pivot_px": [
+      16,
+      3
+    ],
+    "source_box": [
+      148,
+      120,
+      182,
+      152
+    ],
+    "native_pivot": [
+      164.0,
+      148.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_rock_s_draft": {
+    "w": 18,
+    "h": 18,
+    "pivot": [
+      0.5,
+      0.1667
+    ],
+    "pivot_px": [
+      9,
+      3
+    ],
+    "source_box": [
+      352,
+      230,
+      378,
+      254
+    ],
+    "native_pivot": [
+      364.0,
+      251.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_rock_m_draft": {
+    "w": 26,
+    "h": 24,
+    "pivot": [
+      0.5,
+      0.125
+    ],
+    "pivot_px": [
+      13,
+      3
+    ],
+    "source_box": [
+      478,
+      126,
+      506,
+      152
+    ],
+    "native_pivot": [
+      493.0,
+      149.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_stump_draft": {
+    "w": 36,
+    "h": 28,
+    "pivot": [
+      0.5,
+      0.1429
+    ],
+    "pivot_px": [
+      18,
+      4
+    ],
+    "source_box": [
+      284,
+      210,
+      320,
+      242
+    ],
+    "native_pivot": [
+      303.0,
+      238.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_mushroom_glow_draft": {
+    "w": 34,
+    "h": 30,
+    "pivot": [
+      0.5,
+      0.0667
+    ],
+    "pivot_px": [
+      17,
+      2
+    ],
+    "source_box": [
+      318,
+      230,
+      352,
+      262
+    ],
+    "native_pivot": [
+      335.0,
+      258.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_fence_long_draft": {
+    "w": 94,
+    "h": 22,
+    "pivot": [
+      0.5,
+      0.0909
+    ],
+    "pivot_px": [
+      47,
+      2
+    ],
+    "source_box": [
+      346,
+      48,
+      440,
+      70
+    ],
+    "native_pivot": [
+      393.0,
+      68.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_fence_mid_draft": {
+    "w": 68,
+    "h": 28,
+    "pivot": [
+      0.5,
+      0.1071
+    ],
+    "pivot_px": [
+      34,
+      3
+    ],
+    "source_box": [
+      112,
+      154,
+      184,
+      186
+    ],
+    "native_pivot": [
+      148.0,
+      181.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_fence_east_draft": {
+    "w": 96,
+    "h": 20,
+    "pivot": [
+      0.5,
+      0.2
+    ],
+    "pivot_px": [
+      48,
+      4
+    ],
+    "source_box": [
+      424,
+      176,
+      520,
+      197
+    ],
+    "native_pivot": [
+      472.0,
+      192.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_sign_draft": {
+    "w": 30,
+    "h": 52,
+    "pivot": [
+      0.5,
+      0.0385
+    ],
+    "pivot_px": [
+      15,
+      2
+    ],
+    "source_box": [
+      126,
+      172,
+      160,
+      232
+    ],
+    "native_pivot": [
+      144.0,
+      228.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_stall_draft": {
+    "w": 76,
+    "h": 72,
+    "pivot": [
+      0.5,
+      0.0556
+    ],
+    "pivot_px": [
+      38,
+      4
+    ],
+    "source_box": [
+      328,
+      70,
+      406,
+      142
+    ],
+    "native_pivot": [
+      368.0,
+      138.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_crystal_fountain_draft": {
+    "w": 52,
+    "h": 64,
+    "pivot": [
+      0.5,
+      0.0938
+    ],
+    "pivot_px": [
+      26,
+      6
+    ],
+    "source_box": [
+      426,
+      190,
+      480,
+      254
+    ],
+    "native_pivot": [
+      454.0,
+      248.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "PROP_flowerbush_draft": {
+    "w": 38,
+    "h": 18,
+    "pivot": [
+      0.5,
+      -0.0556
+    ],
+    "pivot_px": [
+      19,
+      -1
+    ],
+    "source_box": [
+      224,
+      212,
+      268,
+      238
+    ],
+    "native_pivot": [
+      248.0,
+      236.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  },
+  "CHR_witch_front_draft": {
+    "w": 30,
+    "h": 36,
+    "pivot": [
+      0.5,
+      0.1111
+    ],
+    "pivot_px": [
+      15,
+      4
+    ],
+    "source_box": [
+      244,
+      136,
+      276,
+      174
+    ],
+    "native_pivot": [
+      261.0,
+      170.0
+    ],
+    "status": "Needs Cleanup (draft)"
+  }
+}

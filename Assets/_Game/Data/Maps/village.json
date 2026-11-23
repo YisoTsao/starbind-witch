@@ -8,9 +8,9 @@
   "water": [
    "................................................",
    "................................................",
+   "..............~~~~~.............................",
+   "..............~~~~~.............................",
    "................................................",
-   "..............~~~~~.............................",
-   "..............~~~~~.............................",
    "................................................",
    ".............~~~~~~~............................",
    ".............~~~~~~~............................",
@@ -94,12 +94,12 @@
    "RRRRRRRRRRRRRRRRRRRR............................",
    "RRRRRRRRRRRRRRRRRRRR............................",
    "RRRRRRRRRRRRRRRRRRRR............................",
-   "RRRRRRRRRRRRRRRRRRRR............................",
+   "FFFFFFFFFFFFFFFFFWFF............................",
    "FFFFFFFFFFFFFFFFFWFF............................",
    "................................................",
    "................................................",
    ".........................FFFFFFFFFFFFF..........",
-   "................................................",
+   ".........................FFFFFFFFFFFFF..........",
    "................................................",
    "................................................",
    "................................................",
@@ -141,7 +141,7 @@
    "#............#######...........................#",
    "#............#######...........................#",
    "#............#######.....#############.........#",
-   "#...........######.............................#",
+   "#...........######.......#############.........#",
    "#...........######.............................#",
    "#............###...............................#",
    "#..####......###...............................#",
@@ -292,7 +292,7 @@
   {
    "sprite": "PROP_mushroom_glow_draft",
    "x": 26.469,
-   "y": 31.938,
+   "y": 29.938,
    "fade": false
   },
   {
@@ -566,7 +566,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 1.5,
    "y": 1.2,
    "fade": true,
@@ -578,7 +578,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 4.5,
    "y": 1.2,
    "fade": true,
@@ -602,7 +602,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 16.5,
    "y": 1.2,
    "fade": true,
@@ -638,19 +638,19 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_blossom_draft",
    "x": 34.5,
    "y": 1.2,
    "fade": true,
    "box": [
-    0.55,
-    0.3,
+    0.7,
+    0.35,
     0,
-    0.15
+    0.18
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 37.5,
    "y": 1.2,
    "fade": true,
@@ -662,7 +662,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_b_draft",
+   "sprite": "PROP_tree_green_m_draft",
    "x": 38.5,
    "y": 38.5,
    "fade": true,
@@ -686,19 +686,19 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_b_draft",
+   "sprite": "PROP_tree_blossom_draft",
    "x": 41.5,
    "y": 38.5,
    "fade": true,
    "box": [
-    0.55,
-    0.3,
+    0.7,
+    0.35,
     0,
-    0.15
+    0.18
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 43.5,
    "y": 1.2,
    "fade": true,
@@ -710,7 +710,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_b_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 44.5,
    "y": 38.5,
    "fade": true,
@@ -770,7 +770,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 1.5,
    "y": 5.4,
    "fade": true,
@@ -782,7 +782,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 5.6,
    "fade": true,
@@ -794,7 +794,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 1.5,
    "y": 8.4,
    "fade": true,
@@ -818,7 +818,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 1.5,
    "y": 11.4,
    "fade": true,
@@ -830,7 +830,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 11.6,
    "fade": true,
@@ -854,7 +854,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 14.6,
    "fade": true,
@@ -866,19 +866,19 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_blossom_draft",
    "x": 1.5,
    "y": 17.4,
    "fade": true,
    "box": [
-    0.55,
-    0.3,
+    0.7,
+    0.35,
     0,
-    0.15
+    0.18
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 17.6,
    "fade": true,
@@ -890,7 +890,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 1.5,
    "y": 20.4,
    "fade": true,
@@ -902,7 +902,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 20.6,
    "fade": true,
@@ -914,15 +914,15 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_blossom_draft",
    "x": 1.5,
    "y": 23.4,
    "fade": true,
    "box": [
-    0.55,
-    0.3,
+    0.7,
+    0.35,
     0,
-    0.15
+    0.18
    ]
   },
   {
@@ -938,7 +938,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 1.5,
    "y": 26.4,
    "fade": true,
@@ -950,7 +950,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 46.0,
    "y": 26.6,
    "fade": true,
@@ -962,7 +962,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 1.5,
    "y": 29.4,
    "fade": true,
@@ -986,7 +986,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 1.5,
    "y": 32.4,
    "fade": true,
@@ -998,7 +998,7 @@
    ]
   },
   {
-   "sprite": "PROP_tree_green_m_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 46.0,
    "y": 32.6,
    "fade": true,
@@ -1022,12 +1022,12 @@
    ]
   },
   {
-   "sprite": "PROP_village_round_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 7.8,
    "y": 21.5,
    "fade": true,
    "box": [
-    0.6,
+    0.55,
     0.3,
     0,
     0.15
@@ -1035,8 +1035,8 @@
   },
   {
    "sprite": "PROP_rock_l_draft",
-   "x": 8.6,
-   "y": 18.4,
+   "x": 6.4,
+   "y": 19.6,
    "fade": false,
    "box": [
     0.9,
@@ -1058,12 +1058,12 @@
    "fade": false
   },
   {
-   "sprite": "PROP_village_round_draft",
+   "sprite": "PROP_tree_green_m_draft",
    "x": 3.0,
    "y": 8.4,
    "fade": true,
    "box": [
-    0.6,
+    0.55,
     0.3,
     0,
     0.15
@@ -1082,7 +1082,7 @@
    ]
   },
   {
-   "sprite": "PROP_lamp_draft",
+   "sprite": "PROP_lantern_post_draft",
    "x": 10.6,
    "y": 17.3,
    "fade": false,
@@ -1094,7 +1094,7 @@
    ]
   },
   {
-   "sprite": "PROP_lamp_draft",
+   "sprite": "PROP_lantern_post_draft",
    "x": 16.6,
    "y": 17.3,
    "fade": false,
@@ -1118,12 +1118,12 @@
    ]
   },
   {
-   "sprite": "PROP_village_round_draft",
+   "sprite": "PROP_tree_green_b_draft",
    "x": 26.4,
    "y": 5.2,
    "fade": true,
    "box": [
-    0.6,
+    0.55,
     0.3,
     0,
     0.15
@@ -1142,7 +1142,7 @@
    "fade": false
   },
   {
-   "sprite": "PROP_lamp_draft",
+   "sprite": "PROP_lantern_post_draft",
    "x": 23.6,
    "y": 3.4,
    "fade": false,
@@ -1154,7 +1154,7 @@
    ]
   },
   {
-   "sprite": "PROP_lamp_draft",
+   "sprite": "PROP_lantern_post_draft",
    "x": 19.4,
    "y": 3.4,
    "fade": false,
@@ -1238,7 +1238,7 @@
    ]
   },
   {
-   "sprite": "PROP_lamp_draft",
+   "sprite": "PROP_lantern_post_draft",
    "x": 30.6,
    "y": 13.6,
    "fade": false,
@@ -1262,12 +1262,12 @@
    ]
   },
   {
-   "sprite": "PROP_village_round_draft",
+   "sprite": "PROP_tree_green_m_draft",
    "x": 40.0,
    "y": 29.0,
    "fade": true,
    "box": [
-    0.6,
+    0.55,
     0.3,
     0,
     0.15
@@ -1286,12 +1286,12 @@
    ]
   },
   {
-   "sprite": "PROP_village_round_draft",
+   "sprite": "PROP_tree_green_s_draft",
    "x": 41.6,
    "y": 35.4,
    "fade": true,
    "box": [
-    0.6,
+    0.55,
     0.3,
     0,
     0.15
@@ -1350,6 +1350,2534 @@
    "x": 29.4,
    "y": 15.8,
    "fade": false
+  },
+  {
+   "sprite": "PROP_cauldron_draft",
+   "x": 38.4,
+   "y": 36.0,
+   "fade": false,
+   "box": [
+    0.6,
+    0.3,
+    0,
+    0.12
+   ]
+  },
+  {
+   "sprite": "PROP_herb_rack_draft",
+   "x": 44.8,
+   "y": 36.0,
+   "fade": false,
+   "box": [
+    0.8,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_broom_draft",
+   "x": 39.32,
+   "y": 35.32,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_potion_crate_draft",
+   "x": 33.5,
+   "y": 34.5,
+   "fade": false,
+   "box": [
+    0.6,
+    0.3,
+    0,
+    0.12
+   ]
+  },
+  {
+   "sprite": "PROP_candles_draft",
+   "x": 40.03,
+   "y": 36.97,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_pumpkin_draft",
+   "x": 36.64,
+   "y": 32.0,
+   "fade": false,
+   "box": [
+    0.45,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_pumpkin_violet_draft",
+   "x": 38.1,
+   "y": 31.6,
+   "fade": false,
+   "box": [
+    0.45,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_pumpkin_draft",
+   "x": 37.8,
+   "y": 32.8,
+   "fade": false,
+   "box": [
+    0.45,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_pumpkin_violet_draft",
+   "x": 32.72,
+   "y": 29.72,
+   "fade": false,
+   "box": [
+    0.45,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_pumpkin_draft",
+   "x": 9.8,
+   "y": 10.4,
+   "fade": false,
+   "box": [
+    0.45,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_crystal_cluster_draft",
+   "x": 40.6,
+   "y": 24.4,
+   "fade": false,
+   "box": [
+    0.4,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_crystal_cluster_draft",
+   "x": 44.32,
+   "y": 24.88,
+   "fade": false,
+   "box": [
+    0.4,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_crystal_cluster_draft",
+   "x": 31.49,
+   "y": 29.86,
+   "fade": false,
+   "box": [
+    0.4,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_crystal_cluster_draft",
+   "x": 16.6,
+   "y": 11.6,
+   "fade": false,
+   "box": [
+    0.4,
+    0.25,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_candles_draft",
+   "x": 20.2,
+   "y": 10.4,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_lantern_post_draft",
+   "x": 20.4,
+   "y": 27.4,
+   "fade": false,
+   "box": [
+    0.25,
+    0.2,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_lantern_post_draft",
+   "x": 23.7,
+   "y": 21.2,
+   "fade": false,
+   "box": [
+    0.25,
+    0.2,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_lantern_post_draft",
+   "x": 40.4,
+   "y": 20.6,
+   "fade": false,
+   "box": [
+    0.25,
+    0.2,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_lantern_post_draft",
+   "x": 26.2,
+   "y": 23.6,
+   "fade": false,
+   "box": [
+    0.25,
+    0.2,
+    0,
+    0.1
+   ]
+  },
+  {
+   "sprite": "PROP_stump_draft",
+   "x": 36.43,
+   "y": 4.35,
+   "fade": false,
+   "box": [
+    0.9,
+    0.45,
+    0,
+    0.22
+   ]
+  },
+  {
+   "sprite": "PROP_flowerbush_draft",
+   "x": 28.86,
+   "y": 10.94,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_flowerbush_draft",
+   "x": 29.81,
+   "y": 21.42,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_mushroom_glow_draft",
+   "x": 8.44,
+   "y": 25.63,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_rock_s_draft",
+   "x": 12.89,
+   "y": 25.93,
+   "fade": false,
+   "box": [
+    0.5,
+    0.3,
+    0,
+    0.15
+   ]
+  },
+  {
+   "sprite": "PROP_flowerbush_draft",
+   "x": 30.27,
+   "y": 24.59,
+   "fade": false
+  },
+  {
+   "sprite": "PROP_rock_m_draft",
+   "x": 10.96,
+   "y": 30.87,
+   "fade": false,
+   "box": [
+    0.7,
+    0.4,
+    0,
+    0.2
+   ]
+  },
+  {
+   "sprite": "PROP_stump_draft",
+   "x": 20.01,
+   "y": 30.73,
+   "fade": false,
+   "box": [
+    0.9,
+    0.45,
+    0,
+    0.22
+   ]
+  },
+  {
+   "sprite": "PROP_flowerbush_draft",
+   "x": 4.51,
+   "y": 32.38,
+   "fade": false
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 18.894,
+   "y": 1.891,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 26.344,
+   "y": 1.695,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 9.811,
+   "y": 2.65,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 14.29,
+   "y": 2.504,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 15.331,
+   "y": 2.788,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 3.234,
+   "y": 3.505,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 5.287,
+   "y": 3.108,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 7.561,
+   "y": 3.493,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 8.151,
+   "y": 3.235,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 15.495,
+   "y": 3.142,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 20.41,
+   "y": 3.785,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 25.121,
+   "y": 3.195,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 26.669,
+   "y": 3.364,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 27.739,
+   "y": 3.299,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 30.715,
+   "y": 3.772,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 31.18,
+   "y": 3.47,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 32.666,
+   "y": 3.525,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 33.804,
+   "y": 3.551,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 34.533,
+   "y": 3.107,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 35.195,
+   "y": 3.407,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 36.62,
+   "y": 3.239,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 37.667,
+   "y": 3.146,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 42.614,
+   "y": 3.259,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 43.896,
+   "y": 3.62,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 3.805,
+   "y": 4.357,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 4.299,
+   "y": 4.388,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 8.582,
+   "y": 4.772,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 9.837,
+   "y": 4.711,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 14.266,
+   "y": 4.156,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 20.109,
+   "y": 4.484,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 23.312,
+   "y": 4.285,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 24.146,
+   "y": 4.228,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 31.289,
+   "y": 4.502,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 33.347,
+   "y": 4.878,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 34.891,
+   "y": 4.375,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 35.306,
+   "y": 4.443,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 38.364,
+   "y": 4.169,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 39.81,
+   "y": 4.284,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 40.833,
+   "y": 4.333,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 42.492,
+   "y": 4.367,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 43.693,
+   "y": 4.234,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 4.855,
+   "y": 5.829,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 5.115,
+   "y": 5.194,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 14.681,
+   "y": 5.114,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 29.695,
+   "y": 5.716,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 33.634,
+   "y": 5.762,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 39.235,
+   "y": 5.77,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 42.1,
+   "y": 5.194,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 43.204,
+   "y": 5.211,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 9.27,
+   "y": 6.476,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 15.324,
+   "y": 6.763,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 28.438,
+   "y": 6.39,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 30.225,
+   "y": 6.193,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 31.204,
+   "y": 6.79,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 39.765,
+   "y": 6.767,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 43.181,
+   "y": 6.56,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 44.241,
+   "y": 6.291,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 4.633,
+   "y": 7.333,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 9.154,
+   "y": 7.686,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 16.136,
+   "y": 7.12,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 23.659,
+   "y": 7.698,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 25.237,
+   "y": 7.893,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 26.588,
+   "y": 7.41,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 28.107,
+   "y": 7.401,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 29.316,
+   "y": 7.801,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 30.759,
+   "y": 7.529,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 35.844,
+   "y": 7.223,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 37.394,
+   "y": 7.398,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 39.256,
+   "y": 7.628,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 42.261,
+   "y": 7.409,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 43.873,
+   "y": 7.852,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 6.44,
+   "y": 8.892,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 8.532,
+   "y": 8.636,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 15.317,
+   "y": 8.507,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 17.764,
+   "y": 8.745,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 23.402,
+   "y": 8.865,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 26.775,
+   "y": 8.712,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 27.73,
+   "y": 8.634,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 29.534,
+   "y": 8.331,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 44.265,
+   "y": 8.229,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 5.288,
+   "y": 9.88,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 8.488,
+   "y": 9.209,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 10.868,
+   "y": 9.754,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 15.136,
+   "y": 9.346,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 23.549,
+   "y": 9.32,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 26.88,
+   "y": 9.636,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 4.566,
+   "y": 10.822,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 6.192,
+   "y": 10.373,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 26.591,
+   "y": 10.751,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 29.152,
+   "y": 10.243,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 30.298,
+   "y": 10.454,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 44.171,
+   "y": 10.432,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 4.438,
+   "y": 11.205,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 7.686,
+   "y": 11.344,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_white_draft",
+   "x": 17.803,
+   "y": 11.807,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 10.686,
+   "y": 12.135,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 16.724,
+   "y": 12.711,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 18.492,
+   "y": 12.193,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 19.452,
+   "y": 12.753,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 20.847,
+   "y": 12.325,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 9.345,
+   "y": 13.63,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 10.548,
+   "y": 13.667,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 11.168,
+   "y": 13.462,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 16.252,
+   "y": 13.768,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 20.248,
+   "y": 13.781,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 23.727,
+   "y": 13.61,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 24.37,
+   "y": 13.607,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 25.33,
+   "y": 13.771,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 26.748,
+   "y": 13.689,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 28.38,
+   "y": 13.892,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 29.553,
+   "y": 13.562,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 44.174,
+   "y": 13.716,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 9.571,
+   "y": 14.757,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 16.648,
+   "y": 14.847,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 19.212,
+   "y": 14.677,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 20.107,
+   "y": 14.425,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 27.773,
+   "y": 14.553,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 29.801,
+   "y": 14.47,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 27.716,
+   "y": 15.227,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 28.242,
+   "y": 15.756,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 26.52,
+   "y": 16.532,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 27.11,
+   "y": 16.588,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 30.206,
+   "y": 16.694,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 5.17,
+   "y": 17.883,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 6.561,
+   "y": 17.786,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 8.819,
+   "y": 17.244,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 9.316,
+   "y": 17.333,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 18.696,
+   "y": 17.12,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 19.437,
+   "y": 17.793,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 25.53,
+   "y": 17.129,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 26.499,
+   "y": 17.37,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 35.622,
+   "y": 17.614,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 37.835,
+   "y": 17.786,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 38.295,
+   "y": 17.506,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 41.542,
+   "y": 17.435,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 42.807,
+   "y": 17.608,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 10.347,
+   "y": 18.607,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 17.148,
+   "y": 18.614,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 19.536,
+   "y": 18.174,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 20.712,
+   "y": 18.367,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 23.283,
+   "y": 18.673,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 25.673,
+   "y": 18.618,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 30.567,
+   "y": 18.348,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 37.419,
+   "y": 18.398,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 40.346,
+   "y": 18.4,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 3.468,
+   "y": 19.42,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_flowers_white_draft",
+   "x": 4.518,
+   "y": 19.671,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 9.631,
+   "y": 19.374,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 10.132,
+   "y": 19.214,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 18.195,
+   "y": 19.376,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 19.313,
+   "y": 19.211,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 20.463,
+   "y": 19.208,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 23.266,
+   "y": 19.65,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 29.391,
+   "y": 19.606,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 30.579,
+   "y": 19.794,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 31.356,
+   "y": 19.579,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 38.211,
+   "y": 19.169,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 42.742,
+   "y": 19.86,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 43.328,
+   "y": 19.216,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 44.384,
+   "y": 19.292,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 3.82,
+   "y": 20.724,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 4.341,
+   "y": 20.527,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 24.839,
+   "y": 20.757,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 27.217,
+   "y": 20.215,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 28.642,
+   "y": 20.391,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 33.566,
+   "y": 20.766,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 42.352,
+   "y": 20.846,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 43.549,
+   "y": 20.881,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 5.364,
+   "y": 21.715,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 10.834,
+   "y": 21.184,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 17.189,
+   "y": 21.284,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 25.64,
+   "y": 21.368,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 32.112,
+   "y": 21.293,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 33.545,
+   "y": 21.109,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 9.322,
+   "y": 22.454,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 16.435,
+   "y": 22.232,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 17.623,
+   "y": 22.462,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 6.284,
+   "y": 23.674,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 7.596,
+   "y": 23.82,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 9.204,
+   "y": 23.6,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 10.587,
+   "y": 23.168,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 27.138,
+   "y": 23.158,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 31.311,
+   "y": 23.329,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 39.796,
+   "y": 23.596,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 5.866,
+   "y": 24.177,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 6.898,
+   "y": 24.633,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 7.894,
+   "y": 24.393,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 23.344,
+   "y": 24.276,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 24.258,
+   "y": 24.361,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 25.106,
+   "y": 24.896,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 28.46,
+   "y": 24.194,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 32.232,
+   "y": 24.512,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 33.137,
+   "y": 24.805,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 42.873,
+   "y": 24.843,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 7.509,
+   "y": 25.592,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 9.878,
+   "y": 25.419,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 12.765,
+   "y": 25.183,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 23.119,
+   "y": 25.696,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 29.594,
+   "y": 25.646,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 31.781,
+   "y": 25.141,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 37.829,
+   "y": 25.658,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 39.678,
+   "y": 25.67,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 40.752,
+   "y": 25.545,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 41.775,
+   "y": 25.69,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 36.634,
+   "y": 26.721,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 40.444,
+   "y": 26.316,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 41.159,
+   "y": 26.64,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 42.219,
+   "y": 26.745,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 2.683,
+   "y": 27.775,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 7.7,
+   "y": 27.443,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 8.339,
+   "y": 27.174,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_white_draft",
+   "x": 9.478,
+   "y": 27.644,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 10.801,
+   "y": 27.441,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 35.891,
+   "y": 27.376,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_pink_draft",
+   "x": 37.365,
+   "y": 27.872,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 39.686,
+   "y": 27.189,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_yellow_draft",
+   "x": 42.432,
+   "y": 27.334,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 4.31,
+   "y": 28.345,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 6.464,
+   "y": 28.748,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 7.293,
+   "y": 28.204,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 9.285,
+   "y": 28.872,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 17.686,
+   "y": 28.386,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 25.238,
+   "y": 28.51,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 27.297,
+   "y": 28.77,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 28.368,
+   "y": 28.571,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 29.694,
+   "y": 28.319,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 33.769,
+   "y": 28.395,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_flowers_white_draft",
+   "x": 34.744,
+   "y": 28.579,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 35.355,
+   "y": 28.404,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 36.654,
+   "y": 28.759,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 4.352,
+   "y": 29.57,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 7.282,
+   "y": 29.829,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 8.174,
+   "y": 29.396,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 9.333,
+   "y": 29.586,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_1_draft",
+   "x": 18.198,
+   "y": 29.151,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 20.821,
+   "y": 29.14,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 26.417,
+   "y": 29.748,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 27.506,
+   "y": 29.816,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 42.184,
+   "y": 29.198,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 2.743,
+   "y": 30.777,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 6.129,
+   "y": 30.793,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 7.757,
+   "y": 30.892,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 8.547,
+   "y": 30.265,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 9.737,
+   "y": 30.388,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 18.266,
+   "y": 30.718,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 41.693,
+   "y": 30.309,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 43.266,
+   "y": 30.566,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 44.205,
+   "y": 30.876,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 4.179,
+   "y": 31.646,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 5.899,
+   "y": 31.389,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_white_draft",
+   "x": 7.881,
+   "y": 31.824,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_light_s_draft",
+   "x": 9.447,
+   "y": 31.63,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_patch_light_draft",
+   "x": 12.184,
+   "y": 31.806,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 20.488,
+   "y": 31.785,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 40.543,
+   "y": 31.866,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_clover_draft",
+   "x": 6.399,
+   "y": 32.264,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 9.599,
+   "y": 32.469,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_4_draft",
+   "x": 29.142,
+   "y": 32.882,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 43.23,
+   "y": 32.425,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_pebbles_0_draft",
+   "x": 4.112,
+   "y": 33.49,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 1
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 5.62,
+   "y": 33.771,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 6.627,
+   "y": 33.529,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 8.396,
+   "y": 33.502,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_3_draft",
+   "x": 9.537,
+   "y": 33.507,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 10.661,
+   "y": 33.879,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 40.175,
+   "y": 34.149,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 45.476,
+   "y": 35.307,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 46.852,
+   "y": 35.649,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_1_draft",
+   "x": 39.414,
+   "y": 36.122,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_flowers_blue_draft",
+   "x": 29.425,
+   "y": 37.621,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_2_draft",
+   "x": 35.868,
+   "y": 37.269,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_patch_dark_draft",
+   "x": 36.873,
+   "y": 37.546,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 0
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 20.136,
+   "y": 38.638,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_tuft_0_draft",
+   "x": 29.338,
+   "y": 38.297,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 2
+  },
+  {
+   "sprite": "DEC_lily_0_draft",
+   "x": 12.794,
+   "y": 2.44,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
+  },
+  {
+   "sprite": "DEC_lily_0_draft",
+   "x": 14.466,
+   "y": 12.213,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
+  },
+  {
+   "sprite": "DEC_lily_0_draft",
+   "x": 14.491,
+   "y": 21.547,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
+  },
+  {
+   "sprite": "DEC_lily_1_draft",
+   "x": 14.373,
+   "y": 25.29,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
+  },
+  {
+   "sprite": "DEC_lily_0_draft",
+   "x": 13.724,
+   "y": 29.551,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
+  },
+  {
+   "sprite": "DEC_lily_0_draft",
+   "x": 16.36,
+   "y": 31.246,
+   "fade": false,
+   "layer": "GroundDecal",
+   "order": 3
   }
  ],
  "objects": [
@@ -1441,6 +3969,24 @@
    ]
   },
   {
+   "kind": "npc",
+   "id": "prince",
+   "sheet": "NPC_prince_ref",
+   "name": "王子",
+   "x": 33.2,
+   "y": 15.4,
+   "facing": "right",
+   "lines": [
+    "你就是星露村的魔女吧？我奉父王之命，來調查月影森林的異變。",
+    "凱恩是我的劍術老師。他說魔女的法杖連擊，可不比騎士的劍慢。",
+    "你進森林的時候，我會守住村子。等你帶著好消息回來。"
+   ],
+   "after": [
+    "月蝕菇王被打倒了？王國欠你一份大恩，魔女。",
+    "下次再進森林，換個魔典構築試試吧。我會在這裡等你的故事。"
+   ]
+  },
+  {
    "kind": "dummy",
    "x": 34.6,
    "y": 12.6
@@ -1485,6 +4031,170 @@
    "x": 42.5,
    "y": 22.6,
    "target": "spawn_from_workshop"
+  },
+  {
+   "kind": "npc",
+   "id": "villager_01",
+   "sheet": "NPC_villager_01_ref",
+   "name": "湯姆（果農）",
+   "x": 34.6,
+   "y": 36.0,
+   "facing": "down",
+   "radius": 1.4,
+   "lines": [
+    "今年的星莓長得特別好。",
+    "可是森林那邊的蘑菇越來越怪，連鳥都不敢靠近了。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_02",
+   "sheet": "NPC_villager_02_ref",
+   "name": "馬可（鐵匠學徒）",
+   "x": 32.6,
+   "y": 33.4,
+   "facing": "left",
+   "radius": 1.4,
+   "lines": [
+    "水晶噴泉的水最適合淬火。",
+    "師傅說法杖再好，也要會閃避才活得久。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_03",
+   "sheet": "NPC_villager_03_ref",
+   "name": "小麥（農夫）",
+   "x": 24.4,
+   "y": 19.0,
+   "facing": "down",
+   "radius": 1.4,
+   "lines": [
+    "戴草帽可不是為了好看，是太陽真的很大。",
+    "往東走到底就是傳送星盤，能直接回小屋門口。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_04",
+   "sheet": "NPC_villager_04_ref",
+   "name": "蘿絲（麵包店）",
+   "x": 34.6,
+   "y": 23.0,
+   "facing": "down",
+   "radius": 2.0,
+   "lines": [
+    "剛出爐的星砂麵包！……啊，你在冒險，等回來再吃吧。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_05",
+   "sheet": "NPC_villager_05_ref",
+   "name": "老約翰",
+   "x": 38.6,
+   "y": 34.4,
+   "facing": "left",
+   "radius": 1.2,
+   "lines": [
+    "我年輕時也見過一次月蝕。那年森林裡的菇也是這樣發著紫光。",
+    "孩子，記得：火和風碰在一起，會捲起火焰龍捲。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_06",
+   "sheet": "NPC_villager_06_ref",
+   "name": "卡洛（商隊）",
+   "x": 33.2,
+   "y": 27.0,
+   "facing": "right",
+   "radius": 2.0,
+   "lines": [
+    "商隊這陣子不敢走森林道路，貨都卡在村裡了。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_07",
+   "sheet": "NPC_villager_07_ref",
+   "name": "蜜拉（花店）",
+   "x": 8.0,
+   "y": 22.6,
+   "facing": "right",
+   "radius": 1.8,
+   "lines": [
+    "池塘邊的花開了，你要不要帶一朵進森林？",
+    "聽說星痕祭壇附近的花會在夜裡發光。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_08",
+   "sheet": "NPC_villager_08_ref",
+   "name": "貝克（漁夫）",
+   "x": 8.8,
+   "y": 18.4,
+   "facing": "down",
+   "radius": 1.6,
+   "lines": [
+    "今天的魚都躲到橋下去了。",
+    "洛恩說森林裡有會吐孢子的蘑菇，離遠一點打比較安全。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_09",
+   "sheet": "NPC_villager_09_ref",
+   "name": "諾亞（牧人）",
+   "x": 24.8,
+   "y": 6.2,
+   "facing": "left",
+   "radius": 1.8,
+   "lines": [
+    "羊群最近不肯往南走，牠們一定也感覺到森林不對勁。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_10",
+   "sheet": "NPC_villager_10_ref",
+   "name": "提姆（見習騎士）",
+   "x": 41.6,
+   "y": 9.6,
+   "facing": "left",
+   "radius": 1.6,
+   "lines": [
+    "我也想跟凱恩老師一樣厲害！",
+    "木偶打不倒的，你可以放心試新的法術組合。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_11",
+   "sheet": "NPC_villager_11_ref",
+   "name": "葛蕾絲婆婆",
+   "x": 19.6,
+   "y": 6.8,
+   "facing": "right",
+   "radius": 1.2,
+   "lines": [
+    "莉亞那孩子的治療很靈驗，受傷了就去找她吧。"
+   ]
+  },
+  {
+   "kind": "npc",
+   "id": "villager_12",
+   "sheet": "NPC_villager_12_ref",
+   "name": "歐文（信差）",
+   "x": 28.6,
+   "y": 4.8,
+   "facing": "up",
+   "radius": 2.4,
+   "lines": [
+    "王子殿下也來到村子了，就在訓練場那邊。",
+    "我得趕快把信送出去……可是森林的路被封了。"
+   ]
   },
   {
    "kind": "exit",
@@ -1582,6 +4292,6 @@
   "title": "星露村",
   "dim": 0.0,
   "safe": true,
-  "objective": "去訓練場練習，然後從南路前往月影森林"
+  "objective": "去訓練場練習，再從南路前往森林"
  }
 }

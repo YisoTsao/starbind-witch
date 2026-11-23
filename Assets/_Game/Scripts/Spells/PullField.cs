@@ -14,7 +14,8 @@ namespace Starbind.Spells
         float radius;
         float endAt;
         float nextTick;
-        SpriteFlipbook visual;
+        SpriteFlipbook visual, funnel, bloom;
+        UnityEngine.Rendering.Universal.Light2D glow;
         readonly List<Health> inside = new List<Health>(32);
 
         public static PullField Open(Vector2 p, float radius, float duration, DamageEvent e)
@@ -27,7 +28,11 @@ namespace Starbind.Spells
             f.radius = radius;
             f.endAt = Time.time + duration;
             f.nextTick = Time.time;
-            f.visual = VfxService.Instance.Play("VFX_vortex", p, 0, radius / 0.75f, new Color(1, 1, 1, 0.9f), StarbindLayers.SortGroundDecal, 5, true);
+            var v = VfxService.Instance;
+            f.visual = v.Play("VFX_vortex", p, 0, radius * (32f / 42f), null, StarbindLayers.SortGroundDecal, 5, true);
+            f.funnel = v.Play("VFX_wind_funnel", p, 0, radius * 0.68f, null, StarbindLayers.SortVfx, 2, true);
+            f.bloom = v.Glow(p + Vector2.up * 0.45f, new Color(0.34f, 1f, 0.71f, 0.35f), radius * 2.5f, target: f.transform);
+            f.glow = v.AttachLight(f.transform, SpellFx.ElementColor(ElementType.Wind), radius * 1.25f, 0.46f);
             Sfx.Play("sfx_wind", 0.8f);
             return f;
         }
@@ -49,13 +54,29 @@ namespace Starbind.Spells
                 nextTick = now + 0.5f;
                 tick.CastId = CombatIds.NewCast();
                 world.DamageArea(c, radius, tick, Team.Player);
+                VfxService.Instance.Play("VFX_shockwave", c, 0, radius, new Color(0.7f, 1f, 0.85f, 0.46f), StarbindLayers.SortGroundDecal, 6);
             }
             if (now >= endAt)
             {
-                VfxService.Instance.Release(visual);
-                visual = null;
+                var v = VfxService.Instance;
+                v.Play("VFX_wind_blades", c, 0, radius, new Color(0.82f, 1f, 0.95f, 0.62f));
+                v.Glow(c, new Color(0.55f, 1f, 0.8f, 0.44f), radius * 2.2f);
+                v.Sparks(c, new Color(0.7f, 1f, 0.85f), 12, 4.6f, 0.42f, 0.085f);
                 SpellPools.Instance.Pulls.Release(this);
             }
+        }
+
+        void OnDisable()
+        {
+            if (visual == null && funnel == null && bloom == null && glow == null)
+                return;
+            var v = VfxService.Instance;
+            v.Release(visual);
+            v.Release(funnel);
+            v.Release(bloom);
+            v.DetachLight(glow);
+            visual = funnel = bloom = null;
+            glow = null;
         }
     }
 }

@@ -1,1 +1,1 @@
-{"build":"OSXPlayer","unity":"6000.6.8f1","screen":"1920x1080","seconds":12,"frames":13626,"avg_ms":0.88,"fps_avg":1134.9,"p95_ms":1.08,"p99_ms":2.19,"max_ms":120.01,"enemies_target":60,"enemies_min_alive":51,"gc_total_mb":5.8,"vsync":0,"device":"MacBookPro18,3 / Apple M1 Pro"}
+{"build":"OSXPlayer","unity":"6000.6.8f1","screen":"1920x1080","seconds":12,"frames":7879,"avg_ms":1.52,"fps_avg":656.1,"p95_ms":1.90,"p99_ms":2.38,"max_ms":86.33,"enemies_target":60,"enemies_min_alive":54,"gc_total_mb":5.9,"vsync":0,"device":"MacBookPro18,3 / Apple M1 Pro"}

@@ -4,6 +4,7 @@
     "references": [
         "Starbind.Gameplay",
         "Starbind.Editor",
+        "Unity.InputSystem",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

@@ -13,6 +13,8 @@ namespace Starbind.Core
     {
         public string name;
         public float fps = 10f;
+        /// <summary>Walk frames used per direction in a v2 character sheet (CharacterAnimator).</summary>
+        public int walkFrames = 4;
         public Sprite[] frames;
     }
 

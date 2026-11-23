@@ -1,1 +1,1 @@
-{"enemies_at_start":60,"enemies_at_end":58,"frames":5881,"avg_ms":0.68,"p95_ms":0.83,"max_ms":7.79,"vfx_live":7,"note":"batch-mode editor PlayMode on this Mac, Pixel Perfect 480x270; not a player build"}
+{"enemies_at_start":60,"enemies_at_end":58,"frames":3106,"avg_ms":1.29,"p95_ms":1.73,"max_ms":9.61,"vfx_live":14,"note":"batch-mode editor PlayMode on this Mac, Pixel Perfect 480x270; not a player build"}

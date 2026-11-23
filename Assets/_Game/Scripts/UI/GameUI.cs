@@ -4,6 +4,7 @@ using Starbind.Core;
 using Starbind.Player;
 using Starbind.Progression;
 using Starbind.Spells;
+using Starbind.VFX;
 using Starbind.World;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -46,6 +47,7 @@ namespace Starbind.UI
             canvas = gameObject.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.sortingOrder = 100;
+            canvas.pixelPerfect = true; // pixel font + pixel frames snap to whole screen pixels
             var scaler = gameObject.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
@@ -58,8 +60,10 @@ namespace Starbind.UI
 
             notice = UIKit.Label(transform, "Notice", "", 36, UIKit.Gold, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 230), new Vector2(1400, 60));
 
-            dialogueRoot = UIKit.Image(transform, "Dialogue", UIKit.Panel, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 200), new Vector2(1200, 220)).rectTransform;
-            dialogueRoot.gameObject.AddComponent<Outline>().effectColor = UIKit.Gold;
+            var dlg = UIKit.Image(transform, "Dialogue", UIKit.Panel, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 200), new Vector2(1200, 220));
+            dlg.gameObject.AddComponent<Outline>().effectColor = UIKit.Gold;
+            UIKit.Skin(dlg, "UI_panel_draft");
+            dialogueRoot = dlg.rectTransform;
             dialogueName = UIKit.Label(dialogueRoot, "Name", "", 30, UIKit.Gold, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(30, -18), new Vector2(600, 40));
             dialogueText = UIKit.Label(dialogueRoot, "Text", "", 28, UIKit.Text, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(30, -66), new Vector2(1140, 120));
             UIKit.Label(dialogueRoot, "Hint", "F / Space / 左鍵 繼續", 20, UIKit.Muted, TextAnchor.LowerRight, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-20, 12), new Vector2(400, 30));
@@ -150,10 +154,12 @@ namespace Starbind.UI
             openPanel = id;
             GamePause.Push("ui:" + id);
             modal.gameObject.SetActive(true);
-            var panel = UIKit.Image(modal, "Panel", UIKit.Panel, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, size).rectTransform;
-            var o = panel.gameObject.AddComponent<Outline>();
+            var panelImg = UIKit.Image(modal, "Panel", UIKit.Panel, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, size);
+            var o = panelImg.gameObject.AddComponent<Outline>();
             o.effectColor = UIKit.Gold;
             o.effectDistance = new Vector2(4, -4);
+            UIKit.Skin(panelImg, "UI_panel_draft");
+            var panel = panelImg.rectTransform;
             UIKit.Label(panel, "Title", title, 44, UIKit.Gold, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -24), new Vector2(size.x - 40, 60));
             return panel;
         }
@@ -173,20 +179,15 @@ namespace Starbind.UI
         public void ShowUpgrades(List<UpgradeDefinition> cards, int level, Action<UpgradeDefinition> picked)
         {
             OfferedCards = cards;
-            var panel = OpenModal("upgrade", new Vector2(1500, 640), $"等級提升！　Lv {level}　選擇一張書頁");
-            var db = GameDatabase.Instance;
+            var panel = OpenModal("upgrade", new Vector2(1500, 780), $"等級提升！　Lv {level}");
+            UIKit.Label(panel, "Sub", "選擇一張書頁寫入魔典", 24, UIKit.Muted, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -84), new Vector2(800, 36));
+            var run = RunManager.Current;
             for (int i = 0; i < cards.Count; i++)
             {
-                var card = cards[i];
                 int idx = i;
-                float x = (i - (cards.Count - 1) * 0.5f) * 470f;
-                var b = UIKit.Button(panel, "Card" + i, "", new Vector2(0.5f, 0.5f), new Vector2(x, -40), new Vector2(430, 460), () => Choose(idx));
-                var t = b.transform;
-                UIKit.Image(t, "Icon", Color.white, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -36), new Vector2(112, 112), db.Sprite(card.icon));
-                UIKit.Label(t, "Name", card.displayName, 34, UIKit.Gold, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -164), new Vector2(400, 48));
-                UIKit.Label(t, "Kind", KindName(card.kind), 22, card.kind == UpgradeKind.Cursed ? new Color(1f, 0.5f, 0.6f) : UIKit.Muted, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -212), new Vector2(400, 30));
-                UIKit.Label(t, "Desc", card.description, 24, UIKit.Text, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -256), new Vector2(380, 160));
-                UIKit.Label(t, "Key", $"[{i + 1}]", 26, UIKit.Gold, TextAnchor.LowerCenter, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 14), new Vector2(200, 34));
+                int owned = run != null && run.Upgrades != null && run.Upgrades.Stacks.TryGetValue(cards[i].id, out var n) ? n : 0;
+                float x = (i - (cards.Count - 1) * 0.5f) * 460f;
+                UpgradeCardView.Build(panel, cards[i], i, new Vector2(x, -40), owned, () => Choose(idx));
             }
             keyChoice = Choose;
 
@@ -200,15 +201,6 @@ namespace Starbind.UI
                 picked(c);
             }
         }
-
-        static string KindName(UpgradeKind k) => k switch
-        {
-            UpgradeKind.Active => "主動法術改造",
-            UpgradeKind.Element => "元素強化",
-            UpgradeKind.Auto => "自動法術",
-            UpgradeKind.Passive => "通用被動",
-            _ => "稀有・失控書頁",
-        };
 
         // ------------------------------------------------------------------ results
         public void ShowResults(bool victory, List<string> lines, Action onContinue)
@@ -229,14 +221,20 @@ namespace Starbind.UI
         // ------------------------------------------------------------------ pause
         public void TogglePause()
         {
-            if (openPanel == "pause" || openPanel == "grimoire" || openPanel == "loadout" || openPanel == "research")
+            if (openPanel == "settings")
+            {
+                CloseModal();
+                TogglePause(); // Esc in settings goes back to the pause menu
+                return;
+            }
+            if (openPanel == "pause" || openPanel == "grimoire" || openPanel == "loadout" || openPanel == "research" || openPanel == "map")
             {
                 CloseModal();
                 return;
             }
             if (openPanel != null)
                 return;
-            var panel = OpenModal("pause", new Vector2(700, 600), "暫停");
+            var panel = OpenModal("pause", new Vector2(700, 710), "暫停");
             UIKit.Button(panel, "Resume", "繼續遊戲", new Vector2(0.5f, 1), new Vector2(0, -170), new Vector2(460, 80), CloseModal);
             if (RunManager.Current != null && !RunManager.Current.Finished)
                 UIKit.Button(panel, "Abandon", "放棄本局（回工坊）", new Vector2(0.5f, 1), new Vector2(0, -280), new Vector2(460, 80), () =>
@@ -245,14 +243,92 @@ namespace Starbind.UI
                     RunManager.Current.Finish(false);
                 });
             UIKit.Button(panel, "Grimoire", "魔典 / 目前構築", new Vector2(0.5f, 1), new Vector2(0, -390), new Vector2(460, 80), () => { CloseModal(); ToggleGrimoire(); });
-            UIKit.Button(panel, "Quit", "離開遊戲", new Vector2(0.5f, 1), new Vector2(0, -500), new Vector2(460, 80), () =>
+            UIKit.Button(panel, "Settings", "設定", new Vector2(0.5f, 1), new Vector2(0, -500), new Vector2(460, 80), ShowSettings);
+            UIKit.Button(panel, "Quit", "離開遊戲", new Vector2(0.5f, 1), new Vector2(0, -610), new Vector2(460, 80), () =>
             {
                 GameSession.Instance.Save();
                 Application.Quit();
             });
         }
 
+        // ------------------------------------------------------------------ settings (from pause)
+        /// <summary>Full-screen flash levels offered in settings: strong / soft / off.</summary>
+        public static readonly float[] FlashLevels = { 1f, 0.5f, 0f };
+        static readonly string[] FlashNames = { "強", "弱", "關" };
+
+        public void ShowSettings()
+        {
+            var panel = OpenModal("settings", new Vector2(900, 520), "設定");
+            UIKit.Label(panel, "FlashTitle", "全螢幕閃光", 36, UIKit.Gold, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(60, -150), new Vector2(260, 48));
+            UIKit.Label(panel, "FlashHint", "超載、雷擊與大爆炸時全畫面閃白，對閃光敏感請選「弱」或「關」。", 24, UIKit.Muted, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(60, -260), new Vector2(780, 72));
+            var buttons = new Button[FlashLevels.Length];
+            for (int i = 0; i < FlashLevels.Length; i++)
+            {
+                int idx = i;
+                buttons[i] = UIKit.Button(panel, "Flash" + i, $"{i + 1}  {FlashNames[i]}", new Vector2(0.5f, 1), new Vector2(-20 + i * 160, -174), new Vector2(140, 64), () => SetFlash(idx));
+            }
+            UIKit.Button(panel, "Back", "返回", new Vector2(0.5f, 0), new Vector2(0, 70), new Vector2(300, 70), () =>
+            {
+                CloseModal();
+                TogglePause();
+            });
+            keyChoice = SetFlash;
+            Refresh();
+
+            void SetFlash(int i)
+            {
+                if (i < 0 || i >= FlashLevels.Length)
+                    return;
+                var s = GameSession.Instance;
+                s.Profile.screenFlash = FlashLevels[i];
+                VfxService.ScreenFlashStrength = FlashLevels[i];
+                s.Save();
+                Refresh();
+            }
+
+            void Refresh()
+            {
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    bool on = Mathf.Approximately(VfxService.ScreenFlashStrength, FlashLevels[i]);
+                    buttons[i].GetComponent<Image>().color = on ? new Color(1f, 0.92f, 0.7f) : new Color(0.55f, 0.5f, 0.68f);
+                    buttons[i].GetComponentInChildren<Text>().color = on ? UIKit.Gold : UIKit.Muted;
+                }
+            }
+        }
+
+        /// <summary>Test hook: pick flash level i (0 strong, 1 soft, 2 off) in the open settings panel.</summary>
+        public bool ChooseSetting(int i)
+        {
+            if (openPanel != "settings" || keyChoice == null)
+                return false;
+            keyChoice(i);
+            return true;
+        }
+
+        // ------------------------------------------------------------------ world map (M)
+        public void ToggleMap()
+        {
+            if (openPanel == "map")
+            {
+                CloseModal();
+                return;
+            }
+            if (openPanel != null)
+                return;
+            var data = MapData.Current;
+            var panel = OpenModal("map", new Vector2(1780, 1010), "地圖・" + (GameSession.Instance.SceneTitle ?? ""));
+            if (data == null)
+            {
+                UIKit.Label(panel, "Empty", "這裡沒有地圖", 30, UIKit.Muted, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(600, 60));
+                return;
+            }
+            WorldMapPanel.Build(panel, data);
+        }
+
         // ------------------------------------------------------------------ grimoire (Tab)
+        public GrimoirePanel Grimoire { get; private set; }
+
         public void ToggleGrimoire()
         {
             if (openPanel == "grimoire")
@@ -262,51 +338,9 @@ namespace Starbind.UI
             }
             if (openPanel != null)
                 return;
-            var p = PlayerController.Current;
-            var panel = OpenModal("grimoire", new Vector2(1400, 800), "魔典　目前構築");
-            if (p == null)
-                return;
-            var db = GameDatabase.Instance;
-            float y = -120;
-            Line(panel, "主動法術", ref y, UIKit.Gold);
-            for (int i = 0; i < 2; i++)
-                SpellLine(panel, i == 0 ? "Q" : "E", p.Build.Active(i), ref y);
-            Line(panel, $"自動法術（{p.Build.Auto.Slots.Count}/{p.Build.Auto.UnlockedSlots} 槽）", ref y, UIKit.Gold);
-            foreach (var s in p.Build.Auto.Slots)
-                SpellLine(panel, "自動", s, ref y);
-            var run = RunManager.Current;
-            if (run != null && run.Upgrades != null)
-            {
-                var parts = new List<string>();
-                foreach (var kv in run.Upgrades.Stacks)
-                {
-                    var def = db.upgrades.Find(u => u.id == kv.Key);
-                    parts.Add((def != null ? def.displayName : kv.Key) + (kv.Value > 1 ? " x" + kv.Value : ""));
-                }
-                Line(panel, "本局書頁：" + (parts.Count > 0 ? string.Join("、", parts) : "（尚無）"), ref y, UIKit.Text);
-            }
-            var st = p.Vitals.Stats;
-            Line(panel, $"HP {Mathf.RoundToInt(p.Vitals.Health.Max)}　MP 回復 {st.Get(Combat.StatId.MpRegen):0.0}/秒　移速 x{st.Get(Combat.StatId.MoveSpeed):0.00}　反應傷害 x{st.Get(Combat.StatId.ReactionDamage):0.00}", ref y, UIKit.Muted);
-            UIKit.Label(panel, "Hint", "Tab / Esc 關閉　｜　元素反應：火+冰=蒸汽爆裂　火+雷=超載爆燃　冰+雷=碎晶雷暴　火+風=火焰龍捲", 22, UIKit.Muted, TextAnchor.LowerCenter, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 24), new Vector2(1360, 40));
-        }
-
-        void Line(RectTransform panel, string text, ref float y, Color c)
-        {
-            UIKit.Label(panel, "L", text, 26, c, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(60, y), new Vector2(1280, 40));
-            y -= 46;
-        }
-
-        void SpellLine(RectTransform panel, string key, RuntimeSpell s, ref float y)
-        {
-            if (s == null)
-            {
-                Line(panel, $"[{key}] （空）", ref y, UIKit.Muted);
-                return;
-            }
-            UIKit.Image(panel, "Icon", Color.white, new Vector2(0, 1), new Vector2(0, 1), new Vector2(60, y + 22), new Vector2(44, 44), GameDatabase.Instance.Sprite(s.Def.icon));
-            string extra = (s.Pierce > 0 ? $"　穿透+{s.Pierce}" : "") + (s.Split > 0 ? $"　分裂{s.Split}" : "") + (s.Returns ? "　折返" : "") + (s.Count > 1 ? $"　x{s.Count}" : "");
-            UIKit.Label(panel, "S", $"[{key}] {s.Def.displayName}　傷害 {s.Damage:0}　冷卻 {s.Cooldown:0.0}s" + (s.MpCost > 0 ? $"　MP {s.MpCost:0}" : "") + extra, 24, UIKit.Text, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(116, y), new Vector2(1200, 40));
-            y -= 50;
+            var panel = OpenModal("grimoire", new Vector2(1500, 900), "魔典");
+            Grimoire = new GrimoirePanel(panel, Grimoire?.Tab ?? 0); // reopens on the last page
+            keyChoice = i => Grimoire.Show(i);
         }
 
         // ------------------------------------------------------------------ workshop: loadout
@@ -416,6 +450,7 @@ namespace Starbind.UI
         // ------------------------------------------------------------------ tick
         void Update()
         {
+            UIKit.EnsurePointFilter();
             if (notice != null)
             {
                 float left = noticeUntil - Time.unscaledTime;

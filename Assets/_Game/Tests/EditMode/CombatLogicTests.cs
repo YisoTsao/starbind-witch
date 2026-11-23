@@ -225,7 +225,13 @@ namespace Starbind.Tests
             Assert.AreEqual(35f, hp["wisp"]); Assert.AreEqual(350f, hp["spore_elite"]);
             Assert.IsTrue(db.enemies.Single(e => e.id == "mushroom_king").isBoss);
             Assert.IsNotNull(db.Sprites("UI_digits"));
-            Assert.AreEqual(18, db.Sprites("CHR_witch_draft").frames.Length, "witch: 3 directions x 6 frames");
+            Assert.AreEqual(18, db.Sprites("CHR_witch_draft").frames.Length, "legacy draft witch: 3 directions x 6 frames");
+            var witch = db.Sprites("CHR_witch_ref");
+            Assert.AreEqual(36, witch.frames.Length, "witch from the chibi mage sheet: 3 directions x 12 frames");
+            Assert.AreEqual(5, witch.walkFrames);
+            Assert.AreEqual(36, db.Sprites("NPC_prince_ref").frames.Length, "prince from the chibi knight sheet");
+            Assert.AreEqual(4, db.Sprites("NPC_prince_ref").walkFrames);
+            Assert.That(db.sprites.Count(x => x.name.StartsWith("NPC_villager_") && x.frames.Length == 36), Is.GreaterThanOrEqualTo(10), "villager variants");
             Assert.That(db.sounds.Count, Is.GreaterThan(20));
             Assert.IsNotNull(db.unlitMaterial);
             Assert.AreEqual("Starbind/SpriteFlash", db.characterMaterial.shader.name);
@@ -308,6 +314,40 @@ namespace Starbind.Tests
                 if (Directory.Exists(dir))
                     Directory.Delete(dir, true);
             }
+        }
+
+        [Test]
+        public void OlderSaveWithoutFlashSettingKeepsTheDefault()
+        {
+            var dir = Path.Combine(Path.GetTempPath(), "starbind_save_test_" + System.Guid.NewGuid().ToString("N"));
+            try
+            {
+                var svc = new SaveService(dir);
+                var p = new ProfileData { starSand = 7, screenFlash = 0.5f };
+                svc.Save(p);
+                Assert.AreEqual(0.5f, svc.Load().screenFlash);
+
+                // a save written before the setting existed: payload has no screenFlash field
+                string payload = JsonUtility.ToJson(new ProfileData { starSand = 7 }).Replace(",\"screenFlash\":1.0", "");
+                StringAssert.DoesNotContain("screenFlash", payload);
+                File.WriteAllText(svc.Path, JsonUtility.ToJson(new SaveEnvelopeForTest { saveVersion = 1, payload = payload, checksum = SaveService.Checksum(payload) }));
+                var old = svc.Load();
+                Assert.AreEqual(7, old.starSand);
+                Assert.AreEqual(1f, old.screenFlash, "missing field falls back to strong, not 0");
+            }
+            finally
+            {
+                if (Directory.Exists(dir))
+                    Directory.Delete(dir, true);
+            }
+        }
+
+        [System.Serializable]
+        class SaveEnvelopeForTest
+        {
+            public int saveVersion;
+            public string checksum;
+            public string payload;
         }
 
         [Test]

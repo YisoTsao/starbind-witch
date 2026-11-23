@@ -13,6 +13,7 @@ namespace Starbind.VFX
         Sprite[] frames;
         float fps;
         float t;
+        float startAlpha;
         int first, count;
         public bool Loop { get; set; }
         public bool Playing { get; private set; }
@@ -22,6 +23,7 @@ namespace Starbind.VFX
         public SpriteRenderer Renderer => sr != null ? sr : sr = GetComponent<SpriteRenderer>();
         public int Frame { get; private set; }
         public Vector2 FollowOffset { get; set; }
+        public bool FadeOut { get; set; }
 
         public void Play(SpriteSet set, bool loop, float fpsOverride = 0f, int firstFrame = 0, int frameCount = -1)
         {
@@ -41,6 +43,7 @@ namespace Starbind.VFX
             first = Mathf.Clamp(firstFrame, 0, f.Length - 1);
             count = frameCount < 0 ? f.Length - first : Mathf.Min(frameCount, f.Length - first);
             t = 0;
+            startAlpha = Renderer.color.a;
             Playing = true;
             Frame = 0;
             Renderer.sprite = frames[first];
@@ -73,6 +76,13 @@ namespace Starbind.VFX
             if (!Playing || frames == null)
                 return;
             t += UseUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            if (FadeOut && !Loop)
+            {
+                var color = Renderer.color;
+                float left = 1f - Mathf.Clamp01(t * fps / count);
+                color.a = startAlpha * left * left;
+                Renderer.color = color;
+            }
             int f = (int)(t * fps);
             if (f >= count)
             {

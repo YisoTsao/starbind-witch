@@ -100,9 +100,9 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator CliffFaceBlocksMovement()
         {
-            yield return TeleportTo(17f, 10.3f);
+            yield return TeleportTo(17f, 9.3f);
             yield return Hold(Vector2.up, 1.0f);
-            Assert.That(P.y, Is.LessThan(10.8f + OY), "walked into the south cliff face (y 11..12)");
+            Assert.That(P.y, Is.LessThan(9.8f + OY), "walked into the 2-tile-tall south cliff face (y 10..12)");
         }
 
         [UnityTest]

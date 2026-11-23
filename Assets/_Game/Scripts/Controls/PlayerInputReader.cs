@@ -11,7 +11,7 @@ namespace Starbind.Controls
         [SerializeField] InputActionAsset actions;
 
         InputActionMap gameplay;
-        InputAction move, interact, aim, aimStick, attack, chargeAlt, dash, spell1, spell2, overdrive, grimoire, pause, item1, item2, item3;
+        InputAction move, interact, aim, aimStick, attack, chargeAlt, dash, spell1, spell2, overdrive, grimoire, pause, item1, item2, item3, map;
 
         public event Action InteractPressed;
         public event Action AttackPressed;
@@ -24,6 +24,7 @@ namespace Starbind.Controls
         public event Action OverdrivePressed;
         public event Action GrimoirePressed;
         public event Action PausePressed;
+        public event Action MapPressed;
         public event Action<int> ItemPressed;
 
         public Vector2 Move => move != null ? move.ReadValue<Vector2>() : Vector2.zero;
@@ -48,6 +49,7 @@ namespace Starbind.Controls
             overdrive = gameplay.FindAction("Overdrive");
             grimoire = gameplay.FindAction("Grimoire");
             pause = gameplay.FindAction("Pause");
+            map = gameplay.FindAction("Map");
             item1 = gameplay.FindAction("Item1");
             item2 = gameplay.FindAction("Item2");
             item3 = gameplay.FindAction("Item3");
@@ -64,6 +66,8 @@ namespace Starbind.Controls
             Hook(overdrive, _ => OverdrivePressed?.Invoke());
             Hook(grimoire, _ => GrimoirePressed?.Invoke());
             Hook(pause, _ => PausePressed?.Invoke());
+            if (map != null)
+                Hook(map, _ => MapPressed?.Invoke());
             Hook(item1, _ => ItemPressed?.Invoke(1));
             Hook(item2, _ => ItemPressed?.Invoke(2));
             Hook(item3, _ => ItemPressed?.Invoke(3));
@@ -77,7 +81,7 @@ namespace Starbind.Controls
             interact.performed -= OnInteract;
             gameplay.Disable();
             // Rebuild delegates on next enable: clear all handlers we added.
-            foreach (var a in new[] { attack, chargeAlt, dash, spell1, spell2, overdrive, grimoire, pause, item1, item2, item3 })
+            foreach (var a in new[] { attack, chargeAlt, dash, spell1, spell2, overdrive, grimoire, pause, item1, item2, item3, map })
                 Unhook(a);
             if (aim != null)
                 aim.performed -= OnAim;

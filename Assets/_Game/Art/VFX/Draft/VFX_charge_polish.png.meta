@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 07c7e5c5b250f4204a4bb09d26d73a33
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4186453728081019605
+    second: VFX_charge_polish_0
+  - first:
+      213: -8830519862815229459
+    second: VFX_charge_polish_1
+  - first:
+      213: -2873671609014895403
+    second: VFX_charge_polish_2
+  - first:
+      213: -4693897732561015284
+    second: VFX_charge_polish_3
+  - first:
+      213: 8170172037733498054
+    second: VFX_charge_polish_4
+  - first:
+      213: -1202321680390578536
+    second: VFX_charge_polish_5
+  - first:
+      213: -1322983606728693193
+    second: VFX_charge_polish_6
+  - first:
+      213: 1410486414467434007
+    second: VFX_charge_polish_7
+  - first:
+      213: -7896069435354447917
+    second: VFX_charge_polish_8
+  - first:
+      213: -1971715375296475217
+    second: VFX_charge_polish_9
+  - first:
+      213: -637997171152044277
+    second: VFX_charge_polish_10
+  - first:
+      213: 3287552559143883034
+    second: VFX_charge_polish_11
+  - first:
+      213: 6365375887949811947
+    second: VFX_charge_polish_12
+  - first:
+      213: -1146758705130686843
+    second: VFX_charge_polish_13
+  - first:
+      213: -7295849009917176489
+    second: VFX_charge_polish_14
+  - first:
+      213: -6455335913065742922
+    second: VFX_charge_polish_15
+  - first:
+      213: -797261928483045410
+    second: VFX_charge_polish_16
+  - first:
+      213: -4117482965207284580
+    second: VFX_charge_polish_17
+  - first:
+      213: -3298138623531736386
+    second: VFX_charge_polish_18
+  - first:
+      213: 1495197212164851999
+    second: VFX_charge_polish_19
+  - first:
+      213: 4618217979489338428
+    second: VFX_charge_polish_20
+  - first:
+      213: -659358286854956963
+    second: VFX_charge_polish_21
+  - first:
+      213: 5498185939440030825
+    second: VFX_charge_polish_22
+  - first:
+      213: 3541187925555466193
+    second: VFX_charge_polish_23
+  - first:
+      213: 8726546547310022001
+    second: VFX_charge_polish_24
+  - first:
+      213: -4784695563062326675
+    second: VFX_charge_polish_25
+  - first:
+      213: -6427919244064885634
+    second: VFX_charge_polish_26
+  - first:
+      213: 1983033254937979342
+    second: VFX_charge_polish_27
+  - first:
+      213: 6414060161823293753
+    second: VFX_charge_polish_28
+  - first:
+      213: -9188989197647036307
+    second: VFX_charge_polish_29
+  - first:
+      213: 2364767566461599924
+    second: VFX_charge_polish_30
+  - first:
+      213: 8801780763348816930
+    second: VFX_charge_polish_31
+  - first:
+      213: 5716587640699645755
+    second: VFX_charge_polish_32
+  - first:
+      213: -6116959265642240353
+    second: VFX_charge_polish_33
+  - first:
+      213: 1730582670876191653
+    second: VFX_charge_polish_34
+  - first:
+      213: -4641840333440449038
+    second: VFX_charge_polish_35
+  - first:
+      213: -7075176506157341947
+    second: VFX_charge_polish_36
+  - first:
+      213: -3528727485360356086
+    second: VFX_charge_polish_37
+  - first:
+      213: -7544358948961482942
+    second: VFX_charge_polish_38
+  - first:
+      213: -1981246856720217042
+    second: VFX_charge_polish_39
+  - first:
+      213: -7221137812279499091
+    second: VFX_charge_polish_40
+  - first:
+      213: 6034657740731579989
+    second: VFX_charge_polish_41
+  - first:
+      213: -8247860770710583522
+    second: VFX_charge_polish_42
+  - first:
+      213: 8450194374228734305
+    second: VFX_charge_polish_43
+  - first:
+      213: 453394588916737289
+    second: VFX_charge_polish_44
+  - first:
+      213: -499471235132501608
+    second: VFX_charge_polish_45
+  - first:
+      213: 1163032096019129826
+    second: VFX_charge_polish_46
+  - first:
+      213: 6088849209130929648
+    second: VFX_charge_polish_47
+  - first:
+      213: -5723984622037603793
+    second: VFX_charge_polish_48
+  - first:
+      213: 5957455121232138167
+    second: VFX_charge_polish_49
+  - first:
+      213: 5595378534335094856
+    second: VFX_charge_polish_50
+  - first:
+      213: 1380341542716739615
+    second: VFX_charge_polish_51
+  - first:
+      213: -2380384012989842612
+    second: VFX_charge_polish_52
+  - first:
+      213: 3833198766849741669
+    second: VFX_charge_polish_53
+  - first:
+      213: 6430224974544523210
+    second: VFX_charge_polish_54
+  - first:
+      213: -393448083351891044
+    second: VFX_charge_polish_55
+  - first:
+      213: 6928473425151462406
+    second: VFX_charge_polish_56
+  - first:
+      213: -4966439367218495847
+    second: VFX_charge_polish_57
+  - first:
+      213: 473288265597606781
+    second: VFX_charge_polish_58
+  - first:
+      213: 6527351312727918261
+    second: VFX_charge_polish_59
+  - first:
+      213: 5781384231065475148
+    second: VFX_charge_polish_60
+  - first:
+      213: -2000344324972459594
+    second: VFX_charge_polish_61
+  - first:
+      213: 3618598982119928052
+    second: VFX_charge_polish_62
+  - first:
+      213: 4416027478355499900
+    second: VFX_charge_polish_63
+  - first:
+      213: 645520607127048135
+    second: VFX_charge_polish_64
+  - first:
+      213: 6594265597833172540
+    second: VFX_charge_polish_65
+  - first:
+      213: -8631988482678109811
+    second: VFX_charge_polish_66
+  - first:
+      213: 5396377240178521110
+    second: VFX_charge_polish_67
+  - first:
+      213: 6450032923233722943
+    second: VFX_charge_polish_68
+  - first:
+      213: -7577636115168535052
+    second: VFX_charge_polish_69
+  - first:
+      213: -5369173288364766955
+    second: VFX_charge_polish_70
+  - first:
+      213: 4018681649596588039
+    second: VFX_charge_polish_71
+  - first:
+      213: 7554484499511874972
+    second: VFX_charge_polish_72
+  - first:
+      213: -1213161742816808863
+    second: VFX_charge_polish_73
+  - first:
+      213: 8253318243797592105
+    second: VFX_charge_polish_74
+  - first:
+      213: 3118337647430344298
+    second: VFX_charge_polish_75
+  - first:
+      213: 4579376742231060830
+    second: VFX_charge_polish_76
+  - first:
+      213: 7988628108657376870
+    second: VFX_charge_polish_77
+  - first:
+      213: 4197163640806435636
+    second: VFX_charge_polish_78
+  - first:
+      213: 2263136086864503189
+    second: VFX_charge_polish_79
+  - first:
+      213: -9103707141015301587
+    second: VFX_charge_polish_80
+  - first:
+      213: 2465657424223404537
+    second: VFX_charge_polish_81
+  - first:
+      213: 436018803754621968
+    second: VFX_charge_polish_82
+  - first:
+      213: 5017253112333922757
+    second: VFX_charge_polish_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_charge_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2dfe1dd38ab6e5c0800000000000000
+      internalID: -4186453728081019605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9fdda88f0b37580800000000000000
+      internalID: -8830519862815229459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dcba8f95eaae18d0800000000000000
+      internalID: -2873671609014895403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e60bea1ecebdeb0800000000000000
+      internalID: -4693897732561015284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cc3fee4e28426170800000000000000
+      internalID: 8170172037733498054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e91964dce705fe0800000000000000
+      internalID: -1202321680390578536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a654d4b61d3ade0800000000000000
+      internalID: -1322983606728693193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71688debbed039310800000000000000
+      internalID: 1410486414467434007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dff0e70fa68b6290800000000000000
+      internalID: -7896069435354447917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf0741105f03a4e0800000000000000
+      internalID: -1971715375296475217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f37cdf3f06527f0800000000000000
+      internalID: -637997171152044277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_charge_polish_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11923462abbf9d20800000000000000
+      internalID: 3287552559143883034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 339fdd9aaa3b848d69b40adfc72126a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_charge_polish_0: -4186453728081019605
+      VFX_charge_polish_1: -8830519862815229459
+      VFX_charge_polish_10: -637997171152044277
+      VFX_charge_polish_11: 3287552559143883034
+      VFX_charge_polish_2: -2873671609014895403
+      VFX_charge_polish_3: -4693897732561015284
+      VFX_charge_polish_4: 8170172037733498054
+      VFX_charge_polish_5: -1202321680390578536
+      VFX_charge_polish_6: -1322983606728693193
+      VFX_charge_polish_7: 1410486414467434007
+      VFX_charge_polish_8: -7896069435354447917
+      VFX_charge_polish_9: -1971715375296475217
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

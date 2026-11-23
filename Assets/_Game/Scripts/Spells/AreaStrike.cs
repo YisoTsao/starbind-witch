@@ -20,8 +20,12 @@ namespace Starbind.Spells
         int maxTargets;
         bool armed;
         Action<int> onHit;
+        float fx;
+        bool groundPulse;
 
-        public static AreaStrike Schedule(Vector2 p, float delay, float radius, DamageEvent e, Team team, string vfx, Color light, string sfx = null, int maxTargets = 64, Action<int> onHit = null)
+        /// <param name="fx">Spell-effect power: &gt; 0 replaces <paramref name="vfx"/> with the SpellFx impact
+        /// of the hit's element (sky lightning, blast...).</param>
+        public static AreaStrike Schedule(Vector2 p, float delay, float radius, DamageEvent e, Team team, string vfx, Color light, string sfx = null, int maxTargets = 64, Action<int> onHit = null, float fx = 0f, bool groundPulse = false)
         {
             var s = SpellPools.Instance.Strikes.Get();
             if (s == null)
@@ -37,6 +41,8 @@ namespace Starbind.Spells
             s.maxTargets = maxTargets;
             s.armed = true;
             s.onHit = onHit;
+            s.fx = fx;
+            s.groundPulse = groundPulse;
             return s;
         }
 
@@ -47,9 +53,12 @@ namespace Starbind.Spells
             armed = false;
             Vector2 p = transform.position;
             var v = VfxService.Instance;
-            if (!string.IsNullOrEmpty(vfx))
+            if (fx > 0)
+                SpellFx.Impact(hit.Element, p, Mathf.Max(1f, radius / 0.75f) * fx, fx >= 1.5f,
+                    pulseRadius: groundPulse ? radius : 0f);
+            else if (!string.IsNullOrEmpty(vfx))
                 v.Play(vfx, vfx == "VFX_lightning" ? p + new Vector2(0, 0.85f) : p, 0, vfx == "VFX_lightning" ? 1f : radius / 0.75f);
-            if (lightColor.a > 0)
+            if (fx <= 0 && lightColor.a > 0)
                 v.Light(p, lightColor, radius * 2.2f, 1.6f, 0.25f);
             v.Sparks(p, lightColor.a > 0 ? lightColor : Color.white, 10, 4f);
             if (!string.IsNullOrEmpty(sfx))

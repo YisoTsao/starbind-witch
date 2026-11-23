@@ -228,8 +228,12 @@ namespace Starbind.Player
             Sfx.Play(finisher ? "sfx_staff_heavy" : "sfx_staff", 0.7f);
             if (finisher)
             {
-                v.Play("VFX_thunder_ring", center + AimDirection * 0.5f, 0, 1.0f, new Color(0.85f, 0.7f, 1f));
-                v.Light(center + AimDirection * 0.5f, new Color(0.8f, 0.6f, 1f), 2.5f, 1.4f, 0.2f);
+                var hitPoint = center + AimDirection * 0.5f;
+                v.Glow(hitPoint, new Color(0.75f, 0.45f, 1f, 0.62f), 3.4f, 0.3f);
+                v.Play("VFX_shockwave", hitPoint, 0, 1.3f, new Color(0.85f, 0.7f, 1f));
+                v.Play("VFX_flash", hitPoint, 0, 1.1f, Color.white);
+                v.Sparks(hitPoint, new Color(0.9f, 0.75f, 1f), 14, 5f, 0.35f, 0.1f);
+                v.Light(hitPoint, new Color(0.8f, 0.6f, 1f), 2.25f, 0.7f, 0.22f);
                 if (landed > 0)
                 {
                     CameraFollow2D.Main?.Shake(0.08f, 0.15f);
@@ -283,14 +287,22 @@ namespace Starbind.Player
                 Pierce = level - 1,
                 Returns = BoltReturns,
                 Sprite = "VFX_magic_bolt",
+                Rotate = true,
                 Scale = 0.9f + 0.2f * level,
                 ImpactVfx = "VFX_ice_burst",
                 ImpactColor = new Color(0.85f, 0.65f, 1f),
                 StopOnProps = true,
                 ImpactSfx = "sfx_bolt_hit",
+                Fx = 0.6f + 0.5f * level,   // level 2+ is a heavy impact
             };
             Sfx.Play("sfx_bolt", 0.8f);
-            VfxService.Instance.Light(Center, new Color(0.75f, 0.55f, 1f), 2f, 1.2f, 0.15f);
+            SpellFx.Cast(ElementType.None, transform.position, Center + AimDirection * 0.35f, AimDirection, 0.8f + 0.3f * level);
+            if (level >= 3)
+            {
+                VfxService.Instance.Play("VFX_shockwave", Center, 0, 1.4f, new Color(0.85f, 0.65f, 1f));
+                VfxService.Instance.ScreenFlash(new Color(0.85f, 0.7f, 1f), 0.15f, 0.12f);
+                CameraFollow2D.Main?.Shake(0.06f, 0.12f);
+            }
             return Projectile.Launch(spec, transform);
         }
 
@@ -330,13 +342,13 @@ namespace Starbind.Player
         void OnOverdriveStarted()
         {
             var v = VfxService.Instance;
-            overdriveFx = v.Play("VFX_overdrive_aura", transform.position, 0, 1.2f, null, StarbindLayers.SortGroundDecal, 4, true, transform);
+            overdriveFx = v.Play("VFX_spell_aura", transform.position, 0, 1.2f, null, StarbindLayers.SortGroundDecal, 4, true, transform);
             if (overdriveFx != null)
                 overdriveFx.FollowOffset = new Vector2(0, 0.1f);
-            v.Play("VFX_levelup", Center, 0, 2f, new Color(1f, 0.85f, 1f));
-            v.Light(Center, new Color(0.85f, 0.6f, 1f), 5f, 2.2f, 0.6f);
-            v.Sparks(Center, new Color(1f, 0.9f, 0.5f), 30, 6f, 0.6f);
-            CameraFollow2D.Main?.Shake(0.12f, 0.35f);
+            v.Light(Center, new Color(0.85f, 0.6f, 1f), 3.1f, 0.8f, 0.53f);
+            v.Sparks(Center, new Color(1f, 0.9f, 0.5f), 22, 5.6f, 0.6f);
+            SpellFx.Overdrive(transform.position, Center);
+            CameraFollow2D.Main?.Shake(0.18f, 0.45f);
             Sfx.Play("sfx_overdrive", 1f);
             Notice?.Invoke("魔典超載！");
         }

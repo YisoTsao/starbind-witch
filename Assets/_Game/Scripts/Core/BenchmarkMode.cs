@@ -92,7 +92,17 @@ namespace Starbind.Core
                           $"\"vsync\":{QualitySettings.vSyncCount},\"device\":\"{SystemInfo.deviceModel} / {SystemInfo.graphicsDeviceName}\"}}";
             File.WriteAllText(outPath, json);
             Debug.Log("[Benchmark] " + json);
+            // real Player frame of the settings panel (pixel-font glyphs at the actual window resolution)
+            sp.DespawnAll();
+            var ui = GameSession.Instance.UI;
+            ui.CloseModal();
+            ui.TogglePause();
+            ui.ShowSettings();
+            for (int f = 0; f < 5; f++)
+                yield return null;
+            ScreenCapture.CaptureScreenshot(Path.Combine(Path.GetDirectoryName(outPath), Path.GetFileNameWithoutExtension(outPath) + "_settings.png"));
             yield return new WaitForSecondsRealtime(0.5f);
+            ui.CloseModal();
             Application.Quit();
         }
     }

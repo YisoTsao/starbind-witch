@@ -1,0 +1,776 @@
+fileFormatVersion: 2
+guid: 8129cb188bb3548c9bd7c1d92542dcd5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8032870171370521191
+    second: VFX_wind_funnel_polish_0
+  - first:
+      213: 8247015713800557290
+    second: VFX_wind_funnel_polish_1
+  - first:
+      213: 5616325713756815556
+    second: VFX_wind_funnel_polish_2
+  - first:
+      213: 5046871455675299327
+    second: VFX_wind_funnel_polish_3
+  - first:
+      213: -6438821807076130630
+    second: VFX_wind_funnel_polish_4
+  - first:
+      213: 1799751464766046350
+    second: VFX_wind_funnel_polish_5
+  - first:
+      213: 8782287695826685505
+    second: VFX_wind_funnel_polish_6
+  - first:
+      213: 4250510846495567735
+    second: VFX_wind_funnel_polish_7
+  - first:
+      213: -5896803462753924292
+    second: VFX_wind_funnel_polish_8
+  - first:
+      213: -984955499289662753
+    second: VFX_wind_funnel_polish_9
+  - first:
+      213: 8405650580080172263
+    second: VFX_wind_funnel_polish_10
+  - first:
+      213: -3669064092964313417
+    second: VFX_wind_funnel_polish_11
+  - first:
+      213: -3603663077848734629
+    second: VFX_wind_funnel_polish_12
+  - first:
+      213: 7141306864079651187
+    second: VFX_wind_funnel_polish_13
+  - first:
+      213: 2311725775905738207
+    second: VFX_wind_funnel_polish_14
+  - first:
+      213: -1339983966774564326
+    second: VFX_wind_funnel_polish_15
+  - first:
+      213: 1045560871226793214
+    second: VFX_wind_funnel_polish_16
+  - first:
+      213: -4126902886240879638
+    second: VFX_wind_funnel_polish_17
+  - first:
+      213: -5733799004186051486
+    second: VFX_wind_funnel_polish_18
+  - first:
+      213: 5759788013456181240
+    second: VFX_wind_funnel_polish_19
+  - first:
+      213: 7903265378825013062
+    second: VFX_wind_funnel_polish_20
+  - first:
+      213: -3831160263703826447
+    second: VFX_wind_funnel_polish_21
+  - first:
+      213: -6627172761293943954
+    second: VFX_wind_funnel_polish_22
+  - first:
+      213: -8760420008317503465
+    second: VFX_wind_funnel_polish_23
+  - first:
+      213: -5934708469040984660
+    second: VFX_wind_funnel_polish_24
+  - first:
+      213: 2386686397618875731
+    second: VFX_wind_funnel_polish_25
+  - first:
+      213: 6381211984949484458
+    second: VFX_wind_funnel_polish_26
+  - first:
+      213: -8037533816864246811
+    second: VFX_wind_funnel_polish_27
+  - first:
+      213: -4359267339794225496
+    second: VFX_wind_funnel_polish_28
+  - first:
+      213: 4720504424812600290
+    second: VFX_wind_funnel_polish_29
+  - first:
+      213: 7771447176256846753
+    second: VFX_wind_funnel_polish_30
+  - first:
+      213: -1427690466348177316
+    second: VFX_wind_funnel_polish_31
+  - first:
+      213: 8626032703503940890
+    second: VFX_wind_funnel_polish_32
+  - first:
+      213: -2008835196873280216
+    second: VFX_wind_funnel_polish_33
+  - first:
+      213: 7268804659111159535
+    second: VFX_wind_funnel_polish_34
+  - first:
+      213: -7367631472964060362
+    second: VFX_wind_funnel_polish_35
+  - first:
+      213: -419127670782073680
+    second: VFX_wind_funnel_polish_36
+  - first:
+      213: -2231737805909859966
+    second: VFX_wind_funnel_polish_37
+  - first:
+      213: -5727996370397459716
+    second: VFX_wind_funnel_polish_38
+  - first:
+      213: 6843390996792238035
+    second: VFX_wind_funnel_polish_39
+  - first:
+      213: -8038972668753405477
+    second: VFX_wind_funnel_polish_40
+  - first:
+      213: 1250188781148784960
+    second: VFX_wind_funnel_polish_41
+  - first:
+      213: -767526665752944715
+    second: VFX_wind_funnel_polish_42
+  - first:
+      213: -2200626140624771946
+    second: VFX_wind_funnel_polish_43
+  - first:
+      213: 3653017114506127875
+    second: VFX_wind_funnel_polish_44
+  - first:
+      213: -389673305385180456
+    second: VFX_wind_funnel_polish_45
+  - first:
+      213: -4803089336120632369
+    second: VFX_wind_funnel_polish_46
+  - first:
+      213: -8944709570820340109
+    second: VFX_wind_funnel_polish_47
+  - first:
+      213: 944241532568445042
+    second: VFX_wind_funnel_polish_48
+  - first:
+      213: 2156409104660325307
+    second: VFX_wind_funnel_polish_49
+  - first:
+      213: -8697348311917680145
+    second: VFX_wind_funnel_polish_50
+  - first:
+      213: 3320023451465665370
+    second: VFX_wind_funnel_polish_51
+  - first:
+      213: 8495200760248875359
+    second: VFX_wind_funnel_polish_52
+  - first:
+      213: -4002457379840760658
+    second: VFX_wind_funnel_polish_53
+  - first:
+      213: -344015116737220831
+    second: VFX_wind_funnel_polish_54
+  - first:
+      213: -5689338160104905423
+    second: VFX_wind_funnel_polish_55
+  - first:
+      213: -1676956832191589463
+    second: VFX_wind_funnel_polish_56
+  - first:
+      213: -4245644116993821235
+    second: VFX_wind_funnel_polish_57
+  - first:
+      213: 4772163121701952570
+    second: VFX_wind_funnel_polish_58
+  - first:
+      213: -1800672837440463433
+    second: VFX_wind_funnel_polish_59
+  - first:
+      213: 7978203823513082448
+    second: VFX_wind_funnel_polish_60
+  - first:
+      213: 3551120069165035158
+    second: VFX_wind_funnel_polish_61
+  - first:
+      213: -7330943005020965715
+    second: VFX_wind_funnel_polish_62
+  - first:
+      213: -5866125402628531489
+    second: VFX_wind_funnel_polish_63
+  - first:
+      213: -4050494109632329713
+    second: VFX_wind_funnel_polish_64
+  - first:
+      213: 5152369078126066990
+    second: VFX_wind_funnel_polish_65
+  - first:
+      213: 279486920138720548
+    second: VFX_wind_funnel_polish_66
+  - first:
+      213: 6904937816698082936
+    second: VFX_wind_funnel_polish_67
+  - first:
+      213: 3299137552171414845
+    second: VFX_wind_funnel_polish_68
+  - first:
+      213: -4728308703908680173
+    second: VFX_wind_funnel_polish_69
+  - first:
+      213: 2806245815770462830
+    second: VFX_wind_funnel_polish_70
+  - first:
+      213: -2380202212631337688
+    second: VFX_wind_funnel_polish_71
+  - first:
+      213: -6588710390635628850
+    second: VFX_wind_funnel_polish_72
+  - first:
+      213: 1426293259665886216
+    second: VFX_wind_funnel_polish_73
+  - first:
+      213: 3051141124937860789
+    second: VFX_wind_funnel_polish_74
+  - first:
+      213: -3494272930493739862
+    second: VFX_wind_funnel_polish_75
+  - first:
+      213: 521262303939021476
+    second: VFX_wind_funnel_polish_76
+  - first:
+      213: 6633510877382784595
+    second: VFX_wind_funnel_polish_77
+  - first:
+      213: 990676499076128398
+    second: VFX_wind_funnel_polish_78
+  - first:
+      213: -1789949790155855713
+    second: VFX_wind_funnel_polish_79
+  - first:
+      213: -328963701213717415
+    second: VFX_wind_funnel_polish_80
+  - first:
+      213: -2688028417050572795
+    second: VFX_wind_funnel_polish_81
+  - first:
+      213: 3297730049824143700
+    second: VFX_wind_funnel_polish_82
+  - first:
+      213: -2670695563585704089
+    second: VFX_wind_funnel_polish_83
+  - first:
+      213: -1842577225164048850
+    second: VFX_wind_funnel_polish_84
+  - first:
+      213: 7136796006267078415
+    second: VFX_wind_funnel_polish_85
+  - first:
+      213: -802813164727653787
+    second: VFX_wind_funnel_polish_86
+  - first:
+      213: -5785373244600394298
+    second: VFX_wind_funnel_polish_87
+  - first:
+      213: -8813557224160177340
+    second: VFX_wind_funnel_polish_88
+  - first:
+      213: 7154948216795944408
+    second: VFX_wind_funnel_polish_89
+  - first:
+      213: 3613635093140907782
+    second: VFX_wind_funnel_polish_90
+  - first:
+      213: -7964048008515675966
+    second: VFX_wind_funnel_polish_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99df0ac9323858090800000000000000
+      internalID: -8032870171370521191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae2952ed819437270800000000000000
+      internalID: 8247015713800557290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c00e57ea7231fd40800000000000000
+      internalID: 5616325713756815556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5b59679d61a0640800000000000000
+      internalID: 5046871455675299327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab040394ea5b4a6a0800000000000000
+      internalID: -6438821807076130630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e808e55fb600af810800000000000000
+      internalID: 1799751464766046350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e8809f024f0e970800000000000000
+      internalID: 8782287695826685505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f205f3819dcfa30800000000000000
+      internalID: 4250510846495567735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b42444e785a2ea0800000000000000
+      internalID: -5896803462753924292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_9
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdaa541213cb452f0800000000000000
+      internalID: -984955499289662753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec1cb3eaaed6a470800000000000000
+      internalID: 8405650580080172263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_11
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6a8b0a5add41dc0800000000000000
+      internalID: -3669064092964313417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_12
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54a2a216873dfdc0800000000000000
+      internalID: -3603663077848734629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_13
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371c681b1c40b1360800000000000000
+      internalID: 7141306864079651187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_14
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddc9fa5856e41020800000000000000
+      internalID: 2311725775905738207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_funnel_polish_15
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aeea78eab676de0800000000000000
+      internalID: -1339983966774564326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: de85be0ce93a04b9ca85a9a3db591b67
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_wind_funnel_polish_0: -8032870171370521191
+      VFX_wind_funnel_polish_1: 8247015713800557290
+      VFX_wind_funnel_polish_10: 8405650580080172263
+      VFX_wind_funnel_polish_11: -3669064092964313417
+      VFX_wind_funnel_polish_12: -3603663077848734629
+      VFX_wind_funnel_polish_13: 7141306864079651187
+      VFX_wind_funnel_polish_14: 2311725775905738207
+      VFX_wind_funnel_polish_15: -1339983966774564326
+      VFX_wind_funnel_polish_2: 5616325713756815556
+      VFX_wind_funnel_polish_3: 5046871455675299327
+      VFX_wind_funnel_polish_4: -6438821807076130630
+      VFX_wind_funnel_polish_5: 1799751464766046350
+      VFX_wind_funnel_polish_6: 8782287695826685505
+      VFX_wind_funnel_polish_7: 4250510846495567735
+      VFX_wind_funnel_polish_8: -5896803462753924292
+      VFX_wind_funnel_polish_9: -984955499289662753
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

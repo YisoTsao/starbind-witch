@@ -35,6 +35,19 @@ namespace Starbind.Editor
             ti.SetTextureSettings(s);
         }
 
+        /// <summary>Pixel fonts (Resources/Fonts/*.ttf): dynamic, hinted raster (no anti-aliasing) so glyphs
+        /// stay crisp at multiples of their 12 px design size.</summary>
+        void OnPreprocessAsset()
+        {
+            if (!assetPath.StartsWith("Assets/_Game/Resources/Fonts/") || assetImporter is not TrueTypeFontImporter fi)
+                return;
+            fi.fontTextureCase = FontTextureCase.Dynamic;
+            fi.fontRenderingMode = FontRenderingMode.HintedRaster;
+            fi.includeFontData = true;
+            fi.fontSize = 12;
+            fi.characterPadding = 1;
+        }
+
         void OnPostprocessTexture(Texture2D texture)
         {
             if (!Applies(assetPath))

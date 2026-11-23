@@ -150,6 +150,17 @@ namespace Starbind.Tests
             player.Build.Auto.Enabled = false;
             yield return At(new Vector2(24.2f, 34.6f));
             yield return Shot("V01_village_square_hud");
+            // facing left (walk left a moment, then capture while still facing left)
+            for (float t = 0; t < 0.3f; t += Time.deltaTime)
+            {
+                player.Motor.SetMoveInput(new Vector2(-1f, -0.6f));
+                yield return null;
+            }
+            player.Motor.SetMoveInput(Vector2.zero);
+            yield return Shot("V10_witch_facing_down_left", 2);
+            GameSession.Instance.UI.ToggleMap();
+            yield return Shot("V09_world_map", 2);
+            GameSession.Instance.UI.ToggleMap();
             yield return At(new Vector2(9.0f, 15.6f));
             yield return Shot("V02_bridge_archer");
             yield return At(new Vector2(21.6f, 9.5f));
@@ -297,6 +308,124 @@ namespace Starbind.Tests
             yield return Shot("F11_results_victory");
             GameSession.Instance.UI.CloseModal();
             yield return Overview("F00_forest_overview_native_2048", 64, 64);
+        }
+
+        /// <summary>2026-11-21 polish: big spell effects, new level-up cards, the three grimoire pages,
+        /// minimap objective arrow (screen flashes live on their own overlay canvas and are not in these frames).
+        /// Shots settle 3 frames: with 1, text laid out for the Overlay canvas is drawn in Camera mode and looks cropped.</summary>
+        [UnityTest]
+        public IEnumerator CapturePolish()
+        {
+            ObjectiveTracker.ResetStatics();
+            yield return Load("Forest");
+            var run = RunManager.Current;
+            run.Director.Running = false;
+            var sp = EnemySpawner.Instance;
+            sp.DespawnAll();
+            player.Vitals.Health.InvulnerableUntil = 9999f;
+            player.Build.Auto.Enabled = false;
+            var c = new Vector2(17f, 25.5f);
+
+            IEnumerator Group()
+            {
+                sp.DespawnAll();
+                yield return At(new Vector2(17f, 22.3f));
+                foreach (var id in new[] { "slime", "slime", "slime", "wisp" }) // root guards' red attack telegraphs would cover the spell
+                    sp.SpawnAt(id, sp.RandomAround(c, 1.2f));
+                foreach (var e in sp.AliveList) e.Health.InvulnerableUntil = 9999f;
+                yield return Wait(0.2f);
+            }
+
+            yield return Group();
+            player.Build.SetActive(0, "fire_bolt");
+            player.Combat.CastSlot(0, c);
+            yield return Wait(0.04f);
+            yield return Shot("S01_fire_bolt_cast_trail", 3);
+            yield return WaitUntilOrTimeout(() => VFX.SpellFx.ImpactEffects > 0, 1.5f);
+            yield return Wait(0.06f);
+            yield return Shot("S02_fire_bolt_blast", 3);
+
+            yield return Group();
+            player.Build.SetActive(0, "chain_spark");
+            int impacts = VFX.SpellFx.ImpactEffects;
+            player.Combat.CastSlot(0, c);
+            yield return WaitUntilOrTimeout(() => VFX.SpellFx.ImpactEffects > impacts, 1.5f);
+            yield return Shot("S03_chain_spark_sky_lightning", 3);
+
+            yield return Group();
+            player.Build.SetActive(0, "piercing_ice");
+            impacts = VFX.SpellFx.ImpactEffects;
+            yield return At(new Vector2(17f, 21.0f)); // a little further back so the shard flies before it hits
+            player.Combat.CastSlot(0, c);
+            yield return WaitUntilOrTimeout(() => VFX.SpellFx.ImpactEffects > impacts, 1.5f);
+            yield return Shot("S04_piercing_ice_frost_nova", 3);
+
+            yield return Group();
+            player.Build.SetActive(0, "wind_pull");
+            player.Combat.CastSlot(0, c);
+            yield return Wait(0.7f);
+            yield return Shot("S05_wind_pull_vortex", 3);
+
+            yield return Group();
+            player.Combat.Resonance.ForceFill();
+            player.Combat.TryOverdrive();
+            yield return Wait(0.06f);
+            yield return Shot("S06_overdrive_sky_strikes", 3);
+            yield return Wait(1.0f);
+
+            // the redrawn flipbooks side by side (display only, no enemies): blast, frost nova, sky bolt, wind blades
+            sp.DespawnAll();
+            yield return At(new Vector2(17f, 22.3f));
+            var vfx = VFX.VfxService.Instance;
+            var o = P + new Vector2(0, 2.6f);
+            vfx.Play("VFX_sky_bolt", o + new Vector2(1.2f, -0.8f), 0, 1.2f);
+            yield return Wait(0.05f);
+            vfx.Play("VFX_blast", o + new Vector2(-3.6f, 0), 0, 1.6f);
+            vfx.Play("VFX_frost_nova", o + new Vector2(4.4f, -0.6f), 0, 1.4f);
+            vfx.Play("VFX_wind_blades", o + new Vector2(-1.2f, -2.6f), 0, 1.4f);
+            yield return Wait(0.17f);
+            yield return Shot("S07_redrawn_effect_art", 3);
+            yield return Wait(0.6f);
+
+            // level-up cards (held open for the shot)
+            sp.DespawnAll();
+            holdCards = true;
+            run.Run.AddXp(RunState.XpToNext(run.Run.Level));
+            yield return Wait(0.6f);
+            yield return Shot("U01_level_up_cards", 2);
+            holdCards = false;
+            GameSession.Instance.UI.ChooseCard(0);
+            yield return Wait(0.2f);
+
+            var ui = GameSession.Instance.UI;
+            ui.ToggleGrimoire();
+            for (int tab = 0; tab < 3; tab++)
+            {
+                ui.Grimoire.Show(tab);
+                yield return Wait(0.1f);
+                yield return Shot($"U0{tab + 2}_grimoire_page{tab + 1}", 2);
+            }
+            ui.CloseModal();
+
+            // settings: full-screen flash level (from the pause menu)
+            ui.TogglePause();
+            yield return Wait(0.1f);
+            yield return Shot("U05_pause_menu");
+            ui.ShowSettings();
+            ui.ChooseSetting(1);
+            yield return Wait(0.1f);
+            yield return Shot("U06_settings_screen_flash");
+            ui.ChooseSetting(0);
+            ui.CloseModal();
+
+            // 2-tile-tall village cliffs with corners: plateau + waterfall, and the ledge below the fountain
+            yield return Load("Village");
+            yield return At(new Vector2(9.0f, 31.5f));
+            yield return Wait(0.3f);
+            yield return Shot("V11_plateau_cliff_two_tiles", 3);
+            yield return At(new Vector2(31.5f, 27.6f));
+            yield return Wait(0.3f);
+            yield return Shot("V12_ledge_cliff_corners", 3);
         }
     }
 }

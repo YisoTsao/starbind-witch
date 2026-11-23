@@ -353,12 +353,12 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3856209960778335147, guid: 5dda10808036f40df8428a13ef7a5154, type: 3}
+  m_Sprite: {fileID: 4090147622271801202, guid: 3395eedda45654e75ae36b80e47c394e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 2, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -376,9 +376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3843ca287ed3a43688a577fa2460a2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Player.CharacterAnimator
+  sheet: CHR_witch_ref
   target: {fileID: 287499328089981685}
-  sheet: CHR_witch_draft
   walkFps: 8
+  idleFps: 2
+  actionFps: 14
 --- !u!1 &5010212263304289136
 GameObject:
   m_ObjectHideFlags: 0

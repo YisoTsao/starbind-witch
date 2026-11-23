@@ -1,0 +1,965 @@
+fileFormatVersion: 2
+guid: be8aa9967e5b64b8786eff51c9de294a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6243480241915204675
+    second: VFX_vortex_polish_0
+  - first:
+      213: -4624457901878969732
+    second: VFX_vortex_polish_1
+  - first:
+      213: -1872898925339864405
+    second: VFX_vortex_polish_2
+  - first:
+      213: -6700764513371787558
+    second: VFX_vortex_polish_3
+  - first:
+      213: 3441751729164692078
+    second: VFX_vortex_polish_4
+  - first:
+      213: 1702377441966851326
+    second: VFX_vortex_polish_5
+  - first:
+      213: -1869418195759952647
+    second: VFX_vortex_polish_6
+  - first:
+      213: -8926238917659699809
+    second: VFX_vortex_polish_7
+  - first:
+      213: -1508169496147352182
+    second: VFX_vortex_polish_8
+  - first:
+      213: -2809261037560387341
+    second: VFX_vortex_polish_9
+  - first:
+      213: -1763649373930635036
+    second: VFX_vortex_polish_10
+  - first:
+      213: -2717919601919846754
+    second: VFX_vortex_polish_11
+  - first:
+      213: 5316283263665072978
+    second: VFX_vortex_polish_12
+  - first:
+      213: 1207175826765221348
+    second: VFX_vortex_polish_13
+  - first:
+      213: -2955414118103317819
+    second: VFX_vortex_polish_14
+  - first:
+      213: 6300839879162319169
+    second: VFX_vortex_polish_15
+  - first:
+      213: -4349746289855916042
+    second: VFX_vortex_polish_16
+  - first:
+      213: 6204837970978317092
+    second: VFX_vortex_polish_17
+  - first:
+      213: 5580837620420644695
+    second: VFX_vortex_polish_18
+  - first:
+      213: 4139309802525815087
+    second: VFX_vortex_polish_19
+  - first:
+      213: -187868776509637818
+    second: VFX_vortex_polish_20
+  - first:
+      213: 4101427409807456370
+    second: VFX_vortex_polish_21
+  - first:
+      213: -2833567702159018044
+    second: VFX_vortex_polish_22
+  - first:
+      213: -3476085016534201540
+    second: VFX_vortex_polish_23
+  - first:
+      213: -5265728020649410157
+    second: VFX_vortex_polish_24
+  - first:
+      213: 8962005402220324133
+    second: VFX_vortex_polish_25
+  - first:
+      213: -2241030700926024517
+    second: VFX_vortex_polish_26
+  - first:
+      213: 8442679195655609443
+    second: VFX_vortex_polish_27
+  - first:
+      213: -6039734925359239154
+    second: VFX_vortex_polish_28
+  - first:
+      213: -5171060509051379517
+    second: VFX_vortex_polish_29
+  - first:
+      213: 9180670539346773686
+    second: VFX_vortex_polish_30
+  - first:
+      213: -7252953975693848405
+    second: VFX_vortex_polish_31
+  - first:
+      213: 852453320969089419
+    second: VFX_vortex_polish_32
+  - first:
+      213: 7763495781365318241
+    second: VFX_vortex_polish_33
+  - first:
+      213: -5190555340542687006
+    second: VFX_vortex_polish_34
+  - first:
+      213: 1919193483487081292
+    second: VFX_vortex_polish_35
+  - first:
+      213: -4205720379136044823
+    second: VFX_vortex_polish_36
+  - first:
+      213: -6044185350865062006
+    second: VFX_vortex_polish_37
+  - first:
+      213: 7754017051144619532
+    second: VFX_vortex_polish_38
+  - first:
+      213: 199689675679152630
+    second: VFX_vortex_polish_39
+  - first:
+      213: 6468675473475041940
+    second: VFX_vortex_polish_40
+  - first:
+      213: -6142260930281284858
+    second: VFX_vortex_polish_41
+  - first:
+      213: 3586206295729178985
+    second: VFX_vortex_polish_42
+  - first:
+      213: 3319049108960154065
+    second: VFX_vortex_polish_43
+  - first:
+      213: -4902983465434545299
+    second: VFX_vortex_polish_44
+  - first:
+      213: -4478559711574296363
+    second: VFX_vortex_polish_45
+  - first:
+      213: 9181309062809941807
+    second: VFX_vortex_polish_46
+  - first:
+      213: 8419515697413734828
+    second: VFX_vortex_polish_47
+  - first:
+      213: -8491241314252163661
+    second: VFX_vortex_polish_48
+  - first:
+      213: 8124137930447696306
+    second: VFX_vortex_polish_49
+  - first:
+      213: -8005985874478562674
+    second: VFX_vortex_polish_50
+  - first:
+      213: -253628251042269531
+    second: VFX_vortex_polish_51
+  - first:
+      213: -2381368999525306240
+    second: VFX_vortex_polish_52
+  - first:
+      213: 9084407829723914899
+    second: VFX_vortex_polish_53
+  - first:
+      213: -1745383442940380068
+    second: VFX_vortex_polish_54
+  - first:
+      213: -7920843718243677242
+    second: VFX_vortex_polish_55
+  - first:
+      213: 608079042378317191
+    second: VFX_vortex_polish_56
+  - first:
+      213: 4963102911080582069
+    second: VFX_vortex_polish_57
+  - first:
+      213: 2941800051925215081
+    second: VFX_vortex_polish_58
+  - first:
+      213: -2025076380589711896
+    second: VFX_vortex_polish_59
+  - first:
+      213: -8930202863145139932
+    second: VFX_vortex_polish_60
+  - first:
+      213: 6658902753987343247
+    second: VFX_vortex_polish_61
+  - first:
+      213: -86185566705666125
+    second: VFX_vortex_polish_62
+  - first:
+      213: -2749189723427479472
+    second: VFX_vortex_polish_63
+  - first:
+      213: -6007936554197042787
+    second: VFX_vortex_polish_64
+  - first:
+      213: -3797121228527136117
+    second: VFX_vortex_polish_65
+  - first:
+      213: 5458699175767709924
+    second: VFX_vortex_polish_66
+  - first:
+      213: 8410319498471017671
+    second: VFX_vortex_polish_67
+  - first:
+      213: -3559585578398253007
+    second: VFX_vortex_polish_68
+  - first:
+      213: -7692382903057733275
+    second: VFX_vortex_polish_69
+  - first:
+      213: 6202499049985740363
+    second: VFX_vortex_polish_70
+  - first:
+      213: 6233795630488881185
+    second: VFX_vortex_polish_71
+  - first:
+      213: -6596960631906150266
+    second: VFX_vortex_polish_72
+  - first:
+      213: 6522218329502302474
+    second: VFX_vortex_polish_73
+  - first:
+      213: -4534021795340928326
+    second: VFX_vortex_polish_74
+  - first:
+      213: -8635379732333545096
+    second: VFX_vortex_polish_75
+  - first:
+      213: 6841366734939689964
+    second: VFX_vortex_polish_76
+  - first:
+      213: 5538619335109779258
+    second: VFX_vortex_polish_77
+  - first:
+      213: -4737317176548848726
+    second: VFX_vortex_polish_78
+  - first:
+      213: -8003295945529831253
+    second: VFX_vortex_polish_79
+  - first:
+      213: 1140166209530545375
+    second: VFX_vortex_polish_80
+  - first:
+      213: 2111612327319005852
+    second: VFX_vortex_polish_81
+  - first:
+      213: 3852739877409795169
+    second: VFX_vortex_polish_82
+  - first:
+      213: 147003089753881606
+    second: VFX_vortex_polish_83
+  - first:
+      213: -2669395432563699155
+    second: VFX_vortex_polish_84
+  - first:
+      213: 5315941747221329716
+    second: VFX_vortex_polish_85
+  - first:
+      213: -8779821851640746424
+    second: VFX_vortex_polish_86
+  - first:
+      213: 7098084081444901757
+    second: VFX_vortex_polish_87
+  - first:
+      213: -1551758570334203141
+    second: VFX_vortex_polish_88
+  - first:
+      213: 3909396515185157486
+    second: VFX_vortex_polish_89
+  - first:
+      213: -332738918403149135
+    second: VFX_vortex_polish_90
+  - first:
+      213: 2410596615406604132
+    second: VFX_vortex_polish_91
+  - first:
+      213: 4452409625479514718
+    second: VFX_vortex_polish_92
+  - first:
+      213: -2012406926009204975
+    second: VFX_vortex_polish_93
+  - first:
+      213: 1576028922015045363
+    second: VFX_vortex_polish_94
+  - first:
+      213: 1189540681393060528
+    second: VFX_vortex_polish_95
+  - first:
+      213: -3744551495676522918
+    second: VFX_vortex_polish_96
+  - first:
+      213: -2017089789437467501
+    second: VFX_vortex_polish_97
+  - first:
+      213: 4506475001919991970
+    second: VFX_vortex_polish_98
+  - first:
+      213: -6792648151647277492
+    second: VFX_vortex_polish_99
+  - first:
+      213: 1813509474151000998
+    second: VFX_vortex_polish_100
+  - first:
+      213: 4881157781890293687
+    second: VFX_vortex_polish_101
+  - first:
+      213: -4645002436660810863
+    second: VFX_vortex_polish_102
+  - first:
+      213: 7047119792149152017
+    second: VFX_vortex_polish_103
+  - first:
+      213: -5476249249581350711
+    second: VFX_vortex_polish_104
+  - first:
+      213: -3114252250888315640
+    second: VFX_vortex_polish_105
+  - first:
+      213: 4882649209497141935
+    second: VFX_vortex_polish_106
+  - first:
+      213: -5105368152870609338
+    second: VFX_vortex_polish_107
+  - first:
+      213: -8570801398657313172
+    second: VFX_vortex_polish_108
+  - first:
+      213: 2911719371417621092
+    second: VFX_vortex_polish_109
+  - first:
+      213: -8730780787973262646
+    second: VFX_vortex_polish_110
+  - first:
+      213: 6369665452490022154
+    second: VFX_vortex_polish_111
+  - first:
+      213: 3462239704579845311
+    second: VFX_vortex_polish_112
+  - first:
+      213: -4237038028475863486
+    second: VFX_vortex_polish_113
+  - first:
+      213: -2311351059873147783
+    second: VFX_vortex_polish_114
+  - first:
+      213: 4518836176418136114
+    second: VFX_vortex_polish_115
+  - first:
+      213: 5160972373465776282
+    second: VFX_vortex_polish_116
+  - first:
+      213: -4751658499296440513
+    second: VFX_vortex_polish_117
+  - first:
+      213: 6814941190695549462
+    second: VFX_vortex_polish_118
+  - first:
+      213: 8786917355267853415
+    second: VFX_vortex_polish_119
+  - first:
+      213: 121884570091994630
+    second: VFX_vortex_polish_120
+  - first:
+      213: -5323273573753931362
+    second: VFX_vortex_polish_121
+  - first:
+      213: 1740432706556578232
+    second: VFX_vortex_polish_122
+  - first:
+      213: -785731063109884028
+    second: VFX_vortex_polish_123
+  - first:
+      213: 3893919340466347069
+    second: VFX_vortex_polish_124
+  - first:
+      213: -1893906458113752317
+    second: VFX_vortex_polish_125
+  - first:
+      213: 977821445375918348
+    second: VFX_vortex_polish_126
+  - first:
+      213: 5352891741928891626
+    second: VFX_vortex_polish_127
+  - first:
+      213: -1002922887761598291
+    second: VFX_vortex_polish_128
+  - first:
+      213: 5007553004558121264
+    second: VFX_vortex_polish_129
+  - first:
+      213: 4226618722302106343
+    second: VFX_vortex_polish_130
+  - first:
+      213: 3798486716733560684
+    second: VFX_vortex_polish_131
+  - first:
+      213: -7749309449015179350
+    second: VFX_vortex_polish_132
+  - first:
+      213: 1896915783663006508
+    second: VFX_vortex_polish_133
+  - first:
+      213: 2996434906199045203
+    second: VFX_vortex_polish_134
+  - first:
+      213: -4534351459765477047
+    second: VFX_vortex_polish_135
+  - first:
+      213: 4107392443031318973
+    second: VFX_vortex_polish_136
+  - first:
+      213: -4770088883044250293
+    second: VFX_vortex_polish_137
+  - first:
+      213: -2287824443201657526
+    second: VFX_vortex_polish_138
+  - first:
+      213: 4544874210835898781
+    second: VFX_vortex_polish_139
+  - first:
+      213: -2116536608243173683
+    second: VFX_vortex_polish_140
+  - first:
+      213: 8100405046837279139
+    second: VFX_vortex_polish_141
+  - first:
+      213: 413724736711723930
+    second: VFX_vortex_polish_142
+  - first:
+      213: -8123693329297840546
+    second: VFX_vortex_polish_143
+  - first:
+      213: -5788739185954645260
+    second: VFX_vortex_polish_144
+  - first:
+      213: -654541305320174886
+    second: VFX_vortex_polish_145
+  - first:
+      213: -7192853034067455163
+    second: VFX_vortex_polish_146
+  - first:
+      213: 6313247918042615796
+    second: VFX_vortex_polish_147
+  - first:
+      213: 6807440716305203367
+    second: VFX_vortex_polish_148
+  - first:
+      213: 5446252365033587815
+    second: VFX_vortex_polish_149
+  - first:
+      213: 77135473459130695
+    second: VFX_vortex_polish_150
+  - first:
+      213: 5047679979212162847
+    second: VFX_vortex_polish_151
+  - first:
+      213: 1864905619699272943
+    second: VFX_vortex_polish_152
+  - first:
+      213: -9132717901739537840
+    second: VFX_vortex_polish_153
+  - first:
+      213: -4046432645794425178
+    second: VFX_vortex_polish_154
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_vortex_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb6972acc3ba59a0800000000000000
+      internalID: -6243480241915204675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a71c72a00a2dfb0800000000000000
+      internalID: -4624457901878969732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba218e6b9502206e0800000000000000
+      internalID: -1872898925339864405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade6ee06d2a1203a0800000000000000
+      internalID: -6700764513371787558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6aa2f566fe83cf20800000000000000
+      internalID: 3441751729164692078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef4821e834f00a710800000000000000
+      internalID: 1702377441966851326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc83193e0e7e06e0800000000000000
+      internalID: -1869418195759952647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9550a46ff0af1480800000000000000
+      internalID: -8926238917659699809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85ae0975d7e11be0800000000000000
+      internalID: -1508169496147352182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f82ede68ff7309d0800000000000000
+      internalID: -2809261037560387341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e046861d324687e0800000000000000
+      internalID: -1763649373930635036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e961f7fa582084ad0800000000000000
+      internalID: -2717919601919846754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b6c10267b37c940800000000000000
+      internalID: 5316283263665072978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_13
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed87cfb400c0c010800000000000000
+      internalID: 1207175826765221348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c2074e94824cf6d0800000000000000
+      internalID: -2955414118103317819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_vortex_polish_15
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.546875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141d510ac74117750800000000000000
+      internalID: 6300839879162319169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1f35e250f5cb74c939bd4750e7ee2bcf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_vortex_polish_0: -6243480241915204675
+      VFX_vortex_polish_1: -4624457901878969732
+      VFX_vortex_polish_10: -1763649373930635036
+      VFX_vortex_polish_11: -2717919601919846754
+      VFX_vortex_polish_12: 5316283263665072978
+      VFX_vortex_polish_13: 1207175826765221348
+      VFX_vortex_polish_14: -2955414118103317819
+      VFX_vortex_polish_15: 6300839879162319169
+      VFX_vortex_polish_2: -1872898925339864405
+      VFX_vortex_polish_3: -6700764513371787558
+      VFX_vortex_polish_4: 3441751729164692078
+      VFX_vortex_polish_5: 1702377441966851326
+      VFX_vortex_polish_6: -1869418195759952647
+      VFX_vortex_polish_7: -8926238917659699809
+      VFX_vortex_polish_8: -1508169496147352182
+      VFX_vortex_polish_9: -2809261037560387341
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

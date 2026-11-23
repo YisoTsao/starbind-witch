@@ -3,6 +3,7 @@ using Starbind.Combat;
 using Starbind.Core;
 using Starbind.VFX;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Starbind.Spells
 {
@@ -28,6 +29,9 @@ namespace Starbind.Spells
         public bool Rotate;
         public bool StopOnProps;
         public string ImpactSfx;
+        /// <summary>Spell-effect power (0 = plain sprite, e.g. enemy spores). &gt; 0 adds a glowing trail,
+        /// a following light, trail embers and a SpellFx impact; &gt;= 1.5 makes the impact heavy.</summary>
+        public float Fx;
     }
 
     /// <summary>Moves in a straight (or homing) line, resolves hits through CombatWorld, handles
@@ -39,6 +43,10 @@ namespace Starbind.Spells
         int pierceLeft;
         bool returning;
         SpriteFlipbook flip;
+        TrailRenderer trail;
+        Light2D glow;
+        SpriteFlipbook bloom;
+        float nextTrail;
         Transform returnTo;
         readonly List<Health> hits = new List<Health>(8);
         static readonly List<Collider2D> worldHits = new List<Collider2D>(4);
@@ -70,6 +78,7 @@ namespace Starbind.Spells
             returning = false;
             returnTo = owner;
             Alive = true;
+            nextTrail = Time.time;
             transform.position = s.Position;
             transform.localScale = new Vector3(spec.Scale, spec.Scale, 1);
             flip = flip != null ? flip : GetComponent<SpriteFlipbook>();
@@ -78,12 +87,51 @@ namespace Starbind.Spells
             flip.Renderer.sortingOrder = 5;
             flip.Play(set, true);
             Orient();
+            SetupFx();
             if (!filterReady)
             {
                 worldFilter = new ContactFilter2D { useLayerMask = true, useTriggers = false };
                 worldFilter.SetLayerMask(LayerMask.GetMask(StarbindLayers.WorldSolid));
                 filterReady = true;
             }
+        }
+
+        ElementType FxElement => spec.Hit.Element;
+        bool StarFire => spec.Sprite == "VFX_starfire";
+
+        void SetupFx()
+        {
+            if (spec.Fx <= 0)
+            {
+                if (trail != null)
+                    trail.emitting = false;
+                return;
+            }
+            if (trail == null)
+            {
+                trail = gameObject.AddComponent<TrailRenderer>();
+                var db = GameDatabase.Instance;
+                if (db != null && db.unlitMaterial != null)
+                    trail.sharedMaterial = db.unlitMaterial;
+                trail.sortingLayerName = StarbindLayers.SortVfx;
+                trail.sortingOrder = 4;
+                trail.numCapVertices = 0;
+                trail.minVertexDistance = 0.08f;
+            }
+            var col = StarFire ? new Color(1f, 0.8f, 0.34f) : SpellFx.ElementColor(FxElement);
+            trail.Clear();
+            trail.time = StarFire || spec.Homing != null ? 0.24f : 0.11f + 0.045f * spec.Fx;
+            trail.widthMultiplier = (FxElement == ElementType.Fire && !StarFire ? 0.16f : 0.1f) * spec.Scale;
+            trail.widthCurve = AnimationCurve.Linear(0, 1, 1, 0);
+            trail.colorGradient = new Gradient
+            {
+                colorKeys = new[] { new GradientColorKey(Color.Lerp(col, Color.white, 0.6f), 0), new GradientColorKey(col, 0.35f), new GradientColorKey(col * 0.6f, 1) },
+                alphaKeys = new[] { new GradientAlphaKey(0.88f, 0), new GradientAlphaKey(0.32f, 0.4f), new GradientAlphaKey(0, 1) },
+            };
+            trail.emitting = true;
+            var v = VfxService.Instance;
+            bloom = v.Glow(transform.position, new Color(col.r, col.g, col.b, 0.48f), 2.05f * spec.Scale, target: transform);
+            glow = v.AttachLight(transform, col, 1.15f + 0.45f * spec.Fx, 0.78f);
         }
 
         void Orient()
@@ -125,6 +173,11 @@ namespace Starbind.Spells
             float step = spec.Speed * dt;
             transform.position += (Vector3)(spec.Direction * step);
             traveled += step;
+            if (spec.Fx > 0 && Time.time >= nextTrail)
+            {
+                nextTrail = Time.time + 0.037f;
+                SpellFx.Trail(FxElement, transform.position, spec.Direction, StarFire);
+            }
 
             if (CheckHits())
                 return;
@@ -164,8 +217,12 @@ namespace Starbind.Spells
                     continue;
                 if (!string.IsNullOrEmpty(spec.ImpactSfx))
                     Sfx.Play(spec.ImpactSfx, 0.6f);
+                if (spec.Fx > 0 && pierceLeft > 0)
+                    SpellFx.Impact(FxElement, h.Center, 0.6f * spec.Scale); // each pierced target gets its own burst
                 if (spec.Split > 0)
                 {
+                    if (spec.Fx > 0)
+                        SpellFx.Impact(FxElement, transform.position, 0.8f * spec.Scale);
                     SplitInto(spec.Split);
                     spec.Split = 0;
                 }
@@ -215,7 +272,19 @@ namespace Starbind.Spells
             if (!Alive)
                 return;
             Alive = false;
-            if (impact && !string.IsNullOrEmpty(spec.ImpactVfx))
+            if (bloom != null)
+            {
+                VfxService.Instance.Release(bloom);
+                bloom = null;
+            }
+            if (glow != null)
+            {
+                VfxService.Instance.DetachLight(glow);
+                glow = null;
+            }
+            if (impact && spec.Fx > 0)
+                SpellFx.Impact(FxElement, transform.position, spec.Scale * Mathf.Min(spec.Fx, 2f), spec.Fx >= 1.5f, StarFire);
+            else if (impact && !string.IsNullOrEmpty(spec.ImpactVfx))
             {
                 VfxService.Instance.Play(spec.ImpactVfx, transform.position, 0f, spec.Scale);
                 VfxService.Instance.Sparks(transform.position, spec.ImpactColor.a > 0 ? spec.ImpactColor : Color.white, 5, 3f);

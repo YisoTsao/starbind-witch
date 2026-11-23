@@ -31,6 +31,11 @@ namespace Starbind.Editor
     {
         const string ArtRoot = "Assets/_Game/Art/";
         const string DraftManifest = ArtRoot + "draft_manifest.json";
+        const string CharacterManifest = ArtRoot + "character_manifest.json"; // tools/art/extract_characters.py
+        const string DecorManifest = ArtRoot + "decor_manifest.json";         // tools/art/village_decor.py
+        const string UiManifest = ArtRoot + "ui_manifest.json";               // tools/art/ui_art.py (9-slice borders, icons)
+        const string SpellVfxManifest = ArtRoot + "spell_vfx_manifest.json";  // tools/art/spell_vfx.py (blasts, sky bolts, flashes)
+        public const string WitchSheet = "CHR_witch_ref";
         const string ExtractedArt = "Assets/_Game/Art/Props/Draft/";
         const string Maps = "Assets/_Game/Data/Maps/";
         const string DataRoot = "Assets/_Game/Data/";
@@ -49,7 +54,7 @@ namespace Starbind.Editor
 
         // ---------------------------------------------------------------- JSON shapes
         [Serializable] class Manifest { public ManifestItem[] items; }
-        [Serializable] class ManifestItem { public string name; public string path; public int w, h, frames, pivotX, pivotY; public float fps; }
+        [Serializable] class ManifestItem { public string name; public string path; public int w, h, frames, pivotX, pivotY, walkFrames, border; public float fps; }
         [Serializable] class ExtractManifest { public ExtractItem[] items; }
         [Serializable] class ExtractItem { public string name; public int w, h, pivotX, pivotY; }
         [Serializable] class MapDef
@@ -124,6 +129,27 @@ namespace Starbind.Editor
             }
         }
 
+        [MenuItem("Starbind/Import Spell VFX")]
+        public static void ImportSpellVfx()
+        {
+            var db = AssetDatabase.LoadAssetAtPath<GameDatabase>(DatabasePath);
+            var items = JsonUtility.FromJson<Manifest>(File.ReadAllText(SpellVfxManifest)).items;
+            foreach (var item in items)
+            {
+                var frames = ImportSpriteSet(item);
+                var set = db.sprites.Find(s => s.name == item.name);
+                if (set == null)
+                    db.sprites.Add(new SpriteSet { name = item.name, fps = item.fps, frames = frames });
+                else
+                {
+                    set.fps = item.fps;
+                    set.frames = frames;
+                }
+            }
+            EditorUtility.SetDirty(db);
+            AssetDatabase.SaveAssetIfDirty(db);
+        }
+
         /// <summary>Batch entry: builds a macOS player (no Windows module on this machine) into
         /// Builds/mac for launch and benchmark checks. Path from -buildOut or the default.</summary>
         public static void BuildMacPlayerBatch()
@@ -163,16 +189,34 @@ namespace Starbind.Editor
         class KeyError : Exception { public KeyError(string m) : base(m) { } }
 
         // ---------------------------------------------------------------- sprites
+        /// <summary>Procedural drafts, the character sheets cut from the chibi references and the village decor.</summary>
+        static ManifestItem[] LoadManifestItems()
+        {
+            var items = new List<ManifestItem>(JsonUtility.FromJson<Manifest>(File.ReadAllText(DraftManifest)).items);
+            if (File.Exists(CharacterManifest))
+                items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(CharacterManifest)).items);
+            if (File.Exists(DecorManifest))
+                items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(DecorManifest)).items);
+            if (File.Exists(UiManifest))
+                items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(UiManifest)).items);
+            if (File.Exists(SpellVfxManifest))
+                items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(SpellVfxManifest)).items);
+            return items.ToArray();
+        }
+
         static Dictionary<string, Sprite[]> ImportDraftSprites()
         {
-            var man = JsonUtility.FromJson<Manifest>(File.ReadAllText(DraftManifest));
             var result = new Dictionary<string, Sprite[]>();
-            foreach (var it in man.items)
-            {
-                AssetDatabase.ImportAsset(it.path, ImportAssetOptions.ForceSynchronousImport);
-                result[it.name] = Slice(it.path, it.w, it.h, it.frames, 1, new Vector2(it.pivotX / (float)it.w, it.pivotY / (float)it.h));
-            }
+            foreach (var it in LoadManifestItems())
+                result[it.name] = ImportSpriteSet(it);
             return result;
+        }
+
+        static Sprite[] ImportSpriteSet(ManifestItem item)
+        {
+            AssetDatabase.ImportAsset(item.path, ImportAssetOptions.ForceSynchronousImport);
+            var pivot = new Vector2(item.pivotX / (float)item.w, item.pivotY / (float)item.h);
+            return Slice(item.path, item.w, item.h, item.frames, 1, pivot, item.border);
         }
 
         static Dictionary<string, Sprite> ImportExtractedProps()
@@ -196,7 +240,7 @@ namespace Starbind.Editor
         }
 
         /// <summary>Slices a sheet of cols x rows frames (reading order) with one shared pivot.</summary>
-        internal static Sprite[] Slice(string path, int fw, int fh, int cols, int rows, Vector2 pivot)
+        internal static Sprite[] Slice(string path, int fw, int fh, int cols, int rows, Vector2 pivot, int border = 0)
         {
             var ti = (TextureImporter)AssetImporter.GetAtPath(path);
             if (ti == null)
@@ -219,6 +263,7 @@ namespace Starbind.Editor
                     sr.rect = new Rect(c * fw, (rows - 1 - r) * fh, fw, fh);
                     sr.alignment = SpriteAlignment.Custom;
                     sr.pivot = pivot;
+                    sr.border = new Vector4(border, border, border, border); // 9-slice (UI frames)
                     rects.Add(sr);
                 }
             dp.SetSpriteRects(rects.ToArray());
@@ -295,7 +340,7 @@ namespace Starbind.Editor
 
         static GameDatabase CreateDatabase(Dictionary<string, Sprite[]> sets, (Material unlit, Material character) mats)
         {
-            var man = JsonUtility.FromJson<Manifest>(File.ReadAllText(DraftManifest));
+            var manifestItems = LoadManifestItems();
             var spells = new List<SpellDefinition>
             {
                 // GDD §5.3 whitelist + §5.4 numbers (initial balance values)
@@ -340,7 +385,7 @@ namespace Starbind.Editor
             };
             return Upsert<GameDatabase>(DatabasePath, db =>
             {
-                db.sprites = man.items.Select(it => new SpriteSet { name = it.name, fps = it.fps, frames = sets[it.name] }).ToList();
+                db.sprites = manifestItems.Select(it => new SpriteSet { name = it.name, fps = it.fps, walkFrames = it.walkFrames > 0 ? it.walkFrames : 4, frames = sets[it.name] }).ToList();
                 db.spells = spells;
                 db.enemies = enemies;
                 db.upgrades = cards;
@@ -367,10 +412,10 @@ namespace Starbind.Editor
             const string interior = "Assets/_Game/Art/Tilesets/Interior/Draft/";
             const string tileOut = "Assets/_Game/Tiles/";
             var c = new Vector2(0.5f, 0.5f);
-            var grass = Slice(village + "TILE_grass_draft.png", T, T, 4, 1, c);
+            var grass = Slice(village + "TILE_grass_draft.png", T, T, 8, 1, c);
             var path = Slice(village + "TILE_path_draft_256.png", T, T, 16, 16, c);
             var water = Slice(village + "TILE_water_draft_256.png", T, T, 16, 16, c);
-            var cliff = Slice(village + "TILE_cliff_draft.png", T, T, 5, 1, c);
+            var cliff = Slice(village + "TILE_cliff_draft.png", T, T, 10, 1, c); // 2-tile-tall face: 4 upper, 4 lower, waterfall upper/lower
             var rim = Slice(village + "TILE_rim_draft.png", T, T, 8, 1, c);
             var fg = Slice(forest + "TILE_forest_grass_draft.png", T, T, 4, 1, c);
             var fp = Slice(forest + "TILE_forest_path_draft_256.png", T, T, 16, 16, c);
@@ -381,13 +426,18 @@ namespace Starbind.Editor
             set.grass = Upsert<VariantTile>(tileOut + "Village/TL_grass_draft.asset", t => t.sprites = grass);
             set.path = Upsert<NeighborMaskTile>(tileOut + "Village/TL_path_draft.asset", t => { t.mode = NeighborMaskMode.Full8; t.sprites = path; });
             set.water = Upsert<NeighborMaskTile>(tileOut + "Village/TL_water_draft.asset", t => { t.mode = NeighborMaskMode.Full8; t.sprites = water; });
-            set.waterfall = Upsert<Tile>(tileOut + "Village/TL_waterfall_draft.asset", t => { t.sprite = cliff[4]; t.colliderType = Tile.ColliderType.None; });
             set.face = Upsert<NeighborMaskTile>(tileOut + "Village/TL_cliff_face_draft.asset", t =>
             {
-                t.mode = NeighborMaskMode.EastWest;
-                t.sprites = new[] { cliff[3], cliff[1], cliff[2], cliff[0] };
-                t.alsoMatches = new[] { set.waterfall };
+                t.mode = NeighborMaskMode.EastWestNorth;
+                t.sprites = new[] { cliff[3], cliff[1], cliff[2], cliff[0], cliff[7], cliff[5], cliff[6], cliff[4] };
             });
+            set.waterfall = Upsert<NeighborMaskTile>(tileOut + "Village/TL_waterfall_tall_draft.asset", t =>
+            {
+                t.mode = NeighborMaskMode.EastWestNorth;
+                t.sprites = new[] { cliff[8], cliff[8], cliff[8], cliff[8], cliff[9], cliff[9], cliff[9], cliff[9] };
+                t.alsoMatches = new[] { set.face };
+            });
+            ((NeighborMaskTile)set.face).alsoMatches = new[] { set.waterfall };
             set.rim = Upsert<NeighborMaskTile>(tileOut + "Village/TL_plateau_rim_draft.asset", t => { t.mode = NeighborMaskMode.NorthEastWestOpen; t.sprites = rim; });
             set.fGrass = Upsert<VariantTile>(tileOut + "Forest/TL_forest_grass_draft.asset", t => t.sprites = fg);
             set.fPath = Upsert<NeighborMaskTile>(tileOut + "Forest/TL_forest_path_draft.asset", t => { t.mode = NeighborMaskMode.Full8; t.sprites = fp; });
@@ -406,7 +456,7 @@ namespace Starbind.Editor
             return new TileSet
             {
                 grass = L<TileBase>("Village/TL_grass_draft"), path = L<TileBase>("Village/TL_path_draft"), water = L<TileBase>("Village/TL_water_draft"),
-                waterfall = L<TileBase>("Village/TL_waterfall_draft"), face = L<TileBase>("Village/TL_cliff_face_draft"), rim = L<TileBase>("Village/TL_plateau_rim_draft"),
+                waterfall = L<TileBase>("Village/TL_waterfall_tall_draft"), face = L<TileBase>("Village/TL_cliff_face_draft"), rim = L<TileBase>("Village/TL_plateau_rim_draft"),
                 fGrass = L<TileBase>("Forest/TL_forest_grass_draft"), fPath = L<TileBase>("Forest/TL_forest_path_draft"), fWater = L<TileBase>("Forest/TL_forest_water_draft"),
                 floor = L<TileBase>("Interior/TL_floor_draft"), wallTop = L<TileBase>("Interior/TL_wall_top_draft"), wallFace = L<TileBase>("Interior/TL_wall_face_draft"),
                 block = L<TileBase>("Debug/TL_collision_block"),
@@ -433,12 +483,12 @@ namespace Starbind.Editor
             var visual = new GameObject("Visual");
             visual.transform.SetParent(root.transform, false);
             var sr = visual.AddComponent<SpriteRenderer>();
-            sr.sprite = db.Sprite("CHR_witch_draft");
+            sr.sprite = db.Sprite(WitchSheet);
             sr.sharedMaterial = mats.character;
             sr.sortingLayerName = StarbindLayers.SortWorld;
             sr.spriteSortPoint = SpriteSortPoint.Pivot;
             var anim = visual.AddComponent<CharacterAnimator>();
-            anim.Configure(sr, "CHR_witch_draft");
+            anim.Configure(sr, WitchSheet);
 
             var shadow = new GameObject("Shadow");
             shadow.transform.SetParent(root.transform, false);
@@ -548,6 +598,45 @@ namespace Starbind.Editor
             return prefab;
         }
 
+        /// <summary>Soft 2D lights on glowing props (display only): x/y offset from the pivot, colour, radius, intensity.</summary>
+        static readonly Dictionary<string, (float x, float y, Color color, float radius, float intensity)[]> PropLightTable =
+            new Dictionary<string, (float, float, Color, float, float)[]>
+            {
+                ["PROP_lantern_post_draft"] = new[] { (0.25f, 0.95f, new Color(1f, 0.8f, 0.48f), 2.6f, 0.85f) },
+                ["PROP_lamp_draft"] = new[] { (0f, 1.1f, new Color(1f, 0.8f, 0.48f), 2.4f, 0.8f) },
+                ["PROP_crystal_fountain_draft"] = new[] { (0f, 0.9f, new Color(0.62f, 0.5f, 1f), 3.2f, 0.9f) },
+                ["PROP_mushroom_glow_draft"] = new[] { (0f, 0.3f, new Color(0.55f, 0.62f, 1f), 1.6f, 0.75f) },
+                ["PROP_glow_shroom_draft"] = new[] { (0f, 0.3f, new Color(0.55f, 0.62f, 1f), 1.4f, 0.7f) },
+                ["PROP_cauldron_draft"] = new[] { (0f, 0.35f, new Color(0.62f, 1f, 0.5f), 1.6f, 0.7f) },
+                ["PROP_crystal_cluster_draft"] = new[] { (0f, 0.35f, new Color(0.78f, 0.55f, 1f), 1.4f, 0.7f) },
+                ["PROP_candles_draft"] = new[] { (0f, 0.3f, new Color(1f, 0.78f, 0.42f), 1.3f, 0.75f) },
+                ["PROP_cottage_draft"] = new[]
+                {
+                    // wall lantern, right window, round attic window (positions measured on reference A)
+                    (-0.97f, 1.0f, new Color(1f, 0.78f, 0.42f), 1.6f, 0.75f), (1.34f, 0.84f, new Color(1f, 0.78f, 0.42f), 1.6f, 0.7f),
+                    (0.28f, 2.0f, new Color(1f, 0.8f, 0.5f), 1.4f, 0.6f),
+                },
+            };
+
+        static void AddPropLights(Transform prop, string sprite)
+        {
+            if (!PropLightTable.TryGetValue(sprite, out var lights))
+                return;
+            foreach (var (x, y, color, radius, intensity) in lights)
+            {
+                var go = new GameObject("Glow");
+                go.transform.SetParent(prop, false);
+                go.transform.localPosition = new Vector3(x, y, 0);
+                var l = go.AddComponent<Light2D>();
+                l.lightType = Light2D.LightType.Point;
+                l.color = color;
+                l.intensity = intensity;
+                l.pointLightOuterRadius = radius;
+                l.pointLightInnerRadius = radius * 0.15f;
+                l.falloffIntensity = 0.7f;
+            }
+        }
+
         static SpriteRenderer Decal(Ctx ctx, Transform parent, string sprite, Vector2 pos, string layer, int order, string name = null)
         {
             var go = new GameObject(name ?? sprite.Replace("_draft", ""));
@@ -595,8 +684,9 @@ namespace Starbind.Editor
 
             var light = new GameObject("Global Light 2D").AddComponent<Light2D>();
             light.lightType = Light2D.LightType.Global;
-            light.intensity = forest ? 0.82f : 1f;
-            light.color = forest ? new Color(0.86f, 0.9f, 1f) : interior ? new Color(1f, 0.96f, 0.9f) : Color.white;
+            // village: a touch of lavender dusk so lanterns, windows and crystals read as light sources
+            light.intensity = forest ? 0.82f : interior ? 1f : 0.9f;
+            light.color = forest ? new Color(0.86f, 0.9f, 1f) : interior ? new Color(1f, 0.96f, 0.9f) : new Color(0.97f, 0.93f, 1f);
 
             var cfg = new GameObject("SceneConfig").AddComponent<SceneConfig>();
             cfg.title = map.scene.title;
@@ -648,11 +738,19 @@ namespace Starbind.Editor
                 }
                 var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), props);
                 go.transform.position = new Vector3(p.x, p.y, 0);
+                AddPropLights(go.transform, p.sprite);
                 if (p.door != null && !string.IsNullOrEmpty(p.door.target))
                 {
                     var door = Trigger(go.transform, "Door", new Vector2(p.x + p.door.dx, p.y + p.door.dy), 0.45f, "cottage_door", 1.55f);
                     door.AddComponent<DoorPortal>().Configure(p.door.target, p.door.spawn);
                 }
+            }
+
+            if (!forest && !interior)
+            {
+                var motes = new GameObject("AmbientMotes").AddComponent<AmbientMotes>();
+                motes.transform.SetParent(world, false);
+                motes.Configure(ctx.Sprite("DEC_mote_draft"), ctx.mats.unlit, 26);
             }
 
             // ---- objects
@@ -734,6 +832,14 @@ namespace Starbind.Editor
                     sr.sharedMaterial = ctx.mats.character;
                     sr.sortingLayerName = StarbindLayers.SortWorld;
                     sr.spriteSortPoint = SpriteSortPoint.Pivot;
+                    if (o.radius > 0)
+                    {
+                        // ambient villager: kinematic body so it can stroll (NpcWander) without being pushed
+                        var rb = root.AddComponent<Rigidbody2D>();
+                        rb.bodyType = RigidbodyType2D.Kinematic;
+                        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+                        root.AddComponent<NpcWander>().Configure(o.radius);
+                    }
                     var anim = vis.AddComponent<CharacterAnimator>();
                     anim.Configure(sr, o.sheet);
                     vis.AddComponent<NpcFacing>().Configure(o.facing);

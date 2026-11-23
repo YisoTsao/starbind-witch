@@ -112,7 +112,7 @@ DBG_collision_block.png     僅編輯器可見
 | 土路（草上） | **47 格 Blob** | 47（含內角） | 主要道路，需內外轉角 |
 | 石板路 | 47 格 Blob | 47 | |
 | 水面（草岸） | 47 格 Blob＋動畫 3–4 幀 | 47×幀 | 岸邊需內角；用 Animated Rule Tile |
-| 懸崖 | 自訂規則：頂邊／立面左中右／內外角／底部 | 約 16–24 | 3/4 視角立面需要 1–2 tiles 高 |
+| 懸崖 | 自訂規則：頂邊／立面左中右／內外角／底部 | 約 16–24 | 3/4 視角立面需要 1–2 tiles 高。目前草稿：`TILE_cliff_draft.png` 10 格＝上排［中、左端、右端、單格］＋下排［同上］＋瀑布上／下；`NeighborMaskTile` 模式 `EastWestNorth`（東西相鄰決定端點，北方是否也是立面決定上排或下排） |
 | 草地基底 | Random Tile（4–6 變體，權重） | 4–6 | 無轉角 |
 | 室內木地板 | Random Tile | 2–4 | |
 | 室內牆 | 自訂規則：牆頂＋牆面 2 段 | 約 12 | |
@@ -175,3 +175,10 @@ DBG_collision_block.png     僅編輯器可見
 
 - 每個正式素材在 `ASSET_GAPS.md` 記錄：作者、工具、來源參考、是否 AI 輔助、授權。
 - AI 參考圖衍生的素材需標記 `AI-assisted`，供 Steam 內容揭露表使用。
+
+## 點陣字型（2026-11-21）
+
+- 字型：`Assets/_Game/Resources/Fonts/FusionPixel12_zh_tw.ttf`（Fusion Pixel Font 12px Proportional 繁中，2026.11.10 版，SIL OFL 1.1）。授權：同資料夾的 `FusionPixel12_OFL.txt`；包含的子字型授權在 `art-source/licenses/fusion-pixel-font/LICENSES/`。
+- 匯入：`PixelArtImportRules.OnPreprocessAsset` 設成 Dynamic、Hinted Raster（無反鋸齒）。執行時 `UIKit` 把字圖集設成 Point 取樣，`GameUI` 的 Canvas 開 `pixelPerfect`。
+- 字級一律用 12 的倍數（`UIKit.PixelSize` 會自動對齊）；不要用 `FontStyle.Bold`，合成粗體會讓點陣字糊掉。
+- 預熱字集：`Resources/Fonts/FusionPixel12_charset.txt`。新增中文文字後執行 `python3 tools/art/font_charset.py .` 重新產生（掃描 Scripts、Data 與 tools/map 的所有非 ASCII 字元，加上 ASCII 可列印字元）。EditMode `PrewarmCharsetIsFullyCoveredByTheFont` 會檢查字型是否涵蓋整個字集。

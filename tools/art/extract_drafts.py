@@ -12,6 +12,9 @@ from collections import deque
 import numpy as np
 from PIL import Image
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from village_decor import fence  # noqa: E402
+
 ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
 SRC = os.path.join(ROOT, "references/environment/紫幻森林巫女村落.png")
 OUT = os.path.join(ROOT, "art-source/_drafts/extracted")
@@ -20,21 +23,22 @@ GRID = dict(px=3.212, phx=0.75, py=3.126, phy=1.70)  # measured 2026-11-21
 # Objects: name -> (x0, y0, x1, y1) in native px, pivot_y (native px row of ground contact), extra
 OBJECTS = {
     "PROP_cottage_draft":        ((150, 0, 352, 110), 94),
-    "PROP_tree_blossom_draft":   ((404, 62, 480, 162), 156, {"min_frac": 0.3}),
+    "PROP_tree_blossom_draft":   ((404, 62, 480, 162), 156, {"min_frac": 0.3, "post": "blossom"}),
     "PROP_tree_green_s_draft":   ((324, 168, 368, 216), 212),
     "PROP_tree_green_m_draft":   ((216, 226, 278, 290), 284),
-    "PROP_tree_green_b_draft":   ((108, 108, 158, 154), 150),
-    "PROP_rock_l_draft":         ((148, 120, 182, 152), 148),
+    "PROP_tree_green_b_draft":   ((108, 108, 158, 154), 150, {"erase": [(22, 0, 49, 15, "bright"), (41, 0, 49, 45, "all"), (26, 0, 30, 6, "all"), (37, 6, 41, 14, "all")]}),
+    "PROP_rock_l_draft":         ((148, 120, 182, 152), 148, {"erase": [(0, 0, 9, 10, "all")]}),
     "PROP_rock_s_draft":         ((352, 230, 378, 254), 251),
     "PROP_rock_m_draft":         ((478, 126, 506, 152), 149),
     "PROP_stump_draft":          ((284, 210, 320, 242), 238, {"path": False}),
-    "PROP_mushroom_glow_draft":  ((318, 230, 352, 262), 258),
-    "PROP_fence_long_draft":     ((346, 48, 440, 70), 68, {"min_frac": 0.3}),
-    "PROP_fence_mid_draft":      ((112, 154, 184, 186), 181, {"min_frac": 0.3}),
-    "PROP_fence_east_draft":     ((424, 176, 520, 197), 192, {"min_frac": 0.3}),
+    "PROP_mushroom_glow_draft":  ((318, 230, 352, 262), 258, {"erase": [(0, 0, 8, 5, "all")]}),
+    # fences: the crops keep grass between the rails, so they are redrawn at the same size / pivot
+    "PROP_fence_long_draft":     ((346, 48, 440, 70), 68, {"min_frac": 0.3, "redraw": "fence"}),
+    "PROP_fence_mid_draft":      ((112, 154, 184, 186), 181, {"min_frac": 0.3, "redraw": "fence"}),
+    "PROP_fence_east_draft":     ((424, 176, 520, 197), 192, {"min_frac": 0.3, "redraw": "fence"}),
     "PROP_sign_draft":           ((126, 172, 160, 232), 228),
-    "PROP_stall_draft":          ((328, 70, 406, 142), 138, {"min_frac": 0.3}),
-    "PROP_crystal_fountain_draft": ((426, 190, 480, 254), 248),
+    "PROP_stall_draft":          ((328, 70, 406, 142), 138, {"min_frac": 0.3, "erase": [(70, 22, 78, 52, "pink")]}),
+    "PROP_crystal_fountain_draft": ((426, 190, 480, 254), 248, {"erase": [(0, 0, 54, 5, "all")]}),
     "PROP_flowerbush_draft":     ((224, 212, 268, 238), 236),
     "CHR_witch_front_draft":     ((244, 136, 276, 174), 170),
 }
@@ -111,6 +115,43 @@ def keep_largest(alpha, min_frac=0.04):
     return np.where(np.isin(lab, keep), alpha, 0).astype(np.uint8)
 
 
+# ---------------------------------------------------------------- cleanup after the crop
+# Coordinates are in the trimmed sprite (as written to Assets/_Game/Art/Props/Draft).
+def erase(rgba, x0, y0, x1, y1, what):
+    """Clear leftovers of neighbouring objects. what: all | bright (flowers, rock) | pink (blossom)."""
+    sub = rgba[y0:y1 + 1, x0:x1 + 1]
+    h, s, v = hsv(sub[..., :3])
+    if what == "all":
+        m = np.ones(h.shape, bool)
+    elif what == "bright":   # white / pink flowers and grey rock, not the dark-green canopy
+        m = (v > 0.62) & ((s < 0.35) | (h > 280) | (h < 20))
+    elif what == "pink":
+        m = (h > 300) | (h < 10)
+    sub[m, 3] = 0
+
+
+def fix_blossom(rgba):
+    """The reference tree's left side is hidden by the stall and its crop holds stall / tree
+    leftovers: keep the pink canopy and the trunk, then mirror the right half of the canopy."""
+    h, s, v = hsv(rgba[..., :3])
+    H, W = rgba.shape[:2]
+    ys, xs = np.mgrid[0:H, 0:W]
+    canopy = ((h > 250) | (h < 12)) & (s > 0.08) & (ys < 72)
+    trunk = (xs > 24) & (xs < 60) & (ys >= 58)
+    keep = (canopy | trunk) & (rgba[..., 3] > 0)
+    out = rgba.copy()
+    out[~keep, 3] = 0
+    axis = 41
+    for x in range(axis):
+        src = 2 * axis - x
+        col = out[:68, src] if src < W else np.zeros_like(out[:68, 0])
+        out[:68, x] = col
+    out[:28, :14, 3] = 0   # branch stubs of the neighbouring trees
+    out[:28, 66:, 3] = 0
+    out[:, :, 3] = keep_largest(out[:, :, 3], 0.02)
+    return out
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     unity_out = os.path.join(ROOT, "Assets/_Game/Art/Props/Draft")
@@ -133,6 +174,12 @@ def main():
         rgba = np.pad(rgba, ((h % 2, 0), (0, w % 2), (0, 0)))
         h, w = rgba.shape[:2]
         pivot_y_from_bottom = (box[1] + b) - pivot_row  # rows between pivot and sprite bottom
+        for e in opts.get("erase", []):
+            erase(rgba, *e)
+        if opts.get("post") == "blossom":
+            rgba = fix_blossom(rgba)
+        if opts.get("redraw") == "fence":
+            rgba = fence(w, h, seed=w)
         Image.fromarray(rgba).save(os.path.join(OUT, name + ".png"))
         Image.fromarray(rgba).save(os.path.join(unity_out, name + ".png"))
         manifest[name] = {"w": int(w), "h": int(h), "pivot": [0.5, round(float(pivot_y_from_bottom) / h, 4)],

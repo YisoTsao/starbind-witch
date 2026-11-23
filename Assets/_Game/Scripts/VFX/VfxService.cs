@@ -2,16 +2,21 @@ using System.Collections.Generic;
 using Starbind.Core;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 namespace Starbind.VFX
 {
     /// <summary>Scene-scoped VFX player (GDD §12.2): pooled sprite flipbooks, pooled 2D light flashes,
-    /// one shared particle system for sparks (Emit, no per-effect systems), pooled lightning arcs.
-    /// Display only: nothing here touches HP. Caps keep the frame bounded under 60 enemies.</summary>
+    /// one shared particle system for sparks (Emit, no per-effect systems), pooled lightning arcs, lights that
+    /// follow projectiles and a full-screen flash. Display only: nothing here touches HP. Caps keep the frame
+    /// bounded under 60 enemies.</summary>
     public sealed class VfxService : MonoBehaviour
     {
         public const int MaxFlipbooks = 160;
-        public const int MaxLights = 12;
+        public const int MaxLights = 32;
+        public const int MaxAttachedLights = 16;
+        /// <summary>Accessibility: scales every full-screen flash (0 disables them).</summary>
+        public static float ScreenFlashStrength = 1f;
 
         static VfxService instance;
 
@@ -23,7 +28,13 @@ namespace Starbind.VFX
         readonly List<(Light2D light, float start, float end, float intensity)> liveLights = new List<(Light2D, float, float, float)>();
         ComponentPool<LineRenderer> arcs;
         readonly List<(LineRenderer line, float end)> liveArcs = new List<(LineRenderer, float)>();
+        ComponentPool<Light2D> attachedLights;
+        readonly Dictionary<Light2D, Transform> attached = new Dictionary<Light2D, Transform>();
+        readonly List<Light2D> attachedKeys = new List<Light2D>();
+        Image screenFlash;
+        float flashStart, flashEnd, flashAlpha;
         ParticleSystem sparks;
+        Material glowMaterial;
         int liveFlipbooks;
         GameDatabase db;
 
@@ -42,17 +53,25 @@ namespace Starbind.VFX
 
         public int LiveFlipbooks => liveFlipbooks;
         public int LiveLights => liveLights.Count;
+        public int LiveArcs => liveArcs.Count;
+        public int AttachedLights => attached.Count;
+        public float ScreenFlashAlpha => screenFlash != null && screenFlash.enabled ? screenFlash.color.a : 0f;
+        /// <summary>Counts every screen flash requested (tests and the benchmark read it).</summary>
+        public int ScreenFlashes { get; private set; }
 
         void Awake()
         {
             db = GameDatabase.Instance;
             lights = new ComponentPool<Light2D>(CreateLight, MaxLights);
-            arcs = new ComponentPool<LineRenderer>(CreateArc, 48);
+            attachedLights = new ComponentPool<Light2D>(CreateLight, MaxAttachedLights);
+            arcs = new ComponentPool<LineRenderer>(CreateArc, 96);
             CreateSparks();
         }
 
         void OnDestroy()
         {
+            if (glowMaterial != null)
+                Destroy(glowMaterial);
             if (instance == this)
                 instance = null;
         }
@@ -61,7 +80,7 @@ namespace Starbind.VFX
         public SpriteFlipbook Play(string name, Vector2 pos, float angleDeg = 0f, float scale = 1f, Color? tint = null,
             string sortingLayer = StarbindLayers.SortVfx, int order = 0, bool loop = false, Transform followTarget = null, float fps = 0f)
         {
-            if (db == null || (!loop && liveFlipbooks >= MaxFlipbooks))
+            if (db == null || liveFlipbooks >= MaxFlipbooks)
                 return null;
             var set = db.Sprites(name);
             if (set == null)
@@ -86,10 +105,34 @@ namespace Starbind.VFX
             sr.sortingLayerName = sortingLayer;
             sr.sortingOrder = order;
             sr.flipX = false;
+            fb.FollowOffset = Vector2.zero;
             fb.Play(set, loop, fps);
             if (followTarget != null)
                 follow[fb] = followTarget;
             return fb;
+        }
+
+        /// <summary>Local additive light around the sprite, independent of scene lighting.</summary>
+        public SpriteFlipbook Glow(Vector2 pos, Color color, float diameter, float duration = 0.24f, Transform target = null,
+            string sortingLayer = StarbindLayers.SortVfx)
+        {
+            if (glowMaterial == null)
+            {
+                var shader = Resources.Load<Shader>("SpellGlow");
+                if (shader == null)
+                    return null;
+                glowMaterial = new Material(shader);
+            }
+            var glow = Play("VFX_spell_glow", pos, 0f, diameter, color, sortingLayer, -4,
+                target != null, target, 1f / Mathf.Max(0.01f, duration));
+            if (glow != null)
+            {
+                glow.Renderer.sharedMaterial = glowMaterial;
+                glow.FadeOut = true;
+                if (target != null)
+                    glow.FollowOffset = pos - (Vector2)target.position;
+            }
+            return glow;
         }
 
         public void Release(SpriteFlipbook fb)
@@ -129,6 +172,29 @@ namespace Starbind.VFX
             liveLights.Add((l, Time.time, Time.time + duration, intensity));
         }
 
+        /// <summary>A light that follows <paramref name="target"/> until DetachLight (projectile glow).
+        /// Returns null when the attached-light budget is used up.</summary>
+        public Light2D AttachLight(Transform target, Color color, float radius, float intensity)
+        {
+            var l = attachedLights.Get();
+            if (l == null)
+                return null;
+            l.transform.position = target.position;
+            l.color = color;
+            l.pointLightOuterRadius = radius;
+            l.pointLightInnerRadius = radius * 0.15f;
+            l.intensity = intensity;
+            attached[l] = target;
+            return l;
+        }
+
+        public void DetachLight(Light2D l)
+        {
+            if (l == null || !attached.Remove(l))
+                return;
+            attachedLights.Release(l);
+        }
+
         Light2D CreateLight()
         {
             var go = new GameObject("vfx_light");
@@ -141,24 +207,51 @@ namespace Starbind.VFX
         }
 
         // ---------------------------------------------------------------- arcs
-        public void Arc(Vector2 a, Vector2 b, Color color, float duration = 0.14f)
+        public void Arc(Vector2 a, Vector2 b, Color color, float duration = 0.14f, float widthPx = 2f, float jitter = 0.22f)
+            => DrawArc(a, b, color, duration, widthPx, jitter, 20);
+
+        LineRenderer DrawArc(Vector2 a, Vector2 b, Color color, float duration, float widthPx, float jitter, int order,
+            LineRenderer path = null)
         {
             var line = arcs.Get();
             if (line == null)
-                return;
-            const int segments = 7;
+                return null;
+            int segments = Mathf.Clamp(Mathf.CeilToInt((b - a).magnitude / 0.35f), 4, 14);
             line.positionCount = segments + 1;
             var perp = Vector2.Perpendicular((b - a).normalized);
             for (int i = 0; i <= segments; i++)
             {
                 float t = i / (float)segments;
                 var p = Vector2.Lerp(a, b, t);
-                if (i > 0 && i < segments)
-                    p += perp * Random.Range(-0.22f, 0.22f); // cosmetic jitter only
-                line.SetPosition(i, new Vector3(p.x, p.y, 0));
+                if (path != null)
+                    p = path.GetPosition(i);
+                else if (i > 0 && i < segments)
+                    p += perp * Random.Range(-jitter, jitter);
+                const float ppu = 32f;
+                line.SetPosition(i, new Vector3(Mathf.Round(p.x * ppu) / ppu, Mathf.Round(p.y * ppu) / ppu, 0));
             }
+            line.widthMultiplier = widthPx / 32f;
+            line.sortingOrder = order;
             line.startColor = line.endColor = color;
             liveArcs.Add((line, Time.time + duration));
+            return line;
+        }
+
+        /// <summary>Thick lightning: a wide coloured glow, a white core and a few short forks.</summary>
+        public void Bolt(Vector2 a, Vector2 b, Color glow, float duration = 0.18f, int forks = 2, float widthPx = 6f)
+        {
+            float len = (b - a).magnitude;
+            var path = DrawArc(a, b, new Color(glow.r, glow.g, glow.b, 0.72f), duration, widthPx, 0.22f, 19);
+            if (path == null)
+                return;
+            DrawArc(a, b, Color.Lerp(glow, Color.white, 0.88f), duration * 0.72f,
+                Mathf.Max(1f, widthPx * 0.36f), 0f, 21, path);
+            for (int i = 0; i < forks; i++)
+            {
+                var s = (Vector2)path.GetPosition(Random.Range(1, path.positionCount - 1));
+                var dir = Quaternion.Euler(0, 0, Random.Range(-60f, 60f)) * (b - a).normalized;
+                DrawArc(s, s + (Vector2)dir * len * Random.Range(0.2f, 0.35f), glow, duration * 0.57f, 1f, 0.09f, 20);
+            }
         }
 
         LineRenderer CreateArc()
@@ -176,6 +269,42 @@ namespace Starbind.VFX
             line.textureMode = LineTextureMode.Stretch;
             go.SetActive(false);
             return line;
+        }
+
+        // ---------------------------------------------------------------- screen flash
+        /// <summary>Full-screen additive-looking flash (white-out on big blasts). Stronger requests override
+        /// weaker ones; scaled by ScreenFlashStrength and capped at 0.55 alpha.</summary>
+        public void ScreenFlash(Color color, float alpha, float duration)
+        {
+            alpha = Mathf.Min(0.55f, alpha * ScreenFlashStrength);
+            if (alpha <= 0.01f)
+                return;
+            ScreenFlashes++;
+            float now = Time.unscaledTime;
+            float current = screenFlash != null && now < flashEnd ? flashAlpha * (1f - (now - flashStart) / Mathf.Max(0.01f, flashEnd - flashStart)) : 0f;
+            if (current > alpha)
+                return;
+            if (screenFlash == null)
+            {
+                var go = new GameObject("vfx_screen_flash");
+                go.transform.SetParent(transform, false);
+                var canvas = go.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                canvas.sortingOrder = 90; // under GameUI (100)
+                var img = new GameObject("Flash", typeof(RectTransform)).AddComponent<Image>();
+                img.transform.SetParent(go.transform, false);
+                var rt = img.rectTransform;
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = rt.offsetMax = Vector2.zero;
+                img.raycastTarget = false;
+                screenFlash = img;
+            }
+            screenFlash.enabled = true;
+            screenFlash.color = new Color(color.r, color.g, color.b, alpha);
+            flashStart = now;
+            flashEnd = now + duration;
+            flashAlpha = alpha;
         }
 
         // ---------------------------------------------------------------- particles
@@ -238,6 +367,24 @@ namespace Starbind.VFX
             }
         }
 
+        /// <summary>Trail embers: a few short-lived sparks drifting along <paramref name="drift"/>.</summary>
+        public void Embers(Vector2 pos, Color color, Vector2 drift, int count = 1, float life = 0.3f, float size = 0.09f)
+        {
+            if (sparks == null || sparks.particleCount > 1100)
+                return;
+            var ep = new ParticleSystem.EmitParams { applyShapeToPosition = false };
+            for (int i = 0; i < count; i++)
+            {
+                var j = Random.insideUnitCircle * 0.08f; // cosmetic
+                ep.position = new Vector3(pos.x + j.x, pos.y + j.y, 0);
+                ep.velocity = (Vector3)(drift + Random.insideUnitCircle * 0.6f);
+                ep.startColor = color;
+                ep.startLifetime = life * (0.6f + Random.value * 0.4f);
+                ep.startSize = size;
+                sparks.Emit(ep, 1);
+            }
+        }
+
         // ---------------------------------------------------------------- tick
         void LateUpdate()
         {
@@ -252,6 +399,31 @@ namespace Starbind.VFX
                 }
                 else
                     l.intensity = intensity * (1f - (now - start) / Mathf.Max(0.01f, end - start));
+            }
+            if (screenFlash != null && screenFlash.enabled)
+            {
+                float u = (Time.unscaledTime - flashStart) / Mathf.Max(0.01f, flashEnd - flashStart);
+                if (u >= 1f)
+                    screenFlash.enabled = false;
+                else
+                {
+                    var col = screenFlash.color;
+                    col.a = flashAlpha * (1f - u) * (1f - u);
+                    screenFlash.color = col;
+                }
+            }
+            if (attached.Count > 0)
+            {
+                attachedKeys.Clear();
+                attachedKeys.AddRange(attached.Keys);
+                foreach (var l in attachedKeys)
+                {
+                    var t = attached[l];
+                    if (t == null || !t.gameObject.activeInHierarchy)
+                        DetachLight(l);
+                    else
+                        l.transform.position = new Vector3(t.position.x, t.position.y, 0);
+                }
             }
             for (int i = liveArcs.Count - 1; i >= 0; i--)
                 if (now >= liveArcs[i].end)

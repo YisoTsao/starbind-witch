@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: 106cc10cdd5d1409785e38dc73699628
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -882274421486227604
+    second: VFX_spell_aura_polish_0
+  - first:
+      213: 1559386460912238319
+    second: VFX_spell_aura_polish_1
+  - first:
+      213: -1262497784439854237
+    second: VFX_spell_aura_polish_2
+  - first:
+      213: -6117005077869603391
+    second: VFX_spell_aura_polish_3
+  - first:
+      213: 143483769613243686
+    second: VFX_spell_aura_polish_4
+  - first:
+      213: 2711799970098435817
+    second: VFX_spell_aura_polish_5
+  - first:
+      213: -1788979822767534643
+    second: VFX_spell_aura_polish_6
+  - first:
+      213: -7955013834372838871
+    second: VFX_spell_aura_polish_7
+  - first:
+      213: 274047837337775371
+    second: VFX_spell_aura_polish_8
+  - first:
+      213: -6815700132381962940
+    second: VFX_spell_aura_polish_9
+  - first:
+      213: 4784646674958849561
+    second: VFX_spell_aura_polish_10
+  - first:
+      213: 687984965591440193
+    second: VFX_spell_aura_polish_11
+  - first:
+      213: -3379124797099220735
+    second: VFX_spell_aura_polish_12
+  - first:
+      213: 86934395381437061
+    second: VFX_spell_aura_polish_13
+  - first:
+      213: -3524949450930998583
+    second: VFX_spell_aura_polish_14
+  - first:
+      213: -6344326173709160435
+    second: VFX_spell_aura_polish_15
+  - first:
+      213: 7648928955571395364
+    second: VFX_spell_aura_polish_16
+  - first:
+      213: -8510972707397892403
+    second: VFX_spell_aura_polish_17
+  - first:
+      213: 2898513058351706687
+    second: VFX_spell_aura_polish_18
+  - first:
+      213: -4567317553706935142
+    second: VFX_spell_aura_polish_19
+  - first:
+      213: -3479403228801468090
+    second: VFX_spell_aura_polish_20
+  - first:
+      213: 7461329659855903992
+    second: VFX_spell_aura_polish_21
+  - first:
+      213: -807833863393997519
+    second: VFX_spell_aura_polish_22
+  - first:
+      213: -2202809838147285349
+    second: VFX_spell_aura_polish_23
+  - first:
+      213: -3559681115367747151
+    second: VFX_spell_aura_polish_24
+  - first:
+      213: 4852815890322195619
+    second: VFX_spell_aura_polish_25
+  - first:
+      213: -5246337689986140472
+    second: VFX_spell_aura_polish_26
+  - first:
+      213: 2625395785685396977
+    second: VFX_spell_aura_polish_27
+  - first:
+      213: 1864601616276736154
+    second: VFX_spell_aura_polish_28
+  - first:
+      213: 886280745985653546
+    second: VFX_spell_aura_polish_29
+  - first:
+      213: -3064393962206028382
+    second: VFX_spell_aura_polish_30
+  - first:
+      213: 4368190644473110457
+    second: VFX_spell_aura_polish_31
+  - first:
+      213: 295348784458495668
+    second: VFX_spell_aura_polish_32
+  - first:
+      213: -7385041426733902968
+    second: VFX_spell_aura_polish_33
+  - first:
+      213: 3378579262149676826
+    second: VFX_spell_aura_polish_34
+  - first:
+      213: -2326909608051939891
+    second: VFX_spell_aura_polish_35
+  - first:
+      213: -5055875340858270317
+    second: VFX_spell_aura_polish_36
+  - first:
+      213: 2522521105281865472
+    second: VFX_spell_aura_polish_37
+  - first:
+      213: -3416123657989315624
+    second: VFX_spell_aura_polish_38
+  - first:
+      213: 5216917237598986416
+    second: VFX_spell_aura_polish_39
+  - first:
+      213: -796857909442079891
+    second: VFX_spell_aura_polish_40
+  - first:
+      213: 8493776073681089854
+    second: VFX_spell_aura_polish_41
+  - first:
+      213: 8851326844478646905
+    second: VFX_spell_aura_polish_42
+  - first:
+      213: 4065830182869027606
+    second: VFX_spell_aura_polish_43
+  - first:
+      213: -5406676085413396375
+    second: VFX_spell_aura_polish_44
+  - first:
+      213: -4025494144044236441
+    second: VFX_spell_aura_polish_45
+  - first:
+      213: -6399137630470859238
+    second: VFX_spell_aura_polish_46
+  - first:
+      213: -9055577398970916095
+    second: VFX_spell_aura_polish_47
+  - first:
+      213: 7992851530269808076
+    second: VFX_spell_aura_polish_48
+  - first:
+      213: 6726793944405068738
+    second: VFX_spell_aura_polish_49
+  - first:
+      213: -7254123373390478388
+    second: VFX_spell_aura_polish_50
+  - first:
+      213: 7474976396972317329
+    second: VFX_spell_aura_polish_51
+  - first:
+      213: 1185987549753257663
+    second: VFX_spell_aura_polish_52
+  - first:
+      213: 2493973140053693254
+    second: VFX_spell_aura_polish_53
+  - first:
+      213: 5486426096335247369
+    second: VFX_spell_aura_polish_54
+  - first:
+      213: -4494848223450115678
+    second: VFX_spell_aura_polish_55
+  - first:
+      213: -8129713523128429546
+    second: VFX_spell_aura_polish_56
+  - first:
+      213: -1032160935411996212
+    second: VFX_spell_aura_polish_57
+  - first:
+      213: -495874969346456954
+    second: VFX_spell_aura_polish_58
+  - first:
+      213: -8186811937221507213
+    second: VFX_spell_aura_polish_59
+  - first:
+      213: 812538116036804489
+    second: VFX_spell_aura_polish_60
+  - first:
+      213: -7447155511852154273
+    second: VFX_spell_aura_polish_61
+  - first:
+      213: -6587498344453209059
+    second: VFX_spell_aura_polish_62
+  - first:
+      213: 3671127698236852344
+    second: VFX_spell_aura_polish_63
+  - first:
+      213: -6619206027823984966
+    second: VFX_spell_aura_polish_64
+  - first:
+      213: 4622638984720746904
+    second: VFX_spell_aura_polish_65
+  - first:
+      213: -4933358175428915027
+    second: VFX_spell_aura_polish_66
+  - first:
+      213: 7156878831670726960
+    second: VFX_spell_aura_polish_67
+  - first:
+      213: -838310786330536738
+    second: VFX_spell_aura_polish_68
+  - first:
+      213: 4169801269735696214
+    second: VFX_spell_aura_polish_69
+  - first:
+      213: 2962660337222439299
+    second: VFX_spell_aura_polish_70
+  - first:
+      213: -97666580219552641
+    second: VFX_spell_aura_polish_71
+  - first:
+      213: -1791672320296512734
+    second: VFX_spell_aura_polish_72
+  - first:
+      213: 7387107235493699073
+    second: VFX_spell_aura_polish_73
+  - first:
+      213: -3772821709142302549
+    second: VFX_spell_aura_polish_74
+  - first:
+      213: 3503926258743836886
+    second: VFX_spell_aura_polish_75
+  - first:
+      213: 4813119198521409800
+    second: VFX_spell_aura_polish_76
+  - first:
+      213: -8830842646276305714
+    second: VFX_spell_aura_polish_77
+  - first:
+      213: 1810217161767186185
+    second: VFX_spell_aura_polish_78
+  - first:
+      213: -2573778127998648507
+    second: VFX_spell_aura_polish_79
+  - first:
+      213: -5516281886649917440
+    second: VFX_spell_aura_polish_80
+  - first:
+      213: 3027303690400868280
+    second: VFX_spell_aura_polish_81
+  - first:
+      213: 5675356826364067254
+    second: VFX_spell_aura_polish_82
+  - first:
+      213: -2675607791321333247
+    second: VFX_spell_aura_polish_83
+  - first:
+      213: -7300368341743324631
+    second: VFX_spell_aura_polish_84
+  - first:
+      213: 2697816107214963252
+    second: VFX_spell_aura_polish_85
+  - first:
+      213: -7051093650610464522
+    second: VFX_spell_aura_polish_86
+  - first:
+      213: 4457039341503976848
+    second: VFX_spell_aura_polish_87
+  - first:
+      213: -4987530514049350811
+    second: VFX_spell_aura_polish_88
+  - first:
+      213: 4463704288099954473
+    second: VFX_spell_aura_polish_89
+  - first:
+      213: 5697591646323771758
+    second: VFX_spell_aura_polish_90
+  - first:
+      213: -895781081006939325
+    second: VFX_spell_aura_polish_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f66e0961881c3f0800000000000000
+      internalID: -882274421486227604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fee3a3669bd04a510800000000000000
+      internalID: 1559386460912238319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36baebc34f4ba7ee0800000000000000
+      internalID: -1262497784439854237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5525c7a480c1ba0800000000000000
+      internalID: -6117005077869603391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625d4de6ab1cdf100800000000000000
+      internalID: 143483769613243686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6d1af74bf32a520800000000000000
+      internalID: 2711799970098435817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_6
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd899164544c27e0800000000000000
+      internalID: -1788979822767534643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_7
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a83eaa01d1a9190800000000000000
+      internalID: -7955013834372838871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_8
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d6bfb5e0d9dc300800000000000000
+      internalID: 274047837337775371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_9
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d4ac937d4c961a0800000000000000
+      internalID: -6815700132381962940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_10
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9161dacfcca766240800000000000000
+      internalID: 4784646674958849561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_aura_polish_11
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 0
+        width: 104
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b13ec5ea63c8900800000000000000
+      internalID: 687984965591440193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e3325795466024ccda93e8b65d0ab206
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_spell_aura_polish_0: -882274421486227604
+      VFX_spell_aura_polish_1: 1559386460912238319
+      VFX_spell_aura_polish_10: 4784646674958849561
+      VFX_spell_aura_polish_11: 687984965591440193
+      VFX_spell_aura_polish_2: -1262497784439854237
+      VFX_spell_aura_polish_3: -6117005077869603391
+      VFX_spell_aura_polish_4: 143483769613243686
+      VFX_spell_aura_polish_5: 2711799970098435817
+      VFX_spell_aura_polish_6: -1788979822767534643
+      VFX_spell_aura_polish_7: -7955013834372838871
+      VFX_spell_aura_polish_8: 274047837337775371
+      VFX_spell_aura_polish_9: -6815700132381962940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

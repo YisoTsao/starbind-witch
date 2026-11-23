@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: 126b7982617044148b886923f9f2d57e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5350476574532906007
+    second: VFX_wind_blades_draft_0
+  - first:
+      213: 4592569507397122303
+    second: VFX_wind_blades_draft_1
+  - first:
+      213: -2813770855760106031
+    second: VFX_wind_blades_draft_2
+  - first:
+      213: 2473020347707926309
+    second: VFX_wind_blades_draft_3
+  - first:
+      213: -8995876478064495771
+    second: VFX_wind_blades_draft_4
+  - first:
+      213: -168092655949747176
+    second: VFX_wind_blades_draft_5
+  - first:
+      213: 5965189056024944021
+    second: VFX_wind_blades_draft_6
+  - first:
+      213: -6674776788403505081
+    second: VFX_wind_blades_draft_7
+  - first:
+      213: -6494395839345316795
+    second: VFX_wind_blades_draft_8
+  - first:
+      213: 7164160600360253047
+    second: VFX_wind_blades_draft_9
+  - first:
+      213: -790982195961976810
+    second: VFX_wind_blades_draft_10
+  - first:
+      213: 5214569998381099393
+    second: VFX_wind_blades_draft_11
+  - first:
+      213: 8645909522445749132
+    second: VFX_wind_blades_draft_12
+  - first:
+      213: 2249419275016742217
+    second: VFX_wind_blades_draft_13
+  - first:
+      213: -4901823140225753637
+    second: VFX_wind_blades_draft_14
+  - first:
+      213: -1752313950862198051
+    second: VFX_wind_blades_draft_15
+  - first:
+      213: -8676253498316684015
+    second: VFX_wind_blades_draft_16
+  - first:
+      213: -5775740894570929231
+    second: VFX_wind_blades_draft_17
+  - first:
+      213: -2700196862338385971
+    second: VFX_wind_blades_draft_18
+  - first:
+      213: 5091441031511489099
+    second: VFX_wind_blades_draft_19
+  - first:
+      213: 8678726800846264879
+    second: VFX_wind_blades_draft_20
+  - first:
+      213: -3837091498919502746
+    second: VFX_wind_blades_draft_21
+  - first:
+      213: -6639732947724326609
+    second: VFX_wind_blades_draft_22
+  - first:
+      213: 5151888010364470613
+    second: VFX_wind_blades_draft_23
+  - first:
+      213: -5182975797945711445
+    second: VFX_wind_blades_draft_24
+  - first:
+      213: -9151144384727323336
+    second: VFX_wind_blades_draft_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3daeb47e94fb5b0800000000000000
+      internalID: -5350476574532906007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff832be62a51cbf30800000000000000
+      internalID: 4592569507397122303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd621f805a73f8d0800000000000000
+      internalID: -2813770855760106031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527a17357eee15220800000000000000
+      internalID: 2473020347707926309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5637ca1610a382380800000000000000
+      internalID: -8995876478064495771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c63c8be90daadf0800000000000000
+      internalID: -168092655949747176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c7d9d3b17b64873913db08b382e91d
+      internalID: -894441833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_wind_blades_draft_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6804c3ab604c14d3b9cb0f3a11c6db14
+      internalID: -1654024570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dee418a68644649f9961d975465ecec9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_wind_blades_draft_0: -5350476574532906007
+      VFX_wind_blades_draft_1: 4592569507397122303
+      VFX_wind_blades_draft_2: -2813770855760106031
+      VFX_wind_blades_draft_3: 2473020347707926309
+      VFX_wind_blades_draft_4: -8995876478064495771
+      VFX_wind_blades_draft_5: -168092655949747176
+      VFX_wind_blades_draft_6: -894441833
+      VFX_wind_blades_draft_7: -1654024570
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,8 +6,9 @@
 - 素材缺口：`docs/ASSET_GAPS.md`。
 - 美術與管線：`docs/ART_DIRECTION.md`、`docs/ASSET_INVENTORY.md`、`docs/ASSET_PIPELINE.md`。
 - 世界與技術：`docs/WORLD_STRUCTURE.md`、`docs/TECH_ARCHITECTURE.md`。
+- 法術與升級規劃書（含 Mermaid 流程圖）：`docs/SPELL_UPGRADE_SYSTEM.md`；故事線、世界地圖、任務清單：`docs/STORY_WORLD_QUESTS.md`（第 2 章以後為 💡 草案，未回寫 GDD）。
 - 規格衝突與待決定：`docs/SPEC_CONFLICTS.md`；目前階段計畫：`docs/PHASE0_PLAN.md`；Phase 0 結果：`docs/PHASE0_REPORT.md`；完整草稿版（Phase 1–5 系統、三個場景）結果：`docs/FULL_BUILD_REPORT.md`。
-- 草稿美術工具：`tools/art/`（擷取、地形產生、拼接測試、`gen_game_drafts.py` 角色/敵人/VFX/家具）、`tools/audio/`（草稿音效）、`tools/map/`（village / workshop / forest 配置）。三個場景與所有資料由選單 `Starbind → Build All Game Content (draft art)` 重建（舊選單 Build Village Scene 也會呼叫它）。
+- 草稿美術工具：`tools/art/`（擷取、地形產生、拼接測試、`gen_game_drafts.py` 角色/敵人/VFX/家具、`extract_characters.py` 從 references/tilesets 的 Chibi 角色表切出魔女/王子/12 種村民、`village_decor.py` 村莊裝飾貼花/魔女擺設/路燈/柵欄、`ui_art.py` 9-slice UI 框、升級卡/魔典/任務標記與 32×32 圖示、`spell_vfx.py` 爆炸/天降雷擊/衝擊波/魔法陣等法術特效、`font_charset.py` 點陣字型預熱字集）、`tools/audio/`（草稿音效）、`tools/map/`（village / workshop / forest 配置）。三個場景與所有資料由選單 `Starbind → Build All Game Content (draft art)` 重建（舊選單 Build Village Scene 也會呼叫它）。
 - 參考圖（唯讀，不得修改/刪除/直接匯入）：`references/`；美術工作檔：`art-source/`（不進 Unity）。
 
 ## 開始前

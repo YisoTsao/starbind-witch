@@ -32,6 +32,8 @@ namespace Starbind.Save
         public float bestClearTime;
         public float musicVolume = 0.8f;
         public float sfxVolume = 0.9f;
+        /// <summary>Full-screen flash strength (settings: 1 strong, 0.5 soft, 0 off).</summary>
+        public float screenFlash = 1f;
 
         public bool IsUnlocked(string spellId) => unlockedSpells.Contains(spellId);
 

@@ -37,6 +37,9 @@ namespace Starbind.World
             var s = GameSession.Instance;
             var use = s.Profile.victories > 0 && linesAfterVictory != null && linesAfterVictory.Length > 0 ? linesAfterVictory : lines;
             s.UI.ShowDialogue(speaker, use);
+            var anim = transform.parent != null ? transform.parent.GetComponentInChildren<Player.CharacterAnimator>() : null;
+            if (anim != null)
+                anim.PlayCast(0.9f, true); // NPC greets (villager waves, the prince raises his sword)
             if (!string.IsNullOrEmpty(questId))
                 s.Profile.CompleteQuest(questId);
             if (healsPlayer && Player.PlayerController.Current != null)

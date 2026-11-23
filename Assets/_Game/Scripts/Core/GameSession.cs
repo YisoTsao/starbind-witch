@@ -96,6 +96,7 @@ namespace Starbind.Core
             SaveService = new SaveService(dir);
             Profile = SaveService.Load();
             Sfx.Volume = Profile.sfxVolume;
+            VfxService.ScreenFlashStrength = Profile.screenFlash;
             var uiGo = new GameObject("UI");
             uiGo.transform.SetParent(transform, false);
             UI = uiGo.AddComponent<GameUI>();
@@ -124,6 +125,7 @@ namespace Starbind.Core
         public void ResetProfile(ProfileData p = null)
         {
             Profile = p ?? new ProfileData();
+            VfxService.ScreenFlashStrength = Profile.screenFlash;
             RefillRunPotions();
         }
 
@@ -151,7 +153,13 @@ namespace Starbind.Core
                 return "向北深入森林，前往菇王棲地";
             }
             if (SceneConfig.Current != null && !string.IsNullOrEmpty(SceneConfig.Current.objective))
-                return Profile.victories > 0 ? "研究新書頁，或再次前往森林" : SceneConfig.Current.objective;
+            {
+                if (Profile.victories > 0)
+                    return "研究新書頁，或再次前往森林";
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Village" && World.ObjectiveTracker.TrainingDone)
+                    return "訓練完成！從南路前往月影森林";
+                return SceneConfig.Current.objective;
+            }
             return "";
         }
 

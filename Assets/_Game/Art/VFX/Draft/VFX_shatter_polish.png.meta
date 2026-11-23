@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 4aff1f4227481407b892816c744741e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -839668404608235804
+    second: VFX_shatter_polish_0
+  - first:
+      213: 4542307246340669348
+    second: VFX_shatter_polish_1
+  - first:
+      213: 462085812501942331
+    second: VFX_shatter_polish_2
+  - first:
+      213: 5637171553151111473
+    second: VFX_shatter_polish_3
+  - first:
+      213: -5493730582837154864
+    second: VFX_shatter_polish_4
+  - first:
+      213: 683420135579981356
+    second: VFX_shatter_polish_5
+  - first:
+      213: -5705889964544857777
+    second: VFX_shatter_polish_6
+  - first:
+      213: 6342562889626497917
+    second: VFX_shatter_polish_7
+  - first:
+      213: 8666336881768141136
+    second: VFX_shatter_polish_8
+  - first:
+      213: -2704198634442395479
+    second: VFX_shatter_polish_9
+  - first:
+      213: -6929235657148421966
+    second: VFX_shatter_polish_10
+  - first:
+      213: -865425259858311382
+    second: VFX_shatter_polish_11
+  - first:
+      213: 6694270376240731555
+    second: VFX_shatter_polish_12
+  - first:
+      213: 6296454428650756608
+    second: VFX_shatter_polish_13
+  - first:
+      213: 5924239190117904638
+    second: VFX_shatter_polish_14
+  - first:
+      213: 6325952361037455263
+    second: VFX_shatter_polish_15
+  - first:
+      213: -274932568544612565
+    second: VFX_shatter_polish_16
+  - first:
+      213: 7853714006794715382
+    second: VFX_shatter_polish_17
+  - first:
+      213: -2617708252514137919
+    second: VFX_shatter_polish_18
+  - first:
+      213: 4630179022706579217
+    second: VFX_shatter_polish_19
+  - first:
+      213: 5035873426156294945
+    second: VFX_shatter_polish_20
+  - first:
+      213: 2684372415047553038
+    second: VFX_shatter_polish_21
+  - first:
+      213: -5494158848787430917
+    second: VFX_shatter_polish_22
+  - first:
+      213: -2363902453049586336
+    second: VFX_shatter_polish_23
+  - first:
+      213: 9207077763224736597
+    second: VFX_shatter_polish_24
+  - first:
+      213: 3929941358922109640
+    second: VFX_shatter_polish_25
+  - first:
+      213: -8548428937231746767
+    second: VFX_shatter_polish_26
+  - first:
+      213: -58424362721655183
+    second: VFX_shatter_polish_27
+  - first:
+      213: -3970141053294917552
+    second: VFX_shatter_polish_28
+  - first:
+      213: 3871684410334033384
+    second: VFX_shatter_polish_29
+  - first:
+      213: -8377140536291141160
+    second: VFX_shatter_polish_30
+  - first:
+      213: 2972750293400254440
+    second: VFX_shatter_polish_31
+  - first:
+      213: 5038501282063333427
+    second: VFX_shatter_polish_32
+  - first:
+      213: 364505506704023655
+    second: VFX_shatter_polish_33
+  - first:
+      213: -4524176864652768295
+    second: VFX_shatter_polish_34
+  - first:
+      213: -4416829123540441863
+    second: VFX_shatter_polish_35
+  - first:
+      213: 3639709067327408262
+    second: VFX_shatter_polish_36
+  - first:
+      213: 8127649489872182281
+    second: VFX_shatter_polish_37
+  - first:
+      213: -8150343176527717706
+    second: VFX_shatter_polish_38
+  - first:
+      213: -800621997185746354
+    second: VFX_shatter_polish_39
+  - first:
+      213: 2250725990749170160
+    second: VFX_shatter_polish_40
+  - first:
+      213: 2874846586741260342
+    second: VFX_shatter_polish_41
+  - first:
+      213: -4415738139761552740
+    second: VFX_shatter_polish_42
+  - first:
+      213: -6728937229645610311
+    second: VFX_shatter_polish_43
+  - first:
+      213: -8270489924378589954
+    second: VFX_shatter_polish_44
+  - first:
+      213: 494755348481729450
+    second: VFX_shatter_polish_45
+  - first:
+      213: -6688340967005531897
+    second: VFX_shatter_polish_46
+  - first:
+      213: 4628041058810544523
+    second: VFX_shatter_polish_47
+  - first:
+      213: -5452567936762967574
+    second: VFX_shatter_polish_48
+  - first:
+      213: -601807635356050832
+    second: VFX_shatter_polish_49
+  - first:
+      213: 3677434708014030152
+    second: VFX_shatter_polish_50
+  - first:
+      213: -2275922261151983270
+    second: VFX_shatter_polish_51
+  - first:
+      213: 6497519000356067271
+    second: VFX_shatter_polish_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_shatter_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e60536e806e854f0800000000000000
+      internalID: -839668404608235804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af71d6df54890f30800000000000000
+      internalID: 4542307246340669348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b301de52998a96600800000000000000
+      internalID: 462085812501942331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131528b19a14b3e40800000000000000
+      internalID: 5637171553151111473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbaa46542952c3b0800000000000000
+      internalID: -5493730582837154864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26189d0efefb7900800000000000000
+      internalID: 683420135579981356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4966dfee4b90d0b0800000000000000
+      internalID: -5705889964544857777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7333c1085f450850800000000000000
+      internalID: 6342562889626497917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05118ad4a73054870800000000000000
+      internalID: 8666336881768141136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_9
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0f6ff5ba1c87ad0800000000000000
+      internalID: -2704198634442395479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8a2bae1e866df90800000000000000
+      internalID: -6929235657148421966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shatter_polish_11
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 0
+        width: 112
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27ce76bf446df3f0800000000000000
+      internalID: -865425259858311382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4a67b11c45cd94208aa73ec6bd366d75
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_shatter_polish_0: -839668404608235804
+      VFX_shatter_polish_1: 4542307246340669348
+      VFX_shatter_polish_10: -6929235657148421966
+      VFX_shatter_polish_11: -865425259858311382
+      VFX_shatter_polish_2: 462085812501942331
+      VFX_shatter_polish_3: 5637171553151111473
+      VFX_shatter_polish_4: -5493730582837154864
+      VFX_shatter_polish_5: 683420135579981356
+      VFX_shatter_polish_6: -5705889964544857777
+      VFX_shatter_polish_7: 6342562889626497917
+      VFX_shatter_polish_8: 8666336881768141136
+      VFX_shatter_polish_9: -2704198634442395479
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

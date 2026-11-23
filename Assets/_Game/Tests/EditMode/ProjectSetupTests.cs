@@ -75,6 +75,28 @@ namespace Starbind.Tests
         }
 
         [Test]
+        public void MapActionIsBoundToM()
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<UnityEngine.InputSystem.InputActionAsset>("Assets/_Game/Input/StarbindControls.inputactions");
+            var map = asset.FindActionMap("Gameplay", true).FindAction("Map");
+            Assert.IsNotNull(map, "Map action");
+            Assert.That(map.bindings.Any(b => b.path == "<Keyboard>/m"));
+        }
+
+        [Test]
+        public void UiFramesAreNineSliced()
+        {
+            foreach (var name in new[] { "UI_panel_draft", "UI_slot_draft", "UI_bar_frame_draft", "UI_keycap_draft" })
+            {
+                var s = AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/UI/Draft/" + name + ".png").OfType<Sprite>().FirstOrDefault();
+                Assert.IsNotNull(s, name);
+                Assert.That(s.border.x, Is.GreaterThan(0), name + " has a 9-slice border");
+            }
+            var icon = AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/UI/Draft/ICON_fire_bolt_draft.png").OfType<Sprite>().First();
+            Assert.AreEqual(32, (int)icon.rect.width, "32x32 icons");
+        }
+
+        [Test]
         public void VillageSceneIsInBuild()
         {
             Assert.That(EditorBuildSettings.scenes.Any(s => s.path == "Assets/_Game/Scenes/Village.unity" && s.enabled));

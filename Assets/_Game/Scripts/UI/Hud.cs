@@ -31,61 +31,104 @@ namespace Starbind.UI
         GameDatabase db;
         float hpShown = 1f;
 
+        public MiniMap MiniMap { get; private set; }
+
         public void Build(Transform root)
         {
             db = GameDatabase.Instance;
-            // ---- vitals (top-left)
-            var vit = UIKit.Image(root, "Vitals", UIKit.Panel, new Vector2(0, 1), new Vector2(0, 1), new Vector2(24, -24), new Vector2(470, 176));
-            levelText = UIKit.Label(vit.transform, "Level", "Lv 1", 26, UIKit.Gold, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -10), new Vector2(200, 34));
-            statusText = UIKit.Label(vit.transform, "Status", "", 22, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-18, -12), new Vector2(260, 34));
-            (hp, hpText) = Bar(vit.transform, "HP", new Vector2(18, -48), new Color(0.88f, 0.25f, 0.32f), 30);
+            // ---- vitals (top-left): portrait + HP / MP / resonance / XP
+            var vit = UIKit.Panel9(root, "Vitals", new Vector2(0, 1), new Vector2(0, 1), new Vector2(24, -24), new Vector2(580, 200));
+            var portrait = UIKit.Image(vit.transform, "Portrait", UIKit.Panel, new Vector2(0, 1), new Vector2(0, 1), new Vector2(20, -22), new Vector2(156, 156));
+            UIKit.Skin(portrait, "UI_slot_draft");
+            var face = UIKit.Image(portrait.transform, "Face", Color.white, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 2), new Vector2(120, 120), Face());
+            face.preserveAspect = false;
+            levelText = UIKit.Label(vit.transform, "Level", "Lv 1", 26, UIKit.Gold, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(192, -14), new Vector2(200, 34));
+            statusText = UIKit.Label(vit.transform, "Status", "", 20, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-22, -16), new Vector2(240, 30));
+            (hp, hpText) = Bar(vit.transform, "HP", new Vector2(190, -50), "UI_bar_fill_hp_draft", new Color(0.88f, 0.25f, 0.32f), 38);
             hpLag = hp.transform.parent.Find("Lag")?.GetComponent<Image>();
-            (mp, mpText) = Bar(vit.transform, "MP", new Vector2(18, -86), new Color(0.3f, 0.5f, 0.95f), 24);
-            (res, resText) = Bar(vit.transform, "Resonance", new Vector2(18, -118), new Color(0.85f, 0.6f, 1f), 18);
-            var xpBg = UIKit.Image(vit.transform, "XP", new Color(0, 0, 0, 0.6f), new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -146), new Vector2(434, 10));
-            xp = UIKit.Fill(xpBg.transform, "Fill", UIKit.Gold);
+            (mp, mpText) = Bar(vit.transform, "MP", new Vector2(190, -92), "UI_bar_fill_mp_draft", new Color(0.3f, 0.5f, 0.95f), 32);
+            (res, resText) = Bar(vit.transform, "Resonance", new Vector2(190, -128), "UI_bar_fill_res_draft", new Color(0.85f, 0.6f, 1f), 26);
+            (xp, _) = Bar(vit.transform, "XP", new Vector2(190, -158), "UI_bar_fill_xp_draft", UIKit.Gold, 20);
 
-            // ---- zone (top-right)
-            var zone = UIKit.Image(root, "Zone", UIKit.Panel, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -24), new Vector2(430, 120));
-            zoneText = UIKit.Label(zone.transform, "Name", "", 28, UIKit.Gold, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-18, -10), new Vector2(400, 36));
-            objectiveText = UIKit.Label(zone.transform, "Objective", "", 22, UIKit.Text, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-18, -48), new Vector2(400, 30));
-            timerText = UIKit.Label(zone.transform, "Timer", "", 22, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-18, -80), new Vector2(400, 30));
+            // ---- zone (top-right) and the minimap under it
+            var zone = UIKit.Panel9(root, "Zone", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -24), new Vector2(440, 124));
+            zoneText = UIKit.Label(zone.transform, "Name", "", 28, UIKit.Gold, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -14), new Vector2(400, 36));
+            objectiveText = UIKit.Label(zone.transform, "Objective", "", 21, UIKit.Text, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -52), new Vector2(400, 30));
+            timerText = UIKit.Label(zone.transform, "Timer", "", 21, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -84), new Vector2(400, 30));
+            var mini = UIKit.Panel9(root, "MiniMap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -170), new Vector2(330, 252));
+            MiniMap = mini.gameObject.AddComponent<MiniMap>();
+            MiniMap.Build(mini.rectTransform);
+            KeyCap(mini.rectTransform, "M 地圖", new Vector2(0, -16), 120);
 
             // ---- boss bar (top-centre)
-            bossRoot = UIKit.Rect(root, "Boss", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -28), new Vector2(760, 64));
+            bossRoot = UIKit.Rect(root, "Boss", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -28), new Vector2(760, 70));
             bossName = UIKit.Label(bossRoot, "Name", "月蝕菇王", 28, UIKit.Gold, TextAnchor.MiddleCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), Vector2.zero, new Vector2(760, 34));
-            var bossBg = UIKit.Image(bossRoot, "Bg", new Color(0, 0, 0, 0.7f), new Vector2(0.5f, 0), new Vector2(0.5f, 0), Vector2.zero, new Vector2(760, 22));
-            bossFill = UIKit.Fill(bossBg.transform, "Fill", new Color(0.75f, 0.35f, 0.95f));
-            bossRoot.gameObject.SetActive(false);
+            var bossBg = UIKit.Image(bossRoot, "Bg", new Color(0, 0, 0, 0.7f), new Vector2(0.5f, 0), new Vector2(0.5f, 0), Vector2.zero, new Vector2(760, 30));
+            UIKit.Skin(bossBg, "UI_bar_frame_draft", 2f);
+            bossFill = InsetFill(bossBg.transform, "Fill", "UI_bar_fill_boss_draft", new Color(0.75f, 0.35f, 0.95f));
 
             // ---- skill bar (bottom)
-            var bar = UIKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 40), new Vector2(900, 150));
+            var bar = UIKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 46), new Vector2(900, 150));
             float x = -380;
             staff = MakeSlot(bar, "Staff", x, "左鍵", "ICON_staff"); x += 108;
             q = MakeSlot(bar, "Q", x, "Q", null); x += 108;
             e = MakeSlot(bar, "E", x, "E", null); x += 108;
             r = MakeSlot(bar, "R", x, "R", "ICON_overdrive"); x += 108;
             dash = MakeSlot(bar, "Dash", x, "Space", "ICON_dash"); x += 128;
-            pot1 = MakeSlot(bar, "Pot1", x, "1", "PICK_potion_hp"); x += 108;
-            pot2 = MakeSlot(bar, "Pot2", x, "2", "PICK_potion_mp");
+            pot1 = MakeSlot(bar, "Pot1", x, "1", "ICON_potion_hp"); x += 108;
+            pot2 = MakeSlot(bar, "Pot2", x, "2", "ICON_potion_mp");
             for (int i = 0; i < autos.Length; i++)
             {
-                autos[i] = MakeSlot(bar, "Auto" + i, -110 + i * 74, "", null, 62, 106);
+                autos[i] = MakeSlot(bar, "Auto" + i, -110 + i * 74, "", null, 62, 112);
                 autos[i].key.text = "自動";
-                autos[i].key.fontSize = 16;
+                autos[i].key.fontSize = UIKit.PixelSize(12);
             }
         }
 
-        (Image, Text) Bar(Transform parent, string name, Vector2 pos, Color color, float height)
+        /// <summary>The witch's face cut from her idle frame (CHR_witch_ref frame 0, head area).</summary>
+        Sprite Face()
         {
-            var bg = UIKit.Image(parent, name, new Color(0, 0, 0, 0.6f), new Vector2(0, 1), new Vector2(0, 1), pos, new Vector2(434, height));
+            var f = db != null ? db.Sprite("CHR_witch_ref") : null;
+            if (f == null)
+                return null;
+            var rc = f.rect;
+            var head = new Rect(rc.x + 13, rc.y + rc.height - 46, 38, 36);
+            return Sprite.Create(f.texture, head, new Vector2(0.5f, 0.5f), f.pixelsPerUnit);
+        }
+
+        static Image InsetFill(Transform frame, string name, string sprite, Color fallback, float inset = 6)
+        {
+            var fill = UIKit.Fill(frame, name, fallback);
+            var art = UIKit.Art(sprite);
+            if (art != null)
+            {
+                fill.sprite = art;
+                fill.color = Color.white;
+            }
+            fill.rectTransform.offsetMin = new Vector2(inset, inset);
+            fill.rectTransform.offsetMax = new Vector2(-inset, -inset);
+            return fill;
+        }
+
+        static void KeyCap(RectTransform parent, string text, Vector2 pos, float width)
+        {
+            var cap = UIKit.Image(parent, "KeyCap", UIKit.PanelLight, new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), pos, new Vector2(width, 32));
+            UIKit.Skin(cap, "UI_keycap_draft", 2f);
+            UIKit.Label(cap.transform, "Text", text, 18, UIKit.Gold, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(width, 30));
+        }
+
+        (Image, Text) Bar(Transform parent, string name, Vector2 pos, string fillSprite, Color color, float height)
+        {
+            const float width = 366;
+            var bg = UIKit.Image(parent, name, new Color(0, 0, 0, 0.6f), new Vector2(0, 1), new Vector2(0, 1), pos, new Vector2(width, height));
+            UIKit.Skin(bg, "UI_bar_frame_draft", 2f);
             if (name == "HP")
             {
-                var lag = UIKit.Fill(bg.transform, "Lag", new Color(1f, 0.85f, 0.6f, 0.8f));
+                var lag = InsetFill(bg.transform, "Lag", "UI_bar_fill_lag_draft", new Color(1f, 0.85f, 0.6f, 0.8f));
                 lag.fillAmount = 1;
             }
-            var fill = UIKit.Fill(bg.transform, "Fill", color);
-            var label = UIKit.Label(bg.transform, "Text", "", Mathf.RoundToInt(height * 0.7f), UIKit.Text, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(434, height));
+            var fill = InsetFill(bg.transform, "Fill", fillSprite, color);
+            var label = UIKit.Label(bg.transform, "Text", "", Mathf.RoundToInt(height * 0.55f), UIKit.Text, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(width, height));
             return (fill, label);
         }
 
@@ -96,12 +139,22 @@ namespace Starbind.UI
             var outline = s.frame.gameObject.AddComponent<Outline>();
             outline.effectColor = new Color(UIKit.Gold.r, UIKit.Gold.g, UIKit.Gold.b, 0.7f);
             outline.effectDistance = new Vector2(2, -2);
-            s.icon = UIKit.Image(s.frame.transform, "Icon", Color.white, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 4), new Vector2(size * 0.7f, size * 0.7f), icon != null ? db.Sprite(icon) : null);
-            s.cooldown = UIKit.Fill(s.frame.transform, "Cooldown", new Color(0, 0, 0, 0.65f), Image.FillMethod.Radial360);
+            UIKit.Skin(s.frame, "UI_slot_draft", size >= 80 ? 3f : 2f);
+            float iconSize = size >= 80 ? 64 : 32;   // 32 px icons at 2x / 1x: crisp pixels
+            s.icon = UIKit.Image(s.frame.transform, "Icon", Color.white, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(iconSize, iconSize), icon != null ? UIKit.Art(icon) : null);
+            s.icon.preserveAspect = false;
+            s.cooldown = UIKit.Fill(s.frame.transform, "Cooldown", new Color(0.02f, 0.0f, 0.06f, 0.7f), Image.FillMethod.Radial360);
+            s.cooldown.rectTransform.offsetMin = new Vector2(size * 0.14f, size * 0.14f);
+            s.cooldown.rectTransform.offsetMax = new Vector2(-size * 0.14f, -size * 0.14f);
             s.cooldown.fillClockwise = false;
             s.cooldown.fillAmount = 0;
-            s.key = UIKit.Label(s.frame.transform, "Key", key, 18, UIKit.Gold, TextAnchor.LowerCenter, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, -24), new Vector2(size + 30, 24));
-            s.count = UIKit.Label(s.frame.transform, "Count", "", 22, UIKit.Text, TextAnchor.LowerRight, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-4, 2), new Vector2(60, 28));
+            if (!string.IsNullOrEmpty(key))
+            {
+                var cap = UIKit.Image(s.frame.transform, "KeyCap", UIKit.PanelLight, new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), new Vector2(0, -6), new Vector2(Mathf.Max(44, key.Length * 16 + 20), 28));
+                UIKit.Skin(cap, "UI_keycap_draft", 2f);
+            }
+            s.key = UIKit.Label(s.frame.transform, "Key", key, 17, UIKit.Gold, TextAnchor.MiddleCenter, new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), new Vector2(0, -5), new Vector2(size + 30, 26));
+            s.count = UIKit.Label(s.frame.transform, "Count", "", 22, UIKit.Text, TextAnchor.LowerRight, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-8, 8), new Vector2(60, 28));
             return s;
         }
 
@@ -117,7 +170,7 @@ namespace Starbind.UI
                 return;
             }
             s.icon.enabled = true;
-            var sprite = db.Sprite(spell.Def.icon);
+            var sprite = UIKit.Art(spell.Def.icon);
             if (s.icon.sprite != sprite)
                 s.icon.sprite = sprite;
             s.cooldown.fillAmount = runner.CooldownFraction(spell);

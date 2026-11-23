@@ -134,16 +134,17 @@ namespace Starbind.Spells
                             Split = s.Split,
                             Returns = s.Returns,
                             Sprite = ice ? "VFX_ice_shard" : "VFX_fireball",
-                            Rotate = ice,
+                            Rotate = true,
                             ImpactVfx = ice ? "VFX_ice_burst" : "VFX_explosion",
                             ImpactColor = ice ? new Color(0.7f, 0.95f, 1f) : new Color(1f, 0.6f, 0.2f),
                             Scale = 1f,
                             StopOnProps = true,
                             ImpactSfx = ice ? "sfx_ice_hit" : "sfx_fire_hit",
+                            Fx = 1f,
                         };
                         Projectile.Launch(spec, transform);
                     }
-                    v.Play("VFX_hit", ctx.Origin + ctx.Direction * 0.3f, 0, 1f, ice ? new Color(0.7f, 0.95f, 1f) : new Color(1f, 0.8f, 0.4f));
+                    SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction, s.Count > 1 ? 1.3f : 1f);
                     Sfx.Play(ice ? "sfx_ice_cast" : "sfx_fire_cast", 0.7f);
                     break;
                 }
@@ -151,17 +152,19 @@ namespace Starbind.Spells
                 {
                     var p = ctx.Origin + Vector2.ClampMagnitude(aimPoint - ctx.Origin, s.Range);
                     v.Play("VFX_telegraph_circle", p, 0, s.Radius * 2f / 2f, new Color(1f, 0.95f, 0.5f, 0.6f), StarbindLayers.SortGroundDecal, 2);
+                    v.Play("VFX_magic_circle", p, 0, s.Radius * 1.12f, new Color(0.81f, 0.59f, 1f, 0.86f), StarbindLayers.SortGroundDecal, 3);
+                    SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction);
                     var e = HitFor(s, ctx);
                     e.Knockback = 1.2f;
-                    AreaStrike.Schedule(p, 0.18f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder");
+                    AreaStrike.Schedule(p, 0.18f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder", fx: 1.5f);
                     break;
                 }
                 case SpellForm.Pulse:
                 {
                     var p = target != null ? target.Center : aimPoint;
                     var e = HitFor(s, ctx);
-                    AreaStrike.Schedule(p, 0.05f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder");
-                    v.Play("VFX_thunder_ring", p, 0, s.Radius / 0.75f);
+                    AreaStrike.Schedule(p, 0.05f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder", fx: 1f, groundPulse: true);
+                    v.Bolt(ctx.Origin, p, new Color(0.72f, 0.49f, 1f), 0.14f, 2, 3.5f);
                     break;
                 }
                 case SpellForm.Orbit:
@@ -172,6 +175,7 @@ namespace Starbind.Spells
                     var p = ctx.Origin + Vector2.ClampMagnitude(aimPoint - ctx.Origin, s.Range);
                     var e = HitFor(s, ctx);
                     e.Knockback = 0;
+                    SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction);
                     PullField.Open(p, s.Radius * PullRadiusMultiplier, s.Duration, e);
                     break;
                 }
@@ -198,10 +202,14 @@ namespace Starbind.Spells
                             ImpactVfx = "VFX_hit",
                             ImpactColor = star ? new Color(1f, 0.9f, 0.4f) : new Color(0.8f, 0.6f, 1f),
                             Scale = 1f,
+                            Fx = 0.8f,
                         };
                         spec.Hit.CastId = CombatIds.NewCast(); // each missile is its own hit event
                         Projectile.Launch(spec, transform);
                     }
+                    var col = star ? new Color(1f, 0.82f, 0.43f) : SpellFx.ElementColor(s.Element);
+                    v.Play("VFX_flash", ctx.Origin, star ? 0f : 45f, 0.54f, Color.Lerp(col, Color.white, 0.55f));
+                    v.Glow(ctx.Origin, new Color(col.r, col.g, col.b, 0.45f), 2.15f, 0.2f);
                     Sfx.Play("sfx_homing", 0.4f);
                     break;
                 }

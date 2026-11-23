@@ -1,0 +1,449 @@
+fileFormatVersion: 2
+guid: 1f9822ff96318468e84c4027888c294b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3835968297179619989
+    second: VFX_spell_pulse_polish_0
+  - first:
+      213: 3149255831446566117
+    second: VFX_spell_pulse_polish_1
+  - first:
+      213: -5370772390178532192
+    second: VFX_spell_pulse_polish_2
+  - first:
+      213: 309418000073327853
+    second: VFX_spell_pulse_polish_3
+  - first:
+      213: 8042367447919430976
+    second: VFX_spell_pulse_polish_4
+  - first:
+      213: 1604777714026506402
+    second: VFX_spell_pulse_polish_5
+  - first:
+      213: -8447470746434645935
+    second: VFX_spell_pulse_polish_6
+  - first:
+      213: 2711683002767021381
+    second: VFX_spell_pulse_polish_7
+  - first:
+      213: -7913444153684736039
+    second: VFX_spell_pulse_polish_8
+  - first:
+      213: -6419535786240918016
+    second: VFX_spell_pulse_polish_9
+  - first:
+      213: -8509948123157012116
+    second: VFX_spell_pulse_polish_10
+  - first:
+      213: -532298361088621328
+    second: VFX_spell_pulse_polish_11
+  - first:
+      213: -6780063358652319785
+    second: VFX_spell_pulse_polish_12
+  - first:
+      213: -8152424823853267976
+    second: VFX_spell_pulse_polish_13
+  - first:
+      213: 4383777238665310489
+    second: VFX_spell_pulse_polish_14
+  - first:
+      213: -6612368375574049060
+    second: VFX_spell_pulse_polish_15
+  - first:
+      213: -201938392983150322
+    second: VFX_spell_pulse_polish_16
+  - first:
+      213: -8589316961080615068
+    second: VFX_spell_pulse_polish_17
+  - first:
+      213: 61446235026111886
+    second: VFX_spell_pulse_polish_18
+  - first:
+      213: -2764458150993212189
+    second: VFX_spell_pulse_polish_19
+  - first:
+      213: -8209213177128893366
+    second: VFX_spell_pulse_polish_20
+  - first:
+      213: -2296618974129700927
+    second: VFX_spell_pulse_polish_21
+  - first:
+      213: 4732380075332736898
+    second: VFX_spell_pulse_polish_22
+  - first:
+      213: 8375661377822758513
+    second: VFX_spell_pulse_polish_23
+  - first:
+      213: -8241912799044423644
+    second: VFX_spell_pulse_polish_24
+  - first:
+      213: 2820585426511447256
+    second: VFX_spell_pulse_polish_25
+  - first:
+      213: -760343019915948755
+    second: VFX_spell_pulse_polish_26
+  - first:
+      213: 7543859016527495201
+    second: VFX_spell_pulse_polish_27
+  - first:
+      213: -5595159571954535830
+    second: VFX_spell_pulse_polish_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6dd2f45827e3cac0800000000000000
+      internalID: -3835968297179619989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e433344e7764bb20800000000000000
+      internalID: 3149255831446566117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4dee977fe2775b0800000000000000
+      internalID: -5370772390178532192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de48b7d18064b4400800000000000000
+      internalID: 309418000073327853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d0766659a3c9f60800000000000000
+      internalID: 8042367447919430976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8630414d0554610800000000000000
+      internalID: 1604777714026506402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150524cdc1e84ca80800000000000000
+      internalID: -8447470746434645935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545946be255d1a520800000000000000
+      internalID: 2711683002767021381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7cabd287ccd2290800000000000000
+      internalID: -7913444153684736039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_spell_pulse_polish_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00eb33ee63a39e6a0800000000000000
+      internalID: -6419535786240918016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 42ffaa2ad7c3a4a4cbebdeb3b7121cf7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_spell_pulse_polish_0: -3835968297179619989
+      VFX_spell_pulse_polish_1: 3149255831446566117
+      VFX_spell_pulse_polish_2: -5370772390178532192
+      VFX_spell_pulse_polish_3: 309418000073327853
+      VFX_spell_pulse_polish_4: 8042367447919430976
+      VFX_spell_pulse_polish_5: 1604777714026506402
+      VFX_spell_pulse_polish_6: -8447470746434645935
+      VFX_spell_pulse_polish_7: 2711683002767021381
+      VFX_spell_pulse_polish_8: -7913444153684736039
+      VFX_spell_pulse_polish_9: -6419535786240918016
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

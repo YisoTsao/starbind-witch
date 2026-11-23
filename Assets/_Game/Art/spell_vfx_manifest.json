@@ -1,0 +1,264 @@
+{
+ "items": [
+  {
+   "name": "VFX_blast_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_blast_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 12,
+   "pivotX": 48,
+   "pivotY": 48,
+   "fps": 22
+  },
+  {
+   "name": "VFX_shockwave_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shockwave_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 8,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 24
+  },
+  {
+   "name": "VFX_flash_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_flash_draft.png",
+   "w": 48,
+   "h": 48,
+   "frames": 5,
+   "pivotX": 24,
+   "pivotY": 24,
+   "fps": 24
+  },
+  {
+   "name": "VFX_sky_bolt_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_sky_bolt_draft.png",
+   "w": 48,
+   "h": 192,
+   "frames": 9,
+   "pivotX": 24,
+   "pivotY": 14,
+   "fps": 22
+  },
+  {
+   "name": "VFX_magic_circle_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_magic_circle_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 8,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 16
+  },
+  {
+   "name": "VFX_frost_nova_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_frost_nova_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 10,
+   "pivotX": 48,
+   "pivotY": 40,
+   "fps": 20
+  },
+  {
+   "name": "VFX_wind_blades_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_wind_blades_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 8,
+   "pivotX": 32,
+   "pivotY": 32,
+   "fps": 18
+  },
+  {
+   "name": "VFX_scorch_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_scorch_draft.png",
+   "w": 48,
+   "h": 32,
+   "frames": 6,
+   "pivotX": 24,
+   "pivotY": 16,
+   "fps": 5
+  },
+  {
+   "name": "VFX_bloom_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_bloom_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 1
+  },
+  {
+   "name": "VFX_spell_glow",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_spell_glow_polish.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 1
+  },
+  {
+   "name": "VFX_fireball",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_fireball_polish.png",
+   "w": 48,
+   "h": 36,
+   "frames": 8,
+   "pivotX": 30,
+   "pivotY": 18,
+   "fps": 24
+  },
+  {
+   "name": "VFX_ice_shard",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_ice_shard_polish.png",
+   "w": 56,
+   "h": 36,
+   "frames": 8,
+   "pivotX": 29,
+   "pivotY": 18,
+   "fps": 24
+  },
+  {
+   "name": "VFX_frost_blade",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_frost_blade_polish.png",
+   "w": 52,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 26,
+   "pivotY": 20,
+   "fps": 1
+  },
+  {
+   "name": "VFX_homing",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_homing_polish.png",
+   "w": 52,
+   "h": 40,
+   "frames": 12,
+   "pivotX": 26,
+   "pivotY": 20,
+   "fps": 24
+  },
+  {
+   "name": "VFX_starfire",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_starfire_polish.png",
+   "w": 52,
+   "h": 40,
+   "frames": 12,
+   "pivotX": 26,
+   "pivotY": 20,
+   "fps": 24
+  },
+  {
+   "name": "VFX_magic_bolt",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_magic_bolt_polish.png",
+   "w": 60,
+   "h": 40,
+   "frames": 12,
+   "pivotX": 32,
+   "pivotY": 20,
+   "fps": 24
+  },
+  {
+   "name": "VFX_charge",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_charge_polish.png",
+   "w": 64,
+   "h": 56,
+   "frames": 12,
+   "pivotX": 32,
+   "pivotY": 28,
+   "fps": 20
+  },
+  {
+   "name": "VFX_slash",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_slash_polish.png",
+   "w": 96,
+   "h": 80,
+   "frames": 9,
+   "pivotX": 31,
+   "pivotY": 40,
+   "fps": 27
+  },
+  {
+   "name": "VFX_spell_aura",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_spell_aura_polish.png",
+   "w": 104,
+   "h": 66,
+   "frames": 12,
+   "pivotX": 52,
+   "pivotY": 33,
+   "fps": 18
+  },
+  {
+   "name": "VFX_vortex",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_vortex_polish.png",
+   "w": 96,
+   "h": 64,
+   "frames": 16,
+   "pivotX": 48,
+   "pivotY": 35,
+   "fps": 24
+  },
+  {
+   "name": "VFX_wind_funnel",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_wind_funnel_polish.png",
+   "w": 112,
+   "h": 96,
+   "frames": 16,
+   "pivotX": 56,
+   "pivotY": 15,
+   "fps": 24
+  },
+  {
+   "name": "VFX_fire_tornado",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_fire_tornado_polish.png",
+   "w": 120,
+   "h": 112,
+   "frames": 16,
+   "pivotX": 60,
+   "pivotY": 15,
+   "fps": 24
+  },
+  {
+   "name": "VFX_spell_pulse",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_spell_pulse_polish.png",
+   "w": 96,
+   "h": 76,
+   "frames": 10,
+   "pivotX": 48,
+   "pivotY": 25,
+   "fps": 26
+  },
+  {
+   "name": "VFX_steam",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_steam_polish.png",
+   "w": 112,
+   "h": 96,
+   "frames": 12,
+   "pivotX": 56,
+   "pivotY": 32,
+   "fps": 22
+  },
+  {
+   "name": "VFX_overload",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_overload_polish.png",
+   "w": 112,
+   "h": 96,
+   "frames": 12,
+   "pivotX": 56,
+   "pivotY": 32,
+   "fps": 24
+  },
+  {
+   "name": "VFX_shatter",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shatter_polish.png",
+   "w": 112,
+   "h": 96,
+   "frames": 12,
+   "pivotX": 56,
+   "pivotY": 32,
+   "fps": 24
+  }
+ ]
+}

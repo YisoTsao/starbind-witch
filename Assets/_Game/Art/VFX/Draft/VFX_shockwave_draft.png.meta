@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: 8f230c763ac1a4a2bae06c02fd9a6209
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6293970023705345132
+    second: VFX_shockwave_draft_0
+  - first:
+      213: -1928580509363049930
+    second: VFX_shockwave_draft_1
+  - first:
+      213: -5872269715866157186
+    second: VFX_shockwave_draft_2
+  - first:
+      213: -4296897356368451317
+    second: VFX_shockwave_draft_3
+  - first:
+      213: -8373980963187798437
+    second: VFX_shockwave_draft_4
+  - first:
+      213: 8298970979251081415
+    second: VFX_shockwave_draft_5
+  - first:
+      213: -7251285971673036498
+    second: VFX_shockwave_draft_6
+  - first:
+      213: -7049562522444352068
+    second: VFX_shockwave_draft_7
+  - first:
+      213: 2570124121178853627
+    second: VFX_shockwave_draft_8
+  - first:
+      213: 2152457686736177576
+    second: VFX_shockwave_draft_9
+  - first:
+      213: -1916700957408187096
+    second: VFX_shockwave_draft_10
+  - first:
+      213: 146657821915734579
+    second: VFX_shockwave_draft_11
+  - first:
+      213: -2623049289033833215
+    second: VFX_shockwave_draft_12
+  - first:
+      213: 8680649446789684346
+    second: VFX_shockwave_draft_13
+  - first:
+      213: -8861583460118805780
+    second: VFX_shockwave_draft_14
+  - first:
+      213: 6804187679980211327
+    second: VFX_shockwave_draft_15
+  - first:
+      213: 125155832619258479
+    second: VFX_shockwave_draft_16
+  - first:
+      213: 5148130140168011769
+    second: VFX_shockwave_draft_17
+  - first:
+      213: -3646305166339425228
+    second: VFX_shockwave_draft_18
+  - first:
+      213: -1741965252382015180
+    second: VFX_shockwave_draft_19
+  - first:
+      213: 6450172599392276
+    second: VFX_shockwave_draft_20
+  - first:
+      213: -8014280899106053517
+    second: VFX_shockwave_draft_21
+  - first:
+      213: -4992611242959927862
+    second: VFX_shockwave_draft_22
+  - first:
+      213: -5869896645694603730
+    second: VFX_shockwave_draft_23
+  - first:
+      213: -73767617784856311
+    second: VFX_shockwave_draft_24
+  - first:
+      213: -1687628387928101117
+    second: VFX_shockwave_draft_25
+  - first:
+      213: -4219609045651314725
+    second: VFX_shockwave_draft_26
+  - first:
+      213: 2699572859767787518
+    second: VFX_shockwave_draft_27
+  - first:
+      213: 6675606661031378826
+    second: VFX_shockwave_draft_28
+  - first:
+      213: 4685608338582688060
+    second: VFX_shockwave_draft_29
+  - first:
+      213: -4699474651285799057
+    second: VFX_shockwave_draft_30
+  - first:
+      213: 7660458148465179764
+    second: VFX_shockwave_draft_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493061e3c9357a8a0800000000000000
+      internalID: -6293970023705345132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a6caaae3e4c35e0800000000000000
+      internalID: -1928580509363049930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f73885ec1818ea0800000000000000
+      internalID: -5872269715866157186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b09e75dce9a5e54c0800000000000000
+      internalID: -4296897356368451317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ece456ea4a9cb80800000000000000
+      internalID: -8373980963187798437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c05983c22edb2370800000000000000
+      internalID: 8298970979251081415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29c7a5e3d14e5b90800000000000000
+      internalID: -7251285971673036498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_shockwave_draft_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d161efbe1176540dfa42f53bddd7cfa5
+      internalID: -12657050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d830d8c1d06a640c49a82a164b16a65e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_shockwave_draft_0: -6293970023705345132
+      VFX_shockwave_draft_1: -1928580509363049930
+      VFX_shockwave_draft_2: -5872269715866157186
+      VFX_shockwave_draft_3: -4296897356368451317
+      VFX_shockwave_draft_4: -8373980963187798437
+      VFX_shockwave_draft_5: 8298970979251081415
+      VFX_shockwave_draft_6: -7251285971673036498
+      VFX_shockwave_draft_7: -12657050
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

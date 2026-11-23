@@ -19,6 +19,7 @@ namespace Starbind.Spells
         DamageEvent template;
         int castId;
         float angle;
+        float nextFrostTrail;
 
         public int BladeCount => blades.Count;
         public RuntimeSpell Spell { get; private set; }
@@ -51,6 +52,7 @@ namespace Starbind.Spells
             var sr = go.AddComponent<SpriteRenderer>();
             var db = GameDatabase.Instance;
             sr.sprite = db != null ? db.Sprite("VFX_frost_blade") : null;
+            go.transform.localScale = Vector3.one * 0.68f;
             if (db != null && db.unlitMaterial != null)
                 sr.sharedMaterial = db.unlitMaterial;
             sr.sortingLayerName = StarbindLayers.SortVfx;
@@ -70,6 +72,9 @@ namespace Starbind.Spells
             if (n == 0)
                 return;
             var world = CombatWorld.Instance;
+            bool leaveTrail = Time.time >= nextFrostTrail;
+            if (leaveTrail)
+                nextFrostTrail = Time.time + 0.055f;
             int i = 0;
             foreach (var b in blades)
             {
@@ -78,8 +83,15 @@ namespace Starbind.Spells
                 float a = (angle + i * 360f / n) * Mathf.Deg2Rad;
                 var offset = new Vector2(Mathf.Cos(a), Mathf.Sin(a) * 0.8f) * Radius + new Vector2(0, 0.4f);
                 b.transform.localPosition = offset;
-                b.sortingOrder = offset.y < 0.4f ? 6 : -1;
+                var tangent = new Vector2(-Mathf.Sin(a), 0.8f * Mathf.Cos(a));
+                var facing = Mathf.Round(Mathf.Atan2(tangent.y, tangent.x) * Mathf.Rad2Deg / 22.5f) * 22.5f;
+                b.transform.localRotation = Quaternion.Euler(0, 0, facing);
+                bool front = offset.y < 0.4f;
+                b.sortingLayerName = front ? StarbindLayers.SortVfx : StarbindLayers.SortGroundDecal;
+                b.color = front ? Color.white : new Color(0.65f, 0.8f, 0.9f, 0.82f);
                 Vector2 p = b.transform.position;
+                if (leaveTrail)
+                    VfxService.Instance.Embers(p, new Color(0.68f, 0.9f, 1f), -tangent * 1.1f, 1, 0.27f, 0.075f);
                 world.Query(p, 0.28f, Team.Player, hits, 4);
                 foreach (var h in hits)
                 {
@@ -87,7 +99,7 @@ namespace Starbind.Spells
                     e.Direction = (h.Center - (Vector2)transform.position).normalized;
                     if (world.Damage(e, h, RehitInterval).Applied)
                     {
-                        VfxService.Instance.Sparks(p, new Color(0.7f, 0.95f, 1f), 3, 2f);
+                        SpellFx.Impact(ElementType.Ice, h.Center, 0.42f);
                         Sfx.Play("sfx_ice_hit", 0.35f);
                     }
                 }

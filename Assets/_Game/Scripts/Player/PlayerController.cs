@@ -74,6 +74,7 @@ namespace Starbind.Player
                 input.ItemPressed += OnItem;
                 input.GrimoirePressed += OnGrimoire;
                 input.PausePressed += OnPause;
+                input.MapPressed += OnMap;
             }
             if (vitals != null)
             {
@@ -98,6 +99,7 @@ namespace Starbind.Player
                 input.ItemPressed -= OnItem;
                 input.GrimoirePressed -= OnGrimoire;
                 input.PausePressed -= OnPause;
+                input.MapPressed -= OnMap;
             }
             if (vitals != null)
             {
@@ -120,6 +122,8 @@ namespace Starbind.Player
 
         Vector2 Aim => combat.AimPoint(input);
 
+        float lastAttackLock;
+
         void Update()
         {
             if (InputEnabled && input != null)
@@ -130,8 +134,11 @@ namespace Starbind.Player
                 bool attacking = Time.time < combat.AttackLockedUntil || combat.IsCharging;
                 anim.Facing = attacking ? combat.AimDirection : motor.Facing;
                 anim.Moving = motor.Velocity.sqrMagnitude > 0.2f;
-                if (Time.time < combat.AttackLockedUntil || combat.IsCharging)
-                    anim.PlayCast(0.05f);
+                anim.Charging = combat.IsCharging;
+                bool newSwing = combat.AttackLockedUntil > lastAttackLock + 0.001f;
+                lastAttackLock = combat.AttackLockedUntil;
+                if (Time.time < combat.AttackLockedUntil)
+                    anim.PlayCast(0.05f, newSwing); // each combo step / cast restarts the action frames
             }
             if (motor.IsDashing)
                 vitals.Health.InvulnerableUntil = Mathf.Max(vitals.Health.InvulnerableUntil, Time.time + 0.02f);
@@ -174,6 +181,12 @@ namespace Starbind.Player
         {
             if (InputEnabled && GameSession.Exists)
                 GameSession.Instance.UI.ToggleGrimoire();
+        }
+
+        void OnMap()
+        {
+            if (InputEnabled && GameSession.Exists)
+                GameSession.Instance.UI.ToggleMap();
         }
 
         void OnPause()

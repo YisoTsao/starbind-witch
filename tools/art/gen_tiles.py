@@ -2,12 +2,13 @@
 
 Status of every output: Needs Cleanup (draft). Not production art (ASSET_GAPS.md).
 Outputs (art-source/_drafts/tiles/ and Assets/_Game/Art/Tilesets/Village/Draft/):
-  TILE_grass_draft.png        4 variants (128x32). Edges are plain single-pixel texture, so any
+  TILE_grass_draft.png        8 variants (256x32). Edges are plain single-pixel texture, so any
                               variant sits next to any other without a seam.
   TILE_path_draft_256.png     256 autotile variants (512x512), index = 8-neighbour mask
   TILE_water_draft_256.png    same layout
                               mask bits: N=1 NE=2 E=4 SE=8 S=16 SW=32 W=64 NW=128
-  TILE_cliff_draft.png        cliff face  [mid, left_end, right_end, single] + waterfall (160x32)
+  TILE_cliff_draft.png        2-tile-tall cliff face: upper [mid, left_end, right_end, single], lower [same],
+                              waterfall upper + lower (320x32)
   TILE_rim_draft.png          plateau rim, 8 variants, index = N*1 + E*2 + W*4 (256x32)
 
 Autotile edges are computed from a 3x3-cell neighbourhood with noise that is periodic in 32 px,
@@ -34,7 +35,11 @@ P = {k: hexc(v) for k, v in dict(
     d_base="#efb97a", d_light="#f5c080", d_dark="#e4ae71", d_edge="#d29a62", d_deep="#b98257",
     w_base="#3799bd", w_deep="#2e6a97", w_light="#42a5c4", w_foam="#9dccbe", w_white="#e3f7fa", w_line="#2a5a7a",
     b_bank="#a5765a", b_dark="#6e4c4a",
-    c_hi="#ecc17a", c_mid="#b58d67", c_mid2="#9d6c61", c_dark="#86605e", c_darker="#654855", c_deepest="#4a3445",
+    # cliff stone: cool grey-violet with a warm top light (was tan/brown in vertical columns and read as a
+    # wooden fence from a distance, ASSET_GAPS TILE_cliff)
+    c_hi="#d8d2e0", c_mid="#aaa2bc", c_mid2="#8e86a4", c_dark="#736a8c", c_darker="#564f6e", c_deepest="#3a3450",
+    c_warm="#e8d6c0", moss="#6f9a48", moss_l="#92ba53",
+    fl_w="#ffffff", fl_w2="#e3dcef", pb_l="#e9d8b8", pb_d="#a9805e",
     f_0="#2674a9", f_1="#3997be", f_2="#49acd0", f_3="#7fd7ea", f_4="#e3f7fa",
 ).items()}
 CLEAR = np.zeros(4, np.uint8)
@@ -58,21 +63,47 @@ def periodic_noise(size=T, octaves=((8, 1.0), (4, 0.5)), seed=0):
 
 
 # ------------------------------------------------------------------ base textures (single tile)
+GRASS_VARIANTS = 8
+
+
+def blade(img, x, y, tall=False):
+    """Small grass-blade mark as in reference A: light tip, two lit sides, dark root."""
+    img[y, x] = P["g_hi"]
+    img[y + 1, x - 1] = P["g_light"]; img[y + 1, x + 1] = P["g_light"]
+    img[y + 1, x] = P["g_dark"]
+    img[y + 2, x] = P["g_edge"]
+    if tall:
+        img[y + 2, x - 1] = P["g_edge"]; img[y + 2, x + 1] = P["g_edge"]
+        img[y + 3, x] = P["g_deep"]
+
+
 def grass_tile(variant):
+    """Seamless by construction: edge pixels are plain per-pixel noise; all marks sit in the interior.
+    Variants 0-3 plain texture, 4-5 denser blades, 6 clover, 7 tiny white flowers."""
     rng = np.random.default_rng(100 + variant)
     img = np.tile(P["g_base"], (T, T, 1))
     r = rng.random((T, T))
-    img[r < 0.16] = P["g_dark"]
-    img[(r > 0.84)] = P["g_light"]
-    # tufts only in the interior so variants never break across tile edges
-    for _ in range(5 + variant):
-        x, y = rng.integers(3, T - 4), rng.integers(3, T - 4)
-        img[y, x] = P["g_hi"]; img[y + 1, x - 1] = P["g_light"]; img[y + 1, x + 1] = P["g_light"]
-        img[y + 2, x] = P["g_edge"]
-    if variant == 3:  # a few darker clover pixels
+    img[r < 0.13] = P["g_dark"]
+    img[r > 0.90] = P["g_light"]
+    # dark 'w' clumps (2-3 px) break the flat colour like the painted grass in reference A
+    for _ in range(3 + variant % 3):
+        x, y = rng.integers(3, T - 5), rng.integers(3, T - 4)
+        img[y, x] = P["g_edge"]; img[y + 1, x + 1] = P["g_edge"]; img[y, x + 2] = P["g_edge"]
+        img[y - 1, x + 1] = P["g_dark"]
+    n_blades = 4 + variant if variant < 6 else 4
+    for _ in range(n_blades):
+        x, y = rng.integers(3, T - 4), rng.integers(3, T - 5)
+        blade(img, x, y, tall=rng.random() < 0.35)
+    if variant == 6:
         for _ in range(4):
             x, y = rng.integers(4, T - 5), rng.integers(4, T - 5)
-            img[y:y + 2, x:x + 2] = P["g_dark"]; img[y + 1, x + 1] = P["g_edge"]
+            img[y, x] = P["g_light"]; img[y, x + 1] = P["g_dark"]; img[y + 1, x] = P["g_dark"]; img[y + 1, x + 1] = P["g_edge"]
+            img[y - 1, x] = P["g_hi"]
+    if variant == 7:
+        for _ in range(3):
+            x, y = rng.integers(4, T - 5), rng.integers(4, T - 5)
+            img[y, x] = P["fl_w"]; img[y - 1, x] = P["fl_w"]; img[y, x - 1] = P["fl_w2"]; img[y, x + 1] = P["fl_w2"]
+            img[y + 1, x] = P["g_edge"]
     return img
 
 
@@ -82,6 +113,9 @@ def dirt_fill(rng):
     img[r < 0.10] = P["d_dark"]
     img[r > 0.90] = P["d_light"]
     img[(r > 0.5) & (r < 0.515)] = P["d_edge"]
+    for _ in range(rng.integers(1, 4)):   # pebbles, interior only
+        x, y = rng.integers(3, T - 4), rng.integers(3, T - 4)
+        img[y, x] = P["pb_l"]; img[y, x + 1] = P["d_light"]; img[y + 1, x] = P["pb_d"]; img[y + 1, x + 1] = P["d_deep"]
     return img
 
 
@@ -89,7 +123,7 @@ def water_fill(rng):
     """Flat water with short horizontal ripples (interior only, so no pattern repeats per tile)."""
     img = np.tile(P["w_base"], (T, T, 1))
     r = rng.random((T, T))
-    img[r < 0.05] = P["w_deep"]
+    img[r < 0.015] = P["w_deep"]
     for _ in range(rng.integers(3, 6)):
         x, y, l = rng.integers(2, T - 8), rng.integers(2, T - 3), rng.integers(3, 7)
         img[y, x:x + l] = P["w_light"]
@@ -129,15 +163,28 @@ def edge_field(mask):
     return t[T:2 * T, T:2 * T]
 
 
+TUFT_NOISE = periodic_noise(octaves=((4, 1.0), (2, 0.5)), seed=21)
+
+
 def path_tile(mask, rng):
+    """Dirt with a darker rim and grass tufts creeping over the edge. The tuft field is periodic in
+    32 px and the edge field is continuous across cells, so tile edges stay seamless."""
     t = edge_field(mask)
     img = dirt_fill(rng)
     out = np.zeros((T, T, 4), np.uint8)
     inside = t > 0.08
     out[inside] = img[inside]
     out[(t > 0) & (t <= 0.08)] = P["d_edge"]
+    out[(t > 0.08) & (t <= 0.12)] = P["d_dark"]
     out[(t > -0.07) & (t <= 0)] = P["g_edge"]
+    creep = TUFT_NOISE > 0.42
+    out[creep & (t > 0) & (t <= 0.05)] = P["g_base"]
+    out[creep & (t > 0.05) & (t <= 0.1)] = P["g_edge"]
+    out[(TUFT_NOISE > 0.62) & (t > 0) & (t <= 0.04)] = P["g_light"]
     return out
+
+
+SPARK_NOISE = periodic_noise(octaves=((2, 1.0),), seed=31)
 
 
 def water_tile(mask, rng):
@@ -146,6 +193,9 @@ def water_tile(mask, rng):
     out = np.zeros((T, T, 4), np.uint8)
     inside = t > 0.13
     out[inside] = img[inside]
+    out[(t > 0.13) & (t <= 0.22) & (img[..., 0] == P["w_base"][0])] = P["w_light"]   # shallow band
+    sp = (SPARK_NOISE > 0.86) & (t > 0.3)
+    out[sp] = P["w_white"]
     out[(t > 0.06) & (t <= 0.13)] = P["w_foam"]
     out[(t > 0.0) & (t <= 0.06)] = P["w_line"]
     out[(t > -0.07) & (t <= 0.0)] = P["b_bank"]
@@ -163,61 +213,145 @@ def sheet256(fn):
 
 
 # ------------------------------------------------------------------ cliff face, rim, waterfall
-PILLARS = [(0, 7, 5), (7, 15, 3), (15, 23, 6), (23, 32, 4)]  # (x0, x1, top row) period 32
-ROCK_RAMP = ["c_hi", "c_hi", "c_mid", "c_mid", "c_mid2", "c_dark", "c_dark", "c_darker"]
+# The face is two tiles tall (64 px): drawn as one image and split into an upper tile (grass lip) and a
+# lower tile (cliff foot with contact shadow), so stone courses run across the seam.
+# Staggered courses of rounded boulders (x0, width) per course; every course tiles with period 32
+# (stones that cross x=32 wrap to x=0). Widths differ so no vertical seam lines up between courses.
+FACE_H = 2 * T
+_PATTERNS = [
+    [(0, 12, 1, 0), (12, 9, 0, 1), (21, 11, 2, 0)],
+    [(-5, 10, 2, 0), (5, 13, 1, -1), (18, 6, 3, 0), (24, 8, 1, 1)],
+    [(1, 8, 2, 0), (9, 11, 1, 0), (20, 5, 2, 0), (25, 8, 0, 0)],
+    [(-3, 14, 1, 0), (11, 7, 2, 1), (18, 10, 0, 0), (28, 7, 1, 0)],
+]
+_TOPS = [5, 13, 23, 30, 40, 47, 55]                                     # uneven course heights
+COURSES = [(t, t + h, _PATTERNS[k % 4]) for k, (t, h) in enumerate(zip(_TOPS, [10, 12, 9, 12, 9, 10, 9]))]
+STONE_RAMP = ["c_warm", "c_hi", "c_mid", "c_mid", "c_mid2", "c_dark", "c_darker"]
+SIDE_RAMP = ["g_edge", "c_hi", "c_hi", "c_mid", "c_mid", "c_mid2", "c_mid2", "c_dark", "c_darker", "c_deepest"]
+SIDE_W = 10                                                       # matches the rim's side wall
 
 
-def pillar(img, x0, x1, top, bottom, rng):
-    """One rounded rock column: light left, dark right, rounded top/bottom corners, a crack or two."""
-    w = x1 - x0
-    for x in range(x0, x1):
-        u = (x - x0) / max(w - 1, 1)
-        img[top:bottom, x] = P[ROCK_RAMP[min(int(u * len(ROCK_RAMP)), len(ROCK_RAMP) - 1)]]
-    img[top:bottom, x1 - 1] = P["c_deepest"]                      # gap to the next column
-    img[top, x0:x1 - 1] = P["c_hi"]; img[top, x0] = CLEAR if top > 4 else img[top, x0]
-    img[top, x1 - 2] = P["c_dark"]
-    img[bottom - 1, x0:x1 - 1] = P["c_darker"]
-    for _ in range(rng.integers(1, 3)):                           # horizontal cracks
-        y = rng.integers(top + 4, bottom - 3)
-        img[y, x0 + 1:x1 - 2] = P["c_darker"]
-        img[y + 1, x0 + 1:x0 + 3] = P["c_hi"]
+def boulder(img, x0, w, y0, y1, rng, shade):
+    """Rounded stone: lit top-left, dark bottom-right, mortar outline, 2 px rounded corners, wraps horizontally.
+    `shade` darkens lower courses (ambient occlusion toward the cliff foot)."""
+    h = y1 - y0
+    cx, cy = (w - 1) / 2, (h - 1) / 2
+    for yy in range(y0, y1):
+        for i in range(w):
+            dx, dy = abs(i - cx) / max(cx, 1), abs(yy - y0 - cy) / max(cy, 1)
+            r = dx ** 4 + dy ** 4                                  # superellipse: rounded rectangle
+            if r > 1.0:
+                continue
+            x = (x0 + i) % T
+            if r > 0.62:
+                img[yy, x] = P["c_deepest"]                       # outline
+                continue
+            u, v = i / max(w - 1, 1), (yy - y0) / max(h - 1, 1)
+            k = int((u * 0.45 + v * 0.95) * 3.2) + shade
+            img[yy, x] = P[STONE_RAMP[min(k, len(STONE_RAMP) - 1)]]
+    if w > 8 and rng.random() < 0.6:                              # small crack
+        cxp = (x0 + int(w * rng.uniform(0.4, 0.7))) % T
+        img[y0 + 3:y0 + 3 + max(2, h // 3), cxp] = P["c_darker"]
+        img[y0 + 3, (cxp + 1) % T] = P["c_hi"]
+
+
+LIP = [3, 4, 4, 3, 5, 4, 3, 3, 4, 5, 4, 3, 4, 4, 3, 5, 4, 3, 4, 4, 5, 3, 3, 4, 4, 5, 4, 3, 4, 3, 4, 4]
+
+
+SIDE_COURSES = [(0, 6), (5, 3, ), (12, 7), (18, 4), (26, 7)]   # (y offset in a 32 px period, stagger)
+
+
+def side_stones(img, side, y_from, y_to, shade=2):
+    """Side of the cliff seen at a glancing angle: narrow stacked stones in shadow (darker than the
+    front face so the corner reads as the rock turning away, not as a post). Period 32 vertically."""
+    rng = np.random.default_rng(91)
+    x0 = T - SIDE_W if side == "E" else 0
+    img[y_from:y_to, x0:x0 + SIDE_W] = P["c_deepest"]
+    for base in range(y_from - 32, y_to, 32):
+        for k, (yo, stag) in enumerate(SIDE_COURSES):
+            y0 = base + yo
+            y1 = base + (SIDE_COURSES[k + 1][0] if k + 1 < len(SIDE_COURSES) else 32) + 1
+            for sx, sw in ((0, stag), (stag, SIDE_W - stag)):
+                if sw < 3:
+                    continue
+                tmp = np.zeros((max(1, y1 - y0) + 2, T, 4), np.uint8)
+                boulder(tmp, sx, sw, 0, y1 - y0, rng, shade)
+                for yy in range(tmp.shape[0]):
+                    ty = y0 + yy
+                    if y_from <= ty < y_to:
+                        for xx in range(SIDE_W):
+                            if tmp[yy, xx, 3] > 0:
+                                img[ty, x0 + xx] = tmp[yy, xx]
+    outer = x0 + SIDE_W - 1 if side == "E" else x0
+    img[y_from:y_to, outer] = P["c_deepest"]                       # silhouette against the grass
+
+
+def side_wall(img, side):
+    """Corner: the cliff turns away from the viewer. Shadowed side stones continue the rim's side wall
+    down to the ground, with a rounded foot."""
+    H = img.shape[0]
+    side_stones(img, side, 0, H - 1)
+    seam = T - SIDE_W - 1 if side == "E" else SIDE_W               # shadow seam where the front face starts
+    img[LIP[seam] + 1:H - 1, seam] = P["c_deepest"]
+    for y in range(H - 4, H):                                      # rounded foot: outer columns tuck in
+        n = y - (H - 4) + 1
+        xs = range(T - n, T) if side == "E" else range(0, n)
+        for x in xs:
+            img[y, x] = CLEAR
+    img[H - 1, :] = np.where(img[H - 1, :, 3:4] > 0, P["g_deep"], CLEAR)
+
+
+def cliff_face_tall(left_end, right_end):
+    """64 px face: returns (upper, lower) tiles."""
+    rng = np.random.default_rng(55)
+    img = np.zeros((FACE_H, T, 4), np.uint8)
+    img[4:FACE_H - 1, :] = P["c_deepest"]                          # mortar / deep shadow behind the stones
+    for shade, (y0, y1, stones) in enumerate(COURSES):
+        for x0, w, jt, jb in stones:
+            boulder(img, x0, w, y0 + jt, min(FACE_H - 1, y1 + jb), rng, min(shade, 4) // 2)
+    img[5:7, :][img[5:7, :, 3] > 0] = P["c_darker"]                # shade under the overhanging lip
+    for x, y in ((3, 7), (4, 7), (5, 6), (14, 15), (15, 14), (16, 15), (26, 8), (27, 8), (8, 24), (9, 23), (28, 23),
+                 (20, 41), (21, 41), (6, 50), (25, 57), (26, 56)):  # moss, more near the damp foot
+        if img[y, x, 3] > 0:
+            img[y, x] = P["moss"]
+    img[7, 4] = P["moss_l"]; img[14, 15] = P["moss_l"]; img[56, 26] = P["moss_l"]
+    for x in range(T):                                             # grass lip from the plateau above
+        img[0:LIP[x], x] = P["g_base"]
+        img[LIP[x], x] = P["g_deep"]
+    for x, n in ((6, 3), (13, 2), (21, 4), (29, 2)):              # hanging tufts / vines
+        img[LIP[x]:LIP[x] + n, x] = P["g_edge"]; img[LIP[x] + n, x] = P["g_deep"]
+    for x, n in ((21, 14), (6, 9)):                                # long vines down the face
+        for y in range(LIP[x] + 4, LIP[x] + 4 + n):
+            img[y, x + (y // 4) % 2] = P["g_edge"] if y % 3 else P["g_deep"]
+    img[1, 2::5] = P["g_light"]; img[0, 4::7] = P["g_hi"]
+    for x in range(T):                                             # foot: grass tufts creeping onto the rock
+        h = (3, 1, 2, 0, 2, 3, 1, 0)[x % 8]
+        img[FACE_H - 1 - h:FACE_H - 1, x] = P["g_edge"] if h > 1 else img[FACE_H - 2, x]
+    img[FACE_H - 1, :] = P["g_deep"]                               # contact shadow on the ground below
+    if left_end:
+        side_wall(img, "W")
+    if right_end:
+        side_wall(img, "E")
+    return img[:T].copy(), img[T:].copy()
 
 
 def cliff_face(left_end, right_end):
-    rng = np.random.default_rng(55)
-    img = np.zeros((T, T, 4), np.uint8)
-    for x0, x1, top in PILLARS:
-        pillar(img, x0, x1, top, T - 2, rng)
-        img[4:top, x0:x1] = P["c_darker"]                         # shadow under the lip
-    # grass lip from the plateau above: jagged lower edge, dark outline
-    lip = [3, 4, 4, 3, 5, 4, 3, 3, 4, 5, 4, 3, 4, 4, 3, 5, 4, 3, 4, 4, 5, 3, 3, 4, 4, 5, 4, 3, 4, 3, 4, 4]
-    for x in range(T):
-        img[0:lip[x], x] = P["g_base"]
-        img[lip[x], x] = P["g_deep"]
-    img[1, 2::5] = P["g_light"]; img[0, 4::7] = P["g_hi"]
-    img[T - 2, :] = P["c_deepest"]                                # base shadow
-    img[T - 1, :] = P["g_deep"]                                   # contact with the ground below
-    if left_end:
-        img[:, 0:3] = CLEAR
-        img[lip[3]:T - 1, 3] = P["c_deepest"]
-        img[0:lip[3], 3] = P["g_edge"]
-    if right_end:
-        img[:, T - 3:] = CLEAR
-        img[lip[T - 4]:T - 1, T - 4] = P["c_deepest"]
-        img[0:lip[T - 4], T - 4] = P["g_edge"]
-    return img
+    """Upper tile only (kept for callers that want a one-tile face)."""
+    return cliff_face_tall(left_end, right_end)[0]
 
 
-def waterfall():
-    img = cliff_face(False, False)
+def waterfall_tall():
+    up, lo = cliff_face_tall(False, False)
+    img = np.concatenate([up, lo], axis=0)
     n = periodic_noise(seed=11)
     for x in range(4, T - 4):
-        for y in range(2, T):
-            v = n[y % T, x] + (0.5 if x % 5 == 0 else 0)
+        for y in range(2, FACE_H):
+            v = n[y % T, x] + (0.5 if x % 5 == 0 else 0) + (0.3 if (y + x * 3) % 11 == 0 else 0)
             img[y, x] = P["f_4"] if v > 0.8 else P["f_3"] if v > 0.35 else P["f_2"] if v > -0.1 else P["f_1"] if v > -0.5 else P["f_0"]
-    img[T - 5:, 4:T - 4][::2, ::2] = P["f_4"]  # splash
-    img[2:4, 3] = P["f_0"]; img[2:4, T - 4] = P["f_0"]
-    return img
+    img[FACE_H - 7:, 3:T - 3][::2, ::2] = P["f_4"]                  # splash at the foot
+    img[FACE_H - 4:, 2:T - 2][1::2, 1::2] = P["f_3"]
+    img[2:6, 3] = P["f_0"]; img[2:6, T - 4] = P["f_0"]
+    return img[:T].copy(), img[T:].copy()
 
 
 def rim(n_open, e_open, w_open):
@@ -228,19 +362,8 @@ def rim(n_open, e_open, w_open):
     if n_open:
         img[0:2, :] = P["c_darker"]; img[2, :] = P["g_edge"]
     for side, open_ in (("E", e_open), ("W", w_open)):
-        if not open_:
-            continue
-        x0 = T - 10 if side == "E" else 0
-        for y in range(T):
-            for i in range(10):
-                k = i if side == "E" else 9 - i  # k=0 at the grass side
-                ramp = ["g_edge", "c_hi", "c_hi", "c_mid", "c_mid", "c_mid2", "c_mid2", "c_dark", "c_darker", "c_deepest"]
-                img[y, x0 + i] = P[ramp[k]]
-        for y in (5, 13, 22, 29):  # stacked-stone joints, period 32 so cells stack seamlessly
-            xs = range(x0 + 1, x0 + 9) if side == "E" else range(x0 + 1, x0 + 9)
-            for x in xs:
-                img[y, x] = P["c_darker"]
-            img[y + 1, (x0 + 2) if side == "E" else (x0 + 6)] = P["c_hi"]
+        if open_:
+            side_stones(img, side, 0, T, shade=1)
     return img
 
 
@@ -252,12 +375,13 @@ def main():
     out_src = os.path.join(ROOT, "art-source/_drafts/tiles")
     out_unity = os.path.join(ROOT, "Assets/_Game/Art/Tilesets/Village/Draft")
     os.makedirs(out_src, exist_ok=True); os.makedirs(out_unity, exist_ok=True)
+    FACES = [cliff_face_tall(False, False), cliff_face_tall(True, False), cliff_face_tall(False, True), cliff_face_tall(True, True)]
     files = {
-        "TILE_grass_draft.png": strip([grass_tile(v) for v in range(4)]),
+        "TILE_grass_draft.png": strip([grass_tile(v) for v in range(GRASS_VARIANTS)]),
         "TILE_path_draft_256.png": sheet256(path_tile),
         "TILE_water_draft_256.png": sheet256(water_tile),
-        "TILE_cliff_draft.png": strip([cliff_face(False, False), cliff_face(True, False),
-                                       cliff_face(False, True), cliff_face(True, True), waterfall()]),
+        # [upper: mid, left_end, right_end, single] [lower: same] [waterfall upper, lower]
+        "TILE_cliff_draft.png": strip([f[0] for f in FACES] + [f[1] for f in FACES] + list(waterfall_tall())),
         "TILE_rim_draft.png": strip([rim(bool(i & 1), bool(i & 2), bool(i & 4)) for i in range(8)]),
     }
     for name, arr in files.items():

@@ -1131,8 +1131,7 @@ def main():
     for k, (img, n, fps) in vfx_all().items():
         save("VFX", k + "_draft", img, frames=n, pivot=(0.5, 0.5), fps=fps)
     save("UI", "UI_digits_draft", digits(), 6, 8, 10, (0.5, 0.5))
-    for k, img in icons().items():
-        save("UI", k + "_draft", img, pivot=(0.5, 0.5))
+    # ICON_* (32x32) now come from tools/art/ui_art.py (ui_manifest.json); icons() is kept for reference
     grass, path, water = forest_tiles()
     for name, arr in (("TILE_forest_grass_draft", grass), ("TILE_forest_path_draft_256", path), ("TILE_forest_water_draft_256", water)):
         d = os.path.join(ART, "Tilesets/Forest/Draft"); os.makedirs(d, exist_ok=True)

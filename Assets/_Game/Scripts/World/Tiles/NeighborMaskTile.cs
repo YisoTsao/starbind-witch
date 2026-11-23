@@ -11,6 +11,9 @@ namespace Starbind.World.Tiles
         EastWest = 1,
         /// <summary>8 sprites: index = (north open ? 1 : 0) + (east open ? 2 : 0) + (west open ? 4 : 0).</summary>
         NorthEastWestOpen = 2,
+        /// <summary>8 sprites for 2-tile-tall faces: EastWest index + (north same ? 4 : 0), i.e. 0..3 upper row
+        /// (grass lip), 4..7 lower rows (cliff foot).</summary>
+        EastWestNorth = 3,
     }
 
     /// <summary>Autotile that selects a sprite from its neighbours (ASSET_PIPELINE.md §5).
@@ -53,6 +56,9 @@ namespace Starbind.World.Tiles
             {
                 case NeighborMaskMode.EastWest:
                     return (Same(tilemap, p + Dirs[2]) ? 1 : 0) + (Same(tilemap, p + Dirs[6]) ? 2 : 0);
+                case NeighborMaskMode.EastWestNorth:
+                    return (Same(tilemap, p + Dirs[2]) ? 1 : 0) + (Same(tilemap, p + Dirs[6]) ? 2 : 0) +
+                           (Same(tilemap, p + Dirs[0]) ? 4 : 0);
                 case NeighborMaskMode.NorthEastWestOpen:
                     return (Same(tilemap, p + Dirs[0]) ? 0 : 1) + (Same(tilemap, p + Dirs[2]) ? 0 : 2) +
                            (Same(tilemap, p + Dirs[6]) ? 0 : 4);

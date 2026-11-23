@@ -1,14 +1,18 @@
 using System;
+using Starbind.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Starbind.UI
 {
     /// <summary>Small helpers to build uGUI from code (no prefabs needed). Reference canvas 1920x1080.
-    /// Fonts come from the OS (CJK capable); a licensed pixel font is an asset gap.</summary>
+    /// Text uses Fusion Pixel 12px (SIL OFL 1.1, Resources/Fonts); sizes should be multiples of 12.
+    /// Falls back to a CJK OS font when the asset is missing.</summary>
     public static class UIKit
     {
+        public const string FontResource = "Fonts/FusionPixel12_zh_tw";
         static Font font;
+        static bool rebuildHooked;
         static Sprite white;
 
         // opaque: uGUI Outline draws tinted copies of the whole image, which shows through any transparency
@@ -23,12 +27,28 @@ namespace Starbind.UI
         {
             font = null;
             white = null;
+            if (rebuildHooked)
+                UnityEngine.Font.textureRebuilt -= PointFilter;
+            rebuildHooked = false;
         }
 
         public static Font Font
         {
             get
             {
+                if (font == null)
+                {
+                    font = Resources.Load<Font>(FontResource);
+                    if (font != null && !rebuildHooked)
+                    {
+                        // the dynamic glyph atlas is recreated as it grows: keep it point-sampled so the
+                        // 2x / 3x pixel glyphs stay sharp instead of being smeared by bilinear filtering
+                        UnityEngine.Font.textureRebuilt += PointFilter;
+                        rebuildHooked = true;
+                    }
+                    Prewarm(font);
+                    PointFilter(font);
+                }
                 if (font == null)
                 {
                     font = Font.CreateDynamicFontFromOSFont(new[] { "PingFang TC", "Heiti TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Arial Unicode MS", "Arial" }, 24);
@@ -38,6 +58,37 @@ namespace Starbind.UI
                 return font;
             }
         }
+
+        public const string CharsetResource = "Fonts/FusionPixel12_charset";
+        static readonly int[] PrewarmSizes = { 12, 24, 36, 48 };
+
+        /// <summary>Puts every glyph the game uses (charset generated from scripts and data) into the dynamic
+        /// atlas up front, so the atlas is not rebuilt (a CPU hitch) the first time a new word appears mid-scene.</summary>
+        static void Prewarm(Font f)
+        {
+            var charset = Resources.Load<TextAsset>(CharsetResource);
+            if (f == null || charset == null)
+                return;
+            foreach (var size in PrewarmSizes)
+                f.RequestCharactersInTexture(charset.text, size, FontStyle.Normal);
+        }
+
+        /// <summary>Called every frame by GameUI: cheap guard that the glyph atlas stays point-sampled.</summary>
+        public static void EnsurePointFilter()
+        {
+            var tex = font != null && font.material != null ? font.material.mainTexture : null;
+            if (tex != null && tex.filterMode != FilterMode.Point)
+                tex.filterMode = FilterMode.Point;
+        }
+
+        static void PointFilter(Font f)
+        {
+            if (f != null && f == font && f.material != null && f.material.mainTexture != null)
+                f.material.mainTexture.filterMode = FilterMode.Point;
+        }
+
+        /// <summary>Nearest multiple of the font's 12 px design size (min 12) so glyph pixels map to whole UI pixels.</summary>
+        public static int PixelSize(int size) => Mathf.Max(12, Mathf.RoundToInt(size / 12f) * 12);
 
         public static Sprite White
         {
@@ -106,7 +157,7 @@ namespace Starbind.UI
             var t = rt.gameObject.AddComponent<Text>();
             t.font = Font;
             t.text = text;
-            t.fontSize = size;
+            t.fontSize = PixelSize(size);
             t.color = color;
             t.alignment = align;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;
@@ -125,6 +176,7 @@ namespace Starbind.UI
             var outline = img.gameObject.AddComponent<Outline>();
             outline.effectColor = Gold;
             outline.effectDistance = new Vector2(3, -3);
+            Skin(img, "UI_slot_draft", 3f, new Color(0.86f, 0.8f, 1f));
             var b = img.gameObject.AddComponent<Button>();
             var colors = b.colors;
             colors.highlightedColor = new Color(1f, 0.9f, 0.7f);
@@ -133,6 +185,44 @@ namespace Starbind.UI
             b.onClick.AddListener(() => onClick());
             Label(img.transform, "Label", text, fontSize, Text, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, size - new Vector2(16, 8));
             return b;
+        }
+
+        /// <summary>Pixel UI art from tools/art/ui_art.py (null when the database is not loaded, e.g. EditMode).</summary>
+        public static Sprite Art(string name) => GameDatabase.Instance != null ? GameDatabase.Instance.Sprite(name) : null;
+
+        /// <summary>Applies a pixel-art frame: 9-slice when the sprite has a border, drawn at an integer
+        /// <paramref name="scale"/> (UI px per art px at the 1920x1080 reference). Removes the flat-colour
+        /// Outline the frame replaces. Keeps the old flat look when the art is missing.</summary>
+        public static Image Skin(Image img, string sprite, float scale = 3f, Color? tint = null)
+        {
+            var s = Art(sprite);
+            if (s == null)
+                return img;
+            img.sprite = s;
+            img.preserveAspect = false;
+            img.type = s.border.sqrMagnitude > 0 ? UnityEngine.UI.Image.Type.Sliced : UnityEngine.UI.Image.Type.Simple;
+            img.pixelsPerUnitMultiplier = 100f / s.pixelsPerUnit / scale;
+            img.color = tint ?? Color.white;
+            foreach (var o in img.GetComponents<Outline>())
+                UnityEngine.Object.Destroy(o);
+            return img;
+        }
+
+        /// <summary>Framed panel (gold double border, corner gems).</summary>
+        public static Image Panel9(Transform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 pos, Vector2 size)
+        {
+            var img = Image(parent, name, Panel, anchor, pivot, pos, size);
+            return Skin(img, "UI_panel_draft");
+        }
+
+        /// <summary>Icon sprite drawn at an integer scale (crisp pixels).</summary>
+        public static Image Icon(Transform parent, string name, string sprite, Vector2 anchor, Vector2 pos, float scale)
+        {
+            var s = Art(sprite);
+            var size = s != null ? new Vector2(s.rect.width, s.rect.height) * scale : new Vector2(16, 16) * scale;
+            var img = Image(parent, name, Color.white, anchor, new Vector2(0.5f, 0.5f), pos, size, s);
+            img.preserveAspect = false;
+            return img;
         }
 
         public static void Clear(Transform t)

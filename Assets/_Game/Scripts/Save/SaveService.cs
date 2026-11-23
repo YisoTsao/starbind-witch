@@ -83,7 +83,8 @@ namespace Starbind.Save
                     throw new InvalidDataException("checksum mismatch");
                 if (env.saveVersion > ProfileData.CurrentVersion)
                     throw new InvalidDataException($"save version {env.saveVersion} is newer than {ProfileData.CurrentVersion}");
-                data = JsonUtility.FromJson<ProfileData>(env.payload);
+                data = new ProfileData(); // fields missing from older saves keep their defaults
+                JsonUtility.FromJsonOverwrite(env.payload, data);
                 Migrate(data, env.saveVersion);
                 return data != null;
             }
@@ -102,6 +103,7 @@ namespace Starbind.Save
             data.unlockedSpells ??= new System.Collections.Generic.List<string>();
             data.autoSpells ??= new System.Collections.Generic.List<string>();
             data.completedQuests ??= new System.Collections.Generic.List<string>();
+            data.screenFlash = UnityEngine.Mathf.Clamp01(data.screenFlash);
         }
     }
 }

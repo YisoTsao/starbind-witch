@@ -29,4 +29,8 @@ sysinfo.txt
 # OS
 .DS_Store
 # Test / capture output (evidence PNGs under docs/evidence are kept)
-/TestResults/
+/TestResults/# Local Codex skill copies
+/.agents/
+
+# Generated Unity builds
+/Builds/

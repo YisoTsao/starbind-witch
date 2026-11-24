@@ -216,6 +216,8 @@ namespace Starbind.Core
                     case "potion": Profile.researchPotion++; break;
                     default: Profile.Unlock(n.unlocksSpell); break;
                 }
+                if (Profile.victories > 0)
+                    Profile.CompleteQuest("research_after_victory");
                 ApplyResearch(PlayerController.Current);
                 Save();
                 return true;

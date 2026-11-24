@@ -307,6 +307,12 @@ namespace Starbind.Tests
             yield return TeleportTo(new Vector2(7f, 3.5f));
             Assert.IsTrue(player.Interactor.TryInteract());
             Assert.AreEqual("loadout", GameSession.Instance.UI.OpenPanel, "grimoire lectern");
+            var session = GameSession.Instance;
+            Assert.IsFalse(session.Profile.HasQuest("configure_first_spell"));
+            var spellButton = session.UI.GetComponentsInChildren<UnityEngine.UI.Button>()
+                .First(button => button.name == "piercing_ice");
+            spellButton.onClick.Invoke();
+            Assert.IsTrue(session.SaveService.Load().HasQuest("configure_first_spell"));
             GameSession.Instance.UI.CloseModal();
             yield return TeleportTo(new Vector2(2.4f, 3.7f));
             Assert.IsTrue(player.Interactor.TryInteract());
@@ -341,7 +347,12 @@ namespace Starbind.Tests
             Assert.IsTrue(s.TryResearch("hp"));
             Assert.AreEqual(22, s.Profile.starSand);
             Assert.AreEqual(hp0 + 10f, player.Vitals.Health.Max, 0.01f);
+            Assert.IsFalse(s.Profile.HasQuest("research_after_victory"));
+            s.Profile.victories = 1;
+            Assert.IsFalse(s.TryResearch("thunder_pulse"));
+            Assert.IsFalse(s.Profile.HasQuest("research_after_victory"));
             Assert.IsTrue(s.TryResearch("chain_spark"));
+            Assert.IsTrue(s.SaveService.Load().HasQuest("research_after_victory"));
             Assert.IsTrue(s.Profile.IsUnlocked("chain_spark"));
             Assert.IsFalse(s.TryResearch("thunder_pulse"), "needs a core shard");
             Assert.IsTrue(File.Exists(s.SaveService.Path), "research saved");
@@ -434,7 +445,13 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator BossHasThreePhasesTelegraphsAndVictoryReturnsToVillage()
         {
-            yield return LoadForestQuiet();
+            yield return Load("Village");
+            var forestExit = Object.FindObjectsByType<AreaExit>(FindObjectsSortMode.None)
+                .Single(exit => exit.TargetScene == "Forest");
+            yield return TeleportTo(forestExit.Area.center);
+            yield return WaitForScene("Forest");
+            RunManager.Current.Director.Running = false;
+            EnemySpawner.Instance.DespawnAll();
             var h = player.Vitals.Health;
             h.InvulnerableUntil = 9999f;
             yield return TeleportTo(new Vector2(32f, 55.6f));
@@ -466,6 +483,11 @@ namespace Starbind.Tests
             Assert.IsTrue(GameSession.Instance.UI.ContinueResults());
             yield return WaitForScene("Village");
             Assert.That(Vector2.Distance(P, SpawnPoint.Find("spawn_from_forest").transform.position), Is.LessThan(0.1f));
+            var disk = new Starbind.Save.SaveService(TempSaves);
+            var restored = disk.Load();
+            Assert.AreEqual(1, restored.victories);
+            Assert.AreEqual(GameSession.Instance.Profile.coreShards, restored.coreShards);
+            Assert.IsFalse(disk.LoadedFromBackup);
         }
 
         [UnityTest]

@@ -80,9 +80,12 @@ namespace Starbind.Core
                 yield return null;
                 frames.Add(Time.unscaledDeltaTime * 1000f);
                 minAlive = Mathf.Min(minAlive, sp.Alive);
-                if (Mathf.Abs(Time.realtimeSinceStartup - (end - seconds / 2f)) < 0.02f)
-                    ScreenCapture.CaptureScreenshot(Path.ChangeExtension(outPath, ".png"));
+
             }
+            // Capture after sampling so PNG readback and encoding do not affect frame times.
+            ScreenCapture.CaptureScreenshot(Path.ChangeExtension(outPath, ".png"));
+            yield return new WaitForEndOfFrame();
+            yield return null;
             frames.Sort();
             float avg = frames.Average();
             string json = $"{{\"build\":\"{Application.platform}\",\"unity\":\"{Application.unityVersion}\",\"screen\":\"{Screen.width}x{Screen.height}\"," +

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="56" result="Passed" total="56" passed="56" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.8917213">
+  <test-suite type="TestSuite" id="1000" name="Starbind Witch" fullname="Starbind Witch" runstate="Runnable" testcasecount="56" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.891721" total="56" passed="56" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1064" name="Starbind.Tests.EditMode.dll" fullname="/private/tmp/starbind-audit.Ia20n1/Library/ScriptAssemblies/Starbind.Tests.EditMode.dll" runstate="Runnable" testcasecount="56" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.886620" total="56" passed="56" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="21159" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1065" name="Starbind" fullname="Starbind" runstate="Runnable" testcasecount="56" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.885948" total="56" passed="56" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1066" name="Tests" fullname="Starbind.Tests" runstate="Runnable" testcasecount="56" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.885392" total="56" passed="56" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="ChapterRouteTests" fullname="Starbind.Tests.ChapterRouteTests" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.659695" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1007" name="WalkEveryRoomAndTraverseBothDoors" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:59Z" duration="1.657336" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1002" name="WalkEveryRoomAndTraverseBothDoors(&quot;forest&quot;)" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors(&quot;forest&quot;)" methodname="WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" seed="1758107016" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:57Z" duration="0.463620" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="WalkEveryRoomAndTraverseBothDoors(&quot;mine&quot;)" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors(&quot;mine&quot;)" methodname="WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" seed="1895944422" result="Passed" start-time="2026-11-24 08:39:57Z" end-time="2026-11-24 08:39:58Z" duration="0.315758" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="WalkEveryRoomAndTraverseBothDoors(&quot;lake&quot;)" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors(&quot;lake&quot;)" methodname="WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" seed="1232723090" result="Passed" start-time="2026-11-24 08:39:58Z" end-time="2026-11-24 08:39:58Z" duration="0.258091" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="WalkEveryRoomAndTraverseBothDoors(&quot;observatory&quot;)" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors(&quot;observatory&quot;)" methodname="WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" seed="1691839662" result="Passed" start-time="2026-11-24 08:39:58Z" end-time="2026-11-24 08:39:58Z" duration="0.271677" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="WalkEveryRoomAndTraverseBothDoors(&quot;citadel&quot;)" fullname="Starbind.Tests.ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors(&quot;citadel&quot;)" methodname="WalkEveryRoomAndTraverseBothDoors" classname="Starbind.Tests.ChapterRouteTests" runstate="Runnable" seed="472632158" result="Passed" start-time="2026-11-24 08:39:58Z" end-time="2026-11-24 08:39:59Z" duration="0.335635" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1008" name="CombatLogicTests" fullname="Starbind.Tests.CombatLogicTests" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" testcasecount="30" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.154297" total="30" passed="30" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1025" name="ChargedBoltScalesFrom18To34" fullname="Starbind.Tests.CombatLogicTests.ChargedBoltScalesFrom18To34" methodname="ChargedBoltScalesFrom18To34" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1560487717" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000595" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1029" name="DatabaseContentMatchesDesign" fullname="Starbind.Tests.CombatLogicTests.DatabaseContentMatchesDesign" methodname="DatabaseContentMatchesDesign" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="2031238202" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.119363" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="EquipmentModifiersApplyAndSwapCleanly" fullname="Starbind.Tests.CombatLogicTests.EquipmentModifiersApplyAndSwapCleanly" methodname="EquipmentModifiersApplyAndSwapCleanly" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="450610456" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.006409" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="GlobalReactionBudgetCapsPerSecond" fullname="Starbind.Tests.CombatLogicTests.GlobalReactionBudgetCapsPerSecond" methodname="GlobalReactionBudgetCapsPerSecond" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="151064562" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001520" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="HitRegistryResolvesEachCastTargetPairOnce" fullname="Starbind.Tests.CombatLogicTests.HitRegistryResolvesEachCastTargetPairOnce" methodname="HitRegistryResolvesEachCastTargetPairOnce" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1794605586" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000334" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="InventoryNeverGoesNegativeOrOverCap" fullname="Starbind.Tests.CombatLogicTests.InventoryNeverGoesNegativeOrOverCap" methodname="InventoryNeverGoesNegativeOrOverCap" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="2002862327" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000964" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="ManaOnHitIsCappedPerSecond" fullname="Starbind.Tests.CombatLogicTests.ManaOnHitIsCappedPerSecond" methodname="ManaOnHitIsCappedPerSecond" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="119076816" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000118" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1034" name="OlderSaveWithoutFlashSettingKeepsTheDefault" fullname="Starbind.Tests.CombatLogicTests.OlderSaveWithoutFlashSettingKeepsTheDefault" methodname="OlderSaveWithoutFlashSettingKeepsTheDefault" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="613574782" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.004117" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="ReactionConsumesBothMarks" fullname="Starbind.Tests.CombatLogicTests.ReactionConsumesBothMarks" methodname="ReactionConsumesBothMarks" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="11373855" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000206" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1017" name="ReactionPairs" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.002519" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="ReactionPairs(Fire,Ice,SteamBurst)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Fire,Ice,SteamBurst)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="700906017" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000248" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="ReactionPairs(Ice,Fire,SteamBurst)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Ice,Fire,SteamBurst)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="315512774" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000088" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="ReactionPairs(Fire,Lightning,Overload)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Fire,Lightning,Overload)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1378992569" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000080" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="ReactionPairs(Lightning,Ice,ShatterStorm)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Lightning,Ice,ShatterStorm)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1823287611" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000075" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="ReactionPairs(Wind,Fire,FireTornado)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Wind,Fire,FireTornado)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="698299520" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000071" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="ReactionPairs(Ice,Wind,None)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Ice,Wind,None)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="868232720" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000072" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1016" name="ReactionPairs(Fire,Fire,None)" fullname="Starbind.Tests.CombatLogicTests.ReactionPairs(Fire,Fire,None)" methodname="ReactionPairs" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1793743343" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000065" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1027" name="ResonanceRulesAndOverdrive" fullname="Starbind.Tests.CombatLogicTests.ResonanceRulesAndOverdrive" methodname="ResonanceRulesAndOverdrive" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1325332338" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000504" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1038" name="RunXpLevelsUp" fullname="Starbind.Tests.CombatLogicTests.RunXpLevelsUp" methodname="RunXpLevelsUp" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1973950175" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000181" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="SameReactionOnSameTargetHasHalfSecondProtection" fullname="Starbind.Tests.CombatLogicTests.SameReactionOnSameTargetHasHalfSecondProtection" methodname="SameReactionOnSameTargetHasHalfSecondProtection" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="629673103" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000171" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1035" name="SameSeedGivesSameSequence" fullname="Starbind.Tests.CombatLogicTests.SameSeedGivesSameSequence" methodname="SameSeedGivesSameSequence" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1899178238" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001751" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="SaveRoundTripsAndSurvivesCorruption" fullname="Starbind.Tests.CombatLogicTests.SaveRoundTripsAndSurvivesCorruption" methodname="SaveRoundTripsAndSurvivesCorruption" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1038967184" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.004130" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[SaveService] /var/folders/h8/bq31v3yx7w942b3g4x_j0zt00000gn/T/starbind_save_test_94642d1bafdf4819ba48e863f222ec88/save_v1.json: checksum mismatch
+[SaveService] /var/folders/h8/bq31v3yx7w942b3g4x_j0zt00000gn/T/starbind_save_test_94642d1bafdf4819ba48e863f222ec88/save_v1.json: JSON parse error: Missing a name for object member.
+[SaveService] /var/folders/h8/bq31v3yx7w942b3g4x_j0zt00000gn/T/starbind_save_test_94642d1bafdf4819ba48e863f222ec88/save_v1.json.bak: empty envelope
+]]></output>
+            </test-case>
+            <test-case id="1019" name="SecondaryDamageNeverTriggersReactions" fullname="Starbind.Tests.CombatLogicTests.SecondaryDamageNeverTriggersReactions" methodname="SecondaryDamageNeverTriggersReactions" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="2002898322" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000141" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1039" name="SpawnPacingFollowsDesignBandsAndCap" fullname="Starbind.Tests.CombatLogicTests.SpawnPacingFollowsDesignBandsAndCap" methodname="SpawnPacingFollowsDesignBandsAndCap" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="2065757087" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001042" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1028" name="SpellFactoryOnlyBuildsWhitelistedCombinations" fullname="Starbind.Tests.CombatLogicTests.SpellFactoryOnlyBuildsWhitelistedCombinations" methodname="SpellFactoryOnlyBuildsWhitelistedCombinations" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="615106886" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001256" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="StaffComboResetsAfterWindowAndBuffersEarlyPresses" fullname="Starbind.Tests.CombatLogicTests.StaffComboResetsAfterWindowAndBuffersEarlyPresses" methodname="StaffComboResetsAfterWindowAndBuffersEarlyPresses" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1532178546" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000235" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="StaffComboRunsThreeStepsForFortyDamage" fullname="Starbind.Tests.CombatLogicTests.StaffComboRunsThreeStepsForFortyDamage" methodname="StaffComboRunsThreeStepsForFortyDamage" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1576704369" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000304" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="StatModifiersStackAndRemoveCleanly" fullname="Starbind.Tests.CombatLogicTests.StatModifiersStackAndRemoveCleanly" methodname="StatModifiersStackAndRemoveCleanly" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1829920372" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000089" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="StatusKeepsAtMostTwoMarksAndReplacesTheOldest" fullname="Starbind.Tests.CombatLogicTests.StatusKeepsAtMostTwoMarksAndReplacesTheOldest" methodname="StatusKeepsAtMostTwoMarksAndReplacesTheOldest" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="2067054097" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000106" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1036" name="UpgradeOffersRespectPrerequisitesSlotsAndStacks" fullname="Starbind.Tests.CombatLogicTests.UpgradeOffersRespectPrerequisitesSlotsAndStacks" methodname="UpgradeOffersRespectPrerequisitesSlotsAndStacks" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="1688837598" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001554" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1037" name="UpgradeRollsAreSeededAndDistinct" fullname="Starbind.Tests.CombatLogicTests.UpgradeRollsAreSeededAndDistinct" methodname="UpgradeRollsAreSeededAndDistinct" classname="Starbind.Tests.CombatLogicTests" runstate="Runnable" seed="935064124" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000616" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1040" name="ProjectSetupTests" fullname="Starbind.Tests.ProjectSetupTests" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.055891" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1045" name="ArtTexturesImportAsPixelArt" fullname="Starbind.Tests.ProjectSetupTests.ArtTexturesImportAsPixelArt" methodname="ArtTexturesImportAsPixelArt" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="34574843" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.034337" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="GrassVariantsAreDeterministicAndAllUsed" fullname="Starbind.Tests.ProjectSetupTests.GrassVariantsAreDeterministicAndAllUsed" methodname="GrassVariantsAreDeterministicAndAllUsed" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="696033973" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000910" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="GravityIsZero" fullname="Starbind.Tests.ProjectSetupTests.GravityIsZero" methodname="GravityIsZero" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="719840368" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000468" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="MapActionIsBoundToM" fullname="Starbind.Tests.ProjectSetupTests.MapActionIsBoundToM" methodname="MapActionIsBoundToM" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="769538898" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.002392" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1050" name="PathAutotilePicksSpriteFromNeighbourMask" fullname="Starbind.Tests.ProjectSetupTests.PathAutotilePicksSpriteFromNeighbourMask" methodname="PathAutotilePicksSpriteFromNeighbourMask" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1448241844" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.004413" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="PhysicsLayersExist" fullname="Starbind.Tests.ProjectSetupTests.PhysicsLayersExist" methodname="PhysicsLayersExist" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="856631989" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000292" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1046" name="PropPivotsSitOnWholePixels" fullname="Starbind.Tests.ProjectSetupTests.PropPivotsSitOnWholePixels" methodname="PropPivotsSitOnWholePixels" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1299248278" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.006482" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="Renderer2DSortsByCustomYAxis" fullname="Starbind.Tests.ProjectSetupTests.Renderer2DSortsByCustomYAxis" methodname="Renderer2DSortsByCustomYAxis" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1458921864" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.002566" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="SortingLayersExistInDesignOrder" fullname="Starbind.Tests.ProjectSetupTests.SortingLayersExistInDesignOrder" methodname="SortingLayersExistInDesignOrder" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="280499552" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000711" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="UiFramesAreNineSliced" fullname="Starbind.Tests.ProjectSetupTests.UiFramesAreNineSliced" methodname="UiFramesAreNineSliced" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="922956070" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000691" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1049" name="VillageSceneIsInBuild" fullname="Starbind.Tests.ProjectSetupTests.VillageSceneIsInBuild" methodname="VillageSceneIsInBuild" classname="Starbind.Tests.ProjectSetupTests" runstate="Runnable" seed="1929248736" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000352" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1052" name="UiFontTests" fullname="Starbind.Tests.UiFontTests" classname="Starbind.Tests.UiFontTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.014329" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1054" name="FontCoversEveryGlyphTheUiUses" fullname="Starbind.Tests.UiFontTests.FontCoversEveryGlyphTheUiUses" methodname="FontCoversEveryGlyphTheUiUses" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="603061961" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.009995" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1063" name="LabelSizesSnapToTwelve" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.001520" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1056" name="LabelSizesSnapToTwelve(10,12)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(10,12)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="1566082867" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000325" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1057" name="LabelSizesSnapToTwelve(16,12)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(16,12)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="869675710" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000050" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1058" name="LabelSizesSnapToTwelve(20,24)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(20,24)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="508446155" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000041" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1059" name="LabelSizesSnapToTwelve(26,24)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(26,24)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="1453832084" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000034" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1060" name="LabelSizesSnapToTwelve(32,36)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(32,36)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="2028036066" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000026" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="LabelSizesSnapToTwelve(44,48)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(44,48)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="629198218" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000028" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1062" name="LabelSizesSnapToTwelve(4,12)" fullname="Starbind.Tests.UiFontTests.LabelSizesSnapToTwelve(4,12)" methodname="LabelSizesSnapToTwelve" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="1166862125" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000033" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1053" name="PixelFontLoadsWithLicenceAndHintedRaster" fullname="Starbind.Tests.UiFontTests.PixelFontLoadsWithLicenceAndHintedRaster" methodname="PixelFontLoadsWithLicenceAndHintedRaster" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="2076586834" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000643" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1055" name="PrewarmCharsetIsFullyCoveredByTheFont" fullname="Starbind.Tests.UiFontTests.PrewarmCharsetIsFullyCoveredByTheFont" methodname="PrewarmCharsetIsFullyCoveredByTheFont" classname="Starbind.Tests.UiFontTests" runstate="Runnable" seed="327280920" result="Passed" start-time="2026-11-24 08:39:59Z" end-time="2026-11-24 08:39:59Z" duration="0.000733" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/tsaoyiso/Library/Application Support/Starbind/Starbind Witch/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

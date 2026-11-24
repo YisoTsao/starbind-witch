@@ -154,3 +154,7 @@
 | NPC、敵人、Boss | — | **Missing** | |
 | VFX | B、C（靜態概念） | Reference Only；序列 **Missing** | |
 | UI、字型、音效 | — | **Missing** | |
+
+## 2026-11-24 匯入資產索引
+
+本文件保留參考圖與提取限制的判讀；[逐檔清單](ASSET_MANIFEST.csv) 另列目前 Unity GUID、路徑、尺寸、來源清冊、動畫欄位及權利查核狀態。執行 tools/art/asset_manifest.py 可重建。字型對應專案內的 OFL 檔；其他素材逐項待確認。

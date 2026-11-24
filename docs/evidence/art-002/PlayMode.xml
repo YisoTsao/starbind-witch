@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="57" result="Passed" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:19:06Z" duration="115.0692944">
+  <test-suite type="TestSuite" id="1069" name="Starbind Witch" fullname="Starbind Witch" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:19:06Z" duration="115.069294" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1132" name="Starbind.Tests.PlayMode.dll" fullname="/private/tmp/starbind-audit.Ia20n1/Library/ScriptAssemblies/Starbind.Tests.PlayMode.dll" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:19:06Z" duration="115.065007" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="19085" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1133" name="Starbind" fullname="Starbind" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:19:06Z" duration="115.064267" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1134" name="Tests" fullname="Starbind.Tests" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:19:06Z" duration="115.063539" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1070" name="CombatPlayTests" fullname="Starbind.Tests.CombatPlayTests" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:17:33Z" duration="22.895299" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1076" name="AutoSpellNeverFiresWithoutTargetAndFiresWithOne" fullname="Starbind.Tests.CombatPlayTests.AutoSpellNeverFiresWithoutTargetAndFiresWithOne" methodname="AutoSpellNeverFiresWithoutTargetAndFiresWithOne" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="1457927117" result="Passed" start-time="2026-11-24 08:17:11Z" end-time="2026-11-24 08:17:12Z" duration="1.358178" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1072" name="ChargedBoltHitsForFullChargeDamage" fullname="Starbind.Tests.CombatPlayTests.ChargedBoltHitsForFullChargeDamage" methodname="ChargedBoltHitsForFullChargeDamage" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="778735379" result="Passed" start-time="2026-11-24 08:17:12Z" end-time="2026-11-24 08:17:12Z" duration="0.332891" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1074" name="DashMovesAboutTwoPointSixWithInvulnerability" fullname="Starbind.Tests.CombatPlayTests.DashMovesAboutTwoPointSixWithInvulnerability" methodname="DashMovesAboutTwoPointSixWithInvulnerability" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="966007954" result="Passed" start-time="2026-11-24 08:17:12Z" end-time="2026-11-24 08:17:13Z" duration="0.476045" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1082" name="EnemyAttacksHurtThePlayerAndDashDodges" fullname="Starbind.Tests.CombatPlayTests.EnemyAttacksHurtThePlayerAndDashDodges" methodname="EnemyAttacksHurtThePlayerAndDashDodges" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="9199875" result="Passed" start-time="2026-11-24 08:17:13Z" end-time="2026-11-24 08:17:14Z" duration="1.128647" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1077" name="FireAndWindMakeABoundedFireTornado" fullname="Starbind.Tests.CombatPlayTests.FireAndWindMakeABoundedFireTornado" methodname="FireAndWindMakeABoundedFireTornado" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="438110801" result="Passed" start-time="2026-11-24 08:17:14Z" end-time="2026-11-24 08:17:20Z" duration="5.710858" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1075" name="FireBoltKillsSlimeAndXpIsCollected" fullname="Starbind.Tests.CombatPlayTests.FireBoltKillsSlimeAndXpIsCollected" methodname="FireBoltKillsSlimeAndXpIsCollected" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="230635596" result="Passed" start-time="2026-11-24 08:17:20Z" end-time="2026-11-24 08:17:21Z" duration="1.504542" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1073" name="FireThenIceOnDummyTriggersSteamBurst" fullname="Starbind.Tests.CombatPlayTests.FireThenIceOnDummyTriggersSteamBurst" methodname="FireThenIceOnDummyTriggersSteamBurst" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="1180620953" result="Passed" start-time="2026-11-24 08:17:21Z" end-time="2026-11-24 08:17:22Z" duration="0.625982" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1080" name="LevelUpOffersThreeCardsAndPausesUntilChosen" fullname="Starbind.Tests.CombatPlayTests.LevelUpOffersThreeCardsAndPausesUntilChosen" methodname="LevelUpOffersThreeCardsAndPausesUntilChosen" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="1733889139" result="Passed" start-time="2026-11-24 08:17:22Z" end-time="2026-11-24 08:17:22Z" duration="0.099263" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1079" name="OverdriveBoostsCooldownsAndReactionsForEightSeconds" fullname="Starbind.Tests.CombatPlayTests.OverdriveBoostsCooldownsAndReactionsForEightSeconds" methodname="OverdriveBoostsCooldownsAndReactionsForEightSeconds" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="897204265" result="Passed" start-time="2026-11-24 08:17:22Z" end-time="2026-11-24 08:17:30Z" duration="8.286048" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1078" name="ShatterStormChainsToNearbyEnemies" fullname="Starbind.Tests.CombatPlayTests.ShatterStormChainsToNearbyEnemies" methodname="ShatterStormChainsToNearbyEnemies" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="918475975" result="Passed" start-time="2026-11-24 08:17:30Z" end-time="2026-11-24 08:17:30Z" duration="0.074971" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1071" name="StaffComboDealsTenTwelveEighteen" fullname="Starbind.Tests.CombatPlayTests.StaffComboDealsTenTwelveEighteen" methodname="StaffComboDealsTenTwelveEighteen" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="1543530932" result="Passed" start-time="2026-11-24 08:17:30Z" end-time="2026-11-24 08:17:31Z" duration="1.105928" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1081" name="StormStaffAddsAnArcEveryThirdCast" fullname="Starbind.Tests.CombatPlayTests.StormStaffAddsAnArcEveryThirdCast" methodname="StormStaffAddsAnArcEveryThirdCast" classname="Starbind.Tests.CombatPlayTests" runstate="Runnable" seed="903574013" result="Passed" start-time="2026-11-24 08:17:31Z" end-time="2026-11-24 08:17:33Z" duration="2.180369" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1083" name="FlowPlayTests" fullname="Starbind.Tests.FlowPlayTests" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-11-24 08:17:33Z" end-time="2026-11-24 08:18:15Z" duration="41.450494" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1097" name="AltarStartsAWaveAndClearingRewards" fullname="Starbind.Tests.FlowPlayTests.AltarStartsAWaveAndClearingRewards" methodname="AltarStartsAWaveAndClearingRewards" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1361496962" result="Passed" start-time="2026-11-24 08:17:33Z" end-time="2026-11-24 08:17:36Z" duration="2.942072" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1101" name="AmbientSpawnsRespectDistanceAndWalkableCells" fullname="Starbind.Tests.FlowPlayTests.AmbientSpawnsRespectDistanceAndWalkableCells" methodname="AmbientSpawnsRespectDistanceAndWalkableCells" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="2082856616" result="Passed" start-time="2026-11-24 08:17:36Z" end-time="2026-11-24 08:17:41Z" duration="5.081526" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1099" name="BossHasThreePhasesTelegraphsAndVictoryReturnsToVillage" fullname="Starbind.Tests.FlowPlayTests.BossHasThreePhasesTelegraphsAndVictoryReturnsToVillage" methodname="BossHasThreePhasesTelegraphsAndVictoryReturnsToVillage" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1685947974" result="Passed" start-time="2026-11-24 08:17:41Z" end-time="2026-11-24 08:17:44Z" duration="2.114959" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1091" name="BridgeCrossesTheRiverButWaterBlocks" fullname="Starbind.Tests.FlowPlayTests.BridgeCrossesTheRiverButWaterBlocks" methodname="BridgeCrossesTheRiverButWaterBlocks" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1764009878" result="Passed" start-time="2026-11-24 08:17:44Z" end-time="2026-11-24 08:17:48Z" duration="3.970574" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1096" name="BrokenBridgeBlocksUntilLeverAndVinesBurn" fullname="Starbind.Tests.FlowPlayTests.BrokenBridgeBlocksUntilLeverAndVinesBurn" methodname="BrokenBridgeBlocksUntilLeverAndVinesBurn" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1467063741" result="Passed" start-time="2026-11-24 08:17:48Z" end-time="2026-11-24 08:17:50Z" duration="2.926868" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1093" name="CottageDoorToWorkshopAndBack" fullname="Starbind.Tests.FlowPlayTests.CottageDoorToWorkshopAndBack" methodname="CottageDoorToWorkshopAndBack" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="467374202" result="Passed" start-time="2026-11-24 08:17:50Z" end-time="2026-11-24 08:17:52Z" duration="1.164310" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1100" name="DeathShowsResultsKeepsHalfMaterialsAndReturnsToWorkshop" fullname="Starbind.Tests.FlowPlayTests.DeathShowsResultsKeepsHalfMaterialsAndReturnsToWorkshop" methodname="DeathShowsResultsKeepsHalfMaterialsAndReturnsToWorkshop" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="240842300" result="Passed" start-time="2026-11-24 08:17:52Z" end-time="2026-11-24 08:17:52Z" duration="0.582845" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1086" name="EightWayFacingShowsLeftForEveryLeftwardHeading" fullname="Starbind.Tests.FlowPlayTests.EightWayFacingShowsLeftForEveryLeftwardHeading" methodname="EightWayFacingShowsLeftForEveryLeftwardHeading" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="481184539" result="Passed" start-time="2026-11-24 08:17:52Z" end-time="2026-11-24 08:17:55Z" duration="2.611357" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1087" name="FlippedCharacterIsMirroredOnScreen" fullname="Starbind.Tests.FlowPlayTests.FlippedCharacterIsMirroredOnScreen" methodname="FlippedCharacterIsMirroredOnScreen" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1526414859" result="Passed" start-time="2026-11-24 08:17:55Z" end-time="2026-11-24 08:17:55Z" duration="0.420891" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1088" name="MiniMapAndWorldMapShowTheScene" fullname="Starbind.Tests.FlowPlayTests.MiniMapAndWorldMapShowTheScene" methodname="MiniMapAndWorldMapShowTheScene" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="91303776" result="Passed" start-time="2026-11-24 08:17:55Z" end-time="2026-11-24 08:17:56Z" duration="0.299839" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1089" name="MiniMapShowsForestEnemies" fullname="Starbind.Tests.FlowPlayTests.MiniMapShowsForestEnemies" methodname="MiniMapShowsForestEnemies" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1944121917" result="Passed" start-time="2026-11-24 08:17:56Z" end-time="2026-11-24 08:17:56Z" duration="0.095087" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1092" name="NpcTalkOpensDialogueAndRecordsQuest" fullname="Starbind.Tests.FlowPlayTests.NpcTalkOpensDialogueAndRecordsQuest" methodname="NpcTalkOpensDialogueAndRecordsQuest" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="848113420" result="Passed" start-time="2026-11-24 08:17:56Z" end-time="2026-11-24 08:17:56Z" duration="0.076129" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1095" name="ResearchSpendsMaterialsAndUnlocksSpell" fullname="Starbind.Tests.FlowPlayTests.ResearchSpendsMaterialsAndUnlocksSpell" methodname="ResearchSpendsMaterialsAndUnlocksSpell" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="768493885" result="Passed" start-time="2026-11-24 08:17:56Z" end-time="2026-11-24 08:17:56Z" duration="0.034176" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1098" name="SpawnCapHoldsAtSixtyAndFrameTimeIsMeasured" fullname="Starbind.Tests.FlowPlayTests.SpawnCapHoldsAtSixtyAndFrameTimeIsMeasured" methodname="SpawnCapHoldsAtSixtyAndFrameTimeIsMeasured" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="291784130" result="Passed" start-time="2026-11-24 08:17:56Z" end-time="2026-11-24 08:18:00Z" duration="4.110450" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+[Perf] 60 enemies: avg 0.99 ms, p95 1.20 ms, max 9.68 ms over 4051 frames
+]]></output>
+            </test-case>
+            <test-case id="1084" name="VillageIs48x40WithAllAreas" fullname="Starbind.Tests.FlowPlayTests.VillageIs48x40WithAllAreas" methodname="VillageIs48x40WithAllAreas" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="104622467" result="Passed" start-time="2026-11-24 08:18:00Z" end-time="2026-11-24 08:18:00Z" duration="0.095092" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1090" name="VillageIsDressedWithDecorLightsAndMotes" fullname="Starbind.Tests.FlowPlayTests.VillageIsDressedWithDecorLightsAndMotes" methodname="VillageIsDressedWithDecorLightsAndMotes" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="1449030347" result="Passed" start-time="2026-11-24 08:18:00Z" end-time="2026-11-24 08:18:06Z" duration="6.056245" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1085" name="VillagersStrollWithinRangeAndCharactersUseReferenceSheets" fullname="Starbind.Tests.FlowPlayTests.VillagersStrollWithinRangeAndCharactersUseReferenceSheets" methodname="VillagersStrollWithinRangeAndCharactersUseReferenceSheets" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="290944468" result="Passed" start-time="2026-11-24 08:18:06Z" end-time="2026-11-24 08:18:12Z" duration="6.359698" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1094" name="WorkshopWallsBlock" fullname="Starbind.Tests.FlowPlayTests.WorkshopWallsBlock" methodname="WorkshopWallsBlock" classname="Starbind.Tests.FlowPlayTests" runstate="Runnable" seed="746022262" result="Passed" start-time="2026-11-24 08:18:12Z" end-time="2026-11-24 08:18:15Z" duration="2.500828" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1102" name="GameEvidenceCapture" fullname="Starbind.Tests.GameEvidenceCapture" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-24 08:18:15Z" end-time="2026-11-24 08:18:47Z" duration="32.121945" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="Evidence" />
+            </properties>
+            <test-case id="1106" name="CaptureBossAndResults" fullname="Starbind.Tests.GameEvidenceCapture.CaptureBossAndResults" methodname="CaptureBossAndResults" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" seed="2044698642" result="Passed" start-time="2026-11-24 08:18:15Z" end-time="2026-11-24 08:18:20Z" duration="5.060872" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+[Evidence] wrote F07_boss_phase1_telegraph
+[Evidence] wrote F08_boss_phase3
+[Evidence] wrote F09_level_up_cards
+[Evidence] wrote F10_boss_defeated_portal
+[Evidence] wrote F11_results_victory
+]]></output>
+            </test-case>
+            <test-case id="1105" name="CaptureForestCombat" fullname="Starbind.Tests.GameEvidenceCapture.CaptureForestCombat" methodname="CaptureForestCombat" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" seed="2050864984" result="Passed" start-time="2026-11-24 08:18:20Z" end-time="2026-11-24 08:18:29Z" duration="9.227303" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+[Evidence] wrote F01_forest_entrance_hud
+[Evidence] wrote F02_fire_wind_fire_tornado
+[Evidence] wrote F03_ice_lightning_shatter_storm
+[Evidence] wrote F04_fire_lightning_overload
+[Evidence] wrote F05_wave_60_enemies_overdrive_autos
+[Evidence] wrote F06_elite_telegraph
+]]></output>
+            </test-case>
+            <test-case id="1107" name="CapturePolish" fullname="Starbind.Tests.GameEvidenceCapture.CapturePolish" methodname="CapturePolish" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" seed="843660775" result="Passed" start-time="2026-11-24 08:18:29Z" end-time="2026-11-24 08:18:41Z" duration="11.824376" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+[Evidence] wrote S01_fire_bolt_cast_trail
+[Evidence] wrote S02_fire_bolt_blast
+[Evidence] wrote S03_chain_spark_sky_lightning
+[Evidence] wrote S04_piercing_ice_frost_nova
+[Evidence] wrote S05_wind_pull_vortex
+[Evidence] wrote S06_overdrive_sky_strikes
+[Evidence] wrote S07_redrawn_effect_art
+[Evidence] wrote U01_level_up_cards
+[Evidence] wrote U02_grimoire_page1
+[Evidence] wrote U03_grimoire_page2
+[Evidence] wrote U04_grimoire_page3
+[Evidence] wrote U05_pause_menu
+[Evidence] wrote U06_settings_screen_flash
+[Evidence] wrote V11_plateau_cliff_two_tiles
+[Evidence] wrote V12_ledge_cliff_corners
+]]></output>
+            </test-case>
+            <test-case id="1103" name="CaptureVillage" fullname="Starbind.Tests.GameEvidenceCapture.CaptureVillage" methodname="CaptureVillage" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" seed="1948538795" result="Passed" start-time="2026-11-24 08:18:41Z" end-time="2026-11-24 08:18:46Z" duration="5.260064" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Evidence] wrote V01_village_square_hud
+[Evidence] wrote V10_witch_facing_down_left
+[Evidence] wrote V09_world_map
+[Evidence] wrote V02_bridge_archer
+[Evidence] wrote V03_south_road_priest
+[Evidence] wrote V04_training_ground
+[Evidence] wrote V05_fire_then_ice_steam_burst
+[Evidence] wrote V06_staff_finisher
+[Evidence] wrote V07_npc_dialogue
+]]></output>
+            </test-case>
+            <test-case id="1104" name="CaptureWorkshop" fullname="Starbind.Tests.GameEvidenceCapture.CaptureWorkshop" methodname="CaptureWorkshop" classname="Starbind.Tests.GameEvidenceCapture" runstate="Runnable" seed="1844635630" result="Passed" start-time="2026-11-24 08:18:46Z" end-time="2026-11-24 08:18:47Z" duration="0.747173" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Evidence] wrote W01_workshop_interior
+[Evidence] wrote W02_loadout_lectern
+[Evidence] wrote W03_research_desk
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1108" name="PolishPlayTests" fullname="Starbind.Tests.PolishPlayTests" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-11-24 08:18:47Z" end-time="2026-11-24 08:18:54Z" duration="6.541216" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1114" name="EverySpellPlaysBigEffectsWithoutChangingDamage" fullname="Starbind.Tests.PolishPlayTests.EverySpellPlaysBigEffectsWithoutChangingDamage" methodname="EverySpellPlaysBigEffectsWithoutChangingDamage" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="1472483970" result="Passed" start-time="2026-11-24 08:18:47Z" end-time="2026-11-24 08:18:51Z" duration="4.409301" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1116" name="FlashSettingIsInThePauseMenuAndSaved" fullname="Starbind.Tests.PolishPlayTests.FlashSettingIsInThePauseMenuAndSaved" methodname="FlashSettingIsInThePauseMenuAndSaved" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="1302654314" result="Passed" start-time="2026-11-24 08:18:51Z" end-time="2026-11-24 08:18:51Z" duration="0.072069" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1113" name="ForestObjectiveFollowsTheBossArena" fullname="Starbind.Tests.PolishPlayTests.ForestObjectiveFollowsTheBossArena" methodname="ForestObjectiveFollowsTheBossArena" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="1077253014" result="Passed" start-time="2026-11-24 08:18:51Z" end-time="2026-11-24 08:18:52Z" duration="0.077091" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1111" name="GrimoireHasThreePagesSwitchedByNumberKeys" fullname="Starbind.Tests.PolishPlayTests.GrimoireHasThreePagesSwitchedByNumberKeys" methodname="GrimoireHasThreePagesSwitchedByNumberKeys" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="1371349171" result="Passed" start-time="2026-11-24 08:18:52Z" end-time="2026-11-24 08:18:52Z" duration="0.071523" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1109" name="HudTextUsesThePixelFontAtTwelvePixelSteps" fullname="Starbind.Tests.PolishPlayTests.HudTextUsesThePixelFontAtTwelvePixelSteps" methodname="HudTextUsesThePixelFontAtTwelvePixelSteps" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="795152591" result="Passed" start-time="2026-11-24 08:18:52Z" end-time="2026-11-24 08:18:52Z" duration="0.051919" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1112" name="MinimapPointsAtTrainingGroundThenAtForestRoad" fullname="Starbind.Tests.PolishPlayTests.MinimapPointsAtTrainingGroundThenAtForestRoad" methodname="MinimapPointsAtTrainingGroundThenAtForestRoad" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="781171876" result="Passed" start-time="2026-11-24 08:18:52Z" end-time="2026-11-24 08:18:52Z" duration="0.677186" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1115" name="OverdriveFlashesTheScreenAndStrikesLightning" fullname="Starbind.Tests.PolishPlayTests.OverdriveFlashesTheScreenAndStrikesLightning" methodname="OverdriveFlashesTheScreenAndStrikesLightning" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="481443880" result="Passed" start-time="2026-11-24 08:18:52Z" end-time="2026-11-24 08:18:53Z" duration="0.579998" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1118" name="SpellEffectArtIsTheRedrawnVersion" fullname="Starbind.Tests.PolishPlayTests.SpellEffectArtIsTheRedrawnVersion" methodname="SpellEffectArtIsTheRedrawnVersion" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="1270751895" result="Passed" start-time="2026-11-24 08:18:53Z" end-time="2026-11-24 08:18:53Z" duration="0.005182" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1110" name="UpgradeCardsHaveRibbonSocketAndKeyAndPopIn" fullname="Starbind.Tests.PolishPlayTests.UpgradeCardsHaveRibbonSocketAndKeyAndPopIn" methodname="UpgradeCardsHaveRibbonSocketAndKeyAndPopIn" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="2099850855" result="Passed" start-time="2026-11-24 08:18:53Z" end-time="2026-11-24 08:18:53Z" duration="0.531922" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[RunManager] run started, seed 20261121
+]]></output>
+            </test-case>
+            <test-case id="1117" name="VillageCliffsAreTwoTilesTallWithCorners" fullname="Starbind.Tests.PolishPlayTests.VillageCliffsAreTwoTilesTallWithCorners" methodname="VillageCliffsAreTwoTilesTallWithCorners" classname="Starbind.Tests.PolishPlayTests" runstate="Runnable" seed="2092065051" result="Passed" start-time="2026-11-24 08:18:53Z" end-time="2026-11-24 08:18:54Z" duration="0.060838" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1119" name="VillagePlayTests" fullname="Starbind.Tests.VillagePlayTests" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-24 08:18:54Z" end-time="2026-11-24 08:19:06Z" duration="12.052693" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1127" name="CameraStaysInsideMapBounds" fullname="Starbind.Tests.VillagePlayTests.CameraStaysInsideMapBounds" methodname="CameraStaysInsideMapBounds" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1154274374" result="Passed" start-time="2026-11-24 08:18:54Z" end-time="2026-11-24 08:18:56Z" duration="2.089123" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1124" name="CliffFaceBlocksMovement" fullname="Starbind.Tests.VillagePlayTests.CliffFaceBlocksMovement" methodname="CliffFaceBlocksMovement" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="933245762" result="Passed" start-time="2026-11-24 08:18:56Z" end-time="2026-11-24 08:18:57Z" duration="1.089340" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1130" name="CottageDoorShowsPromptAndInteracts" fullname="Starbind.Tests.VillagePlayTests.CottageDoorShowsPromptAndInteracts" methodname="CottageDoorShowsPromptAndInteracts" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1593904793" result="Passed" start-time="2026-11-24 08:18:57Z" end-time="2026-11-24 08:18:58Z" duration="1.069996" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1125" name="CottageWallBlocksMovement" fullname="Starbind.Tests.VillagePlayTests.CottageWallBlocksMovement" methodname="CottageWallBlocksMovement" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1238655984" result="Passed" start-time="2026-11-24 08:18:58Z" end-time="2026-11-24 08:18:59Z" duration="1.089630" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1122" name="DiagonalIsNotFaster" fullname="Starbind.Tests.VillagePlayTests.DiagonalIsNotFaster" methodname="DiagonalIsNotFaster" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="321313326" result="Passed" start-time="2026-11-24 08:18:59Z" end-time="2026-11-24 08:18:59Z" duration="0.590055" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1131" name="KeyboardDrivesMovementAndInteract" fullname="Starbind.Tests.VillagePlayTests.KeyboardDrivesMovementAndInteract" methodname="KeyboardDrivesMovementAndInteract" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1388432880" result="Passed" start-time="2026-11-24 08:18:59Z" end-time="2026-11-24 08:19:01Z" duration="1.117786" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1129" name="PlayerSortsOnWorldLayerByPivot" fullname="Starbind.Tests.VillagePlayTests.PlayerSortsOnWorldLayerByPivot" methodname="PlayerSortsOnWorldLayerByPivot" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="553097948" result="Passed" start-time="2026-11-24 08:19:01Z" end-time="2026-11-24 08:19:01Z" duration="0.067654" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1123" name="RiverBlocksMovement" fullname="Starbind.Tests.VillagePlayTests.RiverBlocksMovement" methodname="RiverBlocksMovement" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="2118685623" result="Passed" start-time="2026-11-24 08:19:01Z" end-time="2026-11-24 08:19:02Z" duration="1.618374" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1120" name="SpawnsAtSpawnSquare" fullname="Starbind.Tests.VillagePlayTests.SpawnsAtSpawnSquare" methodname="SpawnsAtSpawnSquare" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="215313893" result="Passed" start-time="2026-11-24 08:19:02Z" end-time="2026-11-24 08:19:02Z" duration="0.051625" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1128" name="TreeFadesWhenPlayerIsBehindIt" fullname="Starbind.Tests.VillagePlayTests.TreeFadesWhenPlayerIsBehindIt" methodname="TreeFadesWhenPlayerIsBehindIt" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1250078960" result="Passed" start-time="2026-11-24 08:19:02Z" end-time="2026-11-24 08:19:03Z" duration="1.087986" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1126" name="TreeTrunkBlocksMovement" fullname="Starbind.Tests.VillagePlayTests.TreeTrunkBlocksMovement" methodname="TreeTrunkBlocksMovement" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="535117215" result="Passed" start-time="2026-11-24 08:19:03Z" end-time="2026-11-24 08:19:05Z" duration="1.088907" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1121" name="WalksAtDesignSpeed" fullname="Starbind.Tests.VillagePlayTests.WalksAtDesignSpeed" methodname="WalksAtDesignSpeed" classname="Starbind.Tests.VillagePlayTests" runstate="Runnable" seed="1033204196" result="Passed" start-time="2026-11-24 08:19:05Z" end-time="2026-11-24 08:19:06Z" duration="1.089407" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/tsaoyiso/Library/Application Support/Starbind/Starbind Witch/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -58,7 +58,9 @@ namespace Starbind.UI
             Hud = hudRoot.gameObject.AddComponent<Hud>();
             Hud.Build(hudRoot);
 
-            notice = UIKit.Label(transform, "Notice", "", 36, UIKit.Gold, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 230), new Vector2(1400, 60));
+            // Keep timed messages below the status panel, clear of the boss and its attack lane.
+            notice = UIKit.Label(transform, "Notice", "", 24, UIKit.Gold, TextAnchor.UpperLeft,
+                new Vector2(0, 1), new Vector2(0, 1), new Vector2(32, -238), new Vector2(440, 100));
 
             var dlg = UIKit.Image(transform, "Dialogue", UIKit.Panel, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 200), new Vector2(1200, 220));
             dlg.gameObject.AddComponent<Outline>().effectColor = UIKit.Gold;
@@ -346,7 +348,9 @@ namespace Starbind.UI
         // ------------------------------------------------------------------ workshop: loadout
         public void ShowLoadout()
         {
-            var panel = OpenModal("loadout", new Vector2(1500, 1010), "魔典台　法術配置與裝備");
+            var title = GameSession.Instance.Profile.HasQuest("configure_first_spell")
+                ? "魔典台　法術配置與裝備" : "魔典台　初次書頁：選擇法術放入槽位";
+            var panel = OpenModal("loadout", new Vector2(1500, 1010), title);
             var session = GameSession.Instance;
             var profile = session.Profile;
             var db = GameDatabase.Instance;
@@ -369,6 +373,7 @@ namespace Starbind.UI
                         if (s == 0) { if (profile.activeE == d.id) profile.activeE = profile.activeQ; profile.activeQ = d.id; }
                         else if (s == 1) { if (profile.activeQ == d.id) profile.activeQ = profile.activeE; profile.activeE = d.id; }
                         else { profile.autoSpells.Clear(); profile.autoSpells.Add(d.id); }
+                        profile.CompleteQuest("configure_first_spell");
                         session.ApplyLoadoutToPlayer();
                         session.Save();
                         ShowLoadout();

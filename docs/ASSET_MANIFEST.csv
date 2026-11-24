@@ -18,11 +18,37 @@ b157d195c5e80424691ea4d8952d14ff,Assets/_Game/Art/Characters/Ref/NPC_villager_09
 fd3ef3dd590ad4b66acd92c93d119cbc,Assets/_Game/Art/Characters/Ref/NPC_villager_10_ref.png,Characters,png,2304x56,64x56,36,6,"32,4",character_manifest.json,review before release,demo,asset review
 de612cc75102046c8abcc442467db52d,Assets/_Game/Art/Characters/Ref/NPC_villager_11_ref.png,Characters,png,2304x56,64x56,36,6,"32,4",character_manifest.json,review before release,demo,asset review
 e30b721bbd4e746148556c9f062a27c2,Assets/_Game/Art/Characters/Ref/NPC_villager_12_ref.png,Characters,png,2304x56,64x56,36,6,"32,4",character_manifest.json,review before release,demo,asset review
+17e0f4cf290a340bab6d6f9c323ceeaf,Assets/_Game/Art/Enemies/Draft/ENM_clockwork_hound_draft.png,Enemies,png,160x28,40x28,4,9,"20,2",chapter_manifest.json,review before release,demo,asset review
+654539f4501a440cba475748498c70c5,Assets/_Game/Art/Enemies/Draft/ENM_crystal_elite_draft.png,Enemies,png,192x52,48x52,4,6,"24,1",chapter_manifest.json,review before release,demo,asset review
+8c565e9a2ab2743bf94b8561fa81995d,Assets/_Game/Art/Enemies/Draft/ENM_crystal_golem_draft.png,Enemies,png,576x96,96x96,6,6,"48,4",chapter_manifest.json,review before release,demo,asset review
+87293cbbd42dd40e1b3d1fd5935a4b42,Assets/_Game/Art/Enemies/Draft/ENM_crystal_mite_draft.png,Enemies,png,96x20,24x20,4,10,"12,2",chapter_manifest.json,review before release,demo,asset review
+5e0859f0009494e71a115789c48b1335,Assets/_Game/Art/Enemies/Draft/ENM_dark_acolyte_draft.png,Enemies,png,112x36,28x36,4,6,"14,1",chapter_manifest.json,review before release,demo,asset review
+3dc831b6107d14f15b149c718ff3badc,Assets/_Game/Art/Enemies/Draft/ENM_eclipse_knight_draft.png,Enemies,png,160x48,40x48,4,5,"20,2",chapter_manifest.json,review before release,demo,asset review
+6a5c80e53af82423185ea5dff162f9c1,Assets/_Game/Art/Enemies/Draft/ENM_frost_wisp_draft.png,Enemies,png,80x22,20x22,4,10,"10,3",chapter_manifest.json,review before release,demo,asset review
+13e7329f4b363479b810ca992c511e14,Assets/_Game/Art/Enemies/Draft/ENM_gear_elite_draft.png,Enemies,png,192x52,48x52,4,6,"24,2",chapter_manifest.json,review before release,demo,asset review
+b868077931333411492717629b0dd08a,Assets/_Game/Art/Enemies/Draft/ENM_gem_spitter_draft.png,Enemies,png,112x32,28x32,4,6,"14,1",chapter_manifest.json,review before release,demo,asset review
+0b4cf704abe4740ca85a58592f51119f,Assets/_Game/Art/Enemies/Draft/ENM_lake_shadow_draft.png,Enemies,png,576x96,96x96,6,6,"48,4",chapter_manifest.json,review before release,demo,asset review
+7f40e0f9c714f4c709f27e68fe0ae01b,Assets/_Game/Art/Enemies/Draft/ENM_lake_slime_draft.png,Enemies,png,112x24,28x24,4,8,"14,2",chapter_manifest.json,review before release,demo,asset review
+50f877ad0795f42119695919445355b6,Assets/_Game/Art/Enemies/Draft/ENM_lens_turret_draft.png,Enemies,png,112x34,28x34,4,4,"14,1",chapter_manifest.json,review before release,demo,asset review
+4c6d747fbb8e14201aa4bf13f1f06126,Assets/_Game/Art/Enemies/Draft/ENM_mire_frog_draft.png,Enemies,png,120x24,30x24,4,6,"15,2",chapter_manifest.json,review before release,demo,asset review
+323da0c29d47841eba6d8532cd9add1f,Assets/_Game/Art/Enemies/Draft/ENM_moon_elite_draft.png,Enemies,png,192x56,48x56,4,6,"24,1",chapter_manifest.json,review before release,demo,asset review
+4ea630bc717f540aca52d435c30df14e,Assets/_Game/Art/Enemies/Draft/ENM_moon_moth_draft.png,Enemies,png,96x22,24x22,4,10,"12,3",chapter_manifest.json,review before release,demo,asset review
 56a9430e213274bdd8f031ce7a732e58,Assets/_Game/Art/Enemies/Draft/ENM_mushroom_king_draft.png,Enemies,png,576x96,96x96,6,6,"48,4",draft_manifest.json,review before release,demo,asset review
+2be62bf521722459cba282f209d29def,Assets/_Game/Art/Enemies/Draft/ENM_ore_bat_draft.png,Enemies,png,120x22,30x22,4,12,"15,3",chapter_manifest.json,review before release,demo,asset review
+7d431cadb2df94ad3adba4deb6c9b183,Assets/_Game/Art/Enemies/Draft/ENM_reflection_knight_draft.png,Enemies,png,160x48,40x48,4,5,"20,2",chapter_manifest.json,review before release,demo,asset review
+95e3d1049d26542728fde42c75762244,Assets/_Game/Art/Enemies/Draft/ENM_rock_golemling_draft.png,Enemies,png,176x48,44x48,4,5,"22,2",chapter_manifest.json,review before release,demo,asset review
 97916b78b973742adb652577e7f09e15,Assets/_Game/Art/Enemies/Draft/ENM_root_guard_draft.png,Enemies,png,176x48,44x48,4,5,"22,2",draft_manifest.json,review before release,demo,asset review
+e95fea648fb8146ad80668544087ae7a,Assets/_Game/Art/Enemies/Draft/ENM_shade_slime_draft.png,Enemies,png,112x24,28x24,4,8,"14,2",chapter_manifest.json,review before release,demo,asset review
+a5e63d936b9564b248daf2a7121de9e0,Assets/_Game/Art/Enemies/Draft/ENM_shadow_clone_draft.png,Enemies,png,80x22,20x22,4,10,"10,3",chapter_manifest.json,review before release,demo,asset review
+2bfd0ab0c76a44ec1b7ded4151671418,Assets/_Game/Art/Enemies/Draft/ENM_shadow_elite_draft.png,Enemies,png,192x52,48x52,4,6,"24,1",chapter_manifest.json,review before release,demo,asset review
 f96fd60a7b86c4b8b8d9f64afba52d5f,Assets/_Game/Art/Enemies/Draft/ENM_slime_draft.png,Enemies,png,112x24,28x24,4,8,"14,2",draft_manifest.json,review before release,demo,asset review
+e0ca90b2f6f74437a9199940273799e8,Assets/_Game/Art/Enemies/Draft/ENM_snow_slime_draft.png,Enemies,png,112x24,28x24,4,8,"14,2",chapter_manifest.json,review before release,demo,asset review
 e729c7a6b94e34563bfab9b984905b47,Assets/_Game/Art/Enemies/Draft/ENM_spore_elite_draft.png,Enemies,png,192x52,48x52,4,6,"24,1",draft_manifest.json,review before release,demo,asset review
 bb41526211f314b42ad7d924c5115cbc,Assets/_Game/Art/Enemies/Draft/ENM_spore_shroom_draft.png,Enemies,png,112x32,28x32,4,6,"14,1",draft_manifest.json,review before release,demo,asset review
+f6e0ce15b6b5247b7a7f751663b4a037,Assets/_Game/Art/Enemies/Draft/ENM_star_guardian_draft.png,Enemies,png,576x96,96x96,6,6,"48,4",chapter_manifest.json,review before release,demo,asset review
+926ac555cd2e849079a9389e677356b2,Assets/_Game/Art/Enemies/Draft/ENM_thorn_wisp_draft.png,Enemies,png,80x22,20x22,4,10,"10,3",chapter_manifest.json,review before release,demo,asset review
+550cb50b1693241dc9238f6a4d3de822,Assets/_Game/Art/Enemies/Draft/ENM_twisted_grimoire_draft.png,Enemies,png,576x96,96x96,6,6,"48,4",chapter_manifest.json,review before release,demo,asset review
+78bc858cd17b94497b70ca1437af1036,Assets/_Game/Art/Enemies/Draft/ENM_void_spark_draft.png,Enemies,png,80x20,20x20,4,12,"10,3",chapter_manifest.json,review before release,demo,asset review
 2c519ca0e7edd42a6b745c9aa5faeafb,Assets/_Game/Art/Enemies/Draft/ENM_wisp_draft.png,Enemies,png,80x22,20x22,4,10,"10,3",draft_manifest.json,review before release,demo,asset review
 fdc5223b4066e45c3974010351c931de,Assets/_Game/Art/Props/Draft/CHR_witch_front_draft.png,Props,png,30x36,,,,,Unity importer,review before release,demo,asset review
 700bfb7277cb74b37b87460bef531976,Assets/_Game/Art/Props/Draft/DEC_clover_draft.png,Props,png,14x10,14x10,1,0,"7,5",decor_manifest.json,review before release,demo,asset review
@@ -42,6 +68,7 @@ feb60b88923ea43f59a2f597f5084006,Assets/_Game/Art/Props/Draft/DEC_pebbles_1_draf
 4b728dd5abe0d42efb26988fa91ca142,Assets/_Game/Art/Props/Draft/DEC_petals_draft.png,Props,png,28x16,28x16,1,0,"14,8",decor_manifest.json,review before release,demo,asset review
 67c10b1994b04412b87b3427c3cd8fe4,Assets/_Game/Art/Props/Draft/DEC_shrooms_red_draft.png,Props,png,12x10,12x10,1,0,"6,1",decor_manifest.json,review before release,demo,asset review
 474486422edb147908a2abfe52466f34,Assets/_Game/Art/Props/Draft/DEC_shrooms_violet_draft.png,Props,png,12x10,12x10,1,0,"6,1",decor_manifest.json,review before release,demo,asset review
+3054b501912424de991cd5c256236638,Assets/_Game/Art/Props/Draft/DEC_snowflake_draft.png,Props,png,4x4,4x4,1,10,"2,2",chapter_manifest.json,review before release,demo,asset review
 899f8ff0ff8b94a9e924124f143e6504,Assets/_Game/Art/Props/Draft/DEC_tuft_0_draft.png,Props,png,12x8,12x8,1,0,"6,0",decor_manifest.json,review before release,demo,asset review
 2c536e70aba174472a0add592d868e42,Assets/_Game/Art/Props/Draft/DEC_tuft_1_draft.png,Props,png,12x8,12x8,1,0,"6,0",decor_manifest.json,review before release,demo,asset review
 30e0682fb601b44c9bc95705dd08d048,Assets/_Game/Art/Props/Draft/DEC_tuft_2_draft.png,Props,png,12x8,12x8,1,0,"6,0",decor_manifest.json,review before release,demo,asset review
@@ -67,6 +94,9 @@ cc8cd4ce495b2435c9314e3f0007673b,Assets/_Game/Art/Props/Draft/PICK_potion_hp_dra
 66dda25ea2f05486b878f9c2d7421101,Assets/_Game/Art/Props/Draft/PICK_xp_draft.png,Props,png,10x10,10x10,1,10,"5,5",draft_manifest.json,review before release,demo,asset review
 4e6709d036e42436fa21332bbde453e5,Assets/_Game/Art/Props/Draft/PROP_altar_draft.png,Props,png,64x48,64x48,1,10,"32,6",draft_manifest.json,review before release,demo,asset review
 fa39c1e9c17c941a18de8aeaab66ebbb,Assets/_Game/Art/Props/Draft/PROP_archery_target_draft.png,Props,png,28x40,28x40,1,10,"14,1",draft_manifest.json,review before release,demo,asset review
+9b1b07683aac549bdb75466ce66f9b4f,Assets/_Game/Art/Props/Draft/PROP_banner_draft.png,Props,png,24x52,24x52,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
+1839f46b8c5bb497e876630a07eed289,Assets/_Game/Art/Props/Draft/PROP_beam_emitter_draft.png,Props,png,24x40,24x40,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
+f88904a3b6c264292825aa930ab700e7,Assets/_Game/Art/Props/Draft/PROP_beam_receiver_draft.png,Props,png,24x40,24x40,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
 e6112a39c676d4dc1a448170b0d0be60,Assets/_Game/Art/Props/Draft/PROP_bridge_stone_broken_draft.png,Props,png,64x192,64x192,1,10,"32,96",draft_manifest.json,review before release,demo,asset review
 aeb850ad6b6b14f2bbda7d8928c4e502,Assets/_Game/Art/Props/Draft/PROP_bridge_stone_draft.png,Props,png,64x192,64x192,1,10,"32,96",draft_manifest.json,review before release,demo,asset review
 d921a7d7ce82143ffa08c11901ebca2a,Assets/_Game/Art/Props/Draft/PROP_bridge_wood_draft.png,Props,png,192x64,192x64,1,10,"96,32",draft_manifest.json,review before release,demo,asset review
@@ -78,8 +108,14 @@ f0eeab586dd8843f3b9b090f3243e768,Assets/_Game/Art/Props/Draft/PROP_chest_draft.p
 336ee0bcd76304534bc4ba527735e5b1,Assets/_Game/Art/Props/Draft/PROP_chest_open_draft.png,Props,png,30x26,30x26,1,10,"15,1",draft_manifest.json,review before release,demo,asset review
 944b49c40fc954cef9f6d81d1140a9ef,Assets/_Game/Art/Props/Draft/PROP_cottage_draft.png,Props,png,202x110,,,,,Unity importer,review before release,demo,asset review
 eb2a29e74710d43dc9b39a7f4b6ca8f6,Assets/_Game/Art/Props/Draft/PROP_crate_draft.png,Props,png,24x24,24x24,1,10,"12,1",draft_manifest.json,review before release,demo,asset review
+f882913eda1af45159c6fbe5dfe11977,Assets/_Game/Art/Props/Draft/PROP_crystal_altar_draft.png,Props,png,48x44,48x44,1,10,"24,1",chapter_manifest.json,review before release,demo,asset review
 c178e099026024f17a80efb5ca754f9c,Assets/_Game/Art/Props/Draft/PROP_crystal_cluster_draft.png,Props,png,18x20,18x20,1,0,"9,1",decor_manifest.json,review before release,demo,asset review
 62e01950665654f89a48064dcfb7e89f,Assets/_Game/Art/Props/Draft/PROP_crystal_fountain_draft.png,Props,png,52x64,,,,,Unity importer,review before release,demo,asset review
+bc43b2b539d2e4033b9475ab2b596cc0,Assets/_Game/Art/Props/Draft/PROP_crystal_node_draft.png,Props,png,28x40,28x40,1,10,"14,1",chapter_manifest.json,review before release,demo,asset review
+5763621be586e496eb17fed9d6241743,Assets/_Game/Art/Props/Draft/PROP_crystal_node_lit_draft.png,Props,png,28x40,28x40,1,10,"14,1",chapter_manifest.json,review before release,demo,asset review
+8061fcf326b3b40c296d33e34eb9f09a,Assets/_Game/Art/Props/Draft/PROP_dark_barrier_draft.png,Props,png,32x48,32x48,1,10,"16,1",chapter_manifest.json,review before release,demo,asset review
+fa98e8848cd4744d189456f21cbc0cf7,Assets/_Game/Art/Props/Draft/PROP_dark_pillar_broken_draft.png,Props,png,26x64,26x64,1,10,"13,1",chapter_manifest.json,review before release,demo,asset review
+20dd58b4bc99a451fa07bee163407cd5,Assets/_Game/Art/Props/Draft/PROP_dark_pillar_draft.png,Props,png,26x64,26x64,1,10,"13,1",chapter_manifest.json,review before release,demo,asset review
 c6b6431020868405e95421fcb0c8926e,Assets/_Game/Art/Props/Draft/PROP_fence_east_draft.png,Props,png,96x20,,,,,Unity importer,review before release,demo,asset review
 16b781706761f40a3b01b3c0389b4793,Assets/_Game/Art/Props/Draft/PROP_fence_long_draft.png,Props,png,94x22,,,,,Unity importer,review before release,demo,asset review
 9a22e434e520749eeb6480a95d81b065,Assets/_Game/Art/Props/Draft/PROP_fence_mid_draft.png,Props,png,68x28,,,,,Unity importer,review before release,demo,asset review
@@ -89,36 +125,79 @@ da38e025ac3f94a8faa279ea783ca791,Assets/_Game/Art/Props/Draft/PROP_flowerbush_dr
 27214b18f13d14d34a180b10f78c9913,Assets/_Game/Art/Props/Draft/PROP_forest_pine_draft.png,Props,png,52x80,52x80,1,10,"26,1",draft_manifest.json,review before release,demo,asset review
 e8b8a048e0d054363807f7162012a5f8,Assets/_Game/Art/Props/Draft/PROP_glow_shroom_draft.png,Props,png,20x18,20x18,1,10,"10,1",draft_manifest.json,review before release,demo,asset review
 b7a911823fb4e4ff59e019a3995c8151,Assets/_Game/Art/Props/Draft/PROP_herb_rack_draft.png,Props,png,30x30,30x30,1,0,"15,2",decor_manifest.json,review before release,demo,asset review
+7bd4adbc648a84b85876f39334ddcf30,Assets/_Game/Art/Props/Draft/PROP_lake_crystal_draft.png,Props,png,30x44,30x44,1,10,"15,1",chapter_manifest.json,review before release,demo,asset review
 352224279137f407aae9df358508cf2f,Assets/_Game/Art/Props/Draft/PROP_lamp_draft.png,Props,png,16x50,16x50,1,10,"8,1",draft_manifest.json,review before release,demo,asset review
 22f4cb1ff90b6434e895a64e51cf637a,Assets/_Game/Art/Props/Draft/PROP_lantern_post_draft.png,Props,png,20x46,20x46,1,0,"6,2",decor_manifest.json,review before release,demo,asset review
 7252cbef5baf648cfab386a073118f09,Assets/_Game/Art/Props/Draft/PROP_lever_draft.png,Props,png,20x26,20x26,1,10,"10,1",draft_manifest.json,review before release,demo,asset review
 f21bbfb2b735c4211a4f14a0459e43d8,Assets/_Game/Art/Props/Draft/PROP_lever_on_draft.png,Props,png,20x26,20x26,1,10,"10,1",draft_manifest.json,review before release,demo,asset review
+2ad499fe93cb5447688941a464a2cdc7,Assets/_Game/Art/Props/Draft/PROP_light_bridge_off_draft.png,Props,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
+3f27664db2f8b40c5b7edce7d854e6e6,Assets/_Game/Art/Props/Draft/PROP_light_bridge_on_draft.png,Props,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
 b3e284db4b5ca4918a7a57c12a1b34df,Assets/_Game/Art/Props/Draft/PROP_log_draft.png,Props,png,48x20,48x20,1,10,"24,1",draft_manifest.json,review before release,demo,asset review
+0578e60644dcd4db0958cf7357930cc5,Assets/_Game/Art/Props/Draft/PROP_mine_crystal_draft.png,Props,png,32x48,32x48,1,10,"16,1",chapter_manifest.json,review before release,demo,asset review
+a6cebf1dd837d4374a2a3da520cdc167,Assets/_Game/Art/Props/Draft/PROP_mine_rock_draft.png,Props,png,36x30,36x30,1,10,"18,1",chapter_manifest.json,review before release,demo,asset review
+f79b8333b24df48bfae87646093a145e,Assets/_Game/Art/Props/Draft/PROP_mine_support_draft.png,Props,png,40x56,40x56,1,10,"20,1",chapter_manifest.json,review before release,demo,asset review
+218ab7a2df0804379a98c383c849c490,Assets/_Game/Art/Props/Draft/PROP_minecart_draft.png,Props,png,34x28,34x28,1,10,"17,1",chapter_manifest.json,review before release,demo,asset review
+514844c68dd1c45bdb003bfbb20b9981,Assets/_Game/Art/Props/Draft/PROP_mirror_draft.png,Props,png,24x36,24x36,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
+e336675e0d80a412abc1f04167803731,Assets/_Game/Art/Props/Draft/PROP_moon_brazier_draft.png,Props,png,24x36,24x36,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
 c695b3dc7ca704155bfc62a97a81bbbf,Assets/_Game/Art/Props/Draft/PROP_mushroom_glow_draft.png,Props,png,34x30,,,,,Unity importer,review before release,demo,asset review
+40ef96c06ef364753b6aefae8e901022,Assets/_Game/Art/Props/Draft/PROP_note_draft.png,Props,png,20x30,20x30,1,10,"10,1",chapter_manifest.json,review before release,demo,asset review
 f7789e315fa5e405a8cd67d95515f1ff,Assets/_Game/Art/Props/Draft/PROP_pillar_draft.png,Props,png,28x60,28x60,1,10,"14,2",draft_manifest.json,review before release,demo,asset review
 a617b7d4ff89347a0a4293951110ede0,Assets/_Game/Art/Props/Draft/PROP_potion_crate_draft.png,Props,png,22x18,22x18,1,0,"11,1",decor_manifest.json,review before release,demo,asset review
 abe4c616cabb84e46a015f4065471e50,Assets/_Game/Art/Props/Draft/PROP_pumpkin_draft.png,Props,png,18x16,18x16,1,0,"9,2",decor_manifest.json,review before release,demo,asset review
 074546c93c17641bd943e54b3b0a2eb7,Assets/_Game/Art/Props/Draft/PROP_pumpkin_violet_draft.png,Props,png,18x16,18x16,1,0,"9,2",decor_manifest.json,review before release,demo,asset review
+12147ec8e4fd64ee99abbce382f57f14,Assets/_Game/Art/Props/Draft/PROP_pylon_draft.png,Props,png,20x52,20x52,1,10,"10,1",chapter_manifest.json,review before release,demo,asset review
+635eef4ea01584bd8bd4865b67837fb0,Assets/_Game/Art/Props/Draft/PROP_pylon_lit_draft.png,Props,png,20x52,20x52,1,10,"10,1",chapter_manifest.json,review before release,demo,asset review
+80d55c91f791d4a3aad8c91fa5b2f830,Assets/_Game/Art/Props/Draft/PROP_rail_h_draft.png,Props,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
+cf6557b45cfb04e76a9d4b0d8dc7f001,Assets/_Game/Art/Props/Draft/PROP_rail_v_draft.png,Props,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
+b6c439032d4b44e9f8331d8cd421823a,Assets/_Game/Art/Props/Draft/PROP_reed_draft.png,Props,png,20x30,20x30,1,10,"10,1",chapter_manifest.json,review before release,demo,asset review
 5db8b37ef12aa4671a58100a28266635,Assets/_Game/Art/Props/Draft/PROP_rock_dark_draft.png,Props,png,28x20,28x20,1,10,"14,1",draft_manifest.json,review before release,demo,asset review
 78c703c72c940465a8f2eaed5319601d,Assets/_Game/Art/Props/Draft/PROP_rock_l_draft.png,Props,png,32x32,,,,,Unity importer,review before release,demo,asset review
 c285cf11cc120466a8f58f274af50632,Assets/_Game/Art/Props/Draft/PROP_rock_m_draft.png,Props,png,26x24,,,,,Unity importer,review before release,demo,asset review
 b4ca2410df8814396aa0315c28faef75,Assets/_Game/Art/Props/Draft/PROP_rock_s_draft.png,Props,png,18x18,,,,,Unity importer,review before release,demo,asset review
+4bfb4df3faf4843b18f08d85eead35cd,Assets/_Game/Art/Props/Draft/PROP_rubble_draft.png,Props,png,40x32,40x32,1,10,"20,1",chapter_manifest.json,review before release,demo,asset review
+53a7199db01834910935f2b0ef8b6687,Assets/_Game/Art/Props/Draft/PROP_ruin_pillar_broken_draft.png,Props,png,24x56,24x56,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
+4b1fd94a1d01d403da18388694cbbdc0,Assets/_Game/Art/Props/Draft/PROP_ruin_pillar_draft.png,Props,png,24x56,24x56,1,10,"12,1",chapter_manifest.json,review before release,demo,asset review
 a30c44203c56b4c499a65665f42229ac,Assets/_Game/Art/Props/Draft/PROP_sign_draft.png,Props,png,30x52,,,,,Unity importer,review before release,demo,asset review
+f41e6405db03c44098edce99afd18c4d,Assets/_Game/Art/Props/Draft/PROP_snow_hut_draft.png,Props,png,56x52,56x52,1,10,"28,1",chapter_manifest.json,review before release,demo,asset review
+33a92ecd3d4e44677a8b589afce6b284,Assets/_Game/Art/Props/Draft/PROP_snow_pine_draft.png,Props,png,52x80,52x80,1,10,"26,1",chapter_manifest.json,review before release,demo,asset review
+dab8abcda9ccc4d408dd9979550d0dc2,Assets/_Game/Art/Props/Draft/PROP_snow_rock_draft.png,Props,png,36x30,36x30,1,10,"18,1",chapter_manifest.json,review before release,demo,asset review
 9e63c802c097446c4a4d485cad81327f,Assets/_Game/Art/Props/Draft/PROP_stall_draft.png,Props,png,76x72,,,,,Unity importer,review before release,demo,asset review
+68a2c5e3cf39d4c7fa6dc3ace2750a92,Assets/_Game/Art/Props/Draft/PROP_star_door_draft.png,Props,png,32x48,32x48,1,10,"16,1",chapter_manifest.json,review before release,demo,asset review
 a1dee6639023d4b74b1c35f98712e459,Assets/_Game/Art/Props/Draft/PROP_starplate_draft.png,Props,png,48x32,48x32,1,10,"24,4",draft_manifest.json,review before release,demo,asset review
 68a25d4cb051f4951b6d538940d6a4be,Assets/_Game/Art/Props/Draft/PROP_stump_draft.png,Props,png,36x28,,,,,Unity importer,review before release,demo,asset review
+8aa06df45414c45849dcbf740110fbdc,Assets/_Game/Art/Props/Draft/PROP_telescope_draft.png,Props,png,64x64,64x64,1,10,"32,1",chapter_manifest.json,review before release,demo,asset review
+beaa07c587a96453f80297a1899267cf,Assets/_Game/Art/Props/Draft/PROP_tent_draft.png,Props,png,56x44,56x44,1,10,"28,1",chapter_manifest.json,review before release,demo,asset review
+2d17a2b8461ba48e6841c5dd7855140f,Assets/_Game/Art/Props/Draft/PROP_tower_draft.png,Props,png,72x112,72x112,1,10,"36,1",chapter_manifest.json,review before release,demo,asset review
 d56a28a56efa14761a0ab26f02e0c6e3,Assets/_Game/Art/Props/Draft/PROP_training_dummy_draft.png,Props,png,28x40,28x40,1,10,"14,1",draft_manifest.json,review before release,demo,asset review
 92c0c2c924c6c4b8293ec445fa09f0ab,Assets/_Game/Art/Props/Draft/PROP_tree_blossom_draft.png,Props,png,76x100,,,,,Unity importer,review before release,demo,asset review
 96f3506ae108b492b8a23ab91998a1ec,Assets/_Game/Art/Props/Draft/PROP_tree_green_b_draft.png,Props,png,48x44,,,,,Unity importer,review before release,demo,asset review
 c2942a82909254f8f8e616f92d240f3a,Assets/_Game/Art/Props/Draft/PROP_tree_green_m_draft.png,Props,png,56x50,,,,,Unity importer,review before release,demo,asset review
 c15a484b0a21e4f9390b56f833f0eb5b,Assets/_Game/Art/Props/Draft/PROP_tree_green_s_draft.png,Props,png,40x38,,,,,Unity importer,review before release,demo,asset review
+f7a39270ca29f45d79ee48890fce6c8e,Assets/_Game/Art/Props/Draft/PROP_trial_seal_draft.png,Props,png,44x40,44x40,1,10,"22,1",chapter_manifest.json,review before release,demo,asset review
 3b95f93a5c1c14a9d9669a7acd5de648,Assets/_Game/Art/Props/Draft/PROP_village_round_draft.png,Props,png,56x60,56x60,1,10,"28,1",draft_manifest.json,review before release,demo,asset review
 ad2e8b88685e341ccb512237938a5370,Assets/_Game/Art/Props/Draft/PROP_vine_burnt_draft.png,Props,png,32x44,32x44,1,10,"16,1",draft_manifest.json,review before release,demo,asset review
 79e0d04c0ff3d4cd4a0512b80ffd1e03,Assets/_Game/Art/Props/Draft/PROP_vine_draft.png,Props,png,32x44,32x44,1,10,"16,1",draft_manifest.json,review before release,demo,asset review
+799f4e004464a44a8aec69fe041c0815,Assets/_Game/Art/Props/Draft/PROP_willow_draft.png,Props,png,60x80,60x80,1,10,"30,1",chapter_manifest.json,review before release,demo,asset review
+2b74720f4da5e44f4939505dca85b961,Assets/_Game/Art/Tilesets/Citadel/Draft/TILE_citadel_ground_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+7a3a1ce480c0a44cd84e1ea7e611155a,Assets/_Game/Art/Tilesets/Citadel/Draft/TILE_citadel_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+be3ca8f516b814542ad3b3ece2c76138,Assets/_Game/Art/Tilesets/Citadel/Draft/TILE_citadel_solid_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+a55196963b2124c8288252be151dde08,Assets/_Game/Art/Tilesets/Citadel/Draft/TILE_citadel_water_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
 d095d136a90e94380af74fc2df6525e4,Assets/_Game/Art/Tilesets/Forest/Draft/TILE_forest_grass_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
 c8108a770d9f7443492eb3699d16a222,Assets/_Game/Art/Tilesets/Forest/Draft/TILE_forest_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
 19ca43836426b40c89c636fa752ef6cd,Assets/_Game/Art/Tilesets/Forest/Draft/TILE_forest_water_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
 dd58affbdb9e94c74858ccd988481546,Assets/_Game/Art/Tilesets/Interior/Draft/TILE_interior_draft.png,Tilesets,png,192x32,,,,,Unity importer,review before release,demo,asset review
+7f3c9e2ecad964b18977984a75f5043c,Assets/_Game/Art/Tilesets/Lake/Draft/TILE_lake_ground_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+ea9a58c9c9e4445b1961733062470ba9,Assets/_Game/Art/Tilesets/Lake/Draft/TILE_lake_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+d8077cdaf2b904d9ba7ae2cb064c0166,Assets/_Game/Art/Tilesets/Lake/Draft/TILE_lake_solid_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+44d1463a344014929938f4bb9bb593e1,Assets/_Game/Art/Tilesets/Lake/Draft/TILE_lake_water_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+4b6a2536896a14d569690089d678ec67,Assets/_Game/Art/Tilesets/Mine/Draft/TILE_mine_ground_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+bba0f190603d84574b45c64347453afd,Assets/_Game/Art/Tilesets/Mine/Draft/TILE_mine_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+af28fff33a94342579070f68219118f7,Assets/_Game/Art/Tilesets/Mine/Draft/TILE_mine_solid_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+c54fe48c5fd2f431fb54dd2477982e4b,Assets/_Game/Art/Tilesets/Mine/Draft/TILE_mine_water_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+2cdb74e906e0b4c18be1e55c16cd463f,Assets/_Game/Art/Tilesets/Observatory/Draft/TILE_observatory_ground_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+4615ebfcc410a4c71b28fab5e4f6fc20,Assets/_Game/Art/Tilesets/Observatory/Draft/TILE_observatory_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
+bf2bd71612d0e4d1097758e69e6c30eb,Assets/_Game/Art/Tilesets/Observatory/Draft/TILE_observatory_solid_draft.png,Tilesets,png,128x32,,,,,Unity importer,review before release,demo,asset review
+62ac3c8608ef24f9794f3c125a1a3d4f,Assets/_Game/Art/Tilesets/Observatory/Draft/TILE_observatory_water_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
 9408f46a8dc314ce988aa617c14c9645,Assets/_Game/Art/Tilesets/Village/Draft/TILE_cliff_draft.png,Tilesets,png,320x32,,,,,Unity importer,review before release,demo,asset review
 8413498b0542d4846ad1f249ca61f940,Assets/_Game/Art/Tilesets/Village/Draft/TILE_grass_draft.png,Tilesets,png,256x32,,,,,Unity importer,review before release,demo,asset review
 4e8a1271c39ca4697ac69b8c41fea596,Assets/_Game/Art/Tilesets/Village/Draft/TILE_path_draft_256.png,Tilesets,png,512x512,,,,,Unity importer,review before release,demo,asset review
@@ -129,13 +208,18 @@ ce7f09109427b497a8e58db8afef8395,Assets/_Game/Art/UI/Draft/ICON_dash_draft.png,U
 e336456e3b6db4b9ca7a636ef038f35f,Assets/_Game/Art/UI/Draft/ICON_fire_bolt_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 367901e26077f4533aeb7f2d2e657a93,Assets/_Game/Art/UI/Draft/ICON_frost_orbit_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 2fbd0ed7a0b364ad6ad710fb352b9be8,Assets/_Game/Art/UI/Draft/ICON_homing_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
+20551dc98efee436f92dbb14f894bffa,Assets/_Game/Art/UI/Draft/ICON_moon_echo_draft.png,UI,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
 b98c0e8abddd942659a83fee2d2ab3ec,Assets/_Game/Art/UI/Draft/ICON_overdrive_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 269c72c81bf1f48e3a24bd1b8a99243c,Assets/_Game/Art/UI/Draft/ICON_piercing_ice_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 e715df7e0204c403ebc7d1e1fcf4d837,Assets/_Game/Art/UI/Draft/ICON_potion_hp_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 d703f918389c74104a28391c0f4348ea,Assets/_Game/Art/UI/Draft/ICON_potion_mp_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
+ea38bc2cbbd0b4a298026533011145e5,Assets/_Game/Art/UI/Draft/ICON_prism_beam_draft.png,UI,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
+88f5436c39be142498cde5c66fb25d97,Assets/_Game/Art/UI/Draft/ICON_shadow_hand_draft.png,UI,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
 636e576c4dead41cb815a6b3a6f24ead,Assets/_Game/Art/UI/Draft/ICON_split_flame_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 c744c06cba459440988104badbd8db82,Assets/_Game/Art/UI/Draft/ICON_staff_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
+f146416bf1c904fad84fc75660e241c4,Assets/_Game/Art/UI/Draft/ICON_star_shot_draft.png,UI,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
 b449a0c4fcc944dd3837101ce50374c7,Assets/_Game/Art/UI/Draft/ICON_starfire_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
+8b3cb02f03065469f896bedcc4f70194,Assets/_Game/Art/UI/Draft/ICON_thorn_bloom_draft.png,UI,png,32x32,32x32,1,10,"16,16",chapter_manifest.json,review before release,demo,asset review
 852aa4dec0c624d548379b3543e19099,Assets/_Game/Art/UI/Draft/ICON_thunder_pulse_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 ef31663abbc624e53a9a028522412c45,Assets/_Game/Art/UI/Draft/ICON_wind_pull_draft.png,UI,png,32x32,32x32,1,0,"16,16",ui_manifest.json,review before release,demo,asset review
 50e1ff8cb9428412391059039e66668a,Assets/_Game/Art/UI/Draft/UI_banner_draft.png,UI,png,24x10,24x10,1,0,"12,5",ui_manifest.json,review before release,demo,asset review
@@ -167,12 +251,14 @@ b4f0a8654d13f4e4eaa0a44241acc34e,Assets/_Game/Art/UI/Draft/UI_prompt_F_draft.png
 712456465d47f476ea8129f69ff511ab,Assets/_Game/Art/UI/Draft/UI_socket_draft.png,UI,png,40x40,40x40,1,0,"20,20",ui_manifest.json,review before release,demo,asset review
 bd588311af667492182e34a4a9160644,Assets/_Game/Art/UI/Draft/UI_tab_active_draft.png,UI,png,32x16,32x16,1,0,"16,8",ui_manifest.json,review before release,demo,asset review
 df136efef46bc4ebba635d7657a42f27,Assets/_Game/Art/UI/Draft/UI_tab_draft.png,UI,png,32x16,32x16,1,0,"16,8",ui_manifest.json,review before release,demo,asset review
+cebaf37e68b0543d98c9bb0066eca6f9,Assets/_Game/Art/VFX/Draft/VFX_beam_seg_draft.png,VFX,png,96x12,24x12,4,16,"12,6",chapter_manifest.json,review before release,demo,asset review
 e2ac46df634454d03812f9bb03dd9814,Assets/_Game/Art/VFX/Draft/VFX_blast_draft.png,VFX,png,1152x96,96x96,12,22,"48,48",spell_vfx_manifest.json,review before release,demo,asset review
 055113393202c475daa53e0ca1ef2ce3,Assets/_Game/Art/VFX/Draft/VFX_bloom_draft.png,VFX,png,32x32,32x32,1,1,"16,16",spell_vfx_manifest.json,review before release,demo,asset review
 4b6b606601b0040b0a338af00188c80f,Assets/_Game/Art/VFX/Draft/VFX_burn_draft.png,VFX,png,36x12,12x12,3,10,"6,6",draft_manifest.json,review before release,demo,asset review
 a2d970df1aed94af88a2bb6f09db34dd,Assets/_Game/Art/VFX/Draft/VFX_charge_draft.png,VFX,png,192x32,32x32,6,14,"16,16",draft_manifest.json,review before release,demo,asset review
 07c7e5c5b250f4204a4bb09d26d73a33,Assets/_Game/Art/VFX/Draft/VFX_charge_polish.png,VFX,png,768x56,64x56,12,20,"32,28",spell_vfx_manifest.json,review before release,demo,asset review
 a1751c76cde39438a9f5f686258bc491,Assets/_Game/Art/VFX/Draft/VFX_chill_draft.png,VFX,png,36x12,12x12,3,8,"6,6",draft_manifest.json,review before release,demo,asset review
+761dff9dd7cd446ae9a3f828706f8c75,Assets/_Game/Art/VFX/Draft/VFX_crystal_shard_draft.png,VFX,png,64x12,16x12,4,12,"8,6",chapter_manifest.json,review before release,demo,asset review
 dfd6aa9010b8b429cb1e96090eff6f83,Assets/_Game/Art/VFX/Draft/VFX_dust_draft.png,VFX,png,64x16,16x16,4,14,"8,8",draft_manifest.json,review before release,demo,asset review
 5949d876b643f49b9825d98a45e91242,Assets/_Game/Art/VFX/Draft/VFX_explosion_draft.png,VFX,png,288x48,48x48,6,18,"24,24",draft_manifest.json,review before release,demo,asset review
 6ebbc1938bc3c41d8ae12e3194f6ea1a,Assets/_Game/Art/VFX/Draft/VFX_fire_tornado_draft.png,VFX,png,288x64,48x64,6,14,"24,32",draft_manifest.json,review before release,demo,asset review
@@ -202,7 +288,9 @@ d0eafad9b1a214eb6a90834342dbe758,Assets/_Game/Art/VFX/Draft/VFX_poison_pool_draf
 b6b1cd18d52ea4e098abe51daee8d000,Assets/_Game/Art/VFX/Draft/VFX_poof_draft.png,VFX,png,160x32,32x32,5,16,"16,16",draft_manifest.json,review before release,demo,asset review
 c17a073272c11421aacbfcce60e0051a,Assets/_Game/Art/VFX/Draft/VFX_portal_draft.png,VFX,png,288x48,48x48,6,10,"24,24",draft_manifest.json,review before release,demo,asset review
 b35bad4d7a060443a97f6974dcbeba6a,Assets/_Game/Art/VFX/Draft/VFX_scorch_draft.png,VFX,png,288x32,48x32,6,5,"24,16",spell_vfx_manifest.json,review before release,demo,asset review
+37c15f059f87e4839b54cbfd74d45e1c,Assets/_Game/Art/VFX/Draft/VFX_shadow_bolt_draft.png,VFX,png,80x14,20x14,4,12,"10,7",chapter_manifest.json,review before release,demo,asset review
 69d5b34c67c654e5ba0013a81382cf74,Assets/_Game/Art/VFX/Draft/VFX_shadow_draft.png,VFX,png,16x6,16x6,1,1,"8,3",draft_manifest.json,review before release,demo,asset review
+21926c441ceaf4eafb3e1c01c2709bb1,Assets/_Game/Art/VFX/Draft/VFX_shadow_hand_draft.png,VFX,png,192x32,32x32,6,12,"16,5",chapter_manifest.json,review before release,demo,asset review
 e9052c3a13b0748d0a8ea8e3aa02b562,Assets/_Game/Art/VFX/Draft/VFX_shatter_draft.png,VFX,png,336x56,56x56,6,16,"28,28",draft_manifest.json,review before release,demo,asset review
 4aff1f4227481407b892816c744741e5,Assets/_Game/Art/VFX/Draft/VFX_shatter_polish.png,VFX,png,1344x96,112x96,12,24,"56,32",spell_vfx_manifest.json,review before release,demo,asset review
 1605efbea53ed4e8486afd18cc3581a2,Assets/_Game/Art/VFX/Draft/VFX_shock_draft.png,VFX,png,42x12,14x12,3,14,"7,6",draft_manifest.json,review before release,demo,asset review
@@ -215,15 +303,18 @@ ddcf3504084f04690b99833921d60503,Assets/_Game/Art/VFX/Draft/VFX_slash_polish.png
 2db5a6a347ab74b7a887abdc339e6d7d,Assets/_Game/Art/VFX/Draft/VFX_spell_glow_polish.png,VFX,png,32x32,32x32,1,1,"16,16",spell_vfx_manifest.json,review before release,demo,asset review
 1f9822ff96318468e84c4027888c294b,Assets/_Game/Art/VFX/Draft/VFX_spell_pulse_polish.png,VFX,png,960x76,96x76,10,26,"48,25",spell_vfx_manifest.json,review before release,demo,asset review
 46f834260f508467e8b3106bf088408e,Assets/_Game/Art/VFX/Draft/VFX_spore_draft.png,VFX,png,20x10,10x10,2,8,"5,5",draft_manifest.json,review before release,demo,asset review
+7d1dad7a5d2ec4ac7910b187092f2a0f,Assets/_Game/Art/VFX/Draft/VFX_star_shot_draft.png,VFX,png,64x16,16x16,4,14,"8,8",chapter_manifest.json,review before release,demo,asset review
 ce98528da868f44bf999f33e5bb9a82d,Assets/_Game/Art/VFX/Draft/VFX_starfire_draft.png,VFX,png,56x14,14x14,4,14,"7,7",draft_manifest.json,review before release,demo,asset review
 0d282f86e7b4149df8b02b7d02972bbc,Assets/_Game/Art/VFX/Draft/VFX_starfire_polish.png,VFX,png,624x40,52x40,12,24,"26,20",spell_vfx_manifest.json,review before release,demo,asset review
 2e01ce980fedd4067a261b1622ea71c0,Assets/_Game/Art/VFX/Draft/VFX_steam_draft.png,VFX,png,336x56,56x56,6,14,"28,28",draft_manifest.json,review before release,demo,asset review
 f8221bcfca5d745ffb50465bc1f33afa,Assets/_Game/Art/VFX/Draft/VFX_steam_polish.png,VFX,png,1344x96,112x96,12,22,"56,32",spell_vfx_manifest.json,review before release,demo,asset review
 81eb35927320b47cb8d262592f5dba5e,Assets/_Game/Art/VFX/Draft/VFX_telegraph_circle_draft.png,VFX,png,64x64,64x64,1,1,"32,32",draft_manifest.json,review before release,demo,asset review
 bf6f5865eea1b420089d7355f5f85c8f,Assets/_Game/Art/VFX/Draft/VFX_telegraph_rect_draft.png,VFX,png,32x32,32x32,1,1,"16,16",draft_manifest.json,review before release,demo,asset review
+2dce96d4d57d144e2a73578a4448239c,Assets/_Game/Art/VFX/Draft/VFX_thorn_draft.png,VFX,png,192x32,32x32,6,14,"16,16",chapter_manifest.json,review before release,demo,asset review
 ae73b2ee5a80340e39a137284f55ac7a,Assets/_Game/Art/VFX/Draft/VFX_thunder_ring_draft.png,VFX,png,240x48,48x48,5,16,"24,24",draft_manifest.json,review before release,demo,asset review
 147845c83398e440586b9461a752a88e,Assets/_Game/Art/VFX/Draft/VFX_vortex_draft.png,VFX,png,288x48,48x48,6,14,"24,24",draft_manifest.json,review before release,demo,asset review
 be8aa9967e5b64b8786eff51c9de294a,Assets/_Game/Art/VFX/Draft/VFX_vortex_polish.png,VFX,png,1536x64,96x64,16,24,"48,35",spell_vfx_manifest.json,review before release,demo,asset review
+4cb27fb28ab7640768e61612bbfd335c,Assets/_Game/Art/VFX/Draft/VFX_water_drop_draft.png,VFX,png,48x12,12x12,4,10,"6,6",chapter_manifest.json,review before release,demo,asset review
 126b7982617044148b886923f9f2d57e,Assets/_Game/Art/VFX/Draft/VFX_wind_blades_draft.png,VFX,png,512x64,64x64,8,18,"32,32",spell_vfx_manifest.json,review before release,demo,asset review
 8129cb188bb3548c9bd7c1d92542dcd5,Assets/_Game/Art/VFX/Draft/VFX_wind_funnel_polish.png,VFX,png,1792x96,112x96,16,24,"56,15",spell_vfx_manifest.json,review before release,demo,asset review
 d77677a38a8dd4062a39b95b48be1232,Assets/_Game/Audio/SFX/Draft/sfx_bolt.wav,SFX,wav,,,,,,Unity importer,review before release,demo,asset review

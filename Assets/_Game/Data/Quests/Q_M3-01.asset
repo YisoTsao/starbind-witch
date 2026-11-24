@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df500013644d0cbf41e12d2de648e2, type: 3}
+  m_Name: Q_M3-01
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.QuestDefinition
+  id: M3-01
+  chapter: lake
+  kind: 0
+  title: "\u6E56\u7554\u71DF\u5730\u8ABF\u67E5"
+  description: "\u5728\u6E56\u7554\u71DF\u5730\u548C\u827E\u62C9\u6703\u5408\u3002"
+  giver: "\u827E\u62C9"
+  flag: talked_ella_lake
+  requires: defeat_crystal_golem
+  order: 9

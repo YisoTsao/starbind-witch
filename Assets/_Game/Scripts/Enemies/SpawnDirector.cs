@@ -8,9 +8,10 @@ using UnityEngine;
 
 namespace Starbind.Enemies
 {
-    /// <summary>Monster pacing for the Forest (GDD §10.2): target alive count grows with run time,
-    /// enemy mix depends on the player's zone, events (altar waves, elite) on top. Uses enemy ids only;
-    /// all randomness through the spawner's seeded GameRng. Bosses suppress ambient spawns.</summary>
+    /// <summary>Monster pacing for a chapter run (GDD §10.2): target alive count grows with run time,
+    /// enemy mix depends on the player's zone (ChapterDefinition.zones; the forest table below when no
+    /// chapter is set), events (altar waves, trials, elite) on top. Uses enemy ids only; all randomness
+    /// through the spawner's seeded GameRng. Bosses suppress ambient spawns.</summary>
     public sealed class SpawnDirector : MonoBehaviour
     {
         [Serializable]
@@ -35,6 +36,7 @@ namespace Starbind.Enemies
             { "Z04", new[] { ("slime", 4f), ("spore_shroom", 3f), ("wisp", 3f), ("root_guard", 3f) } },
         };
 
+        public Progression.ChapterDefinition Chapter { get; set; }
         public bool Running { get; set; }
         public float Elapsed { get; set; }
         public bool BossActive { get; set; }
@@ -87,8 +89,12 @@ namespace Starbind.Enemies
             return Mathf.RoundToInt(Mathf.Lerp(p.targetMin, p.targetMax, into));
         }
 
-        public void StartWave(Vector2 center, float radius, int count)
+        /// <summary>Overrides the zone mix for the current wave (tower trials use one school's enemies).</summary>
+        string[] waveMix;
+
+        public void StartWave(Vector2 center, float radius, int count, string[] mix = null)
         {
+            waveMix = mix != null && mix.Length > 0 ? mix : null;
             waveCenter = center;
             waveRadius = radius;
             waveRemaining = count;
@@ -103,6 +109,15 @@ namespace Starbind.Enemies
 
         string PickType()
         {
+            var cm = Chapter != null ? Chapter.Mix(CurrentZone) : null;
+            if (cm != null && cm.enemies != null && cm.enemies.Length > 0)
+            {
+                weights.Clear();
+                for (int k = 0; k < cm.enemies.Length; k++)
+                    weights.Add(cm.weights != null && k < cm.weights.Length ? cm.weights[k] : 1f);
+                int j = spawner.Rng.Weighted(weights);
+                return cm.enemies[Mathf.Max(0, j)];
+            }
             if (!zoneMix.TryGetValue(CurrentZone, out var mix))
                 mix = zoneMix["Z01"];
             weights.Clear();
@@ -135,7 +150,7 @@ namespace Starbind.Enemies
                     var p = spawner.RandomAround(waveCenter, waveRadius);
                     if ((p - pp).sqrMagnitude < 4f)
                         p = waveCenter + (waveCenter - pp).normalized * waveRadius;
-                    var e = spawner.SpawnAt(PickType(), p);
+                    var e = spawner.SpawnAt(waveMix != null ? waveMix[spawner.Rng.Range(0, waveMix.Length)] : PickType(), p);
                     if (e == null)
                         break;
                     waveEnemies.Add(e);
@@ -171,7 +186,7 @@ namespace Starbind.Enemies
             var cam = CameraFollow2D.Main;
             var view = cam != null ? cam.ViewRect() : new Rect(near.x - 8, near.y - 4.5f, 16, 9);
             var p = spawner.TryFindSpawnPoint(near, view, 13f, out var sp) ? sp : spawner.RandomAround(near, 6f);
-            var e = spawner.SpawnAt("spore_elite", p);
+            var e = spawner.SpawnAt(Chapter != null && !string.IsNullOrEmpty(Chapter.eliteId) ? Chapter.eliteId : "spore_elite", p);
             if (e != null)
                 EliteAppeared?.Invoke(e);
             return e;

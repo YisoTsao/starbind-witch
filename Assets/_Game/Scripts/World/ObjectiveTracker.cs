@@ -8,9 +8,10 @@ namespace Starbind.World
 {
     /// <summary>"Where do I go next" for the minimap and world map. Not a quest system: the target is derived
     /// from state the game already has (scene, training dummy hits, run / boss / portal state).
-    ///   Village  : training ground until the witch has practised (TrainingHits), then the south road exit.
+    ///   Village  : training ground until the witch has practised (TrainingHits), then the south road exit;
+    ///              once a later chapter is unlocked, the star plate (region selector).
     ///   Workshop : the door back to the village (DoorPortal).
-    ///   Forest   : the boss arena → the living boss → the return portal.
+    ///   Chapters : the boss arena → the living boss → the return portal.
     /// Scene lookups are cached and refreshed every <see cref="RefreshInterval"/> seconds.</summary>
     public static class ObjectiveTracker
     {
@@ -88,14 +89,14 @@ namespace Starbind.World
                 {
                     follow = run.Boss.transform;
                     pos = follow.position;
-                    label = "月蝕菇王";
+                    label = run.Chapter != null ? run.Chapter.bossName : "Boss";
                     return true;
                 }
                 var arena = Object.FindAnyObjectByType<BossArena>();
                 if (arena == null)
                     return false;
                 pos = arena.Trigger.center;
-                label = "菇王棲地";
+                label = run.Chapter != null ? run.Chapter.arenaName : "Boss";
                 return true;
             }
             if (scene == "Village")
@@ -119,9 +120,33 @@ namespace Starbind.World
                         return true;
                     }
                 }
+                if (NextChapter() != null)
+                {
+                    var plate = Object.FindAnyObjectByType<RegionSelector>();
+                    if (plate != null)
+                    {
+                        pos = plate.transform.position;
+                        label = "傳送星盤";
+                        return true;
+                    }
+                }
                 return FindExit("Forest", out pos, out label);
             }
             return FindExit(null, out pos, out label);
+        }
+
+        /// <summary>The first unlocked, uncleared chapter after the forest (the star plate's goal), or null.</summary>
+        public static Progression.ChapterDefinition NextChapter()
+        {
+            if (!GameSession.Exists || GameDatabase.Instance == null)
+                return null;
+            var p = GameSession.Instance.Profile;
+            Progression.ChapterDefinition best = null;
+            foreach (var c in GameDatabase.Instance.chapters)
+                if (c != null && c.order > 1 && !p.HasQuest(c.victoryFlag) && (string.IsNullOrEmpty(c.requiresFlag) || p.HasQuest(c.requiresFlag)))
+                    if (best == null || c.order < best.order)
+                        best = c;
+            return best;
         }
 
         static bool FindExit(string target, out Vector2 pos, out string label)

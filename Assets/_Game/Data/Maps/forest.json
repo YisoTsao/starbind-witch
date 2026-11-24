@@ -3972,6 +3972,7 @@
   "title": "月影森林",
   "dim": 0.08,
   "safe": false,
-  "objective": "向北深入森林"
+  "objective": "向北深入森林",
+  "chapter": "forest"
  }
 }

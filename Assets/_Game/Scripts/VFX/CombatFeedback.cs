@@ -125,6 +125,16 @@ namespace Starbind.VFX
                         v.Light(p, new Color(0.6f, 0.9f, 1f), 2.8f, 0.7f, 0.29f);
                     Sfx.Play("sfx_shatter", 0.9f);
                     break;
+                case ReactionType.Wildfire:
+                    v.Play("VFX_blast", p, 0, full ? 1.5f : 1f, new Color(1f, 0.7f, 0.3f));
+                    if (full)
+                    {
+                        v.Play("VFX_thorn", p, 0, 1.6f, new Color(1f, 0.6f, 0.25f));
+                        v.Embers(p, new Color(1f, 0.5f, 0.2f), Vector2.up * 2.4f, 12, 0.7f, 0.1f);
+                        v.Light(p, new Color(1f, 0.6f, 0.25f), 3f, 0.6f, 0.3f);
+                    }
+                    Sfx.Play("sfx_fire_hit", 0.9f);
+                    break;
                 case ReactionType.FireTornado:
                     if (full)
                     {

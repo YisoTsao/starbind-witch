@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b611da2ea14504c2797d3f28dfaa220b, type: 3}
+  m_Name: ENM_gem_spitter
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Enemies.EnemyDefinition
+  id: gem_spitter
+  displayName: "\u6676\u523A\u87F2"
+  behaviour: 1
+  hp: 55
+  damage: 13
+  speed: 1.5
+  attackRange: 0.5
+  attackCooldown: 2.3
+  projectileSpeed: 5
+  preferredDistance: 4.5
+  radius: 0.3
+  knockbackResist: 0
+  xp: 2
+  sprite: ENM_gem_spitter_draft
+  spriteFps: 6
+  isElite: 0
+  isBoss: 0
+  lootChance: 0.4
+  lootMaterial: star_sand
+  projectileSprite: VFX_crystal_shard
+  summonId: 
+  summonId2: 
+  element: 0

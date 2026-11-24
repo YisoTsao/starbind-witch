@@ -37,6 +37,9 @@ namespace Starbind.VFX
             ElementType.Ice => new Color(0.35f, 0.78f, 1f),
             ElementType.Lightning => new Color(0.73f, 0.48f, 1f),
             ElementType.Wind => new Color(0.45f, 1f, 0.78f),
+            ElementType.Nature => new Color(0.55f, 0.9f, 0.35f),
+            ElementType.Moon => new Color(0.55f, 0.42f, 1f),
+            ElementType.Star => new Color(1f, 0.88f, 0.45f),
             _ => new Color(0.76f, 0.47f, 1f),
         };
 
@@ -127,6 +130,18 @@ namespace Starbind.VFX
                 case ElementType.Wind:
                     v.Play("VFX_wind_blades", p, 0, 0.8f * scale);
                     v.Sparks(p, col, 14, 5f * scale, 0.45f, 0.1f);
+                    break;
+                case ElementType.Nature:
+                    v.Play("VFX_thorn", p, 0, 0.8f * scale);
+                    v.Sparks(p, col, 10, 3.5f * scale, 0.45f, 0.09f);
+                    break;
+                case ElementType.Moon:
+                    v.Play("VFX_shadow_hand", p, 0, 0.7f * scale, col);
+                    v.Sparks(p, col, 10, 3.5f * scale, 0.45f, 0.09f);
+                    break;
+                case ElementType.Star:
+                    v.Play("VFX_flash", p, 45f, 0.8f * scale, new Color(1f, 0.92f, 0.6f));
+                    v.Sparks(p, col, 12, 4.5f * scale, 0.4f, 0.09f);
                     break;
                 default:
                     v.Play("VFX_flash", p, 45f, 0.85f * scale, new Color(0.88f, 0.65f, 1f));

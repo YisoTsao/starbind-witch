@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df500013644d0cbf41e12d2de648e2, type: 3}
+  m_Name: Q_S2-01
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.QuestDefinition
+  id: S2-01
+  chapter: mine
+  kind: 1
+  title: "\u53D7\u56F0\u7684\u7926\u5DE5"
+  description: "\u7926\u5751\u897F\u5074\u7684\u6B7B\u5DF7\u88E1\u6709\u7926\u5DE5\u88AB\u56F0\u4F4F\u4E86\u3002"
+  giver: "\u7926\u5DE5\u675C\u514B"
+  flag: rescue_miner
+  requires: defeat_mushroom_king
+  order: 7

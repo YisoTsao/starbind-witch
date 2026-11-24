@@ -7,13 +7,14 @@ using UnityEngine;
 
 namespace Starbind.World
 {
-    /// <summary>Star altar (GDD §11.3): F starts a monster wave around it; clearing it grants a page
-    /// and an extra upgrade choice.</summary>
+    /// <summary>Star altar (GDD §11.3) and the chapter wave events built on it (mine crystal hall, lake
+    /// ruins): F starts a monster wave around it; clearing it grants a page and an extra upgrade choice.</summary>
     [RequireComponent(typeof(Interactable))]
     public sealed class StarAltar : MonoBehaviour
     {
         [SerializeField] int waveSize = 26;
         [SerializeField] float radius = 5f;
+        [SerializeField] string notice = "星痕祭壇甦醒：擊退怪潮！";
         public bool Used { get; private set; }
         public bool Cleared { get; private set; }
         SpawnDirector director;
@@ -42,7 +43,7 @@ namespace Starbind.World
             Used = true;
             director.WaveCleared += OnCleared;
             director.StartWave(transform.position, radius, waveSize);
-            GameSession.Instance.UI.Notice("星痕祭壇甦醒：擊退怪潮！");
+            GameSession.Instance.UI.Notice(notice);
             VfxService.Instance.Play("VFX_overdrive_aura", transform.position, 0, 2f, new Color(1f, 0.6f, 0.6f));
             Sfx.Play("sfx_boss_roar", 0.6f);
             if (glow != null)

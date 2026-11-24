@@ -26,6 +26,10 @@ namespace Starbind.Spells
         public int Pierce;
         public int Split;
         public bool Returns;
+        /// <summary>Weaker recasts after the cast (Echo modifier: 1, U19 adds one).</summary>
+        public int Echo;
+        /// <summary>Times a missile jumps to the next enemy after a hit (Star element: 2, U20 adds one).</summary>
+        public int Bounce;
         public float ReadyAt;
         public int CastCount;
 
@@ -43,11 +47,14 @@ namespace Starbind.Spells
             Count = Math.Max(1, def.count);
             Pierce = def.pierce;
             Split = def.modifier == SpellModifier.Split ? 2 : 0;
+            Echo = def.modifier == SpellModifier.Echo ? 1 : 0;
+            Bounce = def.element == ElementType.Star && def.form == SpellForm.Missile ? 2 : 0;
         }
     }
 
     /// <summary>Builds RuntimeSpells from page combinations, only for whitelisted Form x Element x
-    /// Modifier triples (GDD §5.3: 6 whitelisted combos + wind_pull special + magic missiles).</summary>
+    /// Modifier triples (GDD §5.3: 6 whitelisted combos + wind_pull special + magic missiles, then one
+    /// combo per later-school spell unlocked by chapters 2-4).</summary>
     public static class SpellFactory
     {
         static readonly HashSet<(SpellForm, ElementType, SpellModifier)> whitelist = new HashSet<(SpellForm, ElementType, SpellModifier)>
@@ -61,6 +68,11 @@ namespace Starbind.Spells
             (SpellForm.Pull, ElementType.Wind, SpellModifier.None),          // wind_pull (special control spell)
             (SpellForm.Homing, ElementType.None, SpellModifier.None),        // homing_missile
             (SpellForm.Homing, ElementType.Fire, SpellModifier.None),        // star_fire charm
+            (SpellForm.Beam, ElementType.Lightning, SpellModifier.None),     // prism_beam (ch.2)
+            (SpellForm.Pulse, ElementType.Nature, SpellModifier.None),       // thorn_bloom (ch.2)
+            (SpellForm.Area, ElementType.Moon, SpellModifier.None),          // shadow_hand (ch.3)
+            (SpellForm.Missile, ElementType.Moon, SpellModifier.Echo),       // moon_echo (ch.3)
+            (SpellForm.Missile, ElementType.Star, SpellModifier.None),       // star_shot (ch.4)
         };
 
         public static bool IsAllowed(SpellForm form, ElementType element, SpellModifier modifier) => whitelist.Contains((form, element, modifier));

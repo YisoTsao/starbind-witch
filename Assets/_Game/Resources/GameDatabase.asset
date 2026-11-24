@@ -1929,6 +1929,492 @@ MonoBehaviour:
     - {fileID: -2704198634442395479, guid: 4aff1f4227481407b892816c744741e5, type: 3}
     - {fileID: -6929235657148421966, guid: 4aff1f4227481407b892816c744741e5, type: 3}
     - {fileID: -865425259858311382, guid: 4aff1f4227481407b892816c744741e5, type: 3}
+  - name: ENM_crystal_mite_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 8398850608853105658, guid: 87293cbbd42dd40e1b3d1fd5935a4b42, type: 3}
+    - {fileID: -5186188849090155071, guid: 87293cbbd42dd40e1b3d1fd5935a4b42, type: 3}
+    - {fileID: -2518435253087761053, guid: 87293cbbd42dd40e1b3d1fd5935a4b42, type: 3}
+    - {fileID: 9139943930044148669, guid: 87293cbbd42dd40e1b3d1fd5935a4b42, type: 3}
+  - name: ENM_ore_bat_draft
+    fps: 12
+    walkFrames: 4
+    frames:
+    - {fileID: -113131378592045970, guid: 2be62bf521722459cba282f209d29def, type: 3}
+    - {fileID: -4116590988213953259, guid: 2be62bf521722459cba282f209d29def, type: 3}
+    - {fileID: 280301831944180903, guid: 2be62bf521722459cba282f209d29def, type: 3}
+    - {fileID: 9073649953772030775, guid: 2be62bf521722459cba282f209d29def, type: 3}
+  - name: ENM_gem_spitter_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: 717311789010893194, guid: b868077931333411492717629b0dd08a, type: 3}
+    - {fileID: 1523284844, guid: b868077931333411492717629b0dd08a, type: 3}
+    - {fileID: 352648496, guid: b868077931333411492717629b0dd08a, type: 3}
+    - {fileID: 699203367, guid: b868077931333411492717629b0dd08a, type: 3}
+  - name: ENM_rock_golemling_draft
+    fps: 5
+    walkFrames: 4
+    frames:
+    - {fileID: -8022456370419643182, guid: 95e3d1049d26542728fde42c75762244, type: 3}
+    - {fileID: -337287282, guid: 95e3d1049d26542728fde42c75762244, type: 3}
+    - {fileID: 360436884, guid: 95e3d1049d26542728fde42c75762244, type: 3}
+    - {fileID: 945544120, guid: 95e3d1049d26542728fde42c75762244, type: 3}
+  - name: ENM_crystal_elite_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -6195984806233823841, guid: 654539f4501a440cba475748498c70c5, type: 3}
+    - {fileID: 6752194646846323858, guid: 654539f4501a440cba475748498c70c5, type: 3}
+    - {fileID: 3868320383546986272, guid: 654539f4501a440cba475748498c70c5, type: 3}
+    - {fileID: 2419644212140036077, guid: 654539f4501a440cba475748498c70c5, type: 3}
+  - name: ENM_crystal_golem_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: 1021458062816259847, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+    - {fileID: -6514100039003844410, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+    - {fileID: -1827948406319790912, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+    - {fileID: -1830016008971684827, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+    - {fileID: -6448898094821405361, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+    - {fileID: -1938209236372049973, guid: 8c565e9a2ab2743bf94b8561fa81995d, type: 3}
+  - name: ENM_lake_slime_draft
+    fps: 8
+    walkFrames: 4
+    frames:
+    - {fileID: 6942672329279865065, guid: 7f40e0f9c714f4c709f27e68fe0ae01b, type: 3}
+    - {fileID: -5190261358051232641, guid: 7f40e0f9c714f4c709f27e68fe0ae01b, type: 3}
+    - {fileID: -6346985758693402360, guid: 7f40e0f9c714f4c709f27e68fe0ae01b, type: 3}
+    - {fileID: -8991760285088966641, guid: 7f40e0f9c714f4c709f27e68fe0ae01b, type: 3}
+  - name: ENM_moon_moth_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 1897586085253921977, guid: 4ea630bc717f540aca52d435c30df14e, type: 3}
+    - {fileID: -750325911, guid: 4ea630bc717f540aca52d435c30df14e, type: 3}
+    - {fileID: -583423675, guid: 4ea630bc717f540aca52d435c30df14e, type: 3}
+    - {fileID: 1622158463, guid: 4ea630bc717f540aca52d435c30df14e, type: 3}
+  - name: ENM_mire_frog_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -5557921053227778629, guid: 4c6d747fbb8e14201aa4bf13f1f06126, type: 3}
+    - {fileID: -108540046183001666, guid: 4c6d747fbb8e14201aa4bf13f1f06126, type: 3}
+    - {fileID: -7883638968107579302, guid: 4c6d747fbb8e14201aa4bf13f1f06126, type: 3}
+    - {fileID: -7902116549127387807, guid: 4c6d747fbb8e14201aa4bf13f1f06126, type: 3}
+  - name: ENM_reflection_knight_draft
+    fps: 5
+    walkFrames: 4
+    frames:
+    - {fileID: 5541875617018532875, guid: 7d431cadb2df94ad3adba4deb6c9b183, type: 3}
+    - {fileID: -7077803226583433482, guid: 7d431cadb2df94ad3adba4deb6c9b183, type: 3}
+    - {fileID: -5749316186883934005, guid: 7d431cadb2df94ad3adba4deb6c9b183, type: 3}
+    - {fileID: 4526214302399746301, guid: 7d431cadb2df94ad3adba4deb6c9b183, type: 3}
+  - name: ENM_shadow_clone_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -5804673746279428674, guid: a5e63d936b9564b248daf2a7121de9e0, type: 3}
+    - {fileID: 8596339694763981463, guid: a5e63d936b9564b248daf2a7121de9e0, type: 3}
+    - {fileID: -5792146194030573930, guid: a5e63d936b9564b248daf2a7121de9e0, type: 3}
+    - {fileID: 3286785443549007928, guid: a5e63d936b9564b248daf2a7121de9e0, type: 3}
+  - name: ENM_shadow_elite_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: 5587027725146134406, guid: 2bfd0ab0c76a44ec1b7ded4151671418, type: 3}
+    - {fileID: -7489211446131677816, guid: 2bfd0ab0c76a44ec1b7ded4151671418, type: 3}
+    - {fileID: -1171714281621726117, guid: 2bfd0ab0c76a44ec1b7ded4151671418, type: 3}
+    - {fileID: 2596139027065864165, guid: 2bfd0ab0c76a44ec1b7ded4151671418, type: 3}
+  - name: ENM_lake_shadow_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -4369018013517384862, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+    - {fileID: -2017325690921863327, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+    - {fileID: -4039199609700742069, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+    - {fileID: 2393664118676425798, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+    - {fileID: 385901452176622436, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+    - {fileID: 6409210302588141382, guid: 0b4cf704abe4740ca85a58592f51119f, type: 3}
+  - name: ENM_snow_slime_draft
+    fps: 8
+    walkFrames: 4
+    frames:
+    - {fileID: -2614466460425689012, guid: e0ca90b2f6f74437a9199940273799e8, type: 3}
+    - {fileID: 8058199653649868357, guid: e0ca90b2f6f74437a9199940273799e8, type: 3}
+    - {fileID: -7433347600287151710, guid: e0ca90b2f6f74437a9199940273799e8, type: 3}
+    - {fileID: 9094994230435405310, guid: e0ca90b2f6f74437a9199940273799e8, type: 3}
+  - name: ENM_frost_wisp_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 5404462130045822191, guid: 6a5c80e53af82423185ea5dff162f9c1, type: 3}
+    - {fileID: 8460231604315354728, guid: 6a5c80e53af82423185ea5dff162f9c1, type: 3}
+    - {fileID: -2287914188777964911, guid: 6a5c80e53af82423185ea5dff162f9c1, type: 3}
+    - {fileID: 7351175352453068900, guid: 6a5c80e53af82423185ea5dff162f9c1, type: 3}
+  - name: ENM_lens_turret_draft
+    fps: 4
+    walkFrames: 4
+    frames:
+    - {fileID: -7584027322945710315, guid: 50f877ad0795f42119695919445355b6, type: 3}
+    - {fileID: -6194021128637524906, guid: 50f877ad0795f42119695919445355b6, type: 3}
+    - {fileID: -6125976116834100793, guid: 50f877ad0795f42119695919445355b6, type: 3}
+    - {fileID: 5156126120672584253, guid: 50f877ad0795f42119695919445355b6, type: 3}
+  - name: ENM_clockwork_hound_draft
+    fps: 9
+    walkFrames: 4
+    frames:
+    - {fileID: -6749828331120476419, guid: 17e0f4cf290a340bab6d6f9c323ceeaf, type: 3}
+    - {fileID: 1023369948, guid: 17e0f4cf290a340bab6d6f9c323ceeaf, type: 3}
+    - {fileID: 1355225816, guid: 17e0f4cf290a340bab6d6f9c323ceeaf, type: 3}
+    - {fileID: -926906744, guid: 17e0f4cf290a340bab6d6f9c323ceeaf, type: 3}
+  - name: ENM_gear_elite_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -2070906882863855591, guid: 13e7329f4b363479b810ca992c511e14, type: 3}
+    - {fileID: 193583393704672058, guid: 13e7329f4b363479b810ca992c511e14, type: 3}
+    - {fileID: -550446980, guid: 13e7329f4b363479b810ca992c511e14, type: 3}
+    - {fileID: -1992602001, guid: 13e7329f4b363479b810ca992c511e14, type: 3}
+  - name: ENM_star_guardian_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: 7639953093051586013, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+    - {fileID: 4807240479863974867, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+    - {fileID: -6725138960445158348, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+    - {fileID: -8249452369762385660, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+    - {fileID: -9026307606385601158, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+    - {fileID: -6418999954878787351, guid: f6e0ce15b6b5247b7a7f751663b4a037, type: 3}
+  - name: ENM_shade_slime_draft
+    fps: 8
+    walkFrames: 4
+    frames:
+    - {fileID: -7148418244907249732, guid: e95fea648fb8146ad80668544087ae7a, type: 3}
+    - {fileID: 7706253732147622255, guid: e95fea648fb8146ad80668544087ae7a, type: 3}
+    - {fileID: -2505438642105939178, guid: e95fea648fb8146ad80668544087ae7a, type: 3}
+    - {fileID: -5099820173719299344, guid: e95fea648fb8146ad80668544087ae7a, type: 3}
+  - name: ENM_void_spark_draft
+    fps: 12
+    walkFrames: 4
+    frames:
+    - {fileID: -1132724806501363730, guid: 78bc858cd17b94497b70ca1437af1036, type: 3}
+    - {fileID: -818516061388919947, guid: 78bc858cd17b94497b70ca1437af1036, type: 3}
+    - {fileID: 3522319651650697804, guid: 78bc858cd17b94497b70ca1437af1036, type: 3}
+    - {fileID: 4992351671119936144, guid: 78bc858cd17b94497b70ca1437af1036, type: 3}
+  - name: ENM_dark_acolyte_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -6557968092136796966, guid: 5e0859f0009494e71a115789c48b1335, type: 3}
+    - {fileID: -1673924805182703623, guid: 5e0859f0009494e71a115789c48b1335, type: 3}
+    - {fileID: -8389616966620190174, guid: 5e0859f0009494e71a115789c48b1335, type: 3}
+    - {fileID: -674707876797132365, guid: 5e0859f0009494e71a115789c48b1335, type: 3}
+  - name: ENM_eclipse_knight_draft
+    fps: 5
+    walkFrames: 4
+    frames:
+    - {fileID: -3294526644796219284, guid: 3dc831b6107d14f15b149c718ff3badc, type: 3}
+    - {fileID: -635948721032398425, guid: 3dc831b6107d14f15b149c718ff3badc, type: 3}
+    - {fileID: 1633239864626789677, guid: 3dc831b6107d14f15b149c718ff3badc, type: 3}
+    - {fileID: -7893591248695161940, guid: 3dc831b6107d14f15b149c718ff3badc, type: 3}
+  - name: ENM_thorn_wisp_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -8648187740225294215, guid: 926ac555cd2e849079a9389e677356b2, type: 3}
+    - {fileID: -1608782421466803552, guid: 926ac555cd2e849079a9389e677356b2, type: 3}
+    - {fileID: 3081391470419705162, guid: 926ac555cd2e849079a9389e677356b2, type: 3}
+    - {fileID: -8516195595374422817, guid: 926ac555cd2e849079a9389e677356b2, type: 3}
+  - name: ENM_moon_elite_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -6357407416163321047, guid: 323da0c29d47841eba6d8532cd9add1f, type: 3}
+    - {fileID: 7172698944220380514, guid: 323da0c29d47841eba6d8532cd9add1f, type: 3}
+    - {fileID: 6350700356630802854, guid: 323da0c29d47841eba6d8532cd9add1f, type: 3}
+    - {fileID: -3964135704602501853, guid: 323da0c29d47841eba6d8532cd9add1f, type: 3}
+  - name: ENM_twisted_grimoire_draft
+    fps: 6
+    walkFrames: 4
+    frames:
+    - {fileID: -523063056908243928, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+    - {fileID: -7754451916376791527, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+    - {fileID: -5502618103806100222, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+    - {fileID: 5568642832121914552, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+    - {fileID: -3212638522775326260, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+    - {fileID: 4073074220230868529, guid: 550cb50b1693241dc9238f6a4d3de822, type: 3}
+  - name: PROP_crystal_node_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 5529972291478732657, guid: bc43b2b539d2e4033b9475ab2b596cc0, type: 3}
+  - name: PROP_crystal_node_lit_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 5611094975271314848, guid: 5763621be586e496eb17fed9d6241743, type: 3}
+  - name: PROP_minecart_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -5697279287735311879, guid: 218ab7a2df0804379a98c383c849c490, type: 3}
+  - name: PROP_rail_h_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 9090077030093915621, guid: 80d55c91f791d4a3aad8c91fa5b2f830, type: 3}
+  - name: PROP_rail_v_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 163427614953790370, guid: cf6557b45cfb04e76a9d4b0d8dc7f001, type: 3}
+  - name: PROP_rubble_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 3540971668489861580, guid: 4bfb4df3faf4843b18f08d85eead35cd, type: 3}
+  - name: PROP_mine_rock_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 8673447812750203895, guid: a6cebf1dd837d4374a2a3da520cdc167, type: 3}
+  - name: PROP_mine_crystal_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 9189620645998475531, guid: 0578e60644dcd4db0958cf7357930cc5, type: 3}
+  - name: PROP_mine_support_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -8064782891494282220, guid: f79b8333b24df48bfae87646093a145e, type: 3}
+  - name: PROP_crystal_altar_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -5476094091545660725, guid: f882913eda1af45159c6fbe5dfe11977, type: 3}
+  - name: PROP_reed_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -105451627900848316, guid: b6c439032d4b44e9f8331d8cd421823a, type: 3}
+  - name: PROP_lake_crystal_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 3736266912133931539, guid: 7bd4adbc648a84b85876f39334ddcf30, type: 3}
+  - name: PROP_ruin_pillar_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -3460561042409014091, guid: 4b1fd94a1d01d403da18388694cbbdc0, type: 3}
+  - name: PROP_ruin_pillar_broken_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -3080856243201418216, guid: 53a7199db01834910935f2b0ef8b6687, type: 3}
+  - name: PROP_willow_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -2032452463090008976, guid: 799f4e004464a44a8aec69fe041c0815, type: 3}
+  - name: PROP_pylon_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -1804336140165222127, guid: 12147ec8e4fd64ee99abbce382f57f14, type: 3}
+  - name: PROP_pylon_lit_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 4036841173263812478, guid: 635eef4ea01584bd8bd4865b67837fb0, type: 3}
+  - name: PROP_light_bridge_off_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -9131100160978198644, guid: 2ad499fe93cb5447688941a464a2cdc7, type: 3}
+  - name: PROP_light_bridge_on_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -6790601509993994046, guid: 3f27664db2f8b40c5b7edce7d854e6e6, type: 3}
+  - name: PROP_tent_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -3872453202817529963, guid: beaa07c587a96453f80297a1899267cf, type: 3}
+  - name: PROP_snow_pine_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -8342278338718289607, guid: 33a92ecd3d4e44677a8b589afce6b284, type: 3}
+  - name: PROP_snow_rock_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 5503779349813265046, guid: dab8abcda9ccc4d408dd9979550d0dc2, type: 3}
+  - name: PROP_beam_emitter_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -3351187441774373809, guid: 1839f46b8c5bb497e876630a07eed289, type: 3}
+  - name: PROP_beam_receiver_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 8191570299835631258, guid: f88904a3b6c264292825aa930ab700e7, type: 3}
+  - name: PROP_mirror_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 6715109655344653106, guid: 514844c68dd1c45bdb003bfbb20b9981, type: 3}
+  - name: PROP_star_door_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -2241550370131986318, guid: 68a2c5e3cf39d4c7fa6dc3ace2750a92, type: 3}
+  - name: PROP_telescope_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -3443526680424404137, guid: 8aa06df45414c45849dcbf740110fbdc, type: 3}
+  - name: PROP_snow_hut_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -4612034212009514792, guid: f41e6405db03c44098edce99afd18c4d, type: 3}
+  - name: PROP_dark_pillar_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -4407134573848723498, guid: 20dd58b4bc99a451fa07bee163407cd5, type: 3}
+  - name: PROP_dark_pillar_broken_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -6960781317459324067, guid: fa98e8848cd4744d189456f21cbc0cf7, type: 3}
+  - name: PROP_moon_brazier_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 6106638665935124758, guid: e336675e0d80a412abc1f04167803731, type: 3}
+  - name: PROP_banner_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 8955661310249297769, guid: 9b1b07683aac549bdb75466ce66f9b4f, type: 3}
+  - name: PROP_trial_seal_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 4680349295219447498, guid: f7a39270ca29f45d79ee48890fce6c8e, type: 3}
+  - name: PROP_dark_barrier_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -2507335766273502812, guid: 8061fcf326b3b40c296d33e34eb9f09a, type: 3}
+  - name: PROP_tower_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -4151641654158675207, guid: 2d17a2b8461ba48e6841c5dd7855140f, type: 3}
+  - name: PROP_note_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 3716512361067582859, guid: 40ef96c06ef364753b6aefae8e901022, type: 3}
+  - name: DEC_snowflake_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -7056133694220430354, guid: 3054b501912424de991cd5c256236638, type: 3}
+  - name: VFX_crystal_shard_draft
+    fps: 12
+    walkFrames: 4
+    frames:
+    - {fileID: -2878091773151640337, guid: 761dff9dd7cd446ae9a3f828706f8c75, type: 3}
+    - {fileID: 7128163444938982186, guid: 761dff9dd7cd446ae9a3f828706f8c75, type: 3}
+    - {fileID: -4892960224675820676, guid: 761dff9dd7cd446ae9a3f828706f8c75, type: 3}
+    - {fileID: 5476490532690959850, guid: 761dff9dd7cd446ae9a3f828706f8c75, type: 3}
+  - name: VFX_beam_seg_draft
+    fps: 16
+    walkFrames: 4
+    frames:
+    - {fileID: -2669701559580763602, guid: cebaf37e68b0543d98c9bb0066eca6f9, type: 3}
+    - {fileID: -397499728, guid: cebaf37e68b0543d98c9bb0066eca6f9, type: 3}
+    - {fileID: -277385767, guid: cebaf37e68b0543d98c9bb0066eca6f9, type: 3}
+    - {fileID: 1990472998, guid: cebaf37e68b0543d98c9bb0066eca6f9, type: 3}
+  - name: VFX_shadow_bolt_draft
+    fps: 12
+    walkFrames: 4
+    frames:
+    - {fileID: 531338226007841102, guid: 37c15f059f87e4839b54cbfd74d45e1c, type: 3}
+    - {fileID: -6747678855125025580, guid: 37c15f059f87e4839b54cbfd74d45e1c, type: 3}
+    - {fileID: 6621094605828620582, guid: 37c15f059f87e4839b54cbfd74d45e1c, type: 3}
+    - {fileID: -2336326155693695143, guid: 37c15f059f87e4839b54cbfd74d45e1c, type: 3}
+  - name: VFX_star_shot_draft
+    fps: 14
+    walkFrames: 4
+    frames:
+    - {fileID: 8141597321223004231, guid: 7d1dad7a5d2ec4ac7910b187092f2a0f, type: 3}
+    - {fileID: 3843577791143278530, guid: 7d1dad7a5d2ec4ac7910b187092f2a0f, type: 3}
+    - {fileID: 5619911110681843575, guid: 7d1dad7a5d2ec4ac7910b187092f2a0f, type: 3}
+    - {fileID: 8709236982153484392, guid: 7d1dad7a5d2ec4ac7910b187092f2a0f, type: 3}
+  - name: VFX_water_drop_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 7948415926269268048, guid: 4cb27fb28ab7640768e61612bbfd335c, type: 3}
+    - {fileID: 3445165749931709595, guid: 4cb27fb28ab7640768e61612bbfd335c, type: 3}
+    - {fileID: 5551529781841413870, guid: 4cb27fb28ab7640768e61612bbfd335c, type: 3}
+    - {fileID: 4620394782096367300, guid: 4cb27fb28ab7640768e61612bbfd335c, type: 3}
+  - name: VFX_thorn_draft
+    fps: 14
+    walkFrames: 4
+    frames:
+    - {fileID: 2825278186704601216, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+    - {fileID: 2473182256502745837, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+    - {fileID: -6088266006316356994, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+    - {fileID: -925897865418494231, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+    - {fileID: -3928777316744486367, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+    - {fileID: 671809539, guid: 2dce96d4d57d144e2a73578a4448239c, type: 3}
+  - name: VFX_shadow_hand_draft
+    fps: 12
+    walkFrames: 4
+    frames:
+    - {fileID: 554642507529456696, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+    - {fileID: -722151725083755826, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+    - {fileID: 270619512795941306, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+    - {fileID: 5476494448033113642, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+    - {fileID: 5048686102444958324, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+    - {fileID: -578155964, guid: 21926c441ceaf4eafb3e1c01c2709bb1, type: 3}
+  - name: ICON_prism_beam_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 878461421300432371, guid: ea38bc2cbbd0b4a298026533011145e5, type: 3}
+  - name: ICON_thorn_bloom_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 2769549404412052327, guid: 8b3cb02f03065469f896bedcc4f70194, type: 3}
+  - name: ICON_shadow_hand_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: -8104838214005128452, guid: 88f5436c39be142498cde5c66fb25d97, type: 3}
+  - name: ICON_moon_echo_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 1037462718244527697, guid: 20551dc98efee436f92dbb14f894bffa, type: 3}
+  - name: ICON_star_shot_draft
+    fps: 10
+    walkFrames: 4
+    frames:
+    - {fileID: 8964231820341514173, guid: f146416bf1c904fad84fc75660e241c4, type: 3}
   spells:
   - {fileID: 11400000, guid: 200f5a2148ed342e194f10a7cead665b, type: 2}
   - {fileID: 11400000, guid: 8d34506e890d546f5bbf781656a8abbd, type: 2}
@@ -1939,6 +2425,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3071c7166868a42d9bf47cc7b4a634ce, type: 2}
   - {fileID: 11400000, guid: 82ff52f5b42fa47e68e1bc08d5a9bfb0, type: 2}
   - {fileID: 11400000, guid: 782985713c0fe41ba9dc9c160412531e, type: 2}
+  - {fileID: 11400000, guid: 571f3c8c0543242a992e2b8808e25be0, type: 2}
+  - {fileID: 11400000, guid: 126d4b55fa1d043c5a17e649aea7efbf, type: 2}
+  - {fileID: 11400000, guid: 4c08d29b02f384dae828d5409ae37b8d, type: 2}
+  - {fileID: 11400000, guid: bc979e94145314820bbb0dcd008cd2d7, type: 2}
+  - {fileID: 11400000, guid: 7f7b781a3df0d4d5586248a019d78859, type: 2}
   enemies:
   - {fileID: 11400000, guid: f5c2833c25183435ca6f1548c707537b, type: 2}
   - {fileID: 11400000, guid: fcecbbd7075ad467bba0b8f39e6a2fc2, type: 2}
@@ -1946,6 +2437,32 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4541f17e899524056b3304ea5b2d79a5, type: 2}
   - {fileID: 11400000, guid: 232bb34c8ffdd4b07b60217d2ffbd250, type: 2}
   - {fileID: 11400000, guid: e9a8cb2bdbacb41b08347aa50ef8f42a, type: 2}
+  - {fileID: 11400000, guid: 6de4d4b569b524b26b91394049a7b3a3, type: 2}
+  - {fileID: 11400000, guid: bba5cbedc119f464ca186c4f572f8ef4, type: 2}
+  - {fileID: 11400000, guid: c42eba8f6bae44af0b560f631150731e, type: 2}
+  - {fileID: 11400000, guid: 11945e5b2a7e14061949b8cea0f654ad, type: 2}
+  - {fileID: 11400000, guid: f3c9f16d72783435c8501248ef3c401e, type: 2}
+  - {fileID: 11400000, guid: 9efd4f82702374d9f8fe6ccf7ec125ce, type: 2}
+  - {fileID: 11400000, guid: 217cda5360b2a4abb9c4b54a86731827, type: 2}
+  - {fileID: 11400000, guid: e75a052ddbbd54358b0443fec3250353, type: 2}
+  - {fileID: 11400000, guid: b4f983eef6aed43cfa3f7c9cfeffcaef, type: 2}
+  - {fileID: 11400000, guid: 4a8ea11c8bae14a178ce0dbdef8ed842, type: 2}
+  - {fileID: 11400000, guid: 4c4e2ae7c88a54225826fccb600d0b08, type: 2}
+  - {fileID: 11400000, guid: f34fac9ced6ad43b2a65369e0c0b61c2, type: 2}
+  - {fileID: 11400000, guid: fcf4ea310d28a4e819523aa440362114, type: 2}
+  - {fileID: 11400000, guid: c04ed34a4815f42db94dc6e877004512, type: 2}
+  - {fileID: 11400000, guid: 81a1478fbf53c4a8b8ce0f838242aad2, type: 2}
+  - {fileID: 11400000, guid: 0ce7057029f9f46debfdaff81b7a115b, type: 2}
+  - {fileID: 11400000, guid: 1120267438dd8453abe920f12b0d441c, type: 2}
+  - {fileID: 11400000, guid: 8e1cd6b2475a1425a8ddb74981d35797, type: 2}
+  - {fileID: 11400000, guid: 7a4ad2793cccb402083f5c6508bda376, type: 2}
+  - {fileID: 11400000, guid: d8222d668335e4e268a9b061d96baa89, type: 2}
+  - {fileID: 11400000, guid: 1e6974275bca94a71acb3013de7b66c8, type: 2}
+  - {fileID: 11400000, guid: d2be64e765d20433a8ce003af9ffa9d4, type: 2}
+  - {fileID: 11400000, guid: cce06a2173b8942ffbb254f67915b0be, type: 2}
+  - {fileID: 11400000, guid: 0ac88120bb0544212a908adbbdd49da4, type: 2}
+  - {fileID: 11400000, guid: ccb8d3a3b3609494793ac21dfe40bbb4, type: 2}
+  - {fileID: 11400000, guid: 710b21a157af34a3c9ff1fbd7e71e35a, type: 2}
   upgrades:
   - {fileID: 11400000, guid: 99b6292be47e74a8296cc7c4103b7dab, type: 2}
   - {fileID: 11400000, guid: 12f382dcbeea64c6cb64e61d4b01e568, type: 2}
@@ -1962,6 +2479,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2bab62df7a964ad9b4f1764ff88f3d7, type: 2}
   - {fileID: 11400000, guid: aa1e18dbd297b4d1bbd0499f1385e1ec, type: 2}
   - {fileID: 11400000, guid: a55e778b7e2a64d40885a688790b70cb, type: 2}
+  - {fileID: 11400000, guid: e7347b63fcd854662bfb3245b294a94f, type: 2}
+  - {fileID: 11400000, guid: 1a20901b9f135419493870dcc392e7e7, type: 2}
+  - {fileID: 11400000, guid: 9cc51218a1f004a9fa9803ea00f81c35, type: 2}
+  - {fileID: 11400000, guid: 9de69b3f6eca546e6b4e19fe079baf0b, type: 2}
+  - {fileID: 11400000, guid: 8b55776fb50f64c13bc503e4d6e381ee, type: 2}
+  chapters:
+  - {fileID: 11400000, guid: 9f9b60678b45e40aa935aa2931058dfe, type: 2}
+  - {fileID: 11400000, guid: 154aadfa94a9f4a8283586916299e12f, type: 2}
+  - {fileID: 11400000, guid: 24557c5ac749c40229b089fe3e057ee0, type: 2}
+  - {fileID: 11400000, guid: 651ef64ef6d0142e7a851b6c2566bf19, type: 2}
+  - {fileID: 11400000, guid: 58bf3d58d545b40ad8766986279651f5, type: 2}
+  quests:
+  - {fileID: 11400000, guid: 5c131b331237847ad892bc84e8376abb, type: 2}
+  - {fileID: 11400000, guid: 51c8419851cbc495b8c77ae0833112dc, type: 2}
+  - {fileID: 11400000, guid: ed3baf8f1c5d84cb08d24085812221e7, type: 2}
+  - {fileID: 11400000, guid: 5d31185bf9da9407cad65b7d2013c560, type: 2}
+  - {fileID: 11400000, guid: c52736ffb706c434da1ca85815bb989d, type: 2}
+  - {fileID: 11400000, guid: 6b6436863bbf64e06987bbd51b8ec1ab, type: 2}
+  - {fileID: 11400000, guid: ca10341fadb4546c1997c2c9fda2a47a, type: 2}
+  - {fileID: 11400000, guid: 1317aa938376244be84e0a894f09472f, type: 2}
+  - {fileID: 11400000, guid: b53fa41fa38074c36a4a9e157d245104, type: 2}
+  - {fileID: 11400000, guid: 6ac857c30fe82451bbfff5a083a7c7a4, type: 2}
+  - {fileID: 11400000, guid: 0c425003e673845f5a4e3b20260bd790, type: 2}
+  - {fileID: 11400000, guid: b275f4dc4e27a436d97494cd9f9a234f, type: 2}
+  - {fileID: 11400000, guid: debbf8fa3521948f494276133d8ccbbd, type: 2}
+  - {fileID: 11400000, guid: c789adb1f78284f029456fa1237cc150, type: 2}
+  - {fileID: 11400000, guid: f6cfa4b91fe3d42c9b17e20691bbf860, type: 2}
+  - {fileID: 11400000, guid: d058709ee07b141cb8d20933d7534cbb, type: 2}
+  - {fileID: 11400000, guid: 505fe3bc758e74e3899301203137193d, type: 2}
+  - {fileID: 11400000, guid: 3136e2534362644e6b0ba7e40cbb4d5a, type: 2}
+  - {fileID: 11400000, guid: 204f59a4dc8d94e1383e4b44cc5c885d, type: 2}
   unlitMaterial: {fileID: 2100000, guid: 7d21314e4a96c478ca826f62aa0a4d32, type: 2}
   characterMaterial: {fileID: 2100000, guid: 0d93d718884e64445ac8e47205411fb2, type: 2}
   sounds:

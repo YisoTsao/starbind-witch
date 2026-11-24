@@ -7,6 +7,7 @@ using Starbind.Combat;
 using Starbind.Controls;
 using Starbind.Core;
 using Starbind.Enemies;
+using Starbind.Items;
 using Starbind.Player;
 using Starbind.Progression;
 using Starbind.Spells;
@@ -50,6 +51,23 @@ namespace Starbind.Editor
         public const string VillageScene = "Assets/_Game/Scenes/Village.unity";
         public const string WorkshopScene = "Assets/_Game/Scenes/Workshop.unity";
         public const string ForestScene = "Assets/_Game/Scenes/Forest.unity";
+        const string ChapterArtManifest = ArtRoot + "chapter_manifest.json"; // tools/art/chapter_art.py (chapters 2-5)
+
+        /// <summary>Chapter scenes after the forest (map json id, scene path), STORY_WORLD_QUESTS §3.6.</summary>
+        public static readonly (string map, string scene)[] ChapterScenes =
+        {
+            ("mine", "Assets/_Game/Scenes/Mine.unity"),
+            ("lake", "Assets/_Game/Scenes/Lake.unity"),
+            ("observatory", "Assets/_Game/Scenes/Observatory.unity"),
+            ("citadel", "Assets/_Game/Scenes/Citadel.unity"),
+        };
+
+        public static string[] AllScenes()
+        {
+            var list = new List<string> { VillageScene, WorkshopScene, ForestScene };
+            list.AddRange(ChapterScenes.Select(c => c.scene));
+            return list.ToArray();
+        }
         const int T = 32;
 
         // ---------------------------------------------------------------- JSON shapes
@@ -68,21 +86,27 @@ namespace Starbind.Editor
             public ZoneDef[] zones;
             public SceneDef scene;
         }
-        [Serializable] class Layers { public string[] water, path, cliff, collision, wall, spawn; }
+        [Serializable] class Layers { public string[] water, path, cliff, collision, wall, spawn, solid; }
         [Serializable] class PropDef { public string sprite; public float x, y; public bool fade; public float[] box; public DoorDef door; public string layer; public int order; }
         [Serializable] class DoorDef { public float dx, dy; public string target, spawn; }
         [Serializable] class SpawnDef { public string id; public float x, y; }
         [Serializable] class ZoneDef { public string id, name; public float[] rect; public bool noSpawn; }
-        [Serializable] class SceneDef { public string title, objective; public float dim; public bool safe; }
+        [Serializable] class SceneDef { public string title, objective, chapter; public float dim; public bool safe; }
+        [Serializable] class StageDef { public string flag, quest; public string[] lines; }
+        [Serializable] class MirrorDef { public int x, y, kind; }
         [Serializable]
         class ObjDef
         {
             public string kind, id, sheet, name, facing, quest, sprite, scene, spawn, label, target, station;
-            public float x, y, radius, prompt;
-            public string[] lines, after;
+            public string gate, circuit, reward, requires, school, notice, openSprite, litSprite;
+            public float x, y, radius, prompt, w, h;
+            public int wave, count, dirX, dirY, tx, ty;
+            public string[] lines, after, locked, enemies;
+            public StageDef[] stages;
+            public MirrorDef[] mirrors;
             public bool heals, page;
             public float[] rect, block, gap, lever, trigger;
-            public float[] bossSpawn;
+            public float[] bossSpawn, stop, span;
             public RailDef[] railsParsed;
         }
         class RailDef { public float x, y, w, h; }
@@ -104,14 +128,12 @@ namespace Starbind.Editor
             BuildScene(ctx, Maps + "village.json", VillageScene);
             BuildScene(ctx, Maps + "workshop.json", WorkshopScene);
             BuildScene(ctx, Maps + "forest.json", ForestScene);
-            EditorBuildSettings.scenes = new[]
-            {
-                new EditorBuildSettingsScene(VillageScene, true),
-                new EditorBuildSettingsScene(WorkshopScene, true),
-                new EditorBuildSettingsScene(ForestScene, true),
-            };
+            foreach (var (map, scene) in ChapterScenes)
+                if (File.Exists(Maps + map + ".json"))
+                    BuildScene(ctx, Maps + map + ".json", scene);
+            EditorBuildSettings.scenes = AllScenes().Where(File.Exists).Select(p => new EditorBuildSettingsScene(p, true)).ToArray();
             AssetDatabase.SaveAssets();
-            Debug.Log("[GameContentBuilder] built Village, Workshop, Forest");
+            Debug.Log("[GameContentBuilder] built " + string.Join(", ", EditorBuildSettings.scenes.Select(x => Path.GetFileNameWithoutExtension(x.path))));
         }
 
         /// <summary>Batch entry: Unity -batchmode -executeMethod Starbind.Editor.GameContentBuilder.BuildAllBatch</summary>
@@ -159,7 +181,7 @@ namespace Starbind.Editor
             string outPath = i >= 0 && i + 1 < args.Length ? args[i + 1] : "Builds/mac/StarbindWitch.app";
             var report = UnityEditor.BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = new[] { VillageScene, WorkshopScene, ForestScene },
+                scenes = AllScenes().Where(File.Exists).ToArray(),
                 locationPathName = outPath,
                 target = BuildTarget.StandaloneOSX,
                 options = BuildOptions.None,
@@ -175,6 +197,7 @@ namespace Starbind.Editor
             public Dictionary<string, Sprite> extracted;
             public (Material unlit, Material character) mats;
             public GameObject player;
+            public string rawJson;
             public readonly Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
             public readonly HashSet<string> prefabFiles = new HashSet<string>();
 
@@ -201,6 +224,8 @@ namespace Starbind.Editor
                 items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(UiManifest)).items);
             if (File.Exists(SpellVfxManifest))
                 items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(SpellVfxManifest)).items);
+            if (File.Exists(ChapterArtManifest))
+                items.AddRange(JsonUtility.FromJson<Manifest>(File.ReadAllText(ChapterArtManifest)).items);
             return items.ToArray();
         }
 
@@ -331,6 +356,41 @@ namespace Starbind.Editor
                 e.projectileSpeed = projSpeed; e.preferredDistance = pref; e.isElite = elite; e.isBoss = boss;
             });
 
+        /// <summary>Enemy plus the chapter-2+ fields: loot material, shot sprite, summons, shot element.</summary>
+        static EnemyDefinition EnemyX(string id, string name, EnemyBehaviour b, float hp, float dmg, float speed, float range, float cd, float radius, int xp,
+            float fps, float loot, string material, string shot = "", string summon = "", string summon2 = "", float kbResist = 0, float projSpeed = 4.5f,
+            float pref = 0, bool elite = false, bool boss = false, ElementType element = ElementType.None)
+        {
+            var e = Enemy(id, name, b, hp, dmg, speed, range, cd, radius, xp, "ENM_" + id + "_draft", fps, loot, kbResist, projSpeed, pref, elite, boss);
+            e.lootMaterial = material;
+            e.projectileSprite = shot;
+            e.summonId = summon;
+            e.summonId2 = summon2;
+            e.element = element;
+            EditorUtility.SetDirty(e);
+            return e;
+        }
+
+        static ChapterDefinition Chapter(string id, int order, string scene, string title, string boss, string bossName, string arena, string elite,
+            string victory, string requires, string intro, string push, string[] rewards, string rewardNote, float hpScale, bool finale,
+            params (string zone, string[] ids, float[] w)[] zones) =>
+            Upsert<ChapterDefinition>(DataRoot + "Chapters/CH_" + id + ".asset", c =>
+            {
+                c.id = id; c.order = order; c.scene = scene; c.title = title; c.bossId = boss; c.bossName = bossName; c.arenaName = arena;
+                c.eliteId = elite; c.victoryFlag = victory; c.requiresFlag = requires; c.introNotice = intro; c.pushObjective = push;
+                c.bossObjective = "擊敗" + bossName; c.rewardSpells = rewards; c.rewardNote = rewardNote; c.enemyHpScale = hpScale; c.finale = finale;
+                c.entrySpawn = "spawn_from_village";
+                c.returnSpawn = id == "forest" ? "spawn_from_forest" : "spawn_from_starplate";
+                c.zones = zones.Select(z => new ZoneMix { zone = z.zone, enemies = z.ids, weights = z.w }).ToList();
+            });
+
+        static QuestDefinition Quest(int order, string id, string chapter, QuestKind kind, string title, string desc, string giver, string flag, string requires) =>
+            Upsert<QuestDefinition>(DataRoot + "Quests/Q_" + id + ".asset", q =>
+            {
+                q.order = order; q.id = id; q.chapter = chapter; q.kind = kind; q.title = title; q.description = desc; q.giver = giver;
+                q.flag = flag; q.requires = requires ?? "";
+            });
+
         static UpgradeDefinition Card(string id, string name, string desc, UpgradeKind kind, float weight, int stacks, string requires = null, string excludes = null, string icon = null) =>
             Upsert<UpgradeDefinition>(DataRoot + "Upgrades/UPG_" + id + ".asset", u =>
             {
@@ -353,6 +413,12 @@ namespace Starbind.Editor
                 Spell("thunder_pulse", "自動雷脈衝", "自動・雷。每 5 秒對附近敵人落雷。", SpellForm.Pulse, ElementType.Lightning, SpellModifier.None, SpellTrigger.Auto, 12, 5f, 0, 0, 6f, 1.3f, 2f),
                 Spell("homing_missile", "追蹤魔彈", "自動。每 2.5 秒射出追蹤最近敵人的魔彈。", SpellForm.Homing, ElementType.None, SpellModifier.None, SpellTrigger.Auto, 9, 2.5f, 0, 8f, 7f, 0.2f, 0f, 1, 0, 0, "ICON_homing"),
                 Spell("star_fire", "星火護符", "自動・火。定期發射小型星火攻擊最近敵人。", SpellForm.Homing, ElementType.Fire, SpellModifier.None, SpellTrigger.Auto, 10, 3f, 0, 9f, 7f, 0.2f, 3f, 1, 0, 0, "ICON_starfire"),
+                // chapter rewards (STORY_WORLD_QUESTS §2.3): beam form + nature (ch.2), moon + echo (ch.3), star (ch.4)
+                Spell("prism_beam", "稜光射線", "光束・雷。瞬間貫穿直線上最多 8 名敵人，附加感電。", SpellForm.Beam, ElementType.Lightning, SpellModifier.None, SpellTrigger.Active, 16, 1.6f, 10, 0, 7f, 0.35f, 2.5f),
+                Spell("thorn_bloom", "荊棘毒花", "自動・自然。每 4 秒在最近敵人腳下開出毒花，附加中毒 5 秒。", SpellForm.Pulse, ElementType.Nature, SpellModifier.None, SpellTrigger.Auto, 8, 4f, 0, 0, 6.5f, 1.6f, 5f),
+                Spell("shadow_hand", "暗影之手", "領域・月影。目標點伸出暗影之手，附加詛咒（受傷 +15%）。", SpellForm.Area, ElementType.Moon, SpellModifier.None, SpellTrigger.Active, 20, 3.2f, 12, 0, 7f, 1.8f, 4f),
+                Spell("moon_echo", "月影迴響", "飛彈・月影・迴響。0.3 秒後再射出 60% 威力的回聲。", SpellForm.Missile, ElementType.Moon, SpellModifier.Echo, SpellTrigger.Active, 14, 0.9f, 7, 10f, 8f, 0.24f, 3f),
+                Spell("star_shot", "星彈", "飛彈・星痕。命中後反彈至附近敵人 2 次（每次 80%）。", SpellForm.Missile, ElementType.Star, SpellModifier.None, SpellTrigger.Active, 15, 0.75f, 6, 11f, 8f, 0.24f, 0f),
             };
             var enemies = new List<EnemyDefinition>
             {
@@ -363,6 +429,36 @@ namespace Starbind.Editor
                 Enemy("wisp", "迷途幽光", EnemyBehaviour.Flanker, 35, 8, 3.6f, 0.5f, 2.6f, 0.25f, 1, "ENM_wisp_draft", 10, 0.3f),
                 Enemy("spore_elite", "孢子精英", EnemyBehaviour.Elite, 350, 15, 1.4f, 1f, 2.4f, 0.7f, 15, "ENM_spore_elite_draft", 6, 1f, 0.8f, 6f, 0, true),
                 Enemy("mushroom_king", "月蝕菇王", EnemyBehaviour.Boss, 2200, 16, 1.0f, 2f, 2.6f, 1.25f, 0, "ENM_mushroom_king_draft", 6, 0f, 1f, 5f, 0, false, true),
+                // ch.2 star core mine
+                EnemyX("crystal_mite", "晶蟎", EnemyBehaviour.Bomber, 30, 14, 2.8f, 0.5f, 1f, 0.24f, 1, 10, 0.25f, Inventory.StarSand),
+                EnemyX("ore_bat", "礦洞蝙蝠", EnemyBehaviour.Flanker, 32, 9, 3.8f, 0.5f, 2.4f, 0.24f, 1, 10, 0.3f, Inventory.StarSand),
+                EnemyX("gem_spitter", "晶刺蟲", EnemyBehaviour.Ranged, 55, 13, 1.5f, 0.5f, 2.3f, 0.3f, 2, 6, 0.4f, Inventory.StarSand, "VFX_crystal_shard", projSpeed: 5f, pref: 4.5f),
+                EnemyX("rock_golemling", "石像兵", EnemyBehaviour.Charger, 150, 21, 1.3f, 0.9f, 3.4f, 0.55f, 4, 5, 0.5f, Inventory.CoreShard, kbResist: 0.6f),
+                EnemyX("crystal_elite", "晶甲精英", EnemyBehaviour.Elite, 400, 16, 1.4f, 1f, 2.4f, 0.7f, 15, 6, 1f, Inventory.StarSand, "VFX_crystal_shard", "crystal_mite", kbResist: 0.8f, projSpeed: 6f, elite: true),
+                EnemyX("crystal_golem", "晶核魔像", EnemyBehaviour.GolemBoss, 2600, 18, 0.9f, 2f, 2.6f, 1.3f, 0, 6, 0, Inventory.CoreShard, "VFX_crystal_shard", "crystal_mite", "gem_spitter", 1f, 5f, boss: true),
+                // ch.3 starlight lake
+                EnemyX("lake_slime", "湖水史萊姆", EnemyBehaviour.Chaser, 50, 11, 2.3f, 0.55f, 1.1f, 0.28f, 1, 8, 0.3f, Inventory.MoonDew),
+                EnemyX("moon_moth", "月光飛蛾", EnemyBehaviour.Flanker, 36, 10, 3.6f, 0.5f, 2.4f, 0.25f, 1, 10, 0.35f, Inventory.MoonDew),
+                EnemyX("mire_frog", "沼澤蛙", EnemyBehaviour.Ranged, 60, 13, 1.6f, 0.5f, 2.2f, 0.3f, 2, 6, 0.4f, Inventory.MoonDew, "VFX_water_drop", projSpeed: 5f, pref: 4.5f),
+                EnemyX("reflection_knight", "倒影騎士", EnemyBehaviour.Charger, 165, 22, 1.35f, 0.9f, 3.3f, 0.55f, 4, 5, 0.5f, Inventory.StarSand, kbResist: 0.6f),
+                EnemyX("shadow_clone", "湖影分身", EnemyBehaviour.Flanker, 60, 10, 3.4f, 0.5f, 2.2f, 0.3f, 1, 8, 0.1f, Inventory.MoonDew),
+                EnemyX("shadow_elite", "湖影精英", EnemyBehaviour.Elite, 430, 17, 1.4f, 1f, 2.3f, 0.7f, 15, 6, 1f, Inventory.MoonDew, "VFX_shadow_bolt", "lake_slime", kbResist: 0.8f, projSpeed: 6f, elite: true),
+                EnemyX("lake_shadow", "湖影", EnemyBehaviour.ShadowBoss, 2800, 18, 1.2f, 2f, 2.5f, 1.0f, 0, 6, 0, Inventory.MoonDew, "VFX_shadow_bolt", "shadow_clone", "", 1f, 5f, boss: true),
+                // ch.4 lost observatory
+                EnemyX("snow_slime", "雪球史萊姆", EnemyBehaviour.Chaser, 56, 12, 2.2f, 0.55f, 1.1f, 0.3f, 1, 8, 0.3f, Inventory.StarSand),
+                EnemyX("frost_wisp", "霜靈", EnemyBehaviour.Flanker, 40, 11, 3.6f, 0.5f, 2.4f, 0.25f, 1, 10, 0.35f, Inventory.MoonDew),
+                EnemyX("lens_turret", "透鏡砲台", EnemyBehaviour.Ranged, 80, 14, 0.7f, 0.5f, 2.6f, 0.35f, 2, 4, 0.45f, Inventory.CoreShard, "VFX_beam_seg", projSpeed: 6f, pref: 5.5f, kbResist: 0.9f),
+                EnemyX("clockwork_hound", "發條獵犬", EnemyBehaviour.Charger, 170, 23, 1.6f, 0.9f, 3f, 0.5f, 4, 8, 0.5f, Inventory.CoreShard, kbResist: 0.5f),
+                EnemyX("gear_elite", "齒輪精英", EnemyBehaviour.Elite, 460, 18, 1.4f, 1f, 2.3f, 0.7f, 15, 6, 1f, Inventory.CoreShard, "VFX_star_shot", "snow_slime", kbResist: 0.8f, projSpeed: 6f, elite: true),
+                EnemyX("star_guardian", "觀星儀守護者", EnemyBehaviour.GuardianBoss, 3000, 19, 0.8f, 2f, 2.5f, 1.3f, 0, 6, 0, Inventory.CoreShard, "VFX_star_shot", "lens_turret", "", 1f, 5f, boss: true),
+                // finale: black moon citadel
+                EnemyX("shade_slime", "影史萊姆", EnemyBehaviour.Chaser, 60, 13, 2.4f, 0.55f, 1.05f, 0.28f, 1, 8, 0.3f, Inventory.MoonDew),
+                EnemyX("void_spark", "虛空火花", EnemyBehaviour.Bomber, 38, 16, 3f, 0.5f, 1f, 0.24f, 1, 10, 0.25f, Inventory.StarSand),
+                EnemyX("dark_acolyte", "黑月信徒", EnemyBehaviour.Ranged, 70, 15, 1.6f, 0.5f, 2.1f, 0.3f, 2, 6, 0.4f, Inventory.MoonDew, "VFX_shadow_bolt", projSpeed: 5.5f, pref: 4.5f),
+                EnemyX("eclipse_knight", "月蝕騎士", EnemyBehaviour.Charger, 190, 25, 1.4f, 0.9f, 3.2f, 0.55f, 4, 5, 0.5f, Inventory.CoreShard, kbResist: 0.6f),
+                EnemyX("thorn_wisp", "荊棘幽光", EnemyBehaviour.Flanker, 44, 12, 3.6f, 0.5f, 2.3f, 0.25f, 1, 10, 0.3f, Inventory.Spore),
+                EnemyX("moon_elite", "黑月精英", EnemyBehaviour.Elite, 520, 19, 1.4f, 1f, 2.2f, 0.7f, 15, 6, 1f, Inventory.CoreShard, "VFX_shadow_bolt", "shade_slime", kbResist: 0.8f, projSpeed: 6f, elite: true),
+                EnemyX("twisted_grimoire", "扭曲魔典", EnemyBehaviour.GrimoireBoss, 3600, 20, 1.0f, 2f, 2.4f, 1.2f, 0, 6, 0, Inventory.CoreShard, "VFX_shadow_bolt", "thorn_wisp", "void_spark", 1f, 5f, boss: true),
             };
             var cards = new List<UpgradeDefinition>
             {
@@ -382,6 +478,74 @@ namespace Starbind.Editor
                 Card("U13", "共鳴增幅", "元素反應的共鳴獲得 +20%。", UpgradeKind.Passive, 6, 3, null, null, "ICON_overdrive"),
                 Card("U14", "連鎖精通", "元素反應傷害 +15%。", UpgradeKind.Passive, 7, 3, null, null, "ICON_chain_spark"),
                 Card("U15", "倒轉書頁", "飛彈到達盡頭後折返，返程傷害 60%，飛行速度 -15%。", UpgradeKind.Cursed, 3, 1, "fire_bolt|piercing_ice|split_flame", null, "ICON_piercing_ice"),
+                Card("U16", "稜光聚焦", "稜光射線寬度 +0.15、射程 +1。", UpgradeKind.Active, 9, 3, "prism_beam", null, "ICON_prism_beam"),
+                Card("U17", "荊棘蔓延", "荊棘毒花範圍 +25%。", UpgradeKind.Auto, 9, 3, "thorn_bloom", null, "ICON_thorn_bloom"),
+                Card("U18", "深影詛咒", "暗影之手範圍 +20%、傷害 +15%。", UpgradeKind.Active, 9, 3, "shadow_hand", null, "ICON_shadow_hand"),
+                Card("U19", "重重迴響", "月影迴響多一次回聲（上限 2）。", UpgradeKind.Active, 8, 1, "moon_echo", null, "ICON_moon_echo"),
+                Card("U20", "星界連鎖", "星彈反彈次數 +1。", UpgradeKind.Active, 9, 2, "star_shot", null, "ICON_star_shot"),
+            };
+            var chapters = new List<ChapterDefinition>
+            {
+                Chapter("forest", 1, "Forest", "月影森林", "mushroom_king", "月蝕菇王", "菇王棲地", "spore_elite", "defeat_mushroom_king", "",
+                    "月影森林　Z01 森林入口", "向北深入森林，前往菇王棲地", new string[0], "", 1f, false),
+                Chapter("mine", 2, "Mine", "星核礦坑", "crystal_golem", "晶核魔像", "核心礦室", "crystal_elite", "defeat_crystal_golem", "defeat_mushroom_king",
+                    "星核礦坑　Z01 礦口", "穿過礦坑，前往核心礦室", new[] { "prism_beam", "thorn_bloom" }, "（光束形態・自然學派）", 1.3f, false,
+                    ("Z01", new[] { "ore_bat", "crystal_mite" }, new[] { 6f, 4f }),
+                    ("Z02", new[] { "ore_bat", "crystal_mite", "gem_spitter" }, new[] { 4f, 4f, 4f }),
+                    ("Z03", new[] { "crystal_mite", "gem_spitter", "rock_golemling", "ore_bat" }, new[] { 4f, 4f, 2f, 3f }),
+                    ("Z04", new[] { "gem_spitter", "rock_golemling", "ore_bat", "crystal_mite" }, new[] { 3f, 3f, 3f, 3f }),
+                    ("Z06", new[] { "ore_bat", "crystal_mite" }, new[] { 5f, 3f })),
+                Chapter("lake", 3, "Lake", "星輝湖", "lake_shadow", "湖影", "湖心", "shadow_elite", "defeat_lake_shadow", "defeat_crystal_golem",
+                    "星輝湖　Z01 湖畔營地", "點亮導電塔，渡過浮島前往湖心", new[] { "shadow_hand", "moon_echo" }, "（月影學派・迴響修飾）", 1.6f, false,
+                    ("Z01", new[] { "lake_slime", "moon_moth" }, new[] { 7f, 3f }),
+                    ("Z02", new[] { "lake_slime", "moon_moth", "mire_frog" }, new[] { 4f, 3f, 4f }),
+                    ("Z03", new[] { "moon_moth", "mire_frog", "reflection_knight", "lake_slime" }, new[] { 3f, 4f, 2f, 3f }),
+                    ("Z04", new[] { "lake_slime", "mire_frog", "moon_moth", "reflection_knight" }, new[] { 3f, 3f, 3f, 2f }),
+                    ("Z06", new[] { "lake_slime", "mire_frog" }, new[] { 4f, 4f })),
+                Chapter("observatory", 4, "Observatory", "失落觀星台", "star_guardian", "觀星儀守護者", "塔頂", "gear_elite", "defeat_star_guardian", "defeat_lake_shadow",
+                    "失落觀星台　Z01 山腳", "沿雪道上行，調整折射鏡，登上塔頂", new[] { "star_shot" }, "（星痕學派；研究桌新增「失控超載」）", 1.9f, false,
+                    ("Z01", new[] { "snow_slime", "frost_wisp" }, new[] { 7f, 3f }),
+                    ("Z02", new[] { "snow_slime", "frost_wisp", "lens_turret" }, new[] { 4f, 4f, 2f }),
+                    ("Z03", new[] { "frost_wisp", "lens_turret", "clockwork_hound", "snow_slime" }, new[] { 3f, 3f, 2f, 3f }),
+                    ("Z04", new[] { "clockwork_hound", "lens_turret", "frost_wisp", "snow_slime" }, new[] { 3f, 3f, 3f, 3f }),
+                    ("Z06", new[] { "snow_slime", "frost_wisp" }, new[] { 4f, 4f })),
+                Chapter("citadel", 5, "Citadel", "黑月城塞", "twisted_grimoire", "扭曲魔典", "中央大廳", "moon_elite", "defeat_twisted_grimoire", "defeat_star_guardian",
+                    "黑月城塞　Z01 城門", "完成三座古塔的試煉，進入中央大廳", new string[0], "", 2.2f, true,
+                    ("Z01", new[] { "shade_slime", "void_spark" }, new[] { 6f, 3f }),
+                    ("Z02", new[] { "shade_slime", "thorn_wisp", "dark_acolyte" }, new[] { 4f, 4f, 3f }),
+                    ("Z03", new[] { "dark_acolyte", "void_spark", "eclipse_knight", "shade_slime" }, new[] { 4f, 3f, 2f, 3f }),
+                    ("Z04", new[] { "eclipse_knight", "dark_acolyte", "void_spark", "shade_slime" }, new[] { 3f, 3f, 3f, 3f }),
+                    ("Z06", new[] { "shade_slime", "dark_acolyte" }, new[] { 4f, 4f })),
+            };
+            int qo = 0;
+            var M = QuestKind.Main;
+            var S = QuestKind.Side;
+            var quests = new List<QuestDefinition>
+            {
+                // existing chapter-1 flags (STORY_WORLD_QUESTS §4.1) keep their ids so old saves keep progress
+                Quest(qo++, "M1-01", "forest", M, "拜訪艾拉", "在村莊廣場找艾拉，聽她說明魔典的異常。", "艾拉", "talked_ella", null),
+                Quest(qo++, "M1-02", "forest", M, "魔典台的初次書頁", "回魔女小屋，在魔典台把法術放進槽位。", "艾拉", "configure_first_spell", "talked_ella"),
+                Quest(qo++, "M1-03", "forest", M, "擊敗月蝕菇王", "從村莊南路進入月影森林，擊敗菇王棲地的月蝕菇王。", "艾拉", "defeat_mushroom_king", "configure_first_spell"),
+                Quest(qo++, "M1-04", "forest", M, "研究殘頁", "帶著材料回研究桌，完成一次研究。", "艾拉", "research_after_victory", "defeat_mushroom_king"),
+                Quest(qo++, "S1-01", "forest", S, "騎士的訓練", "到訓練場和凱恩談談近戰的訣竅。", "凱恩", "talked_kain", null),
+                // ch.2
+                Quest(qo++, "M2-01", "mine", M, "研讀殘頁星圖", "菇王的殘頁畫著礦坑的星圖。去找艾拉。", "艾拉", "talked_ella_mine", "defeat_mushroom_king"),
+                Quest(qo++, "M2-02", "mine", M, "凱恩帶路", "凱恩知道礦坑的入口。在傳送星盤選擇「星核礦坑」。", "凱恩", "talked_kain_mine", "talked_ella_mine"),
+                Quest(qo++, "S2-01", "mine", S, "受困的礦工", "礦坑西側的死巷裡有礦工被困住了。", "礦工杜克", "rescue_miner", "defeat_mushroom_king"),
+                Quest(qo++, "M2-03", "mine", M, "擊敗晶核魔像", "用礦車炸開落石，點亮導電水晶，擊敗核心礦室的晶核魔像。小心：雷擊會替它充能。", "凱恩", "defeat_crystal_golem", "defeat_mushroom_king"),
+                // ch.3
+                Quest(qo++, "M3-01", "lake", M, "湖畔營地調查", "在湖畔營地和艾拉會合。", "艾拉", "talked_ella_lake", "defeat_crystal_golem"),
+                Quest(qo++, "S3-01", "lake", S, "湖岸殘頁", "東浮島岸邊漂來一頁發光的紙。", "", "lake_page", "defeat_crystal_golem"),
+                Quest(qo++, "M3-02", "lake", M, "擊敗湖影", "點亮導電塔架起光橋，渡過浮島，擊敗湖心的湖影。它會模仿你的構築。", "艾拉", "defeat_lake_shadow", "defeat_crystal_golem"),
+                // ch.4
+                Quest(qo++, "M4-01", "observatory", M, "國王的委託", "王子帶來國王的委託：調查失落觀星台。", "王子", "talked_prince_observatory", "defeat_lake_shadow"),
+                Quest(qo++, "S4-01", "observatory", S, "舊觀測紀錄", "雪道旁的小屋裡留著第一位星痕魔女的紀錄。", "", "observatory_records", "defeat_lake_shadow"),
+                Quest(qo++, "M4-02", "observatory", M, "擊敗觀星儀守護者", "轉動折射鏡把星光導向門扉，登上塔頂擊敗觀星儀守護者。", "王子", "defeat_star_guardian", "defeat_lake_shadow"),
+                // finale
+                Quest(qo++, "M5-01", "citadel", M, "月蝕降臨", "黑月升起。和艾拉談過後，從傳送星盤前往黑月城塞。", "艾拉", "talked_ella_citadel", "defeat_star_guardian"),
+                Quest(qo++, "S5-01", "citadel", S, "古塔側室", "東塔旁的側室藏著第一位魔女的遺言。", "", "citadel_side_room", "defeat_star_guardian"),
+                Quest(qo++, "M5-02", "citadel", M, "擊敗扭曲魔典", "完成自然、月影、星痕三座古塔的試煉，進入中央大廳擊敗扭曲魔典。", "艾拉", "defeat_twisted_grimoire", "defeat_star_guardian"),
+                Quest(qo++, "M5-03", "citadel", M, "魔典的抉擇", "決定魔典的命運。", "", "story_complete", "defeat_twisted_grimoire"),
             };
             return Upsert<GameDatabase>(DatabasePath, db =>
             {
@@ -389,6 +553,8 @@ namespace Starbind.Editor
                 db.spells = spells;
                 db.enemies = enemies;
                 db.upgrades = cards;
+                db.chapters = chapters;
+                db.quests = quests;
                 db.unlitMaterial = mats.unlit;
                 db.characterMaterial = mats.character;
                 db.sounds = Directory.Exists(SfxRoot)
@@ -403,7 +569,28 @@ namespace Starbind.Editor
             public TileBase grass, path, water, rim, face, waterfall, block;
             public TileBase fGrass, fPath, fWater;
             public TileBase floor, wallTop, wallFace;
+            public readonly Dictionary<string, BiomeTiles> biomes = new Dictionary<string, BiomeTiles>();
         }
+
+        /// <summary>Chapter 2-5 biome tiles (tools/art/chapter_art.py): 4 ground variants, path and water
+        /// 256-mask autotiles, 4 solid (impassable rock / ruin top) variants.</summary>
+        class BiomeTiles { public TileBase ground, path, water, solid; }
+
+        static readonly string[] ChapterBiomes = { "mine", "lake", "observatory", "citadel" };
+
+        static string BiomeFolder(string b) => char.ToUpperInvariant(b[0]) + b.Substring(1);
+
+        /// <summary>Light, ambience and backdrop per biome: (global light colour, intensity, camera colour, character dim).</summary>
+        static (Color light, float intensity, Color32 back) BiomeLook(string biome) => biome switch
+        {
+            "forest" => (new Color(0.86f, 0.9f, 1f), 0.82f, new Color32(0x10, 0x1c, 0x18, 0xff)),
+            "interior" => (new Color(1f, 0.96f, 0.9f), 1f, new Color32(0x1b, 0x12, 0x1a, 0xff)),
+            "mine" => (new Color(0.78f, 0.78f, 1f), 0.72f, new Color32(0x14, 0x10, 0x22, 0xff)),
+            "lake" => (new Color(0.8f, 0.9f, 1f), 0.8f, new Color32(0x0e, 0x18, 0x2c, 0xff)),
+            "observatory" => (new Color(0.95f, 0.97f, 1f), 0.95f, new Color32(0x22, 0x26, 0x36, 0xff)),
+            "citadel" => (new Color(0.82f, 0.7f, 1f), 0.7f, new Color32(0x12, 0x0a, 0x1c, 0xff)),
+            _ => (new Color(0.97f, 0.93f, 1f), 0.9f, new Color32(0x1b, 0x1d, 0x2b, 0xff)),
+        };
 
         static TileSet CreateTiles()
         {
@@ -445,6 +632,24 @@ namespace Starbind.Editor
             set.floor = Upsert<VariantTile>(tileOut + "Interior/TL_floor_draft.asset", t => t.sprites = inn.Take(4).ToArray());
             set.wallTop = Upsert<Tile>(tileOut + "Interior/TL_wall_top_draft.asset", t => { t.sprite = inn[4]; t.colliderType = Tile.ColliderType.None; });
             set.wallFace = Upsert<Tile>(tileOut + "Interior/TL_wall_face_draft.asset", t => { t.sprite = inn[5]; t.colliderType = Tile.ColliderType.None; });
+            foreach (var b in ChapterBiomes)
+            {
+                string dir = $"Assets/_Game/Art/Tilesets/{BiomeFolder(b)}/Draft/";
+                if (!File.Exists(dir + $"TILE_{b}_ground_draft.png"))
+                    continue;
+                var g = Slice(dir + $"TILE_{b}_ground_draft.png", T, T, 4, 1, c);
+                var pa = Slice(dir + $"TILE_{b}_path_draft_256.png", T, T, 16, 16, c);
+                var wa = Slice(dir + $"TILE_{b}_water_draft_256.png", T, T, 16, 16, c);
+                var so = Slice(dir + $"TILE_{b}_solid_draft.png", T, T, 4, 1, c);
+                string o = tileOut + BiomeFolder(b) + "/";
+                set.biomes[b] = new BiomeTiles
+                {
+                    ground = Upsert<VariantTile>(o + $"TL_{b}_ground_draft.asset", t => t.sprites = g),
+                    path = Upsert<NeighborMaskTile>(o + $"TL_{b}_path_draft.asset", t => { t.mode = NeighborMaskMode.Full8; t.sprites = pa; }),
+                    water = Upsert<NeighborMaskTile>(o + $"TL_{b}_water_draft.asset", t => { t.mode = NeighborMaskMode.Full8; t.sprites = wa; }),
+                    solid = Upsert<VariantTile>(o + $"TL_{b}_solid_draft.asset", t => t.sprites = so),
+                };
+            }
             var dbg = AssetDatabase.LoadAssetAtPath<Sprite>(DebugTileArt);
             set.block = Upsert<Tile>("Assets/_Game/Tiles/Debug/TL_collision_block.asset", t => { t.sprite = dbg; t.colliderType = Tile.ColliderType.Grid; });
             return set;
@@ -453,7 +658,7 @@ namespace Starbind.Editor
         static TileSet LoadTiles()
         {
             TT L<TT>(string p) where TT : TileBase => AssetDatabase.LoadAssetAtPath<TT>("Assets/_Game/Tiles/" + p + ".asset");
-            return new TileSet
+            var set = new TileSet
             {
                 grass = L<TileBase>("Village/TL_grass_draft"), path = L<TileBase>("Village/TL_path_draft"), water = L<TileBase>("Village/TL_water_draft"),
                 waterfall = L<TileBase>("Village/TL_waterfall_tall_draft"), face = L<TileBase>("Village/TL_cliff_face_draft"), rim = L<TileBase>("Village/TL_plateau_rim_draft"),
@@ -461,6 +666,14 @@ namespace Starbind.Editor
                 floor = L<TileBase>("Interior/TL_floor_draft"), wallTop = L<TileBase>("Interior/TL_wall_top_draft"), wallFace = L<TileBase>("Interior/TL_wall_face_draft"),
                 block = L<TileBase>("Debug/TL_collision_block"),
             };
+            foreach (var b in ChapterBiomes)
+            {
+                string o = BiomeFolder(b) + $"/TL_{b}_";
+                var ground = L<TileBase>(o + "ground_draft");
+                if (ground != null)
+                    set.biomes[b] = new BiomeTiles { ground = ground, path = L<TileBase>(o + "path_draft"), water = L<TileBase>(o + "water_draft"), solid = L<TileBase>(o + "solid_draft") };
+            }
+            return set;
         }
 
         // ---------------------------------------------------------------- player
@@ -589,7 +802,10 @@ namespace Starbind.Editor
             if (p.fade)
                 go.AddComponent<OcclusionFader>();
             // Phase-0 prefab names kept for the north-block props (same sprite + same box + fade)
-            string file = ctx.prefabFiles.Add(p.sprite) ? p.sprite : key.Replace('.', '_');
+            bool first = ctx.prefabFiles.Add(p.sprite);
+            string file = first ? p.sprite : key.Replace('.', '_');
+            if (!first && !ctx.prefabFiles.Add(file))
+                file += "_plain"; // the sprite's first variant (e.g. a village lamp with a collider) keeps the plain name
             ctx.prefabFiles.Add(file);
             var path = PropPrefabOut + file + ".prefab";
             var prefab = PrefabUtility.SaveAsPrefabAsset(go, path);
@@ -681,18 +897,21 @@ namespace Starbind.Editor
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             int W = map.width, H = map.height;
             bool forest = map.biome == "forest", interior = map.biome == "interior";
+            ctx.rawJson = File.ReadAllText(jsonPath);
+            var look = BiomeLook(map.biome);
 
             var light = new GameObject("Global Light 2D").AddComponent<Light2D>();
             light.lightType = Light2D.LightType.Global;
             // village: a touch of lavender dusk so lanterns, windows and crystals read as light sources
-            light.intensity = forest ? 0.82f : interior ? 1f : 0.9f;
-            light.color = forest ? new Color(0.86f, 0.9f, 1f) : interior ? new Color(1f, 0.96f, 0.9f) : new Color(0.97f, 0.93f, 1f);
+            light.intensity = look.intensity;
+            light.color = look.light;
 
             var cfg = new GameObject("SceneConfig").AddComponent<SceneConfig>();
             cfg.title = map.scene.title;
             cfg.characterDim = map.scene.dim;
             cfg.safeZone = map.scene.safe;
             cfg.objective = map.scene.objective;
+            cfg.chapterId = map.scene.chapter ?? "";
 
             // ---- tilemaps (WORLD_STRUCTURE §5)
             var grid = new GameObject("Grid").AddComponent<Grid>();
@@ -710,15 +929,17 @@ namespace Starbind.Editor
             tc.compositeOperation = Collider2D.CompositeOperation.None;
 
             var t = LoadTiles();
-            var baseTile = interior ? t.floor : forest ? t.fGrass : t.grass;
+            t.biomes.TryGetValue(map.biome ?? "", out var bt);
+            var baseTile = bt != null ? bt.ground : interior ? t.floor : forest ? t.fGrass : t.grass;
             var cells = new List<Vector3Int>(W * H);
             for (int y = 0; y < H; y++)
                 for (int x = 0; x < W; x++)
                     cells.Add(new Vector3Int(x, y, 0));
             ground.SetTiles(cells.ToArray(), Enumerable.Repeat(baseTile, cells.Count).ToArray());
             var L = map.layers;
-            if (L.water != null) Paint(L.water, H, water, c => c == '~' ? (forest ? t.fWater : t.water) : null);
-            if (L.path != null) Paint(L.path, H, path, c => c == 'p' ? (forest ? t.fPath : t.path) : null);
+            if (L.water != null) Paint(L.water, H, water, c => c == '~' ? (bt != null ? bt.water : forest ? t.fWater : t.water) : null);
+            if (L.path != null) Paint(L.path, H, path, c => c == 'p' ? (bt != null ? bt.path : forest ? t.fPath : t.path) : null);
+            if (L.solid != null && bt != null) Paint(L.solid, H, cliff, c => c == 'S' ? bt.solid : null);
             if (L.cliff != null) Paint(L.cliff, H, cliff, c => c == 'R' ? t.rim : c == 'F' ? t.face : c == 'W' ? t.waterfall : null);
             if (L.wall != null) Paint(L.wall, H, cliff, c => c == 'T' ? t.wallTop : c == 'F' ? t.wallFace : null);
             if (L.collision != null) Paint(L.collision, H, collision, c => c == '#' ? t.block : null);
@@ -746,11 +967,11 @@ namespace Starbind.Editor
                 }
             }
 
-            if (!forest && !interior)
+            if (!forest && !interior && map.biome != "mine")
             {
                 var motes = new GameObject("AmbientMotes").AddComponent<AmbientMotes>();
                 motes.transform.SetParent(world, false);
-                motes.Configure(ctx.Sprite("DEC_mote_draft"), ctx.mats.unlit, 26);
+                motes.Configure(ctx.Sprite(map.biome == "observatory" ? "DEC_snowflake_draft" : "DEC_mote_draft"), ctx.mats.unlit, map.biome == "observatory" ? 40 : 26);
             }
 
             // ---- objects
@@ -796,7 +1017,7 @@ namespace Starbind.Editor
             cam.orthographic = true;
             cam.orthographicSize = 270f / 2f / 32f;
             cam.clearFlags = CameraClearFlags.SolidColor;
-            cam.backgroundColor = interior ? new Color32(0x1b, 0x12, 0x1a, 0xff) : forest ? new Color32(0x10, 0x1c, 0x18, 0xff) : new Color32(0x1b, 0x1d, 0x2b, 0xff);
+            cam.backgroundColor = look.back;
             camGo.transform.position = new Vector3(start.x, start.y, -10);
             camGo.AddComponent<AudioListener>();
             camGo.AddComponent<UniversalAdditionalCameraData>();
@@ -844,7 +1065,9 @@ namespace Starbind.Editor
                     anim.Configure(sr, o.sheet);
                     vis.AddComponent<NpcFacing>().Configure(o.facing);
                     var talk = Trigger(root.transform, "Talk", pos + new Vector2(0, 0.2f), 0.8f, "npc_" + o.id, 1.75f);
-                    talk.AddComponent<Talkable>().Configure(o.name, o.lines, o.after, o.quest, o.heals);
+                    var tk = talk.AddComponent<Talkable>();
+                    tk.Configure(o.name, o.lines, o.after, o.quest, o.heals);
+                    tk.ConfigureStages(Stages(o), o.reward, o.requires, o.locked);
                     break;
                 }
                 case "dummy":
@@ -895,7 +1118,7 @@ namespace Starbind.Editor
                     go.transform.position = pos;
                     go.GetComponent<SpriteRenderer>().sortingLayerName = StarbindLayers.SortGroundDecal;
                     var t = Trigger(objects, "StarPlate", pos + new Vector2(0, 0.4f), 0.8f, "star_plate", 1.2f);
-                    t.AddComponent<LocalTeleport>().Configure(o.target);
+                    t.AddComponent<RegionSelector>().Configure(o.target);
                     break;
                 }
                 case "exit":
@@ -926,11 +1149,15 @@ namespace Starbind.Editor
                 }
                 case "altar":
                 {
-                    var p = new PropDef { sprite = "PROP_altar_draft", x = o.x, y = o.y, box = new[] { 1.4f, 0.5f, 0, 0.3f } };
+                    var p = new PropDef { sprite = string.IsNullOrEmpty(o.sprite) ? "PROP_altar_draft" : o.sprite, x = o.x, y = o.y, box = new[] { 1.4f, 0.5f, 0, 0.3f } };
                     var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), world);
                     go.transform.position = pos;
                     var t = Trigger(objects, "StarAltar", pos + new Vector2(0, -0.2f), 1.2f, "star_altar", 1.9f);
-                    t.AddComponent<StarAltar>();
+                    var altar = t.AddComponent<StarAltar>();
+                    if (o.wave > 0)
+                        SetField(altar, "waveSize", o.wave);
+                    if (!string.IsNullOrEmpty(o.notice))
+                        SetString(altar, "notice", o.notice);
                     break;
                 }
                 case "chest":
@@ -983,15 +1210,14 @@ namespace Starbind.Editor
                     var go = new GameObject("BossArena");
                     go.transform.SetParent(objects, false);
                     var gates = new List<Collider2D>();
-                    var raw = File.ReadAllText(Maps + "forest.json");
-                    foreach (var g in ParseGates(raw))
+                    foreach (var g in ParseGates(ctx.rawJson))
                     {
                         var gate = Blocker(go.transform, "Gate", new Vector2(g[0], g[1]), new Vector2(g[2], g[3]));
                         // whole vine sprites side by side (no stretching: keeps the pixel grid)
                         int across = Mathf.Max(1, Mathf.RoundToInt(g[2])), down = Mathf.Max(1, Mathf.RoundToInt(g[3] / 1.2f));
                         for (int ix = 0; ix < across; ix++)
                             for (int iy = 0; iy < down; iy++)
-                                Decal(ctx, gate.transform, "PROP_vine_draft",
+                                Decal(ctx, gate.transform, string.IsNullOrEmpty(o.sprite) ? "PROP_vine_draft" : o.sprite,
                                     new Vector2(g[0] - g[2] * 0.5f + 0.5f + ix, g[1] - g[3] * 0.5f + iy * 1.2f), StarbindLayers.SortWorld, 0, "GateVines");
                         gates.Add(gate);
                     }
@@ -1008,11 +1234,115 @@ namespace Starbind.Editor
                     so.ApplyModifiedPropertiesWithoutUndo();
                     break;
                 }
+                case "gate":
+                {
+                    var block = Blocker(objects, "Gate_" + o.gate, pos, new Vector2(o.w, o.h));
+                    var sprites = new List<SpriteRenderer>();
+                    if (o.span != null && o.span.Length == 4)
+                    {
+                        // visuals along a line (light bridges): ground decals, blocker only at the bridge head
+                        int n = Mathf.Max(1, o.count);
+                        var a = new Vector2(o.span[0], o.span[1]);
+                        var b = new Vector2(o.span[2], o.span[3]);
+                        for (int i = 0; i < n; i++)
+                            sprites.Add(Decal(ctx, block.transform, o.sprite, Vector2.Lerp(a, b, n == 1 ? 0.5f : i / (float)(n - 1)), StarbindLayers.SortGround, 36, "GateVisual"));
+                    }
+                    else
+                    {
+                        int across = Mathf.Max(1, o.count > 0 ? o.count : Mathf.RoundToInt(Mathf.Max(o.w, o.h)));
+                        bool vertical = o.h > o.w;
+                        for (int i = 0; i < across; i++)
+                        {
+                            // sprites stand on their bottom pivot: spread along the long side of the blocker
+                            var at = vertical
+                                ? new Vector2(pos.x, pos.y - o.h * 0.5f + i * (o.h / across))
+                                : new Vector2(pos.x - o.w * 0.5f + (i + 0.5f) * (o.w / across), pos.y - o.h * 0.5f);
+                            sprites.Add(Decal(ctx, block.transform, o.sprite, at, StarbindLayers.SortWorld, 0, "GateVisual"));
+                        }
+                    }
+                    block.gameObject.AddComponent<PowerGate>().Configure(o.gate, block, sprites.ToArray(), o.openSprite, o.notice);
+                    break;
+                }
+                case "crystal":
+                {
+                    var sr = Decal(ctx, world, string.IsNullOrEmpty(o.sprite) ? "PROP_crystal_node_draft" : o.sprite, pos, StarbindLayers.SortWorld, 0, "Crystal_" + o.circuit);
+                    var go = sr.gameObject;
+                    go.layer = LayerMask.NameToLayer(StarbindLayers.WorldSolid);
+                    var b = go.AddComponent<BoxCollider2D>();
+                    b.size = new Vector2(0.6f, 0.35f);
+                    b.offset = new Vector2(0, 0.18f);
+                    var h = go.AddComponent<Health>();
+                    SetField(h, "team", (int)Team.Neutral);
+                    SetField(h, "maxHp", 9999f);
+                    SetField(h, "radius", 0.5f);
+                    SetVec(h, "centerOffset", new Vector2(0, 0.6f));
+                    SetField(h, "immortal", 1f);
+                    Trigger(go.transform, "Charge", pos + new Vector2(0, -0.1f), 0.75f, "crystal", 1.5f);
+                    go.AddComponent<ConductiveCrystal>().Configure(o.circuit, sr, string.IsNullOrEmpty(o.litSprite) ? "PROP_crystal_node_lit_draft" : o.litSprite);
+                    break;
+                }
+                case "cart":
+                {
+                    var stop = new Vector2(o.stop[0], o.stop[1]);
+                    var dir = (stop - pos).normalized;
+                    float len = Vector2.Distance(pos, stop);
+                    for (float d = 0; d <= len + 0.01f; d += 1f)
+                        Decal(ctx, objects, Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? "PROP_rail_h_draft" : "PROP_rail_v_draft", pos + dir * d, StarbindLayers.SortGround, 34, "Rail");
+                    var cart = Decal(ctx, world, "PROP_minecart_draft", pos, StarbindLayers.SortWorld, 0, "MineCart");
+                    var t = Trigger(objects, "PushCart", pos + new Vector2(0, -0.2f), 0.8f, "minecart", 1.4f);
+                    t.AddComponent<MineCart>().Configure(cart.transform, stop, o.gate);
+                    break;
+                }
+                case "beam":
+                {
+                    Decal(ctx, world, "PROP_beam_emitter_draft", new Vector2(o.x + 0.5f, o.y + 0.1f), StarbindLayers.SortWorld, 0, "BeamEmitter");
+                    Decal(ctx, world, "PROP_beam_receiver_draft", new Vector2(o.tx + 0.5f, o.ty + 0.1f), StarbindLayers.SortWorld, 0, "BeamReceiver");
+                    var mirrors = new List<BeamMirror>();
+                    foreach (var m in o.mirrors ?? Array.Empty<MirrorDef>())
+                    {
+                        var mp = new Vector2(m.x + 0.5f, m.y + 0.2f);
+                        var sr = Decal(ctx, world, "PROP_mirror_draft", mp, StarbindLayers.SortWorld, 0, "Mirror");
+                        var trig = Trigger(sr.transform, "Turn", mp, 0.7f, "mirror", 1.4f);
+                        var bm = trig.AddComponent<BeamMirror>();
+                        bm.Configure(new Vector2Int(m.x, m.y), m.kind, sr);
+                        mirrors.Add(bm);
+                    }
+                    var go = new GameObject("BeamPuzzle_" + o.gate);
+                    go.transform.SetParent(objects, false);
+                    go.AddComponent<BeamPuzzle>().Configure(new Vector2Int((int)o.x, (int)o.y), new Vector2Int(o.dirX, o.dirY), new Vector2Int(o.tx, o.ty), o.gate, mirrors.ToArray());
+                    break;
+                }
+                case "trial":
+                {
+                    var p = new PropDef { sprite = string.IsNullOrEmpty(o.sprite) ? "PROP_trial_seal_draft" : o.sprite, x = o.x, y = o.y, box = new[] { 1.2f, 0.45f, 0, 0.25f } };
+                    var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), world);
+                    go.transform.position = pos;
+                    var t = Trigger(objects, "Trial_" + o.school, pos + new Vector2(0, -0.3f), 1.1f, "trial_seal", 2f);
+                    t.AddComponent<TrialSeal>().Configure(o.gate, o.school, o.enemies, o.wave > 0 ? o.wave : 18);
+                    break;
+                }
+                case "note":
+                {
+                    if (!string.IsNullOrEmpty(o.sprite))
+                    {
+                        var p = new PropDef { sprite = o.sprite, x = o.x, y = o.y, box = new[] { 0.6f, 0.3f, 0, 0.15f } };
+                        var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), world);
+                        go.transform.position = pos;
+                    }
+                    var t = Trigger(objects, "Note_" + o.id, pos + new Vector2(0, 0.1f), 0.7f, "note", 1.3f);
+                    var tk = t.AddComponent<Talkable>();
+                    tk.Configure(o.name, o.lines, null, o.quest);
+                    tk.ConfigureStages(Stages(o), o.reward, o.requires, o.locked);
+                    break;
+                }
                 default:
                     Debug.LogWarning("[GameContentBuilder] unknown object kind " + o.kind);
                     break;
             }
         }
+
+        static StageLines[] Stages(ObjDef o) =>
+            (o.stages ?? Array.Empty<StageDef>()).Select(st => new StageLines { flag = st.flag, quest = st.quest, lines = st.lines }).ToArray();
 
         static void Shadow(Ctx ctx, Transform parent)
         {

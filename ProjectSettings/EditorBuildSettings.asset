@@ -14,5 +14,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/Forest.unity
     guid: 01759e9ac1ab0427091e16adf2605152
+  - enabled: 1
+    path: Assets/_Game/Scenes/Mine.unity
+    guid: 4bf366c6fe084482cb9a6e4d9ffc8395
+  - enabled: 1
+    path: Assets/_Game/Scenes/Lake.unity
+    guid: 9178f9975236b4b25ad0abd607cdc751
+  - enabled: 1
+    path: Assets/_Game/Scenes/Observatory.unity
+    guid: 21a8b722886c74677a5acb8076202ec8
+  - enabled: 1
+    path: Assets/_Game/Scenes/Citadel.unity
+    guid: 9786b717bddd1417dbf67ae23bf15fbc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

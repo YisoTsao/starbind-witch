@@ -20,7 +20,8 @@ namespace Starbind.Tests
     [Category("Evidence")]
     public class GameEvidenceCapture : PlayTestBase
     {
-        static string OutDir => Path.GetFullPath(Path.Combine(Application.dataPath, "../docs/evidence/final"));
+        static string outDir;
+        static string OutDir => outDir ?? Path.GetFullPath(Path.Combine(Application.dataPath, "../docs/evidence/final"));
 
         Camera uiCam;
         Canvas canvas;
@@ -141,6 +142,114 @@ namespace Starbind.Tests
             CameraFollow2D.Main.SnapToTarget();
             yield return Wait(0.4f);
             CameraFollow2D.Main.SnapToTarget();
+        }
+
+        /// <summary>Chapters 2-5: whole-map overview, entrance with HUD, the mechanism in action and the boss
+        /// telegraph, plus the star-plate region list and the finale's ending choice (docs/evidence/chapters).</summary>
+        [UnityTest]
+        public IEnumerator CaptureChapters()
+        {
+            outDir = Path.GetFullPath(Path.Combine(Application.dataPath, "../docs/evidence/chapters"));
+            Directory.CreateDirectory(outDir);
+            try
+            {
+                var chapters = new[] { ("Mine", "mine", 64, 80), ("Lake", "lake", 80, 64), ("Observatory", "observatory", 64, 96), ("Citadel", "citadel", 96, 96) };
+                string[] flags = { "defeat_mushroom_king", "defeat_crystal_golem", "defeat_lake_shadow", "defeat_star_guardian" };
+                for (int i = 0; i < chapters.Length; i++)
+                {
+                    var (scene, id, w, h) = chapters[i];
+                    var profile = new Starbind.Save.ProfileData { victories = i + 1 };
+                    for (int k = 0; k <= i; k++)
+                        profile.CompleteQuest(flags[k]);
+                    yield return Load(scene, profile);
+                    player.Vitals.Health.InvulnerableUntil = 9999f;
+                    yield return Overview(id + "_00_overview", w, h);
+                    yield return Wait(2.5f);
+                    yield return Shot(id + "_01_entrance");
+                    RunManager.Current.Director.Running = false;
+                    EnemySpawner.Instance.DespawnAll();
+                    switch (id)
+                    {
+                        case "mine":
+                        {
+                            var cart = Object.FindAnyObjectByType<MineCart>();
+                            yield return At((Vector2)cart.transform.position + new Vector2(2.5f, -1.2f));
+                            cart.GetComponent<Interactable>().Interact();
+                            yield return Wait(1.8f);
+                            yield return Shot(id + "_02_minecart_blast", 1);
+                            var crystal = Object.FindObjectsByType<ConductiveCrystal>()[0];
+                            yield return At((Vector2)crystal.transform.position + new Vector2(0, -1.5f));
+                            foreach (var c in Object.FindObjectsByType<ConductiveCrystal>())
+                                c.Light();
+                            yield return Wait(0.3f);
+                            yield return Shot(id + "_03_crystal_circuit");
+                            break;
+                        }
+                        case "lake":
+                        {
+                            foreach (var c in Object.FindObjectsByType<ConductiveCrystal>().Where(c => c.Circuit == "lake_west"))
+                                c.Light();
+                            yield return At(new Vector2(22f, 36.5f));
+                            yield return Wait(0.5f);
+                            yield return Shot(id + "_02_light_bridge");
+                            break;
+                        }
+                        case "observatory":
+                        {
+                            yield return At(new Vector2(47f, 22f));
+                            yield return Wait(0.3f);
+                            yield return Shot(id + "_02_beam_unsolved");
+                            foreach (var m in Object.FindObjectsByType<BeamMirror>())
+                                m.GetComponent<Interactable>().Interact();
+                            yield return Wait(0.4f);
+                            yield return Shot(id + "_03_beam_solved");
+                            break;
+                        }
+                        case "citadel":
+                        {
+                            var seal = Object.FindObjectsByType<TrialSeal>().First(s => s.School == "月影");
+                            yield return At((Vector2)seal.transform.position + new Vector2(0, -2.5f));
+                            seal.Begin(null);
+                            yield return Wait(2.2f);
+                            yield return Shot(id + "_02_moon_trial");
+                            break;
+                        }
+                    }
+                    EnemySpawner.Instance.DespawnAll();
+                    var arena = Object.FindAnyObjectByType<BossArena>();
+                    yield return At(arena.BossSpawn + new Vector2(0, -4.5f));
+                    arena.Begin();
+                    yield return Wait(2.6f);
+                    yield return Shot(id + "_04_boss");
+                    if (id == "citadel")
+                    {
+                        RunManager.Current.Finish(true);
+                        GameSession.Instance.UI.ContinueResults();
+                        yield return Wait(0.3f);
+                        yield return Shot("citadel_05_ending_choice");
+                        GameSession.Instance.UI.CloseModal();
+                    }
+                    GameSession.Instance.ResetTransientState();
+                }
+                var p = new Starbind.Save.ProfileData { victories = 2 };
+                p.CompleteQuest("defeat_mushroom_king");
+                p.CompleteQuest("defeat_crystal_golem");
+                yield return Load("Village", p);
+                var plate = Object.FindAnyObjectByType<RegionSelector>();
+                yield return At((Vector2)plate.transform.position + new Vector2(0, -1f));
+                plate.GetComponent<Interactable>().Interact();
+                yield return Wait(0.3f);
+                yield return Shot("village_star_plate_regions");
+                GameSession.Instance.UI.CloseModal();
+                GameSession.Instance.UI.ToggleQuests();
+                yield return Wait(0.3f);
+                yield return Shot("village_quest_log");
+                GameSession.Instance.UI.CloseModal();
+            }
+            finally
+            {
+                outDir = null;
+            }
         }
 
         [UnityTest]

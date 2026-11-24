@@ -26,6 +26,11 @@ namespace Starbind.Enemies
                 case EnemyBehaviour.Flanker: return new FlankerBrain();
                 case EnemyBehaviour.Elite: return new EliteBrain();
                 case EnemyBehaviour.Boss: return new BossBrain();
+                case EnemyBehaviour.GolemBoss: return new GolemBrain();
+                case EnemyBehaviour.ShadowBoss: return new ShadowBrain();
+                case EnemyBehaviour.GuardianBoss: return new GuardianBrain();
+                case EnemyBehaviour.GrimoireBoss: return new GrimoireBrain();
+                case EnemyBehaviour.Bomber: return new BomberBrain();
                 default: return new ChaserBrain();
             }
         }
@@ -305,7 +310,7 @@ namespace Starbind.Enemies
                         for (int i = 0; i < 3; i++)
                         {
                             var p = EnemySpawner.Instance.RandomAround(e.Position, 1.4f);
-                            if (EnemySpawner.Instance.SpawnAt("slime", p, true) != null)
+                            if (EnemySpawner.Instance.SpawnAt(string.IsNullOrEmpty(e.Def.summonId) ? "slime" : e.Def.summonId, p, true) != null)
                                 summoned++;
                         }
                         VfxService.Instance.Play("VFX_portal", e.Position, 0, 1.5f, new Color(0.7f, 1f, 0.6f));

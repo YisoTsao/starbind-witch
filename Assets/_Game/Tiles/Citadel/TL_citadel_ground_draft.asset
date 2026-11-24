@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c127319f0244488ae1b9ba8316f08b, type: 3}
+  m_Name: TL_citadel_ground_draft
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Tiles.VariantTile
+  sprites:
+  - {fileID: -5588218226180764112, guid: 2b74720f4da5e44f4939505dca85b961, type: 3}
+  - {fileID: 1192202301, guid: 2b74720f4da5e44f4939505dca85b961, type: 3}
+  - {fileID: -1538148115, guid: 2b74720f4da5e44f4939505dca85b961, type: 3}
+  - {fileID: 1721510644, guid: 2b74720f4da5e44f4939505dca85b961, type: 3}

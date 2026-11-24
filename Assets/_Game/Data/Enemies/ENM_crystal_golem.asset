@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b611da2ea14504c2797d3f28dfaa220b, type: 3}
+  m_Name: ENM_crystal_golem
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Enemies.EnemyDefinition
+  id: crystal_golem
+  displayName: "\u6676\u6838\u9B54\u50CF"
+  behaviour: 6
+  hp: 2600
+  damage: 18
+  speed: 0.9
+  attackRange: 2
+  attackCooldown: 2.6
+  projectileSpeed: 5
+  preferredDistance: 0
+  radius: 1.3
+  knockbackResist: 1
+  xp: 0
+  sprite: ENM_crystal_golem_draft
+  spriteFps: 6
+  isElite: 0
+  isBoss: 1
+  lootChance: 0
+  lootMaterial: core_shard
+  projectileSprite: VFX_crystal_shard
+  summonId: crystal_mite
+  summonId2: gem_spitter
+  element: 0

@@ -27,6 +27,8 @@ namespace Starbind.Combat
         public StatusSet Status { get; } = new StatusSet();
         public float InvulnerableUntil { get; set; } = -1f;
         public float DamageTakenMultiplier { get; set; } = 1f;
+        /// <summary>Optional per-hit scale (e.g. the crystal golem absorbs lightning); cleared by Configure.</summary>
+        public Func<DamageEvent, float> IncomingScale { get; set; }
         public float LastDamagedAt { get; private set; } = -10f;
         public float TotalDamageTaken { get; private set; }
         public Vector2 Center => (Vector2)transform.position + centerOffset;
@@ -43,6 +45,8 @@ namespace Starbind.Combat
             radius = r;
             centerOffset = center;
             immortal = isImmortal;
+            IncomingScale = null;
+            DamageTakenMultiplier = 1f;
             ResetHealth();
         }
 

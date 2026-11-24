@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b611da2ea14504c2797d3f28dfaa220b, type: 3}
+  m_Name: ENM_moon_elite
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Enemies.EnemyDefinition
+  id: moon_elite
+  displayName: "\u9ED1\u6708\u7CBE\u82F1"
+  behaviour: 4
+  hp: 520
+  damage: 19
+  speed: 1.4
+  attackRange: 1
+  attackCooldown: 2.2
+  projectileSpeed: 6
+  preferredDistance: 0
+  radius: 0.7
+  knockbackResist: 0.8
+  xp: 15
+  sprite: ENM_moon_elite_draft
+  spriteFps: 6
+  isElite: 1
+  isBoss: 0
+  lootChance: 1
+  lootMaterial: core_shard
+  projectileSprite: VFX_shadow_bolt
+  summonId: shade_slime
+  summonId2: 
+  element: 0

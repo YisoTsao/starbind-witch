@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df500013644d0cbf41e12d2de648e2, type: 3}
+  m_Name: Q_M1-01
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.QuestDefinition
+  id: M1-01
+  chapter: forest
+  kind: 0
+  title: "\u62DC\u8A2A\u827E\u62C9"
+  description: "\u5728\u6751\u838A\u5EE3\u5834\u627E\u827E\u62C9\uFF0C\u807D\u5979\u8AAA\u660E\u9B54\u5178\u7684\u7570\u5E38\u3002"
+  giver: "\u827E\u62C9"
+  flag: talked_ella
+  requires: 
+  order: 0

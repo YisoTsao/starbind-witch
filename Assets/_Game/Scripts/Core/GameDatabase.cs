@@ -29,6 +29,8 @@ namespace Starbind.Core
         public List<SpellDefinition> spells = new List<SpellDefinition>();
         public List<EnemyDefinition> enemies = new List<EnemyDefinition>();
         public List<UpgradeDefinition> upgrades = new List<UpgradeDefinition>();
+        public List<ChapterDefinition> chapters = new List<ChapterDefinition>();
+        public List<QuestDefinition> quests = new List<QuestDefinition>();
         public Material unlitMaterial;
         public Material characterMaterial;
         public List<AudioClip> sounds = new List<AudioClip>();
@@ -98,6 +100,23 @@ namespace Starbind.Core
         {
             Index();
             return id != null && enemyIndex.TryGetValue(id, out var e) ? e : null;
+        }
+
+        public ChapterDefinition Chapter(string id)
+        {
+            foreach (var c in chapters)
+                if (c != null && c.id == id)
+                    return c;
+            return null;
+        }
+
+        /// <summary>The chapter whose run happens in <paramref name="scene"/>, or null (village, workshop).</summary>
+        public ChapterDefinition ChapterForScene(string scene)
+        {
+            foreach (var c in chapters)
+                if (c != null && c.scene == scene)
+                    return c;
+            return null;
         }
 
         public AudioClip Sound(string name)

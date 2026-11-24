@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace Starbind.Spells
 {
-    public enum SpellForm { Missile, Area, Orbit, Pull, Homing, Pulse }
-    public enum SpellModifier { None, Split, Pierce }
+    /// <summary>Serialized: append only. Beam = the second-stage form (GDD §5.1), unlocked in chapter 2.</summary>
+    public enum SpellForm { Missile, Area, Orbit, Pull, Homing, Pulse, Beam }
+    /// <summary>Serialized: append only. Echo (迴響, GDD §5.1) recasts a weaker copy shortly after.</summary>
+    public enum SpellModifier { None, Split, Pierce, Echo }
     public enum SpellTrigger { Active, Auto }
 
     /// <summary>Static spell data (GDD §5.3, §5.4). Never modified at runtime: RuntimeSpell copies it.</summary>

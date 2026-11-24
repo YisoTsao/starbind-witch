@@ -214,3 +214,19 @@
 | 全螢幕閃光 | 超載、超載爆燃、蓄力 3 段 | 純色疊加，最高 alpha 0.55；**暫停選單 → 設定** 可選強／弱／關，存進存檔 | — | Done |
 | UI_card / banner / divider / tab(_active) / socket / page | 升級卡、魔典分頁 | 9-slice 程式繪製 | 正式卡框、書本內頁 | P2 |
 | UI_marker_quest / UI_marker_arrow | 小地圖目標星標、邊緣箭頭 | 程式繪製 | — | P3 |
+
+## 新增：第 2 章～終章程式草稿（2026-11-24）
+
+> 工具：`tools/art/chapter_art.py`（清單 `Assets/_Game/Art/chapter_manifest.json`，75 張＋4 套地形）。風格比照 G2 核准樣本：暗紫褐描邊、左上受光、地面兩個相近色、alpha 只有 0/255。路面與水面自動拼接沿用 `gen_tiles.py` 的演算法，`tools/art/seam_test.py` 驗證 8 張新圖 0 像素接縫差異。全部狀態 **Needs Cleanup**，不宣稱達到參考圖品質。
+
+| Asset ID | 用途 | 目前狀態 | 需要 | 優先 |
+|---|---|---|---|---|
+| TILE_{mine,lake,observatory,citadel}_{ground,path,water,solid} | 四章地形 | 地面 4 變體、路面/水面 256 遮罩、不可通行頂面 4 變體 | 牆面立面（目前只有頂面，缺 3/4 側壁）、內角、礦坑岩壁與城塞磚牆的正式模組 | P1 |
+| ENM_*（22 種新小怪與精英） | 礦坑、湖、觀星台、城塞小怪與精英 | 4 幀循環；部分由森林敵人換色（rock_golemling、lake/snow/shade_slime、frost/thorn_wisp、shadow_clone） | 各自獨立造型、攻擊/受擊/死亡動畫 | P1 |
+| ENM_{crystal_golem,lake_shadow,star_guardian,twisted_grimoire} | 四章 Boss | 96×96、待機 4 幀＋前搖 2 幀 | 階段變化外觀、招式專屬動畫、死亡演出 | P1 |
+| PROP_minecart / rail / rubble / crystal_node(_lit) / pylon(_lit) / light_bridge_{off,on} / mirror / beam_emitter / beam_receiver / star_door / trial_seal / dark_barrier | 章節機關 | 單張程式繪製 | 狀態切換動畫（礦車滾動、光橋展開、星門開啟） | P2 |
+| PROP_mine_* / reed / willow / lake_crystal / ruin_pillar / tent / snow_pine / snow_rock / snow_hut / telescope / dark_pillar / moon_brazier / banner / tower / note | 章節裝飾 | 程式繪製，部分以既有樹形函式產生 | 依美術方向重繪，增加變體 | P2 |
+| VFX_{crystal_shard,beam_seg,shadow_bolt,star_shot,water_drop,thorn,shadow_hand} | 新學派與敵人彈幕 | 4–6 幀 | 與 SPELL_VFX_ART_DIRECTION 同等級的手繪版 | P2 |
+| ICON_{prism_beam,thorn_bloom,shadow_hand,moon_echo,star_shot} | 新法術圖示 | 32×32 | 依 UI 美術方向重繪 | P2 |
+| 礦工杜克 | 第 2 章支線 NPC | 沿用 NPC_villager_05_ref（Chibi 參考圖去背草稿） | 專屬角色表 | P3 |
+| 音效、音樂 | 新 Boss 與機關 | 沿用既有 33 個草稿音效，無新音效、無音樂 | 每章環境音與 Boss 音樂、機關音效 | P1 |

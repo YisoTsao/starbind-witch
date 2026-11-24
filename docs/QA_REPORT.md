@@ -47,3 +47,17 @@
 
 - 尚存風險：安裝後第一次進森林、首次遇敵或施法時，可能有一次約 150 ms 的 shader 編譯停頓。修正候選為載入時預熱（GraphicsStateCollection／ShaderVariantCollection），尚未實作。
 - 測試：PlayMode 58/58。EditMode 54/56，`ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors` 的 forest、lake 兩例失敗（渲染只有 4 種顏色，門檻要求超過 4 種）；未改動的基準版本同樣失敗，與本次修改無關。上一輪 56/56 使用 6000.6.10f1，本機現在只有 6000.6.8f1。
+
+## 2026-11-25｜第 2 章～終章
+
+詳細範圍見 [交付報告](CHAPTERS_BUILD_REPORT.md)。Unity 6000.6.8f1，專案副本 batchmode。
+
+| 項目 | 結果 |
+|---|---|
+| EditMode | 67/69；失敗為既有 `ChapterRouteTests` forest、lake 灰盒預覽渲染（改動前同樣失敗，只影響編輯器工具） |
+| PlayMode | 70/70（新增 ChapterPlayTests 11 個、CaptureChapters 1 個） |
+| 路線 | `tools/map/validate_chapters.py`：四章 PASS（機關確實擋住 Boss；依序開啟後 Boss、觸發點、支線都能到達） |
+| 拼接 | `tools/art/seam_test.py`：村莊＋四章 10 張自動拼接圖，差異 0 像素 |
+| Player | macOS 117.1 MB、7 場景、0 errors；1080p 60 隻同屏 p95 1.70 ms、最長 12.09 ms、暖身最長 19.91 ms |
+| 畫面 | [docs/evidence/chapters/](evidence/chapters/)：四章全圖、入口 HUD、機關、Boss 預警、星盤選單、任務日誌、結局選擇 |
+| 人工 | 第 2 章～終章未經真人試玩；難度倍率 1.3／1.6／1.9／2.2 為起始值 |

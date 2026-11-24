@@ -1,0 +1,755 @@
+{
+ "status": "procedural draft (Needs Cleanup), chapters 2-5",
+ "items": [
+  {
+   "name": "ENM_crystal_mite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_crystal_mite_draft.png",
+   "w": 24,
+   "h": 20,
+   "frames": 4,
+   "pivotX": 12,
+   "pivotY": 2,
+   "fps": 10
+  },
+  {
+   "name": "ENM_ore_bat_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_ore_bat_draft.png",
+   "w": 30,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 15,
+   "pivotY": 3,
+   "fps": 12
+  },
+  {
+   "name": "ENM_gem_spitter_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_gem_spitter_draft.png",
+   "w": 28,
+   "h": 32,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_rock_golemling_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_rock_golemling_draft.png",
+   "w": 44,
+   "h": 48,
+   "frames": 4,
+   "pivotX": 22,
+   "pivotY": 2,
+   "fps": 5
+  },
+  {
+   "name": "ENM_crystal_elite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_crystal_elite_draft.png",
+   "w": 48,
+   "h": 52,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_crystal_golem_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_crystal_golem_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 6,
+   "pivotX": 48,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "ENM_lake_slime_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_lake_slime_draft.png",
+   "w": 28,
+   "h": 24,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 2,
+   "fps": 8
+  },
+  {
+   "name": "ENM_moon_moth_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_moon_moth_draft.png",
+   "w": 24,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 12,
+   "pivotY": 3,
+   "fps": 10
+  },
+  {
+   "name": "ENM_mire_frog_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_mire_frog_draft.png",
+   "w": 30,
+   "h": 24,
+   "frames": 4,
+   "pivotX": 15,
+   "pivotY": 2,
+   "fps": 6
+  },
+  {
+   "name": "ENM_reflection_knight_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_reflection_knight_draft.png",
+   "w": 40,
+   "h": 48,
+   "frames": 4,
+   "pivotX": 20,
+   "pivotY": 2,
+   "fps": 5
+  },
+  {
+   "name": "ENM_shadow_clone_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_shadow_clone_draft.png",
+   "w": 20,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 3,
+   "fps": 10
+  },
+  {
+   "name": "ENM_shadow_elite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_shadow_elite_draft.png",
+   "w": 48,
+   "h": 52,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_lake_shadow_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_lake_shadow_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 6,
+   "pivotX": 48,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "ENM_snow_slime_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_snow_slime_draft.png",
+   "w": 28,
+   "h": 24,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 2,
+   "fps": 8
+  },
+  {
+   "name": "ENM_frost_wisp_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_frost_wisp_draft.png",
+   "w": 20,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 3,
+   "fps": 10
+  },
+  {
+   "name": "ENM_lens_turret_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_lens_turret_draft.png",
+   "w": 28,
+   "h": 34,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 4
+  },
+  {
+   "name": "ENM_clockwork_hound_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_clockwork_hound_draft.png",
+   "w": 40,
+   "h": 28,
+   "frames": 4,
+   "pivotX": 20,
+   "pivotY": 2,
+   "fps": 9
+  },
+  {
+   "name": "ENM_gear_elite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_gear_elite_draft.png",
+   "w": 48,
+   "h": 52,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 2,
+   "fps": 6
+  },
+  {
+   "name": "ENM_star_guardian_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_star_guardian_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 6,
+   "pivotX": 48,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "ENM_shade_slime_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_shade_slime_draft.png",
+   "w": 28,
+   "h": 24,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 2,
+   "fps": 8
+  },
+  {
+   "name": "ENM_void_spark_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_void_spark_draft.png",
+   "w": 20,
+   "h": 20,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 3,
+   "fps": 12
+  },
+  {
+   "name": "ENM_dark_acolyte_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_dark_acolyte_draft.png",
+   "w": 28,
+   "h": 36,
+   "frames": 4,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_eclipse_knight_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_eclipse_knight_draft.png",
+   "w": 40,
+   "h": 48,
+   "frames": 4,
+   "pivotX": 20,
+   "pivotY": 2,
+   "fps": 5
+  },
+  {
+   "name": "ENM_thorn_wisp_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_thorn_wisp_draft.png",
+   "w": 20,
+   "h": 22,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 3,
+   "fps": 10
+  },
+  {
+   "name": "ENM_moon_elite_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_moon_elite_draft.png",
+   "w": 48,
+   "h": 56,
+   "frames": 4,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 6
+  },
+  {
+   "name": "ENM_twisted_grimoire_draft",
+   "path": "Assets/_Game/Art/Enemies/Draft/ENM_twisted_grimoire_draft.png",
+   "w": 96,
+   "h": 96,
+   "frames": 6,
+   "pivotX": 48,
+   "pivotY": 4,
+   "fps": 6
+  },
+  {
+   "name": "PROP_crystal_node_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_crystal_node_draft.png",
+   "w": 28,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_crystal_node_lit_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_crystal_node_lit_draft.png",
+   "w": 28,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 14,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_minecart_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_minecart_draft.png",
+   "w": 34,
+   "h": 28,
+   "frames": 1,
+   "pivotX": 17,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_rail_h_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_rail_h_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "PROP_rail_v_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_rail_v_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "PROP_rubble_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_rubble_draft.png",
+   "w": 40,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 20,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_mine_rock_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_mine_rock_draft.png",
+   "w": 36,
+   "h": 30,
+   "frames": 1,
+   "pivotX": 18,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_mine_crystal_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_mine_crystal_draft.png",
+   "w": 32,
+   "h": 48,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_mine_support_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_mine_support_draft.png",
+   "w": 40,
+   "h": 56,
+   "frames": 1,
+   "pivotX": 20,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_crystal_altar_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_crystal_altar_draft.png",
+   "w": 48,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 24,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_reed_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_reed_draft.png",
+   "w": 20,
+   "h": 30,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_lake_crystal_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_lake_crystal_draft.png",
+   "w": 30,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 15,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_ruin_pillar_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_ruin_pillar_draft.png",
+   "w": 24,
+   "h": 56,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_ruin_pillar_broken_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_ruin_pillar_broken_draft.png",
+   "w": 24,
+   "h": 56,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_willow_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_willow_draft.png",
+   "w": 60,
+   "h": 80,
+   "frames": 1,
+   "pivotX": 30,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_pylon_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_pylon_draft.png",
+   "w": 20,
+   "h": 52,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_pylon_lit_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_pylon_lit_draft.png",
+   "w": 20,
+   "h": 52,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_light_bridge_off_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_light_bridge_off_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "PROP_light_bridge_on_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_light_bridge_on_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "PROP_tent_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_tent_draft.png",
+   "w": 56,
+   "h": 44,
+   "frames": 1,
+   "pivotX": 28,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_snow_pine_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_snow_pine_draft.png",
+   "w": 52,
+   "h": 80,
+   "frames": 1,
+   "pivotX": 26,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_snow_rock_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_snow_rock_draft.png",
+   "w": 36,
+   "h": 30,
+   "frames": 1,
+   "pivotX": 18,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_beam_emitter_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_beam_emitter_draft.png",
+   "w": 24,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_beam_receiver_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_beam_receiver_draft.png",
+   "w": 24,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_mirror_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_mirror_draft.png",
+   "w": 24,
+   "h": 36,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_star_door_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_star_door_draft.png",
+   "w": 32,
+   "h": 48,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_telescope_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_telescope_draft.png",
+   "w": 64,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 32,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_snow_hut_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_snow_hut_draft.png",
+   "w": 56,
+   "h": 52,
+   "frames": 1,
+   "pivotX": 28,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_dark_pillar_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_dark_pillar_draft.png",
+   "w": 26,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 13,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_dark_pillar_broken_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_dark_pillar_broken_draft.png",
+   "w": 26,
+   "h": 64,
+   "frames": 1,
+   "pivotX": 13,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_moon_brazier_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_moon_brazier_draft.png",
+   "w": 24,
+   "h": 36,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_banner_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_banner_draft.png",
+   "w": 24,
+   "h": 52,
+   "frames": 1,
+   "pivotX": 12,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_trial_seal_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_trial_seal_draft.png",
+   "w": 44,
+   "h": 40,
+   "frames": 1,
+   "pivotX": 22,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_dark_barrier_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_dark_barrier_draft.png",
+   "w": 32,
+   "h": 48,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_tower_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_tower_draft.png",
+   "w": 72,
+   "h": 112,
+   "frames": 1,
+   "pivotX": 36,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "PROP_note_draft",
+   "path": "Assets/_Game/Art/Props/Draft/PROP_note_draft.png",
+   "w": 20,
+   "h": 30,
+   "frames": 1,
+   "pivotX": 10,
+   "pivotY": 1,
+   "fps": 10
+  },
+  {
+   "name": "DEC_snowflake_draft",
+   "path": "Assets/_Game/Art/Props/Draft/DEC_snowflake_draft.png",
+   "w": 4,
+   "h": 4,
+   "frames": 1,
+   "pivotX": 2,
+   "pivotY": 2,
+   "fps": 10
+  },
+  {
+   "name": "VFX_crystal_shard_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_crystal_shard_draft.png",
+   "w": 16,
+   "h": 12,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 6,
+   "fps": 12
+  },
+  {
+   "name": "VFX_beam_seg_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_beam_seg_draft.png",
+   "w": 24,
+   "h": 12,
+   "frames": 4,
+   "pivotX": 12,
+   "pivotY": 6,
+   "fps": 16
+  },
+  {
+   "name": "VFX_shadow_bolt_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shadow_bolt_draft.png",
+   "w": 20,
+   "h": 14,
+   "frames": 4,
+   "pivotX": 10,
+   "pivotY": 7,
+   "fps": 12
+  },
+  {
+   "name": "VFX_star_shot_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_star_shot_draft.png",
+   "w": 16,
+   "h": 16,
+   "frames": 4,
+   "pivotX": 8,
+   "pivotY": 8,
+   "fps": 14
+  },
+  {
+   "name": "VFX_water_drop_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_water_drop_draft.png",
+   "w": 12,
+   "h": 12,
+   "frames": 4,
+   "pivotX": 6,
+   "pivotY": 6,
+   "fps": 10
+  },
+  {
+   "name": "VFX_thorn_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_thorn_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 6,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 14
+  },
+  {
+   "name": "VFX_shadow_hand_draft",
+   "path": "Assets/_Game/Art/VFX/Draft/VFX_shadow_hand_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 6,
+   "pivotX": 16,
+   "pivotY": 5,
+   "fps": 12
+  },
+  {
+   "name": "ICON_prism_beam_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_prism_beam_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "ICON_thorn_bloom_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_thorn_bloom_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "ICON_shadow_hand_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_shadow_hand_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "ICON_moon_echo_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_moon_echo_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  },
+  {
+   "name": "ICON_star_shot_draft",
+   "path": "Assets/_Game/Art/UI/Draft/ICON_star_shot_draft.png",
+   "w": 32,
+   "h": 32,
+   "frames": 1,
+   "pivotX": 16,
+   "pivotY": 16,
+   "fps": 10
+  }
+ ]
+}

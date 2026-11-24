@@ -257,8 +257,10 @@ namespace Starbind.UI
             if (showBoss)
             {
                 bossFill.fillAmount = boss.Health.Normalized;
-                var brain = boss.Brain as BossBrain;
-                bossName.text = $"月蝕菇王　第 {(brain != null ? brain.Phase : 1)} 階段" + (brain != null && brain.Exposed ? "　弱點暴露！" : "");
+                var brain = boss.Brain as BossBrainBase;
+                string name = boss.Def != null ? boss.Def.displayName : "Boss";
+                string extra = brain is GolemBrain g && g.Charge > 0 ? $"　晶核充能 {g.Charge:0}%" : "";
+                bossName.text = $"{name}　第 {(brain != null ? brain.Phase : 1)} 階段" + (brain != null && brain.Exposed ? "　弱點暴露！" : extra);
             }
         }
     }

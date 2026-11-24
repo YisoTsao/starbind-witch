@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df500013644d0cbf41e12d2de648e2, type: 3}
+  m_Name: Q_M5-01
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.QuestDefinition
+  id: M5-01
+  chapter: citadel
+  kind: 0
+  title: "\u6708\u8755\u964D\u81E8"
+  description: "\u9ED1\u6708\u5347\u8D77\u3002\u548C\u827E\u62C9\u8AC7\u904E\u5F8C\uFF0C\u5F9E\u50B3\u9001\u661F\u76E4\u524D\u5F80\u9ED1\u6708\u57CE\u585E\u3002"
+  giver: "\u827E\u62C9"
+  flag: talked_ella_citadel
+  requires: defeat_star_guardian
+  order: 15

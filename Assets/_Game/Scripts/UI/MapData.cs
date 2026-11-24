@@ -73,6 +73,7 @@ namespace Starbind.UI
                 return null;
             string scene = SceneManager.GetActiveScene().name;
             bool forest = scene == "Forest", interior = scene == "Workshop";
+            var biome = BiomeColors(scene);
             var d = new MapData { Width = W, Height = H, Scene = scene };
             var px = new Color32[W * Px * H * Px];
             var water = Find(grid, "Water");
@@ -80,11 +81,11 @@ namespace Starbind.UI
             var cliff = Find(grid, "Cliff");
             var coll = Find(grid, "Collision");
 
-            Color32 grassA = forest ? new Color32(0x3f, 0x6e, 0x4a, 255) : interior ? new Color32(0x8e, 0x6a, 0x52, 255) : new Color32(0x74, 0xa2, 0x4e, 255);
-            Color32 grassB = forest ? new Color32(0x3a, 0x66, 0x45, 255) : interior ? new Color32(0x84, 0x62, 0x4c, 255) : new Color32(0x6c, 0x99, 0x49, 255);
-            Color32 pathC = forest ? new Color32(0xa0, 0x80, 0x5e, 255) : new Color32(0xdc, 0xae, 0x70, 255);
-            Color32 waterC = new Color32(0x3a, 0x8a, 0xc4, 255), shore = new Color32(0xa6, 0xdc, 0xea, 255);
-            Color32 cliffC = new Color32(0x7a, 0x58, 0x4c, 255), wallC = new Color32(0x3a, 0x2a, 0x40, 255);
+            Color32 grassA = biome.HasValue ? biome.Value.a : forest ? new Color32(0x3f, 0x6e, 0x4a, 255) : interior ? new Color32(0x8e, 0x6a, 0x52, 255) : new Color32(0x74, 0xa2, 0x4e, 255);
+            Color32 grassB = biome.HasValue ? biome.Value.b : forest ? new Color32(0x3a, 0x66, 0x45, 255) : interior ? new Color32(0x84, 0x62, 0x4c, 255) : new Color32(0x6c, 0x99, 0x49, 255);
+            Color32 pathC = biome.HasValue ? biome.Value.path : forest ? new Color32(0xa0, 0x80, 0x5e, 255) : new Color32(0xdc, 0xae, 0x70, 255);
+            Color32 waterC = biome.HasValue ? biome.Value.water : new Color32(0x3a, 0x8a, 0xc4, 255), shore = new Color32(0xa6, 0xdc, 0xea, 255);
+            Color32 cliffC = biome.HasValue ? biome.Value.solid : new Color32(0x7a, 0x58, 0x4c, 255), wallC = new Color32(0x3a, 0x2a, 0x40, 255);
 
             bool Has(Tilemap t, int x, int y) => t != null && t.HasTile(new Vector3Int(x, y, 0));
             for (int y = 0; y < H; y++)
@@ -165,9 +166,27 @@ namespace Starbind.UI
                 Pois.Add(new MapPoi { pos = p.transform.position, label = "魔女小屋", kind = "door" });
             foreach (var l in Object.FindObjectsByType<LocalTeleport>())
                 Pois.Add(new MapPoi { pos = l.transform.position, label = "傳送星盤", kind = "star" });
+            foreach (var l in Object.FindObjectsByType<RegionSelector>())
+                Pois.Add(new MapPoi { pos = l.transform.position, label = "傳送星盤", kind = "star" });
             foreach (var a in Object.FindObjectsByType<StarAltar>())
                 Pois.Add(new MapPoi { pos = a.transform.position, label = "星痕祭壇", kind = "altar" });
+            foreach (var s in Object.FindObjectsByType<TrialSeal>())
+                Pois.Add(new MapPoi { pos = s.transform.position, label = s.School + "試煉", kind = "altar" });
+            var arena = Object.FindAnyObjectByType<BossArena>();
+            var run = Starbind.Progression.RunManager.Current;
+            if (arena != null && run != null && run.Chapter != null)
+                Pois.Add(new MapPoi { pos = arena.Trigger.center, label = run.Chapter.arenaName, kind = "exit" });
         }
+
+        /// <summary>Map colours for the chapter 2-5 biomes (ground A/B, path, water, solid rock/ruin).</summary>
+        static (Color32 a, Color32 b, Color32 path, Color32 water, Color32 solid)? BiomeColors(string scene) => scene switch
+        {
+            "Mine" => (new Color32(0x4a, 0x44, 0x5e, 255), new Color32(0x44, 0x3e, 0x58, 255), new Color32(0x8a, 0x76, 0x60, 255), new Color32(0x22, 0x2a, 0x5a, 255), new Color32(0x2a, 0x24, 0x3a, 255)),
+            "Lake" => (new Color32(0x5e, 0x8a, 0x7a, 255), new Color32(0x56, 0x80, 0x72, 255), new Color32(0xb8, 0xc4, 0xd8, 255), new Color32(0x3a, 0x6a, 0xb4, 255), new Color32(0x2c, 0x40, 0x50, 255)),
+            "Observatory" => (new Color32(0xe4, 0xec, 0xf4, 255), new Color32(0xd8, 0xe2, 0xee, 255), new Color32(0x9a, 0x94, 0xa4, 255), new Color32(0x8a, 0xb8, 0xdc, 255), new Color32(0x5a, 0x5c, 0x70, 255)),
+            "Citadel" => (new Color32(0x3e, 0x30, 0x4e, 255), new Color32(0x38, 0x2a, 0x48, 255), new Color32(0x6e, 0x4e, 0x86, 255), new Color32(0x12, 0x08, 0x1e, 255), new Color32(0x1e, 0x14, 0x2a, 255)),
+            _ => null,
+        };
 
         static string ShortName(string speaker)
         {
@@ -182,6 +201,10 @@ namespace Starbind.UI
             "Forest" => "月影森林",
             "Village" => "星露村",
             "Workshop" => "魔女小屋",
+            "Mine" => "星核礦坑",
+            "Lake" => "星輝湖",
+            "Observatory" => "失落觀星台",
+            "Citadel" => "黑月城塞",
             _ => scene,
         };
 

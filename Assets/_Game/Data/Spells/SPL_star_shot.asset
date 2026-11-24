@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_star_shot
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: star_shot
+  displayName: "\u661F\u5F48"
+  description: "\u98DB\u5F48\u30FB\u661F\u75D5\u3002\u547D\u4E2D\u5F8C\u53CD\u5F48\u81F3\u9644\u8FD1\u6575\u4EBA 2 \u6B21\uFF08\u6BCF\u6B21 80%\uFF09\u3002"
+  form: 0
+  element: 7
+  modifier: 0
+  trigger: 0
+  damage: 15
+  cooldown: 0.75
+  mpCost: 6
+  speed: 11
+  range: 8
+  radius: 0.24
+  statusDuration: 0
+  count: 1
+  pierce: 0
+  duration: 0
+  icon: ICON_star_shot
+  vfx: 

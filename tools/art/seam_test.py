@@ -25,11 +25,11 @@ def mask_at(m, x, y):
     return v
 
 
-def run(name, sheet_file, alpha_threshold):
+def run(name, sheet_file, alpha_threshold, folder="Village"):
     rng = np.random.default_rng(5)
     m = (rng.random((H, W)) < 0.45).astype(np.uint8)
     m[4:10, 6:14] = 1; m[6, 9] = 0  # a solid block with a hole
-    sheet = np.asarray(Image.open(os.path.join(ROOT, "Assets/_Game/Art/Tilesets/Village/Draft", sheet_file)))
+    sheet = np.asarray(Image.open(os.path.join(ROOT, "Assets/_Game/Art/Tilesets", folder, "Draft", sheet_file)))
     asm = np.zeros((H * T, W * T, 4), np.uint8)
     for y in range(H):
         for x in range(W):
@@ -62,6 +62,14 @@ for name, f, thr in (("path", "TILE_path_draft_256.png", -0.07), ("water", "TILE
     if name == "path":
         a = asm[:, :, 3:4] > 0
         canvas = np.where(a, asm, canvas)
+# chapter 2-5 biomes (tools/art/chapter_art.py): same autotile maths, biome palettes
+for biome in ("mine", "lake", "observatory", "citadel"):
+    folder = biome.capitalize()
+    if not os.path.exists(os.path.join(ROOT, "Assets/_Game/Art/Tilesets", folder, "Draft")):
+        continue
+    for kind, thr in (("path", -0.07), ("water", -0.13)):
+        _, bad = run(f"{biome}.{kind}", f"TILE_{biome}_{kind}_draft_256.png", thr, folder)
+        ok &= bad == 0
 if PREVIEW:
     Image.fromarray(canvas).resize((W * T * 2, H * T * 2), Image.NEAREST).save(PREVIEW)
 print("SEAM_TEST", "PASS" if ok else "FAIL")

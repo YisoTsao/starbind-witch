@@ -16,6 +16,11 @@ namespace Starbind.Combat
         public const float BurnTick = 0.5f;
         public const float BurnDamage = 3f;
         public const float ShockDamageTaken = 1.1f;
+        public const float PoisonDamage = 2.5f;
+        public const float CurseDamageTaken = 1.15f;
+        public const float WildfireRadius = 2.2f;
+        public const float WildfireDamage = 12f;
+        public const float WildfireBurnSeconds = 3f;
 
         public readonly CombatEventBus Bus = new CombatEventBus();
         public readonly HitRegistry Hits = new HitRegistry();
@@ -150,8 +155,12 @@ namespace Starbind.Combat
             e.TargetEntityId = target.EntityId;
 
             float amount = e.Amount * target.DamageTakenMultiplier;
+            if (target.IncomingScale != null)
+                amount *= target.IncomingScale(e);
             if (target.Status.Has(ElementType.Lightning, now))
                 amount *= ShockDamageTaken;
+            if (target.Status.Has(ElementType.Moon, now))
+                amount *= CurseDamageTaken;
             if (ChilledBonus > 0 && target.Team != Team.Player && e.Source != HitSource.Environment && target.Status.Has(ElementType.Ice, now))
                 amount *= 1f + ChilledBonus;
             amount = Mathf.Max(0, amount);
@@ -182,6 +191,36 @@ namespace Starbind.Combat
                 target.RaiseDied();
             }
             return result;
+        }
+
+        /// <summary>Damages hostile targets whose body circle touches the segment (beams), nearest first,
+        /// at most <paramref name="maxTargets"/>. Returns hits applied.</summary>
+        public int DamageLine(Vector2 from, Vector2 dir, float length, float halfWidth, DamageEvent template, Team attacker, int maxTargets)
+        {
+            scratch.Clear();
+            for (int i = 0; i < registry.Count; i++)
+            {
+                var h = registry[i];
+                if (h.IsDead || !IsHostile(attacker, h.Team))
+                    continue;
+                var to = h.Center - from;
+                float t = Mathf.Clamp(Vector2.Dot(to, dir), 0, length);
+                float r = halfWidth + h.Radius;
+                if ((from + dir * t - h.Center).sqrMagnitude <= r * r)
+                    scratch.Add(h);
+            }
+            scratch.Sort((a, b) => (a.Center - from).sqrMagnitude.CompareTo((b.Center - from).sqrMagnitude));
+            int n = 0;
+            foreach (var h in scratch.ToArray())
+            {
+                if (n >= maxTargets)
+                    break;
+                var e = template;
+                e.Direction = dir;
+                if (Damage(e, h).Applied)
+                    n++;
+            }
+            return n;
         }
 
         /// <summary>Damages every hostile target in a circle once (shared CastId). Returns hits applied.</summary>
@@ -257,6 +296,19 @@ namespace Starbind.Combat
                     if (ActiveTornadoes < MaxTornadoes && SpawnTornado != null)
                         SpawnTornado(p, target);
                     break;
+                case ReactionType.Wildfire:
+                {
+                    // spreads burning to nearby enemies (marks only, no chain: CannotTriggerReaction)
+                    Query(p, WildfireRadius, Team.Player, scratch, ReactionResolver.MaxTargetsPerReaction);
+                    var e = ReactionEvent(cause, WildfireDamage * mult);
+                    foreach (var h in scratch.ToArray())
+                    {
+                        Damage(e, h);
+                        if (!h.IsDead)
+                            h.Status.Apply(ElementType.Fire, WildfireBurnSeconds, Time.time);
+                    }
+                    break;
+                }
             }
         }
 
@@ -269,13 +321,14 @@ namespace Starbind.Combat
             nextBurnTick = now + BurnTick;
             scratch.Clear();
             foreach (var h in registry)
-                if (!h.IsDead && h.Team != Team.Player && h.Status.Has(ElementType.Fire, now))
+                if (!h.IsDead && h.Team != Team.Player && (h.Status.Has(ElementType.Fire, now) || h.Status.Has(ElementType.Nature, now)))
                     scratch.Add(h);
             foreach (var h in scratch)
             {
+                float dot = (h.Status.Has(ElementType.Fire, now) ? BurnDamage : 0f) + (h.Status.Has(ElementType.Nature, now) ? PoisonDamage : 0f);
                 var e = new DamageEvent
                 {
-                    Amount = BurnDamage,
+                    Amount = dot,
                     Element = ElementType.None,
                     CannotTriggerReaction = true,
                     Source = HitSource.Environment,

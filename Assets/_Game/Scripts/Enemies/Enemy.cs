@@ -169,8 +169,10 @@ namespace Starbind.Enemies
             return CombatWorld.Instance.Damage(e, ph).Applied;
         }
 
-        public Projectile Shoot(Vector2 dir, float speed, float damage, float range = 9f, float scale = 1f)
+        public Projectile Shoot(Vector2 dir, float speed, float damage, float range = 9f, float scale = 1f, string sprite = null)
         {
+            if (string.IsNullOrEmpty(sprite))
+                sprite = Def != null && !string.IsNullOrEmpty(Def.projectileSprite) ? Def.projectileSprite : "VFX_spore";
             var spec = new ProjectileSpec
             {
                 Team = Team.Enemy,
@@ -180,7 +182,8 @@ namespace Starbind.Enemies
                 Speed = speed,
                 MaxDistance = range,
                 Radius = 0.18f * scale,
-                Sprite = "VFX_spore",
+                Sprite = sprite,
+                Rotate = sprite != "VFX_spore",
                 Scale = scale,
                 ImpactVfx = "VFX_poof",
                 ImpactColor = new Color(0.8f, 0.5f, 1f),
@@ -275,6 +278,8 @@ namespace Starbind.Enemies
             if (st.Has(ElementType.Ice, now)) tint = new Color(0.65f, 0.85f, 1f);
             else if (st.Has(ElementType.Lightning, now)) tint = new Color(1f, 1f, 0.7f);
             else if (st.Has(ElementType.Wind, now)) tint = new Color(0.8f, 1f, 0.9f);
+            else if (st.Has(ElementType.Nature, now)) tint = new Color(0.78f, 1f, 0.62f);
+            else if (st.Has(ElementType.Moon, now)) tint = new Color(0.8f, 0.7f, 1f);
             Visual.color = tint;
             bool burning = st.Has(ElementType.Fire, now);
             if (burning && burnFx == null)

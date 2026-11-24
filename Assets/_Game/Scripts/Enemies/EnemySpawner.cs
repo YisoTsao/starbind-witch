@@ -32,6 +32,8 @@ namespace Starbind.Enemies
         public int TotalSpawned { get; private set; }
         public int RejectedByCap { get; private set; }
         public SpawnGrid Grid { get => grid; set => grid = value; }
+        /// <summary>Chapter difficulty: health multiplier for every non-boss spawn (RunManager sets it).</summary>
+        public float HpScale { get; set; } = 1f;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatics() => instance = null;
@@ -91,7 +93,7 @@ namespace Starbind.Enemies
             }
             var e = pool.Get();
             e.name = id;
-            e.Spawn(def, pos, hpMultiplier);
+            e.Spawn(def, pos, def.isBoss ? hpMultiplier : hpMultiplier * HpScale);
             alive.Add(e);
             TotalSpawned++;
             PeakAlive = Mathf.Max(PeakAlive, alive.Count);

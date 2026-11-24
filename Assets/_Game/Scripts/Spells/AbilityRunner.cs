@@ -25,6 +25,26 @@ namespace Starbind.Spells
         public OrbitRing Orbit { get; private set; }
 
         public event Action<RuntimeSpell, CastContext> Cast;
+        public const int BeamMaxTargets = 8;
+        /// <summary>Enemies hit by the last beam (tests).</summary>
+        public int LastBeamHits { get; private set; }
+
+        static readonly RaycastHit2D[] beamHits = new RaycastHit2D[4];
+
+        /// <summary>Beam length clipped at the first solid prop or wall (water/cliff tiles let it pass).</summary>
+        static float BeamLength(Vector2 from, Vector2 dir, float range)
+        {
+            int n = Physics2D.RaycastNonAlloc(from, dir, beamHits, range, LayerMask.GetMask(StarbindLayers.WorldSolid));
+            float best = range;
+            for (int i = 0; i < n; i++)
+            {
+                var c = beamHits[i].collider;
+                if (c is UnityEngine.Tilemaps.TilemapCollider2D || c.GetComponentInParent<Health>() != null)
+                    continue;
+                best = Mathf.Min(best, beamHits[i].distance);
+            }
+            return best;
+        }
         public int CastsThisFrame { get; private set; }
         int frame;
 
@@ -90,11 +110,44 @@ namespace Starbind.Spells
             s.CastCount++;
             CastsThisFrame++;
             Execute(s, ctx, aimPoint, target);
+            if (s.Echo > 0)
+                StartCoroutine(EchoCasts(s, ctx, aimPoint, target));
             Cast?.Invoke(s, ctx);
             if (CombatWorld.Exists)
                 CombatWorld.Instance.Bus.RaiseSpellCast(s.Id, ctx);
             return CastResult.Cast;
         }
+
+        public const float EchoDelay = 0.3f;
+        public const float EchoDamage = 0.6f;
+        public const int MaxEcho = 2;
+
+        /// <summary>Echo modifier (迴響): weaker copies of the same cast follow it. Echoes run the form
+        /// directly (no cooldown, MP or cast event) so they can never echo again.</summary>
+        System.Collections.IEnumerator EchoCasts(RuntimeSpell s, CastContext ctx, Vector2 aimPoint, Health target)
+        {
+            int n = Mathf.Min(MaxEcho, s.Echo);
+            for (int i = 0; i < n; i++)
+            {
+                yield return new WaitForSeconds(EchoDelay);
+                var echo = ctx;
+                echo.CastId = CombatIds.NewCast();
+                echo.Origin = Origin;
+                echo.DamageMultiplier = ctx.DamageMultiplier * EchoDamage;
+                echo.ProcDepth = ctx.ProcDepth + 1;
+                Execute(s, echo, aimPoint, target);
+                VfxService.Instance.Play("VFX_flash", echo.Origin, 0, 0.6f, SpellFx.ElementColor(s.Element));
+            }
+        }
+
+        public static string MissileSprite(ElementType el) => el switch
+        {
+            ElementType.Ice => "VFX_ice_shard",
+            ElementType.Moon => "VFX_shadow_bolt",
+            ElementType.Star => "VFX_star_shot",
+            ElementType.Nature => "VFX_thorn",
+            _ => "VFX_fireball",
+        };
 
         float StatusMul(RuntimeSpell s) => s.Element == ElementType.Ice ? IceDurationMultiplier : s.Element == ElementType.Fire ? BurnDurationMultiplier : 1f;
 
@@ -118,6 +171,7 @@ namespace Starbind.Spells
                 case SpellForm.Missile:
                 {
                     bool ice = s.Element == ElementType.Ice;
+                    bool fire = s.Element == ElementType.Fire;
                     for (int i = 0; i < s.Count; i++)
                     {
                         float spread = (i - (s.Count - 1) * 0.5f) * 12f;
@@ -133,19 +187,20 @@ namespace Starbind.Spells
                             Pierce = s.Pierce,
                             Split = s.Split,
                             Returns = s.Returns,
-                            Sprite = ice ? "VFX_ice_shard" : "VFX_fireball",
+                            Bounce = s.Bounce,
+                            Sprite = MissileSprite(s.Element),
                             Rotate = true,
                             ImpactVfx = ice ? "VFX_ice_burst" : "VFX_explosion",
-                            ImpactColor = ice ? new Color(0.7f, 0.95f, 1f) : new Color(1f, 0.6f, 0.2f),
+                            ImpactColor = fire ? new Color(1f, 0.6f, 0.2f) : SpellFx.ElementColor(s.Element),
                             Scale = 1f,
                             StopOnProps = true,
-                            ImpactSfx = ice ? "sfx_ice_hit" : "sfx_fire_hit",
+                            ImpactSfx = ice ? "sfx_ice_hit" : fire ? "sfx_fire_hit" : "sfx_homing",
                             Fx = 1f,
                         };
                         Projectile.Launch(spec, transform);
                     }
                     SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction, s.Count > 1 ? 1.3f : 1f);
-                    Sfx.Play(ice ? "sfx_ice_cast" : "sfx_fire_cast", 0.7f);
+                    Sfx.Play(ice ? "sfx_ice_cast" : fire ? "sfx_fire_cast" : "sfx_homing", 0.7f);
                     break;
                 }
                 case SpellForm.Area:
@@ -156,15 +211,43 @@ namespace Starbind.Spells
                     SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction);
                     var e = HitFor(s, ctx);
                     e.Knockback = 1.2f;
-                    AreaStrike.Schedule(p, 0.18f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder", fx: 1.5f);
+                    bool moon = s.Element == ElementType.Moon;
+                    AreaStrike.Schedule(p, 0.18f, s.Radius, e, Team.Player, moon ? "VFX_shadow_hand" : "VFX_lightning",
+                        moon ? SpellFx.ElementColor(ElementType.Moon) : new Color(1f, 0.95f, 0.5f), moon ? "sfx_summon" : "sfx_thunder", fx: 1.5f);
                     break;
                 }
                 case SpellForm.Pulse:
                 {
                     var p = target != null ? target.Center : aimPoint;
                     var e = HitFor(s, ctx);
+                    if (s.Element == ElementType.Nature)
+                    {
+                        // thorn bloom: flowers open under the target, poison everything around
+                        v.Play("VFX_bloom", p, 0, s.Radius, SpellFx.ElementColor(ElementType.Nature), StarbindLayers.SortGroundDecal, 4);
+                        AreaStrike.Schedule(p, 0.2f, s.Radius, e, Team.Player, "VFX_thorn", SpellFx.ElementColor(ElementType.Nature), "sfx_spore", fx: 1f);
+                        break;
+                    }
                     AreaStrike.Schedule(p, 0.05f, s.Radius, e, Team.Player, "VFX_lightning", new Color(1f, 0.95f, 0.5f), "sfx_thunder", fx: 1f, groundPulse: true);
                     v.Bolt(ctx.Origin, p, new Color(0.72f, 0.49f, 1f), 0.14f, 2, 3.5f);
+                    break;
+                }
+                case SpellForm.Beam:
+                {
+                    // instant line: every enemy within Radius of the segment (cap 8), stopped by walls
+                    var e = HitFor(s, ctx);
+                    e.Knockback = 0.5f;
+                    float len = BeamLength(ctx.Origin, ctx.Direction, s.Range);
+                    int n = CombatWorld.Instance.DamageLine(ctx.Origin, ctx.Direction, len, s.Radius, e, Team.Player, BeamMaxTargets);
+                    var col = SpellFx.ElementColor(s.Element);
+                    float ang = Mathf.Atan2(ctx.Direction.y, ctx.Direction.x) * Mathf.Rad2Deg;
+                    int segs = Mathf.Max(1, Mathf.RoundToInt(len / 0.75f));
+                    for (int i = 0; i < segs; i++)
+                        v.Play("VFX_beam_seg", ctx.Origin + ctx.Direction * ((i + 0.5f) * len / segs), ang, 1f, Color.Lerp(col, Color.white, 0.35f));
+                    v.Play("VFX_flash", ctx.Origin + ctx.Direction * len, 0, 0.8f, col);
+                    v.Light(ctx.Origin + ctx.Direction * len * 0.5f, col, len * 0.6f, 0.9f, 0.18f);
+                    SpellFx.Cast(s.Element, transform.position, ctx.Origin + ctx.Direction * 0.35f, ctx.Direction, 1.2f);
+                    Sfx.Play("sfx_thunder", 0.6f);
+                    LastBeamHits = n;
                     break;
                 }
                 case SpellForm.Orbit:

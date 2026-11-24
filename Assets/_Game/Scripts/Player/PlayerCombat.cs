@@ -55,6 +55,8 @@ namespace Starbind.Player
         public bool BoltReturns { get; set; }
         /// <summary>Storm staff: every third effective cast adds a small arc.</summary>
         public bool StormArc { get; set; }
+        /// <summary>Rampant overdrive researched (GDD §7.2): R below full resonance pays HP to start early.</summary>
+        public bool RampantUnlocked { get; set; }
         public int EffectiveCasts { get; private set; }
         public int StormArcs { get; private set; }
         public event Action<string> Notice;
@@ -332,8 +334,24 @@ namespace Starbind.Player
                 return false;
             if (!Resonance.TryActivate(Time.time))
             {
-                if (!Resonance.IsActive(Time.time))
-                    Notice?.Invoke("共鳴未滿");
+                if (Resonance.IsActive(Time.time))
+                    return false;
+                var h = vitals.Health;
+                if (RampantUnlocked)
+                {
+                    float cost = Resonance.TryRampant(Time.time, h.Current, h.Max);
+                    if (cost > 0)
+                    {
+                        var e = new DamageEvent { Amount = cost, Source = HitSource.Environment, CannotTriggerReaction = true };
+                        CombatWorld.Instance.Damage(e, h);
+                        Notice?.Invoke($"失控超載！消耗 {cost:0} HP");
+                        return true;
+                    }
+                    Notice?.Invoke(Resonance.Value < ResonanceMeter.RampantMinResonance ? "共鳴未滿（失控超載需 50）"
+                        : Time.time < Resonance.RampantReadyAt ? "失控超載冷卻中" : "生命不足，無法失控超載");
+                    return false;
+                }
+                Notice?.Invoke("共鳴未滿");
                 return false;
             }
             return true;

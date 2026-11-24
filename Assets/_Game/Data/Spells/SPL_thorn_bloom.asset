@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_thorn_bloom
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: thorn_bloom
+  displayName: "\u834A\u68D8\u6BD2\u82B1"
+  description: "\u81EA\u52D5\u30FB\u81EA\u7136\u3002\u6BCF 4 \u79D2\u5728\u6700\u8FD1\u6575\u4EBA\u8173\u4E0B\u958B\u51FA\u6BD2\u82B1\uFF0C\u9644\u52A0\u4E2D\u6BD2 5 \u79D2\u3002"
+  form: 5
+  element: 5
+  modifier: 0
+  trigger: 1
+  damage: 8
+  cooldown: 4
+  mpCost: 0
+  speed: 0
+  range: 6.5
+  radius: 1.6
+  statusDuration: 5
+  count: 1
+  pierce: 0
+  duration: 0
+  icon: ICON_thorn_bloom
+  vfx: 

@@ -25,6 +25,10 @@ namespace Starbind.Core
             public int sporeCost;
             public int shardCost;
             public string unlocksSpell;
+            /// <summary>Profile flag needed before the node is listed ("" = always).</summary>
+            public string requiresFlag;
+            /// <summary>Profile flag a one-level node sets instead of unlocking a spell.</summary>
+            public string setsFlag;
 
             public string CostText(int level)
             {
@@ -46,7 +50,10 @@ namespace Starbind.Core
             new ResearchNode { id = "frost_orbit", name = "書頁：冰晶環繞", description = "解鎖開局自動法術 冰晶環繞", maxLevel = 1, sandCost = new[] { 12 }, sporeCost = 3, unlocksSpell = "frost_orbit" },
             new ResearchNode { id = "thunder_pulse", name = "書頁：自動雷脈衝", description = "解鎖開局自動法術 自動雷脈衝", maxLevel = 1, sandCost = new[] { 12 }, shardCost = 1, unlocksSpell = "thunder_pulse" },
             new ResearchNode { id = "star_fire", name = "書頁：星火護符", description = "解鎖開局自動法術 星火護符", maxLevel = 1, sandCost = new[] { 10 }, unlocksSpell = "star_fire" },
+            new ResearchNode { id = "rampant", name = "禁書：失控超載", description = "共鳴 50 以上即可按 R，以 HP 換取提前超載（冷卻 30 秒）", maxLevel = 1, sandCost = new[] { 24 }, shardCost = 3, requiresFlag = "defeat_star_guardian", setsFlag = "research_rampant" },
         };
+
+        public bool ResearchVisible(ResearchNode n) => string.IsNullOrEmpty(n.requiresFlag) || Profile.HasQuest(n.requiresFlag);
 
         static GameSession instance;
 
@@ -146,14 +153,19 @@ namespace Starbind.Core
         public string Objective()
         {
             var run = RunManager.Current;
-            if (run != null)
+            if (run != null && run.Chapter != null)
             {
                 if (run.Run != null && run.Run.BossDefeated) return "走進光門返回村莊";
-                if (run.Boss != null) return "擊敗月蝕菇王";
-                return "向北深入森林，前往菇王棲地";
+                if (run.Boss != null) return string.IsNullOrEmpty(run.Chapter.bossObjective) ? "擊敗" + run.Chapter.bossName : run.Chapter.bossObjective;
+                return run.Chapter.pushObjective;
             }
             if (SceneConfig.Current != null && !string.IsNullOrEmpty(SceneConfig.Current.objective))
             {
+                var next = World.ObjectiveTracker.NextChapter();
+                if (next != null)
+                    return $"在傳送星盤選擇「{next.title}」出發";
+                if (Profile.HasQuest(EndingChoice.SealFlag) || Profile.HasQuest(EndingChoice.PactFlag))
+                    return "艾斯特拉恢復平靜。可以自由重返各地區";
                 if (Profile.victories > 0)
                     return "研究新書頁，或再次前往森林";
                 if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Village" && World.ObjectiveTracker.TrainingDone)
@@ -189,8 +201,12 @@ namespace Starbind.Core
                 case "potion": return Profile.researchPotion;
             }
             foreach (var n in ResearchNodes)
+            {
                 if (n.id == id && n.unlocksSpell != null)
                     return Profile.IsUnlocked(n.unlocksSpell) ? 1 : 0;
+                if (n.id == id && n.setsFlag != null)
+                    return Profile.HasQuest(n.setsFlag) ? 1 : 0;
+            }
             return 0;
         }
 
@@ -201,7 +217,7 @@ namespace Starbind.Core
                 if (n.id != id)
                     continue;
                 int level = ResearchLevel(id);
-                if (level >= n.maxLevel)
+                if (level >= n.maxLevel || !ResearchVisible(n))
                     return false;
                 int sand = n.sandCost != null && level < n.sandCost.Length ? n.sandCost[level] : 0;
                 if (Profile.starSand < sand || Profile.spores < n.sporeCost || Profile.coreShards < n.shardCost)
@@ -214,7 +230,10 @@ namespace Starbind.Core
                     case "hp": Profile.researchHp++; break;
                     case "mp": Profile.researchMp++; break;
                     case "potion": Profile.researchPotion++; break;
-                    default: Profile.Unlock(n.unlocksSpell); break;
+                    default:
+                        if (n.setsFlag != null) Profile.CompleteQuest(n.setsFlag);
+                        else Profile.Unlock(n.unlocksSpell);
+                        break;
                 }
                 if (Profile.victories > 0)
                     Profile.CompleteQuest("research_after_victory");
@@ -231,6 +250,7 @@ namespace Starbind.Core
                 return;
             Equipment.Apply(p.Vitals.Stats, Profile.equippedStaff, Profile.equippedCharm);
             p.Combat.BoltReturns = Profile.equippedStaff == "moonring_staff";
+            p.Combat.RampantUnlocked = Profile.HasQuest("research_rampant");
             p.Combat.StormArc = Profile.equippedStaff == "storm_staff";
         }
 

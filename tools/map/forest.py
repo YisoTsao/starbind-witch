@@ -180,7 +180,7 @@ zones = [
 ]
 data = {"id": "forest", "width": W, "height": H, "seed": SEED, "biome": "forest",
         "layers": layers, "props": props, "objects": objects, "spawns": spawns, "zones": zones,
-        "scene": {"title": "月影森林", "dim": 0.08, "safe": False, "objective": "向北深入森林"}}
+        "scene": {"title": "月影森林", "dim": 0.08, "safe": False, "objective": "向北深入森林", "chapter": "forest"}}
 json.dump(data, open(os.path.join(ROOT, "Assets/_Game/Data/Maps/forest.json"), "w"), indent=1, ensure_ascii=False)
 merged = []
 for r in range(H):

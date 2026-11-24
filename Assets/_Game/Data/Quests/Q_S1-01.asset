@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16df500013644d0cbf41e12d2de648e2, type: 3}
+  m_Name: Q_S1-01
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.QuestDefinition
+  id: S1-01
+  chapter: forest
+  kind: 1
+  title: "\u9A0E\u58EB\u7684\u8A13\u7DF4"
+  description: "\u5230\u8A13\u7DF4\u5834\u548C\u51F1\u6069\u8AC7\u8AC7\u8FD1\u6230\u7684\u8A23\u7AC5\u3002"
+  giver: "\u51F1\u6069"
+  flag: talked_kain
+  requires: 
+  order: 4

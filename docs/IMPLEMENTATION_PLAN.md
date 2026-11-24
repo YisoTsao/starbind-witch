@@ -55,3 +55,17 @@
 - Scope：出生、工坊、森林、怪潮、菇王、通關返回、研究存檔。
 - Acceptance：新使用者可依教學獨立完成單局，無阻塞性錯誤。
 - Evidence：Windows Build、測試清單、已知問題。
+
+## 2026-11-24：第 2 章～終章（草稿可玩）
+
+依使用者指示一次完成（SPEC_CONFLICTS C-33），交付與驗收見 [CHAPTERS_BUILD_REPORT.md](CHAPTERS_BUILD_REPORT.md)。
+
+| 範圍 | 狀態 | 證據 |
+|---|---|---|
+| 章節資料化（ChapterDefinition、RunManager／SpawnDirector／目標提示） | 完成 | 既有 PlayMode 全數通過（森林行為不變） |
+| 四章場景（礦坑 64×80、湖 80×64、觀星台 64×96、城塞 96×96） | 完成（草稿） | validate_chapters.py、ChapterPlayTests、docs/evidence/chapters/ |
+| 機關（礦車、導電水晶／導電塔、斷橋、光束折射、三塔試煉） | 完成 | ChapterPlayTests |
+| 四個 Boss（晶核魔像、湖影、觀星儀守護者、扭曲魔典）＋精英與 20 種小怪 | 完成（草稿） | ChapterPlayTests、ChapterContentTests |
+| 自然／月影／星痕學派、光束形態、迴響修飾、野火蔓延、5 張新升級卡、失控超載 | 完成 | ChapterContentTests、ChapterPlayTests |
+| 任務系統、星盤地區選擇器、玩家選擇結局 | 完成 | ChapterPlayTests |
+| 真人試玩（第 2 章～終章的節奏、難度、時長） | 未做 | 需使用者試玩 |

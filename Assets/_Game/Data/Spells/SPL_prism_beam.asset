@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6962128c84a24b9c9c158854ea17f89, type: 3}
+  m_Name: SPL_prism_beam
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Spells.SpellDefinition
+  id: prism_beam
+  displayName: "\u7A1C\u5149\u5C04\u7DDA"
+  description: "\u5149\u675F\u30FB\u96F7\u3002\u77AC\u9593\u8CAB\u7A7F\u76F4\u7DDA\u4E0A\u6700\u591A 8 \u540D\u6575\u4EBA\uFF0C\u9644\u52A0\u611F\u96FB\u3002"
+  form: 6
+  element: 3
+  modifier: 0
+  trigger: 0
+  damage: 16
+  cooldown: 1.6
+  mpCost: 10
+  speed: 0
+  range: 7
+  radius: 0.35
+  statusDuration: 2.5
+  count: 1
+  pierce: 0
+  duration: 0
+  icon: ICON_prism_beam
+  vfx: 

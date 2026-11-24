@@ -20,6 +20,8 @@ namespace Starbind.Spells
         public int Pierce;
         public int Split;
         public bool Returns;
+        /// <summary>Jumps left: after a hit the missile turns toward the nearest other enemy (Star).</summary>
+        public int Bounce;
         public Health Homing;
         public float TurnRate;
         public string Sprite;
@@ -74,6 +76,7 @@ namespace Starbind.Spells
             if (spec.Scale <= 0) spec.Scale = 1f;
             if (spec.Radius <= 0) spec.Radius = 0.2f;
             traveled = 0;
+            bounced.Clear();
             pierceLeft = spec.Pierce;
             returning = false;
             returnTo = owner;
@@ -210,6 +213,8 @@ namespace Starbind.Spells
             world.Query(transform.position, spec.Radius, spec.Team, hits, 8);
             foreach (var h in hits)
             {
+                if (bounced.Count > 0 && bounced.Contains(h))
+                    continue; // a rebounding star never re-hits an enemy it already bounced off
                 var e = spec.Hit;
                 e.Direction = spec.Direction;
                 var r = world.Damage(e, h);
@@ -226,6 +231,8 @@ namespace Starbind.Spells
                     SplitInto(spec.Split);
                     spec.Split = 0;
                 }
+                if (spec.Bounce > 0 && Rebound(h))
+                    return false;
                 if (pierceLeft-- <= 0)
                 {
                     End(true);
@@ -233,6 +240,29 @@ namespace Starbind.Spells
                 }
             }
             return false;
+        }
+
+        readonly List<Health> bounced = new List<Health>(4);
+
+        /// <summary>Star rebound: new target within 4.5 units that this missile has not hit, new hit event,
+        /// fresh range. False when nothing is in reach (the missile then ends normally).</summary>
+        bool Rebound(Health from)
+        {
+            bounced.Add(from);
+            var next = CombatWorld.Instance.Nearest(from.Center, 4.5f, spec.Team, null, bounced, true);
+            if (next == null)
+                return false;
+            spec.Bounce--;
+            spec.Homing = next;
+            spec.TurnRate = 900f;
+            spec.Direction = (next.Center - (Vector2)transform.position).normalized;
+            spec.Hit.CastId = CombatIds.NewCast();
+            spec.Hit.Amount *= 0.8f;
+            traveled = 0;
+            spec.MaxDistance = 5f;
+            Orient();
+            CombatWorld.Instance.Bus.RaiseArc(from.Center, next.Center);
+            return true;
         }
 
         void SplitInto(int n)

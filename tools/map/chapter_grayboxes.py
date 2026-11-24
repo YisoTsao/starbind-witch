@@ -57,4 +57,6 @@ if __name__ == "__main__":
                 if n==0 and c["previous"]: adjacent.append(c["previous"]+".4")
                 if n==4 and c["next"]: adjacent.append(c["next"]+".0")
                 routes = "|".join(adjacent)
-                table.writerow([ident,f"{ident}.{n}",f"{w}x{h}",32,routes,routes,label,n<5,n==5,n in (2,4),n in (1,5),"graybox","L1","see Unity tests"])
+                # chapter scenes built from these rooms: Forest (hand-made), Mine/Lake/Observatory/Citadel (tools/map/chapters.py)
+                table.writerow([ident,f"{ident}.{n}",f"{w}x{h}",32,routes,routes,label,n<5,n==5,n in (2,4),n in (1,5),
+                                "procedural draft","playable draft","validate_chapters.py + ChapterPlayTests"])

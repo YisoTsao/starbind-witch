@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf891eeeade114505b57d2fc38adf14a, type: 3}
+  m_Name: UPG_U19
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.UpgradeDefinition
+  id: U19
+  displayName: "\u91CD\u91CD\u8FF4\u97FF"
+  description: "\u6708\u5F71\u8FF4\u97FF\u591A\u4E00\u6B21\u56DE\u8072\uFF08\u4E0A\u9650 2\uFF09\u3002"
+  kind: 0
+  weight: 8
+  maxStacks: 1
+  requiresSpell: moon_echo
+  excludesSpell: 
+  icon: ICON_moon_echo

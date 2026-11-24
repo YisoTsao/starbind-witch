@@ -30,3 +30,8 @@ MonoBehaviour:
   isElite: 0
   isBoss: 0
   lootChance: 0.5
+  lootMaterial: 
+  projectileSprite: 
+  summonId: 
+  summonId2: 
+  element: 0

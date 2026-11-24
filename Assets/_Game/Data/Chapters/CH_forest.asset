@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9c1d7b44574080baf58bf72deb4a25, type: 3}
+  m_Name: CH_forest
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.ChapterDefinition
+  id: forest
+  order: 1
+  scene: Forest
+  title: "\u6708\u5F71\u68EE\u6797"
+  bossId: mushroom_king
+  bossName: "\u6708\u8755\u83C7\u738B"
+  arenaName: "\u83C7\u738B\u68F2\u5730"
+  eliteId: spore_elite
+  victoryFlag: defeat_mushroom_king
+  requiresFlag: 
+  entrySpawn: spawn_from_village
+  returnSpawn: spawn_from_forest
+  introNotice: "\u6708\u5F71\u68EE\u6797\u3000Z01 \u68EE\u6797\u5165\u53E3"
+  pushObjective: "\u5411\u5317\u6DF1\u5165\u68EE\u6797\uFF0C\u524D\u5F80\u83C7\u738B\u68F2\u5730"
+  bossObjective: "\u64CA\u6557\u6708\u8755\u83C7\u738B"
+  rewardSpells: []
+  rewardNote: 
+  enemyHpScale: 1
+  finale: 0
+  zones: []

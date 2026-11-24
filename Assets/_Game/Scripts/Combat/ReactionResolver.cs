@@ -22,6 +22,8 @@ namespace Starbind.Combat
         public int BlockedByBudget { get; private set; }
         public int BlockedByProtection { get; private set; }
 
+        static readonly ElementType[] Marked = { ElementType.Fire, ElementType.Ice, ElementType.Lightning, ElementType.Wind, ElementType.Nature, ElementType.Moon };
+
         public static ReactionType Pair(ElementType a, ElementType b)
         {
             if (a == b)
@@ -30,6 +32,7 @@ namespace Starbind.Combat
             if (Is(a, b, ElementType.Fire, ElementType.Lightning)) return ReactionType.Overload;
             if (Is(a, b, ElementType.Ice, ElementType.Lightning)) return ReactionType.ShatterStorm;
             if (Is(a, b, ElementType.Fire, ElementType.Wind)) return ReactionType.FireTornado;
+            if (Is(a, b, ElementType.Fire, ElementType.Nature)) return ReactionType.Wildfire;
             return ReactionType.None;
         }
 
@@ -44,7 +47,7 @@ namespace Starbind.Combat
             var reaction = ReactionType.None;
             if (!hit.CannotTriggerReaction && hit.ProcDepth < MaxProcDepth && hit.Element != ElementType.None)
             {
-                foreach (var existing in new[] { ElementType.Fire, ElementType.Ice, ElementType.Lightning, ElementType.Wind })
+                foreach (var existing in Marked)
                 {
                     if (existing == hit.Element || !status.Has(existing, now))
                         continue;

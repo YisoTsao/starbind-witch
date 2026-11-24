@@ -216,10 +216,10 @@ namespace Starbind.Tests
         {
             var db = AssetDatabase.LoadAssetAtPath<GameDatabase>("Assets/_Game/Resources/GameDatabase.asset");
             Assert.IsNotNull(db, "run Starbind/Build All Game Content first");
-            Assert.AreEqual(9, db.spells.Count);
+            Assert.AreEqual(14, db.spells.Count, "9 demo spells + 5 chapter rewards");
             foreach (var s in db.spells)
                 Assert.IsTrue(SpellFactory.IsAllowed(s), s.id + " not whitelisted");
-            Assert.AreEqual(15, db.upgrades.Select(u => u.id).Distinct().Count(), "15 distinct upgrade cards");
+            Assert.AreEqual(20, db.upgrades.Select(u => u.id).Distinct().Count(), "15 MVP cards + 5 later-school cards");
             var hp = db.enemies.ToDictionary(e => e.id, e => e.hp);
             Assert.AreEqual(45f, hp["slime"]); Assert.AreEqual(55f, hp["spore_shroom"]); Assert.AreEqual(140f, hp["root_guard"]);
             Assert.AreEqual(35f, hp["wisp"]); Assert.AreEqual(350f, hp["spore_elite"]);

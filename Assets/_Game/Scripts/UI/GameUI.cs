@@ -236,7 +236,7 @@ namespace Starbind.UI
             }
             if (openPanel != null)
                 return;
-            var panel = OpenModal("pause", new Vector2(700, 710), "暫停");
+            var panel = OpenModal("pause", new Vector2(700, 820), "暫停");
             UIKit.Button(panel, "Resume", "繼續遊戲", new Vector2(0.5f, 1), new Vector2(0, -170), new Vector2(460, 80), CloseModal);
             if (RunManager.Current != null && !RunManager.Current.Finished)
                 UIKit.Button(panel, "Abandon", "放棄本局（回工坊）", new Vector2(0.5f, 1), new Vector2(0, -280), new Vector2(460, 80), () =>
@@ -245,8 +245,9 @@ namespace Starbind.UI
                     RunManager.Current.Finish(false);
                 });
             UIKit.Button(panel, "Grimoire", "魔典 / 目前構築", new Vector2(0.5f, 1), new Vector2(0, -390), new Vector2(460, 80), () => { CloseModal(); ToggleGrimoire(); });
-            UIKit.Button(panel, "Settings", "設定", new Vector2(0.5f, 1), new Vector2(0, -500), new Vector2(460, 80), ShowSettings);
-            UIKit.Button(panel, "Quit", "離開遊戲", new Vector2(0.5f, 1), new Vector2(0, -610), new Vector2(460, 80), () =>
+            UIKit.Button(panel, "Quests", "任務日誌（J）", new Vector2(0.5f, 1), new Vector2(0, -500), new Vector2(460, 80), () => { CloseModal(); ToggleQuests(); });
+            UIKit.Button(panel, "Settings", "設定", new Vector2(0.5f, 1), new Vector2(0, -610), new Vector2(460, 80), ShowSettings);
+            UIKit.Button(panel, "Quit", "離開遊戲", new Vector2(0.5f, 1), new Vector2(0, -720), new Vector2(460, 80), () =>
             {
                 GameSession.Instance.Save();
                 Application.Quit();
@@ -365,6 +366,11 @@ namespace Starbind.UI
                     bool auto = def.trigger == SpellTrigger.Auto;
                     if ((slot == 2) != auto || !profile.IsUnlocked(def.id))
                         continue;
+                    if (x > 1250)
+                    {
+                        x = 340;
+                        y -= 72;
+                    }
                     string current = slot == 0 ? profile.activeQ : slot == 1 ? profile.activeE : (profile.autoSpells.Count > 0 ? profile.autoSpells[0] : "");
                     var d = def;
                     int s = slot;
@@ -413,7 +419,7 @@ namespace Starbind.UI
             y -= 44;
             foreach (var def in db.spells)
             {
-                if (!profile.IsUnlocked(def.id))
+                if (!profile.IsUnlocked(def.id) || (def.id != profile.activeQ && def.id != profile.activeE && !profile.autoSpells.Contains(def.id)))
                     continue;
                 UIKit.Label(panel, "D" + def.id, $"{def.displayName}：{def.description}", 21, UIKit.Muted, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(50, y), new Vector2(1400, 30));
                 y -= 32;
@@ -431,6 +437,8 @@ namespace Starbind.UI
             float y = -170;
             foreach (var node in GameSession.ResearchNodes)
             {
+                if (!s.ResearchVisible(node))
+                    continue;
                 var n = node;
                 int level = s.ResearchLevel(n.id);
                 bool maxed = level >= n.maxLevel;
@@ -447,9 +455,110 @@ namespace Starbind.UI
                         Notice("材料不足");
                 }, 22);
                 b.interactable = !maxed;
-                y -= 70;
+                y -= 64;
             }
             UIKit.Button(panel, "Close", "完成", new Vector2(0.5f, 0), new Vector2(0, 60), new Vector2(300, 70), CloseModal);
+        }
+
+        // ------------------------------------------------------------------ star plate: regions
+        public void ShowRegions(World.RegionSelector plate)
+        {
+            var profile = GameSession.Instance.Profile;
+            var chapters = World.RegionSelector.Available(profile);
+            var panel = OpenModal("regions", new Vector2(1100, 260 + (chapters.Count + 1) * 96), "傳送星盤");
+            float y = -130;
+            var actions = new List<Action>();
+            void Row(string text, string sub, bool done, Action go)
+            {
+                int index = actions.Count;
+                actions.Add(go);
+                var b = UIKit.Button(panel, "R" + index, $"{index + 1}　{text}", new Vector2(0.5f, 1), new Vector2(-140, y), new Vector2(620, 76), go, 28);
+                UIKit.Label(panel, "S" + index, sub, 22, done ? UIKit.Gold : UIKit.Muted, TextAnchor.MiddleLeft, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(340, y), new Vector2(360, 40));
+                y -= 96;
+            }
+            Row("魔女小屋門口", "村內傳送", false, () => { CloseModal(); plate.TravelHome(); });
+            foreach (var c in chapters)
+            {
+                var ch = c;
+                bool cleared = profile.HasQuest(c.victoryFlag);
+                Row($"第 {c.order} 章　{c.title}", cleared ? "已通關 ✓" : "未通關", cleared, () => { CloseModal(); World.RegionSelector.Travel(ch); });
+            }
+            UIKit.Button(panel, "Close", "關閉", new Vector2(0.5f, 0), new Vector2(0, 60), new Vector2(300, 70), CloseModal);
+            keyChoice = i => { if (i >= 0 && i < actions.Count) actions[i](); };
+            OfferedRegions = actions.Count;
+        }
+
+        /// <summary>Rows in the last region list (tests).</summary>
+        public int OfferedRegions { get; private set; }
+
+        /// <summary>Test hook: pick row i of the open choice panel (regions, ending).</summary>
+        public bool Choose(int i)
+        {
+            if (openPanel == null || keyChoice == null)
+                return false;
+            keyChoice(i);
+            return true;
+        }
+
+        // ------------------------------------------------------------------ finale: ending choice
+        public void ShowEnding(Action onDone)
+        {
+            var panel = OpenModal("ending", new Vector2(1300, 640), "魔典的抉擇");
+            UIKit.Label(panel, "Q", "扭曲的魔典在露米手中顫動。要怎麼做？", 30, UIKit.Text, TextAnchor.MiddleCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -130), new Vector2(1200, 50));
+            void Pick(bool seal)
+            {
+                CloseModal();
+                var s = GameSession.Instance;
+                World.EndingChoice.Choose(s.Profile, seal);
+                s.Save();
+                ShowDialogue(seal ? "結局 A　封印" : "結局 B　共存", seal ? World.EndingChoice.SealEpilogue : World.EndingChoice.PactEpilogue);
+                onDone?.Invoke();
+            }
+            UIKit.Button(panel, "Seal", "1　封印魔典", new Vector2(0.5f, 0.5f), new Vector2(-300, -10), new Vector2(520, 90), () => Pick(true), 30);
+            UIKit.Label(panel, "SealD", "失去改寫法術的力量，讓世界恢復平衡", 22, UIKit.Muted, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-300, -90), new Vector2(560, 40));
+            UIKit.Button(panel, "Pact", "2　與魔典締約", new Vector2(0.5f, 0.5f), new Vector2(300, -10), new Vector2(520, 90), () => Pick(false), 30);
+            UIKit.Label(panel, "PactD", "成為新的星痕魔女，讓魔典聽命於你", 22, UIKit.Muted, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(300, -90), new Vector2(560, 40));
+            keyChoice = i => { if (i == 0) Pick(true); else if (i == 1) Pick(false); };
+        }
+
+        // ------------------------------------------------------------------ quest log (J)
+        public void ToggleQuests()
+        {
+            if (openPanel == "quests")
+            {
+                CloseModal();
+                return;
+            }
+            if (openPanel != null)
+                return;
+            var panel = OpenModal("quests", new Vector2(1500, 920), "任務日誌");
+            var p = GameSession.Instance.Profile;
+            var all = GameDatabase.Instance.quests;
+            float y = -110;
+            void Section(string title, List<Progression.QuestDefinition> list, Color col, int max)
+            {
+                UIKit.Label(panel, "H" + title, title, 30, UIKit.Gold, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(50, y), new Vector2(600, 44));
+                y -= 50;
+                if (list.Count == 0)
+                {
+                    UIKit.Label(panel, "N" + title, "（無）", 22, UIKit.Muted, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(70, y), new Vector2(600, 34));
+                    y -= 40;
+                }
+                for (int i = 0; i < list.Count && i < max; i++)
+                {
+                    var q = list[i];
+                    string tag = q.kind == Progression.QuestKind.Main ? "主線" : "支線";
+                    UIKit.Label(panel, "Q" + q.id, $"［{tag}］{q.title}" + (string.IsNullOrEmpty(q.giver) ? "" : $"　— {q.giver}"), 24, col, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(70, y), new Vector2(1360, 34));
+                    y -= 34;
+                    UIKit.Label(panel, "D" + q.id, q.description, 20, UIKit.Muted, TextAnchor.MiddleLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(110, y), new Vector2(1320, 30));
+                    y -= 40;
+                }
+            }
+            Section("進行中", Progression.QuestLog.WithStatus(all, p, Progression.QuestStatus.Active), UIKit.Text, 8);
+            var done = Progression.QuestLog.WithStatus(all, p, Progression.QuestStatus.Done);
+            done.Reverse();
+            Section($"已完成（{done.Count}）", done, UIKit.Muted, 4);
+            UIKit.Button(panel, "Close", "關閉（J）", new Vector2(0.5f, 0), new Vector2(0, 60), new Vector2(300, 70), CloseModal);
         }
 
         // ------------------------------------------------------------------ tick
@@ -476,6 +585,8 @@ namespace Starbind.UI
                 if (kb != null && kb.escapeKey.wasPressedThisFrame)
                     dialogueRoot.gameObject.SetActive(false);
             }
+            if (kb != null && kb.jKey.wasPressedThisFrame && !DialogueOpen && (openPanel == null || openPanel == "quests"))
+                ToggleQuests();
             if (openPanel != null && kb != null)
             {
                 if (keyChoice != null)
@@ -483,6 +594,9 @@ namespace Starbind.UI
                     if (kb.digit1Key.wasPressedThisFrame) keyChoice(0);
                     else if (kb.digit2Key.wasPressedThisFrame) keyChoice(1);
                     else if (kb.digit3Key.wasPressedThisFrame) keyChoice(2);
+                    else if (kb.digit4Key.wasPressedThisFrame) keyChoice(3);
+                    else if (kb.digit5Key.wasPressedThisFrame) keyChoice(4);
+                    else if (kb.digit6Key.wasPressedThisFrame) keyChoice(5);
                 }
             }
         }

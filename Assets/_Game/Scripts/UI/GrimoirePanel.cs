@@ -67,6 +67,7 @@ namespace Starbind.UI
             SpellForm.Orbit => "環繞",
             SpellForm.Pull => "漩渦牽引",
             SpellForm.Homing => "追蹤飛彈",
+            SpellForm.Beam => "光束",
             _ => "脈衝",
         };
 
@@ -112,6 +113,9 @@ namespace Starbind.UI
             ElementType.Ice => "冰",
             ElementType.Lightning => "雷",
             ElementType.Wind => "風",
+            ElementType.Nature => "自然",
+            ElementType.Moon => "月影",
+            ElementType.Star => "星痕",
             _ => "奧術",
         };
 
@@ -123,6 +127,9 @@ namespace Starbind.UI
             (ElementType.Ice, "冰緩：敵人移動減速"),
             (ElementType.Lightning, "感電：受到的傷害提高"),
             (ElementType.Wind, "牽引：把敵人捲向中心"),
+            (ElementType.Nature, "中毒：持續毒素傷害"),
+            (ElementType.Moon, "詛咒：受到傷害 +15%"),
+            (ElementType.Star, "反彈：命中後彈向下一名敵人"),
         };
 
         static readonly (string a, string b, string name, string desc)[] Reactions =
@@ -131,6 +138,7 @@ namespace Starbind.UI
             ("火", "雷", "超載爆燃", "主目標周圍額外範圍爆炸"),
             ("冰", "雷", "碎晶雷暴", "擊碎冰凍，電弧跳向附近敵人"),
             ("火", "風", "火焰龍捲", "3 秒追敵移動的火焰區域"),
+            ("火", "自然", "野火蔓延", "燃燒擴散到附近最多 8 名敵人"),
         };
 
         void ElementPage(PlayerController p)
@@ -151,14 +159,14 @@ namespace Starbind.UI
             {
                 var (el, status) = Elements[i];
                 var col = ElementColor(el);
-                var box = UIKit.Image(page, "El" + i, UIKit.Panel, new Vector2(0, 1), new Vector2(0, 1), new Vector2(40 + i * 340, -124), new Vector2(320, 190));
+                var box = UIKit.Image(page, "El" + i, UIKit.Panel, new Vector2(0, 1), new Vector2(0, 1), new Vector2(40 + i * 202, -124), new Vector2(194, 190));
                 UIKit.Skin(box, "UI_slot_draft", 3f, used.ContainsKey(el) ? Color.white : new Color(0.6f, 0.55f, 0.7f));
-                var ribbon = UIKit.Image(box.transform, "Ribbon", col, new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -4), new Vector2(150, 42));
+                var ribbon = UIKit.Image(box.transform, "Ribbon", col, new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -4), new Vector2(130, 42));
                 UIKit.Skin(ribbon, "UI_banner_draft", 3f, col);
-                UIKit.Label(ribbon.transform, "N", ElementName(el), 24, new Color(0.1f, 0.06f, 0.16f), TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 2), new Vector2(140, 36)).GetComponent<Shadow>().enabled = false;
-                UIKit.Label(box.transform, "Status", status, 24, UIKit.Text, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -44), new Vector2(290, 64));
+                UIKit.Label(ribbon.transform, "N", ElementName(el), 24, new Color(0.1f, 0.06f, 0.16f), TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 2), new Vector2(124, 36)).GetComponent<Shadow>().enabled = false;
+                UIKit.Label(box.transform, "Status", status, 20, UIKit.Text, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -44), new Vector2(178, 64));
                 string spells = used.TryGetValue(el, out var l) ? "使用中：" + string.Join("、", l) : "尚未使用";
-                UIKit.Label(box.transform, "Used", spells, 24, used.ContainsKey(el) ? col : UIKit.Muted, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -112), new Vector2(290, 72));
+                UIKit.Label(box.transform, "Used", spells, 20, used.ContainsKey(el) ? col : UIKit.Muted, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -112), new Vector2(178, 72));
             }
 
             var world = CombatWorld.Exists ? CombatWorld.Instance : null;
@@ -188,6 +196,8 @@ namespace Starbind.UI
                 if (s.Def.modifier == SpellModifier.Split || s.Split > 0) mods.Add($"分裂 {Mathf.Max(s.Split, 1)}");
                 if (s.Def.modifier == SpellModifier.Pierce || s.Pierce > 0) mods.Add($"穿透 +{s.Pierce}");
                 if (s.Returns) mods.Add("折返");
+                if (s.Def.modifier == SpellModifier.Echo || s.Echo > 0) mods.Add($"迴響 x{Mathf.Max(s.Echo, 1)}");
+                if (s.Bounce > 0) mods.Add($"反彈 {s.Bounce}");
                 if (s.Count > 1) mods.Add($"數量 x{s.Count}");
                 UIKit.Label(page, "M" + key + s.Id, $"[{key}] {s.Def.displayName}", 24, UIKit.Gold, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(40, y), new Vector2(380, 32));
                 UIKit.Label(page, "MV" + key + s.Id, mods.Count > 0 ? string.Join("　", mods) : "（無修飾）", 24, mods.Count > 0 ? UIKit.Text : UIKit.Muted, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(420, y), new Vector2(560, 32));

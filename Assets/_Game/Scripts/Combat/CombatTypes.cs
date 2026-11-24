@@ -2,10 +2,13 @@ using UnityEngine;
 
 namespace Starbind.Combat
 {
-    /// <summary>Demo elements (GDD §5.2) plus Wind for the wind_pull special (§5.3 note).</summary>
-    public enum ElementType { None, Fire, Ice, Lightning, Wind }
+    /// <summary>Demo elements (GDD §5.2) plus Wind for the wind_pull special (§5.3 note) and the later
+    /// schools unlocked by chapters 2-4: Nature (poison), Moon (curse) and Star (no mark; rebounds).
+    /// Values are serialized: append only.</summary>
+    public enum ElementType { None, Fire, Ice, Lightning, Wind, Nature, Moon, Star }
 
-    public enum ReactionType { None, SteamBurst, Overload, ShatterStorm, FireTornado }
+    /// <summary>Append only (serialized). Wildfire = Fire + Nature (the one later-school reaction).</summary>
+    public enum ReactionType { None, SteamBurst, Overload, ShatterStorm, FireTornado, Wildfire }
 
     /// <summary>Which kind of attack produced a hit; used for resonance and MP-on-hit rules.</summary>
     public enum HitSource { Staff, StaffFinisher, ChargedBolt, ActiveSpell, AutoSpell, Reaction, Enemy, Environment }

@@ -116,6 +116,11 @@ namespace Starbind.Progression
                     foreach (var id in new[] { "fire_bolt", "piercing_ice", "split_flame" })
                         Mod(b, id, x => { x.Returns = true; x.Speed *= 0.85f; });
                     break;
+                case "U16": Mod(b, "prism_beam", x => { x.Radius += 0.15f; x.Range += 1f; }); break;
+                case "U17": Mod(b, "thorn_bloom", x => x.Radius *= 1.25f); break;
+                case "U18": Mod(b, "shadow_hand", x => { x.Radius *= 1.2f; x.Damage *= 1.15f; }); break;
+                case "U19": Mod(b, "moon_echo", x => x.Echo = System.Math.Min(AbilityRunner.MaxEcho, x.Echo + 1)); break;
+                case "U20": Mod(b, "star_shot", x => x.Bounce += 1); break;
                 default:
                     return false;
             }

@@ -1,5 +1,12 @@
 # 工作階段紀錄
 
+## 2026-11-25 +08:00｜第 2 章～終章（CH2-5-001）
+
+- 基準 0fd0154。使用者試玩第一章，G4 通過；要求把後續關卡與美術全部完成。決定：採用草案（Q-1）、結局玩家選擇（Q-2）、美術做 G2 風格程式草稿。一次完成多章記為 SPEC_CONFLICTS C-33。
+- G2 核准樣本併入 Assets。章節資料化（ChapterDefinition），新增四章場景、機關、22 種小怪與精英＋4 Boss、自然／月影／星痕學派、光束與迴響、野火蔓延、U16–U20、失控超載研究、任務系統、星盤地區選擇器、結局選擇。修正兩個實作中發現的 bug：星彈反彈重複命中同一目標、建置器 Prefab 同名覆蓋。
+- 在 scratchpad 副本以 6000.6.8f1 建置：Build All 7 個場景、macOS Player 117.1 MB 0 errors。EditMode 67/69（ChapterRouteTests forest/lake 灰盒預覽，改動前即失敗）、PlayMode 70/70；validate_chapters.py 4/4、seam_test 10/10 PASS。1080p 基準 p95 1.70 ms、最長 12.09 ms。擷圖在 docs/evidence/chapters/。
+- 未做：真人試玩、正式美術／音效／音樂、Windows。
+
 ## 2026-11-24 +08:00｜SHIP-001 長幀定位
 
 - 基準 b888dca。`BenchmarkMode` 加入長幀紀錄與 30 幀暖身（`warmup_max_ms` 另記），只在 -starbindBenchmark 時生效。

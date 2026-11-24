@@ -1,5 +1,10 @@
 # 工作階段紀錄
 
+## 2026-11-24 +08:00｜G2 核准
+
+- 使用者本人確認 ART-002 四類樣本（角色、森林、法術、UI）通過，G2 改為 approved。更新 DECISIONS.md、PROJECT_STATE.md。未修改程式與場景，未重跑測試。
+- 下一步：S5 首章 QA 與 G4 人工驗收；正式素材替換前須先確認來源授權。
+
 ## 2026-11-24 +08:00｜WRL-001、MAP-001 與首章 QA
 
 - 基準 feat/full-build-draft / 98d8e1f。對照總監 v2.0，依既有 GDD、故事草案及 G1 選擇補世界、地圖、任務、資產、UI、動畫與製作規範。詳見 PRODUCTION_BACKLOG.md、QA_REPORT.md 及 RELEASE_CHECKLIST.md。

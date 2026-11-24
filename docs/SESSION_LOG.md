@@ -1,5 +1,12 @@
 # 工作階段紀錄
 
+## 2026-11-24 +08:00｜SHIP-001 長幀定位
+
+- 基準 b888dca。`BenchmarkMode` 加入長幀紀錄與 30 幀暖身（`warmup_max_ms` 另記），只在 -starbindBenchmark 時生效。
+- 在 scratchpad 副本以 6000.6.8f1 建置 macOS Player（103.4 MB、0 errors）。112.81 ms 是首次 Metal shader 編譯：清快取 149–151 ms、熱快取約 18 ms；排除暖身後 1080p／540p 最長幀 15.08／12.12 ms，沒有超過 16.7 ms 的幀。證據在 evidence/perf-2026-11-24/。
+- PlayMode 58/58；EditMode 54/56（ChapterRouteTests forest、lake 渲染門檻；修改前的基準版本同樣失敗）。
+- 下一步候選：載入時 shader 預熱；查明灰盒渲染測試在 6000.6.8f1 的差異。
+
 ## 2026-11-24 +08:00｜G2 核准
 
 - 使用者本人確認 ART-002 四類樣本（角色、森林、法術、UI）通過，G2 改為 approved。更新 DECISIONS.md、PROJECT_STATE.md。未修改程式與場景，未重跑測試。

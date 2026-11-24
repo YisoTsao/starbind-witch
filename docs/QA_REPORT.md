@@ -32,3 +32,18 @@
 測試持續補怪至 60，兩組最低同屏分別為 52、50。1080p 有超過 16.7 ms 的長幀，原因待逐幀 profiler 定位。這兩次短程測試只代表此裝置與此情境。[Player 戰鬥畫面](evidence/world-graybox/player-combat.png)與[設定畫面](evidence/world-graybox/player-settings.png)來自編譯版。
 
 [礦坑 Game Camera](evidence/world-graybox/mine-play.png)顯示角色與互動提示；五章全圖由 Editor 的渲染攝影機擷取。正式首章的實測與後章 L1 分開驗收。
+
+## 2026-11-24 補充｜1080p 112.81 ms 長幀定位
+
+- 原因：不是解析度，而是基準測試的**第一幀**同時生成 59 隻敵人並首次施法，首次使用時 Metal 現場編譯 shader。上一輪 1080p 剛好是建置後的第一次執行，所以碰到冷快取。
+- 驗證：在 `BenchmarkMode` 記錄每個超過 16.7 ms 的幀（時間、同屏數、當幀生成數、施法、升級面板、GC）。1080p 連跑三次都只有第 1 幀，分別為 182／18／18 ms。清除該 Player 的 Metal 快取後重跑為 149 ms，快取建立後為 18 ms。
+- 修正量測：基準先暖身 30 幀，暖身期最大值另記為 `warmup_max_ms`，再計時 12 秒。結果（Apple M2、VSync 關、Unity 6000.6.8f1）：
+
+| 組別 | warmup_max | 平均 | p95 | p99 | 最長 | 超過 16.7 ms 的幀 |
+|---|---:|---:|---:|---:|---:|---:|
+| [1080p 冷快取](evidence/perf-2026-11-24/hd-cold.json) | 150.84 ms | 1.27 ms | 1.50 ms | 1.62 ms | 12.79 ms | 0 |
+| [1080p 熱快取](evidence/perf-2026-11-24/hd-warm.json) | 17.43 ms | 1.24 ms | 1.43 ms | 1.61 ms | 15.08 ms | 0 |
+| [960×540 熱快取](evidence/perf-2026-11-24/sd-warm.json) | 16.73 ms | 1.24 ms | 1.43 ms | 1.58 ms | 12.12 ms | 0 |
+
+- 尚存風險：安裝後第一次進森林、首次遇敵或施法時，可能有一次約 150 ms 的 shader 編譯停頓。修正候選為載入時預熱（GraphicsStateCollection／ShaderVariantCollection），尚未實作。
+- 測試：PlayMode 58/58。EditMode 54/56，`ChapterRouteTests.WalkEveryRoomAndTraverseBothDoors` 的 forest、lake 兩例失敗（渲染只有 4 種顏色，門檻要求超過 4 種）；未改動的基準版本同樣失敗，與本次修改無關。上一輪 56/56 使用 6000.6.10f1，本機現在只有 6000.6.8f1。

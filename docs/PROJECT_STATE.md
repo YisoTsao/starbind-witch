@@ -30,3 +30,4 @@ next_action：G2 已通過；依 PRODUCTION_BACKLOG.md 核對可用素材來源�
 - ART-002 送審證據：ART_002_SAMPLES.md、evidence/art-002/；樣本副本 EditMode 51/51、PlayMode 57/57。
 
 - 最新 QA（2026-11-24 16:42 +08:00）：EditMode 56/56、PlayMode 58/58、macOS Player 可啟動。1080p 最大 112.81 ms，待定位。證據見 QA_REPORT.md。
+- 效能（2026-11-24 補充）：112.81 ms 長幀已定位為首次 Metal shader 編譯（冷快取，約 150 ms），不是 1080p；暖身後穩定狀態最長幀 15.08 ms。首次預熱未實作；EditMode 灰盒渲染兩例在 6000.6.8f1 失敗，待查。見 QA_REPORT.md。

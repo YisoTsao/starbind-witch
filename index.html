@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="icon" href="data:,">
+  <title>Starbind Witch</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #14101c; color: #e8e0f4; overflow: hidden;
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+    #unity-canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; background: #14101c;
+      image-rendering: pixelated; outline: none; }
+    #overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 18px; background: #14101c; z-index: 2; text-align: center; padding: 16px; }
+    #overlay h1 { margin: 0; font-size: 34px; letter-spacing: 4px; color: #f2c45a; }
+    #bar { width: min(420px, 80vw); height: 10px; border: 2px solid #6a5a8a; border-radius: 6px; overflow: hidden; }
+    #fill { width: 0; height: 100%; background: #c8a8ff; transition: width .2s; }
+    #status { font-size: 15px; color: #b8aed0; min-height: 1.4em; }
+    #start { display: none; font: inherit; font-size: 20px; padding: 12px 36px; color: #14101c; background: #f2c45a;
+      border: 0; border-radius: 8px; cursor: pointer; }
+    #keys { font-size: 13px; color: #8a80a4; line-height: 1.7; max-width: 520px; }
+    #warn { display: none; color: #ffb0a0; font-size: 14px; max-width: 520px; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="overlay">
+    <h1>Starbind Witch</h1>
+    <div id="bar"><div id="fill"></div></div>
+    <div id="status">載入中…</div>
+    <button id="start">點擊開始</button>
+    <div id="warn">目前只支援電腦版瀏覽器（鍵盤操作）。手機可開啟，但無法操作。</div>
+    <div id="keys">WASD 移動・滑鼠瞄準・左鍵法杖（按住或右鍵蓄力魔彈）・Q／E 主動技・R 共鳴超載・Space 衝刺・F 互動・1–3 道具・Tab 魔典・J 任務・M 地圖・Esc 暫停<br>進度存在這個瀏覽器裡（清除網站資料會刪除存檔）</div>
+  </div>
+  <script>
+    var canvas = document.querySelector("#unity-canvas");
+    var fill = document.querySelector("#fill"), status = document.querySelector("#status");
+    var startBtn = document.querySelector("#start"), overlay = document.querySelector("#overlay");
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) document.querySelector("#warn").style.display = "block";
+    var buildUrl = "Build";
+    var config = {
+      arguments: [],
+      dataUrl: buildUrl + "/web.data.unityweb",
+      frameworkUrl: buildUrl + "/web.framework.js.unityweb",
+      codeUrl: buildUrl + "/web.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Starbind",
+      productName: "Starbind Witch",
+      productVersion: "1.0",
+      devicePixelRatio: 1,
+      showBanner: function (msg, type) {
+        if (type === "error") { status.textContent = "錯誤：" + msg; status.style.color = "#ffb0a0"; }
+        else console.warn(msg);
+      },
+    };
+    var script = document.createElement("script");
+    script.src = buildUrl + "/web.loader.js";
+    script.onload = function () {
+      createUnityInstance(canvas, config, function (p) {
+        fill.style.width = Math.round(p * 100) + "%";
+        status.textContent = "載入中… " + Math.round(p * 100) + "%";
+      }).then(function () {
+        status.textContent = "準備完成";
+        startBtn.style.display = "block";
+        startBtn.focus();
+      }).catch(function (e) { status.textContent = "載入失敗：" + e; status.style.color = "#ffb0a0"; });
+    };
+    script.onerror = function () { status.textContent = "找不到遊戲檔案（Build/）"; };
+    document.body.appendChild(script);
+    startBtn.addEventListener("click", function () {   // the click also unlocks browser audio
+      overlay.style.display = "none";
+      canvas.focus();
+    });
+    canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  </script>
+</body>
+</html>

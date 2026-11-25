@@ -56,10 +56,14 @@
     var script = document.createElement("script");
     script.src = buildUrl + "/web.loader.js";
     script.onload = function () {
+      var ready = false;
       createUnityInstance(canvas, config, function (p) {
+        if (ready) return;
         fill.style.width = Math.round(p * 100) + "%";
         status.textContent = "載入中… " + Math.round(p * 100) + "%";
       }).then(function () {
+        ready = true;
+        fill.style.width = "100%";
         status.textContent = "準備完成";
         startBtn.style.display = "block";
         startBtn.focus();

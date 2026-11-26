@@ -13,6 +13,7 @@ using Starbind.Progression;
 using Starbind.Spells;
 using Starbind.VFX;
 using Starbind.World;
+using Starbind.World.Studio;
 using Starbind.World.Tiles;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -50,7 +51,11 @@ namespace Starbind.Editor
         const string SfxRoot = "Assets/_Game/Audio/SFX/Draft/";
         public const string VillageScene = "Assets/_Game/Scenes/Village.unity";
         public const string WorkshopScene = "Assets/_Game/Scenes/Workshop.unity";
-        public const string ForestScene = "Assets/_Game/Scenes/Forest.unity";
+        /// <summary>Chapter 1 map before the World Studio overhaul (tools/map/forest.py). No longer built or
+        /// shipped: chapter 1 runs in Moonveil Forest (DECISIONS WVO-1). Kept for reference only.</summary>
+        public const string LegacyForestScene = "Assets/_Game/Scenes/Dev/Legacy/Forest_v1.unity";
+        /// <summary>Witch World Studio regions (docs/WORLD_GENERATOR_SPEC.md): generated map JSON -> scene.</summary>
+        public const string MoonveilScene = "Assets/_Game/Scenes/Regions/MoonveilForest.unity";
         const string ChapterArtManifest = ArtRoot + "chapter_manifest.json"; // tools/art/chapter_art.py (chapters 2-5)
 
         /// <summary>Chapter scenes after the forest (map json id, scene path), STORY_WORLD_QUESTS §3.6.</summary>
@@ -64,7 +69,7 @@ namespace Starbind.Editor
 
         public static string[] AllScenes()
         {
-            var list = new List<string> { VillageScene, WorkshopScene, ForestScene };
+            var list = new List<string> { VillageScene, WorkshopScene, MoonveilScene };
             list.AddRange(ChapterScenes.Select(c => c.scene));
             return list.ToArray();
         }
@@ -78,6 +83,8 @@ namespace Starbind.Editor
         [Serializable] class MapDef
         {
             public string id, biome;
+            /// <summary>World Studio regions: BiomeDefinition asset that supplies tiles and look.</summary>
+            public string biomeAsset;
             public int width, height;
             public Layers layers;
             public PropDef[] props;
@@ -86,22 +93,22 @@ namespace Starbind.Editor
             public ZoneDef[] zones;
             public SceneDef scene;
         }
-        [Serializable] class Layers { public string[] water, path, cliff, collision, wall, spawn, solid; }
-        [Serializable] class PropDef { public string sprite; public float x, y; public bool fade; public float[] box; public DoorDef door; public string layer; public int order; }
+        [Serializable] class Layers { public string[] water, path, cliff, collision, wall, spawn, solid, dark, detail; }
+        [Serializable] class PropDef { public string sprite; public float x, y; public bool fade; public float[] box; public DoorDef door; public string layer; public int order; public float[] light; }
         [Serializable] class DoorDef { public float dx, dy; public string target, spawn; }
         [Serializable] class SpawnDef { public string id; public float x, y; }
         [Serializable] class ZoneDef { public string id, name; public float[] rect; public bool noSpawn; }
-        [Serializable] class SceneDef { public string title, objective, chapter; public float dim; public bool safe; }
+        [Serializable] class SceneDef { public string title, objective, chapter, intro, runObjective; public float dim; public bool safe; }
         [Serializable] class StageDef { public string flag, quest; public string[] lines; }
         [Serializable] class MirrorDef { public int x, y, kind; }
         [Serializable]
         class ObjDef
         {
             public string kind, id, sheet, name, facing, quest, sprite, scene, spawn, label, target, station;
-            public string gate, circuit, reward, requires, school, notice, openSprite, litSprite;
+            public string gate, circuit, reward, requires, school, notice, openSprite, litSprite, leverSprite, leverOnSprite;
             public float x, y, radius, prompt, w, h;
             public int wave, count, dirX, dirY, tx, ty;
-            public string[] lines, after, locked, enemies;
+            public string[] lines, after, locked, enemies, frames;
             public StageDef[] stages;
             public MirrorDef[] mirrors;
             public bool heals, page;
@@ -127,10 +134,10 @@ namespace Starbind.Editor
             var ctx = new Ctx { db = db, sets = sets, extracted = extracted, mats = mats, player = player };
             BuildScene(ctx, Maps + "village.json", VillageScene);
             BuildScene(ctx, Maps + "workshop.json", WorkshopScene);
-            BuildScene(ctx, Maps + "forest.json", ForestScene);
             foreach (var (map, scene) in ChapterScenes)
                 if (File.Exists(Maps + map + ".json"))
                     BuildScene(ctx, Maps + map + ".json", scene);
+            WorldStudio.WorldStudioPipeline.BuildAllRegions(); // Moonveil Forest: art import, preset, generate, scene
             EditorBuildSettings.scenes = AllScenes().Where(File.Exists).Select(p => new EditorBuildSettingsScene(p, true)).ToArray();
             AssetDatabase.SaveAssets();
             Debug.Log("[GameContentBuilder] built " + string.Join(", ", EditorBuildSettings.scenes.Select(x => Path.GetFileNameWithoutExtension(x.path))));
@@ -149,6 +156,46 @@ namespace Starbind.Editor
                 Debug.LogException(e);
                 EditorApplication.Exit(1);
             }
+        }
+
+        /// <summary>Builds one map JSON into a scene with the assets already in the project (no re-import),
+        /// and adds the scene to the build settings. Used by Witch World Studio.</summary>
+        internal static void BuildRegionScene(string jsonPath, string scenePath)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(scenePath));
+            BuildScene(LoadContext(), jsonPath, scenePath);
+            var list = EditorBuildSettings.scenes.ToList();
+            if (!list.Any(sc => sc.path == scenePath))
+            {
+                list.Add(new EditorBuildSettingsScene(scenePath, true));
+                EditorBuildSettings.scenes = list.ToArray();
+            }
+            AssetDatabase.SaveAssets();
+        }
+
+        /// <summary>Context from the existing database, extracted props, materials and player prefab.</summary>
+        static Ctx LoadContext()
+        {
+            var db = AssetDatabase.LoadAssetAtPath<GameDatabase>(DatabasePath);
+            if (db == null)
+                throw new KeyError("GameDatabase missing: run Starbind/Build All Game Content first");
+            var sets = new Dictionary<string, Sprite[]>();
+            foreach (var set in db.sprites)
+                if (set != null && !string.IsNullOrEmpty(set.name))
+                    sets[set.name] = set.frames;
+            var extracted = new Dictionary<string, Sprite>();
+            var manPath = ExtractedArt + "extract_manifest_unity.json";
+            if (File.Exists(manPath))
+                foreach (var item in JsonUtility.FromJson<ExtractManifest>(File.ReadAllText(manPath)).items)
+                {
+                    var sp = AssetDatabase.LoadAssetAtPath<Sprite>(ExtractedArt + item.name + ".png");
+                    if (sp != null)
+                        extracted[item.name] = sp;
+                }
+            var mats = (AssetDatabase.LoadAssetAtPath<Material>(MaterialsRoot + "MAT_vfx_unlit.mat"),
+                        AssetDatabase.LoadAssetAtPath<Material>(MaterialsRoot + "MAT_character_flash.mat"));
+            var player = AssetDatabase.LoadAssetAtPath<GameObject>(PlayerPrefabPath);
+            return new Ctx { db = db, sets = sets, extracted = extracted, mats = mats, player = player };
         }
 
         [MenuItem("Starbind/Import Spell VFX")]
@@ -190,6 +237,38 @@ namespace Starbind.Editor
             EditorApplication.Exit(report.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? 0 : 1);
         }
 
+        /// <summary>Batch entry: WebGL player for phone and desktop browsers (no Android/iOS module on
+        /// this machine). Gzip with decompression fallback so any static web server can host it;
+        /// landscape default orientation. Path from -buildOut or Builds/webgl.</summary>
+        [MenuItem("Starbind/Build WebGL (mobile browser)")]
+        public static void BuildWebGLPlayer() => BuildWebGL(false);
+
+        public static void BuildWebGLPlayerBatch() => BuildWebGL(true);
+
+        static void BuildWebGL(bool exit)
+        {
+            var args = Environment.GetCommandLineArgs();
+            int i = Array.IndexOf(args, "-buildOut");
+            string outPath = i >= 0 && i + 1 < args.Length ? args[i + 1] : "Builds/webgl";
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.dataCaching = true;
+            PlayerSettings.WebGL.nameFilesAsHashes = false;
+            PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
+            PlayerSettings.allowedAutorotateToPortrait = false;
+            PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
+            var report = UnityEditor.BuildPipeline.BuildPlayer(new BuildPlayerOptions
+            {
+                scenes = AllScenes().Where(File.Exists).ToArray(),
+                locationPathName = outPath,
+                target = BuildTarget.WebGL,
+                options = BuildOptions.None,
+            });
+            Debug.Log($"[GameContentBuilder] WebGL build {report.summary.result}: {report.summary.totalSize / 1048576f:0.0} MB, {report.summary.totalErrors} errors, {report.summary.totalTime}");
+            if (exit)
+                EditorApplication.Exit(report.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? 0 : 1);
+        }
+
         class Ctx
         {
             public GameDatabase db;
@@ -200,6 +279,8 @@ namespace Starbind.Editor
             public string rawJson;
             public readonly Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
             public readonly HashSet<string> prefabFiles = new HashSet<string>();
+
+            public bool HasSprite(string name) => extracted.ContainsKey(name) || (sets.TryGetValue(name, out var f) && f.Length > 0);
 
             public Sprite Sprite(string name)
             {
@@ -324,7 +405,7 @@ namespace Starbind.Editor
             return m;
         }
 
-        static T Upsert<T>(string path, Action<T> fill) where T : ScriptableObject
+        internal static T Upsert<T>(string path, Action<T> fill) where T : ScriptableObject
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var asset = AssetDatabase.LoadAssetAtPath<T>(path);
@@ -486,8 +567,9 @@ namespace Starbind.Editor
             };
             var chapters = new List<ChapterDefinition>
             {
-                Chapter("forest", 1, "Forest", "月影森林", "mushroom_king", "月蝕菇王", "菇王棲地", "spore_elite", "defeat_mushroom_king", "",
-                    "月影森林　Z01 森林入口", "向北深入森林，前往菇王棲地", new string[0], "", 1f, false),
+                // chapter 1 runs in Moonveil Forest (World Studio region; replaces the old 64x64 forest, DECISIONS WVO-1)
+                Chapter("forest", 1, "MoonveilForest", "紫幻森林", "mushroom_king", "月蝕菇王", "首領空地", "spore_elite", "defeat_mushroom_king", "",
+                    "紫幻森林　森林入口", "調查森林深處的異常魔力", new string[0], "", 1f, false),
                 Chapter("mine", 2, "Mine", "星核礦坑", "crystal_golem", "晶核魔像", "核心礦室", "crystal_elite", "defeat_crystal_golem", "defeat_mushroom_king",
                     "星核礦坑　Z01 礦口", "穿過礦坑，前往核心礦室", new[] { "prism_beam", "thorn_bloom" }, "（光束形態・自然學派）", 1.3f, false,
                     ("Z01", new[] { "ore_bat", "crystal_mite" }, new[] { 6f, 4f }),
@@ -525,7 +607,7 @@ namespace Starbind.Editor
                 // existing chapter-1 flags (STORY_WORLD_QUESTS §4.1) keep their ids so old saves keep progress
                 Quest(qo++, "M1-01", "forest", M, "拜訪艾拉", "在村莊廣場找艾拉，聽她說明魔典的異常。", "艾拉", "talked_ella", null),
                 Quest(qo++, "M1-02", "forest", M, "魔典台的初次書頁", "回魔女小屋，在魔典台把法術放進槽位。", "艾拉", "configure_first_spell", "talked_ella"),
-                Quest(qo++, "M1-03", "forest", M, "擊敗月蝕菇王", "從村莊南路進入月影森林，擊敗菇王棲地的月蝕菇王。", "艾拉", "defeat_mushroom_king", "configure_first_spell"),
+                Quest(qo++, "M1-03", "forest", M, "擊敗月蝕菇王", "從村莊南路進入紫幻森林，登上東北懸崖的首領空地，擊敗月蝕菇王。", "艾拉", "defeat_mushroom_king", "configure_first_spell"),
                 Quest(qo++, "M1-04", "forest", M, "研究殘頁", "帶著材料回研究桌，完成一次研究。", "艾拉", "research_after_victory", "defeat_mushroom_king"),
                 Quest(qo++, "S1-01", "forest", S, "騎士的訓練", "到訓練場和凱恩談談近戰的訣竅。", "凱恩", "talked_kain", null),
                 // ch.2
@@ -801,6 +883,7 @@ namespace Starbind.Editor
             }
             if (p.fade)
                 go.AddComponent<OcclusionFader>();
+            AddContactShadow(ctx, go.transform, p, sr.sprite);
             // Phase-0 prefab names kept for the north-block props (same sprite + same box + fade)
             bool first = ctx.prefabFiles.Add(p.sprite);
             string file = first ? p.sprite : key.Replace('.', '_');
@@ -812,6 +895,31 @@ namespace Starbind.Editor
             UnityEngine.Object.DestroyImmediate(go);
             ctx.prefabs[key] = prefab;
             return prefab;
+        }
+
+        /// <summary>World Studio props that stand on the ground (trees near clearings, rocks, ruins, camp
+        /// pieces: the ones with a collider or occlusion fade) get a flat contact shadow on GroundDecal,
+        /// sized from the collider or sprite width (MISSING_ASSETS §2 接地陰影). Deep-forest trees have
+        /// neither, so the dense canopy adds no extra renderers.</summary>
+        static void AddContactShadow(Ctx ctx, Transform prop, PropDef p, Sprite sprite)
+        {
+            if (sprite == null || !p.sprite.StartsWith("PROP_mv_") || p.sprite.Contains("bridge") || p.sprite.Contains("shadow"))
+                return;
+            bool hasBox = p.box != null && p.box.Length == 4;
+            if (!hasBox && !p.fade)
+                return;
+            float want = Mathf.Max(hasBox ? p.box[0] * 32f * 1.25f : 0f, sprite.rect.width * 0.42f);
+            string name = want < 32 ? "PROP_mv_shadow_s" : want < 52 ? "PROP_mv_shadow_m" : want < 80 ? "PROP_mv_shadow_l" : "PROP_mv_shadow_xl";
+            if (!ctx.HasSprite(name))
+                return;
+            var shadowSprite = ctx.Sprite(name);
+            var go = new GameObject("Shadow");
+            go.transform.SetParent(prop, false);
+            go.transform.localPosition = new Vector3(hasBox ? p.box[2] : 0f, 0.06f, 0f);
+            var sr = go.AddComponent<SpriteRenderer>();
+            sr.sprite = shadowSprite;
+            sr.sortingLayerName = StarbindLayers.SortGroundDecal;
+            sr.sortingOrder = 60;
         }
 
         /// <summary>Soft 2D lights on glowing props (display only): x/y offset from the pivot, colour, radius, intensity.</summary>
@@ -839,18 +947,21 @@ namespace Starbind.Editor
             if (!PropLightTable.TryGetValue(sprite, out var lights))
                 return;
             foreach (var (x, y, color, radius, intensity) in lights)
-            {
-                var go = new GameObject("Glow");
-                go.transform.SetParent(prop, false);
-                go.transform.localPosition = new Vector3(x, y, 0);
-                var l = go.AddComponent<Light2D>();
-                l.lightType = Light2D.LightType.Point;
-                l.color = color;
-                l.intensity = intensity;
-                l.pointLightOuterRadius = radius;
-                l.pointLightInnerRadius = radius * 0.15f;
-                l.falloffIntensity = 0.7f;
-            }
+                AddLight(prop, new Vector2(x, y), color, radius, intensity);
+        }
+
+        static void AddLight(Transform prop, Vector2 offset, Color color, float radius, float intensity)
+        {
+            var go = new GameObject("Glow");
+            go.transform.SetParent(prop, false);
+            go.transform.localPosition = new Vector3(offset.x, offset.y, 0);
+            var l = go.AddComponent<Light2D>();
+            l.lightType = Light2D.LightType.Point;
+            l.color = color;
+            l.intensity = intensity;
+            l.pointLightOuterRadius = radius;
+            l.pointLightInnerRadius = radius * 0.15f;
+            l.falloffIntensity = 0.7f;
         }
 
         static SpriteRenderer Decal(Ctx ctx, Transform parent, string sprite, Vector2 pos, string layer, int order, string name = null)
@@ -865,6 +976,16 @@ namespace Starbind.Editor
             if (layer == StarbindLayers.SortWorld)
                 sr.spriteSortPoint = SpriteSortPoint.Pivot;
             return sr;
+        }
+
+        static void SetStrings(UnityEngine.Object target, string field, string[] values)
+        {
+            var so = new SerializedObject(target);
+            var p = so.FindProperty(field);
+            p.arraySize = values.Length;
+            for (int i = 0; i < values.Length; i++)
+                p.GetArrayElementAtIndex(i).stringValue = values[i];
+            so.ApplyModifiedPropertiesWithoutUndo();
         }
 
         static GameObject Trigger(Transform parent, string name, Vector2 pos, float radius, string id, float promptHeight)
@@ -899,6 +1020,11 @@ namespace Starbind.Editor
             bool forest = map.biome == "forest", interior = map.biome == "interior";
             ctx.rawJson = File.ReadAllText(jsonPath);
             var look = BiomeLook(map.biome);
+            var sb = string.IsNullOrEmpty(map.biomeAsset) ? null : AssetDatabase.LoadAssetAtPath<BiomeDefinition>(map.biomeAsset);
+            if (!string.IsNullOrEmpty(map.biomeAsset) && sb == null)
+                throw new KeyError("biome asset missing: " + map.biomeAsset);
+            if (sb != null)
+                look = (sb.globalLight, sb.globalIntensity, (Color32)sb.background);
 
             var light = new GameObject("Global Light 2D").AddComponent<Light2D>();
             light.lightType = Light2D.LightType.Global;
@@ -912,6 +1038,8 @@ namespace Starbind.Editor
             cfg.safeZone = map.scene.safe;
             cfg.objective = map.scene.objective;
             cfg.chapterId = map.scene.chapter ?? "";
+            cfg.runIntro = map.scene.intro ?? "";
+            cfg.runObjective = map.scene.runObjective ?? "";
 
             // ---- tilemaps (WORLD_STRUCTURE §5)
             var grid = new GameObject("Grid").AddComponent<Grid>();
@@ -930,13 +1058,27 @@ namespace Starbind.Editor
 
             var t = LoadTiles();
             t.biomes.TryGetValue(map.biome ?? "", out var bt);
-            var baseTile = bt != null ? bt.ground : interior ? t.floor : forest ? t.fGrass : t.grass;
+            var baseTile = sb != null ? sb.ground : bt != null ? bt.ground : interior ? t.floor : forest ? t.fGrass : t.grass;
             var cells = new List<Vector3Int>(W * H);
             for (int y = 0; y < H; y++)
                 for (int x = 0; x < W; x++)
                     cells.Add(new Vector3Int(x, y, 0));
             ground.SetTiles(cells.ToArray(), Enumerable.Repeat(baseTile, cells.Count).ToArray());
             var L = map.layers;
+            if (sb != null)
+            {
+                // World Studio layers (docs/WORLD_GENERATOR_SPEC.md §5): dark floor 5, water 10, path 20, paver 22, detail 25, cliff 30
+                var dark = Layer(grid, "GroundDark", 5);
+                var paver = Layer(grid, "Paver", 22);
+                var detail = Layer(grid, "Detail", 25);
+                if (L.dark != null) Paint(L.dark, H, dark, c => c == 'd' ? sb.darkGround : null);
+                if (L.water != null) Paint(L.water, H, water, c => c == '~' ? sb.water : null);
+                if (L.path != null) Paint(L.path, H, path, c => c == 'p' ? sb.path : null);
+                if (L.path != null) Paint(L.path, H, paver, c => c == 'v' ? sb.paver : null);
+                if (L.detail != null) Paint(L.detail, H, detail, c => c >= '1' && c <= '9' && c - '1' < sb.details.Length ? sb.details[c - '1'] : null);
+                if (L.cliff != null) Paint(L.cliff, H, cliff, c => c == 'R' ? sb.cliffRim : c == 'F' ? sb.cliffFace : c == 'W' ? sb.cliffWaterfall : c == 'S' ? sb.cliffStairs : null);
+                L = new Layers { collision = L.collision, spawn = L.spawn };
+            }
             if (L.water != null) Paint(L.water, H, water, c => c == '~' ? (bt != null ? bt.water : forest ? t.fWater : t.water) : null);
             if (L.path != null) Paint(L.path, H, path, c => c == 'p' ? (bt != null ? bt.path : forest ? t.fPath : t.path) : null);
             if (L.solid != null && bt != null) Paint(L.solid, H, cliff, c => c == 'S' ? bt.solid : null);
@@ -950,6 +1092,7 @@ namespace Starbind.Editor
             var props = new GameObject("Props").transform;
             props.SetParent(world, false);
             var decals = new GameObject("Decals").transform;
+            var chunks = new Dictionary<Vector2Int, Transform>();
             foreach (var p in map.props)
             {
                 if (!string.IsNullOrEmpty(p.layer))
@@ -957,9 +1100,23 @@ namespace Starbind.Editor
                     Decal(ctx, decals, p.sprite, new Vector2(p.x, p.y), p.layer, p.order);
                     continue;
                 }
-                var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), props);
+                var parent = props;
+                if (sb != null)
+                {
+                    // 16x16-tile chunks keep the hierarchy navigable on large generated maps
+                    var key = new Vector2Int(Mathf.FloorToInt(p.x / 16f), Mathf.FloorToInt(p.y / 16f));
+                    if (!chunks.TryGetValue(key, out parent))
+                    {
+                        parent = new GameObject($"Chunk_{key.x}_{key.y}").transform;
+                        parent.SetParent(props, false);
+                        chunks[key] = parent;
+                    }
+                }
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(PropPrefab(ctx, p), parent);
                 go.transform.position = new Vector3(p.x, p.y, 0);
                 AddPropLights(go.transform, p.sprite);
+                if (p.light != null && p.light.Length == 7)
+                    AddLight(go.transform, new Vector2(p.light[5], p.light[6]), new Color(p.light[0], p.light[1], p.light[2]), p.light[3], p.light[4]);
                 if (p.door != null && !string.IsNullOrEmpty(p.door.target))
                 {
                     var door = Trigger(go.transform, "Door", new Vector2(p.x + p.door.dx, p.y + p.door.dy), 0.45f, "cottage_door", 1.55f);
@@ -967,7 +1124,16 @@ namespace Starbind.Editor
                 }
             }
 
-            if (!forest && !interior && map.biome != "mine")
+            if (sb != null)
+            {
+                if (sb.ambientMotes > 0)
+                {
+                    var motes = new GameObject("AmbientMotes").AddComponent<AmbientMotes>();
+                    motes.transform.SetParent(world, false);
+                    motes.Configure(ctx.Sprite("DEC_mote_draft"), ctx.mats.unlit, sb.ambientMotes);
+                }
+            }
+            else if (!forest && !interior && map.biome != "mine")
             {
                 var motes = new GameObject("AmbientMotes").AddComponent<AmbientMotes>();
                 motes.transform.SetParent(world, false);
@@ -1173,10 +1339,11 @@ namespace Starbind.Editor
                 }
                 case "vine":
                 {
-                    var sr = Decal(ctx, world, "PROP_vine_draft", pos, StarbindLayers.SortWorld, 0, "BurnableVine");
+                    string vineSprite = string.IsNullOrEmpty(o.sprite) ? "PROP_vine_draft" : o.sprite;
+                    var sr = Decal(ctx, world, vineSprite, pos, StarbindLayers.SortWorld, 0, "BurnableVine");
                     int vines = Mathf.Max(1, Mathf.RoundToInt(o.block[0]));
                     for (int ix = 1; ix < vines; ix++) // extra whole vine sprites across the path, alternating sides
-                        Decal(ctx, sr.transform, "PROP_vine_draft", pos + new Vector2((ix + 1) / 2 * (ix % 2 == 1 ? 1f : -1f), 0), StarbindLayers.SortWorld, 0, "Vine");
+                        Decal(ctx, sr.transform, vineSprite, pos + new Vector2((ix + 1) / 2 * (ix % 2 == 1 ? 1f : -1f), 0), StarbindLayers.SortWorld, 0, "Vine");
                     var root = sr.gameObject;
                     var blocker = Blocker(objects, "VineBlocker", pos + new Vector2(0, 0.3f), new Vector2(o.block[0], o.block[1]));
                     var h = root.AddComponent<Health>();
@@ -1189,20 +1356,29 @@ namespace Starbind.Editor
                     v.Configure(sr, blocker);
                     Set(v, "sprite", sr);
                     Set(v, "blocker", blocker);
+                    if (!string.IsNullOrEmpty(o.openSprite))
+                        SetString(v, "burntSprite", o.openSprite);
+                    if (o.frames != null && o.frames.Length > 0)
+                        SetStrings(v, "burnFrames", o.frames);
                     break;
                 }
                 case "bridge_stone":
                 {
-                    var bridge = Decal(ctx, objects, "PROP_bridge_stone_broken_draft", pos, StarbindLayers.SortGround, 35, "StoneBridge");
-                    var gap = Blocker(objects, "BridgeGap", pos, new Vector2(o.gap[0], o.gap[1]));
+                    var bridge = Decal(ctx, objects, string.IsNullOrEmpty(o.sprite) ? "PROP_bridge_stone_broken_draft" : o.sprite, pos, StarbindLayers.SortGround, 35, "StoneBridge");
+                    // World Studio bridges: the gap covers the bridge cells (rect), the sprite stands at its pivot
+                    var gapCentre = o.rect != null && o.rect.Length == 4 ? new Vector2(o.rect[0] + o.rect[2] * 0.5f, o.rect[1] + o.rect[3] * 0.5f) : pos;
+                    var gap = Blocker(objects, "BridgeGap", gapCentre, new Vector2(o.gap[0], o.gap[1]));
                     var leverPos = new Vector2(o.lever[0], o.lever[1]);
-                    var lever = Decal(ctx, world, "PROP_lever_draft", leverPos, StarbindLayers.SortWorld, 0, "BridgeLever");
+                    var lever = Decal(ctx, world, string.IsNullOrEmpty(o.leverSprite) ? "PROP_lever_draft" : o.leverSprite, leverPos, StarbindLayers.SortWorld, 0, "BridgeLever");
                     var t = Trigger(lever.transform, "Pull", leverPos, 0.6f, "bridge_lever", 1.1f);
                     var sw = t.AddComponent<BridgeSwitch>();
-                    sw.Configure(lever, bridge, gap);
+                    sw.Configure(lever, bridge, gap, string.IsNullOrEmpty(o.openSprite) ? "PROP_bridge_stone_draft" : o.openSprite);
                     Set(sw, "lever", lever);
                     Set(sw, "bridge", bridge);
                     Set(sw, "gap", gap);
+                    SetString(sw, "repairedSprite", string.IsNullOrEmpty(o.openSprite) ? "PROP_bridge_stone_draft" : o.openSprite);
+                    if (!string.IsNullOrEmpty(o.leverOnSprite))
+                        SetString(sw, "leverOnSprite", o.leverOnSprite);
                     break;
                 }
                 case "boss_arena":

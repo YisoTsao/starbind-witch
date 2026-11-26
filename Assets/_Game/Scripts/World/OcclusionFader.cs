@@ -25,6 +25,8 @@ namespace Starbind.World
         {
             float target = IsViewerBehind() ? occludedAlpha : 1f;
             var c = sprite.color;
+            if (c.a == target)
+                return; // settled: no renderer write (large maps carry hundreds of faders)
             c.a = Mathf.MoveTowards(c.a, target, fadeSpeed * Time.deltaTime);
             sprite.color = c;
         }

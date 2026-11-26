@@ -38,7 +38,7 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator UpgradeCardsHaveRibbonSocketAndKeyAndPopIn()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             RunManager.Current.Run.AddXp(RunState.XpToNext(1));
@@ -115,20 +115,20 @@ namespace Starbind.Tests
             ObjectiveTracker.MarkTrained();
             yield return new WaitForSecondsRealtime(ObjectiveTracker.RefreshInterval + 0.1f);
             Assert.IsTrue(ObjectiveTracker.TryGet(out var road, out label));
-            StringAssert.Contains("月影森林", label);
-            var exit = Object.FindObjectsByType<AreaExit>().First(e => e.TargetScene == "Forest");
+            StringAssert.Contains("紫幻森林", label);
+            var exit = Object.FindObjectsByType<AreaExit>().First(e => e.TargetScene == "MoonveilForest");
             Assert.That(Vector2.Distance(road, exit.Area.center), Is.LessThan(0.01f));
-            StringAssert.Contains("前往月影森林", GameSession.Instance.Objective());
+            StringAssert.Contains("前往紫幻森林", GameSession.Instance.Objective());
         }
 
         [UnityTest]
         public IEnumerator ForestObjectiveFollowsTheBossArena()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             RunManager.Current.Director.Running = false;
             yield return null;
             Assert.IsTrue(ObjectiveTracker.TryGet(out var goal, out var label));
-            Assert.AreEqual("菇王棲地", label);
+            Assert.AreEqual("首領空地", label);
             var arena = Object.FindAnyObjectByType<BossArena>();
             Assert.That(Vector2.Distance(goal, arena.Trigger.center), Is.LessThan(0.01f));
         }
@@ -136,7 +136,7 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator EverySpellPlaysBigEffectsWithoutChangingDamage()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             player.Vitals.Health.InvulnerableUntil = 9999f;
@@ -173,7 +173,7 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator OverdriveFlashesTheScreenAndStrikesLightning()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             var v = VfxService.Instance;

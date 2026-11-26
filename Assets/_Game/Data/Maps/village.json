@@ -4337,9 +4337,9 @@
     6.0,
     2.2
    ],
-   "scene": "Forest",
+   "scene": "MoonveilForest",
    "spawn": "spawn_from_village",
-   "label": "前往月影森林"
+   "label": "前往紫幻森林"
   }
  ],
  "spawns": [

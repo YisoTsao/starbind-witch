@@ -130,7 +130,7 @@ namespace Starbind.World
                         return true;
                     }
                 }
-                return FindExit("Forest", out pos, out label);
+                return FindExit("MoonveilForest", out pos, out label);
             }
             return FindExit(null, out pos, out label);
         }
@@ -157,7 +157,7 @@ namespace Starbind.World
                 if (target == null || e.TargetScene == target)
                 {
                     pos = e.Area.center;
-                    label = e.TargetScene == "Forest" ? "南路・往月影森林" : e.TargetScene == "Village" ? "出口・星露村" : "出口";
+                    label = e.TargetScene == "MoonveilForest" ? "南路・往紫幻森林" : e.TargetScene == "Village" ? "出口・星露村" : "出口";
                     return true;
                 }
             foreach (var d in Object.FindObjectsByType<DoorPortal>())   // workshop: the door is the only way out

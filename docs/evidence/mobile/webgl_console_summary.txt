@@ -1,0 +1,12 @@
+  17 Shader 'Hidden/Universal Render Pipeline/Bloom' is not supported or has been stripped from the build (in 'BloomPostProcessPass'). PostProcessing render passes will not execute.
+   2 Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.
+   1 You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/webgl.wasm.unityweb" file.
+   1 You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/webgl.framework.js.unityweb" file.
+   1 You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/webgl.data.unityweb" file.
+   1 Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))
+   1 Vendor:   WebKit
+   1 UnloadTime: 25.200001 ms
+   1 Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.
+   1 Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.
+   1 Shader 'Hidden/Universal Render Pipeline/CameraMotionBlur' is not supported or has been stripped from the build (in 'MotionBlurPostProcessPass'). PostProcessing render passes will not execute.
+   1 Shader 'Hidden/Universal Render Pipeline/BokehDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldBokehPostProcessPass'). PostProcessing render passes will not execute.

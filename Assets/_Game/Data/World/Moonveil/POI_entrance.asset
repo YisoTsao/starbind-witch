@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c1738d49d847bf9ca294a4146ba2d, type: 3}
+  m_Name: POI_entrance
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Studio.PoiDefinition
+  id: entrance
+  kind: 0
+  displayName: "\u68EE\u6797\u5165\u53E3"
+  clearing: {x: 8, y: 6.5}
+  boundaryNoise: 0.22
+  ground: 0
+  paverRadius: 0
+  safe: 1
+  stamps:
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: -3.4, y: 5.6}
+    ground: 0
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: 3.4, y: 5.6}
+    ground: 0
+  - sprite: PROP_mv_lantern_stone
+    offset: {x: -2.3, y: 5.2}
+    ground: 0
+  - sprite: PROP_mv_lantern_stone
+    offset: {x: 2.3, y: 5.2}
+    ground: 0
+  - sprite: PROP_mv_bush_flower
+    offset: {x: -6, y: 1.5}
+    ground: 0
+  - sprite: PROP_mv_flowers_pink
+    offset: {x: 6.5, y: -1.5}
+    ground: 0
+  objects:
+  - kind: sign_post
+    offset: {x: 4.4, y: -2.2}
+    sprite: PROP_mv_signpost
+    label: "\u7D2B\u5E7B\u68EE\u6797\u544A\u793A"
+    lines:
+    - "\u5317\u65B9\u662F\u6708\u5F71\u796D\u58C7\uFF1B\u6771\u908A\u63A1\u96C6\u6797\u5730\u3001\u897F\u908A\u6709\u96B1\u85CF\u71DF\u5730\u3002"
+    - "\u9996\u9818\u7A7A\u5730\u5728\u6771\u5317\u7684\u61F8\u5D16\u4E0A\uFF0C\u53EA\u6709\u77F3\u968E\u80FD\u4E0A\u53BB\u3002"
+    - "\u60F3\u64A4\u9000\uFF1A\u6309 Esc \u9078\u64C7\u653E\u68C4\u672C\u5C40\uFF08\u6750\u6599\u53EA\u4FDD\u7559\u4E00\u534A\uFF09\u3002"
+    flag: 0
+  clearCore: 4
+  roadStop: 0

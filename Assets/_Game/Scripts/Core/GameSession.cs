@@ -157,7 +157,8 @@ namespace Starbind.Core
             {
                 if (run.Run != null && run.Run.BossDefeated) return "走進光門返回村莊";
                 if (run.Boss != null) return string.IsNullOrEmpty(run.Chapter.bossObjective) ? "擊敗" + run.Chapter.bossName : run.Chapter.bossObjective;
-                return run.Chapter.pushObjective;
+                var scene = SceneConfig.Current;
+                return scene != null && !string.IsNullOrEmpty(scene.runObjective) ? scene.runObjective : run.Chapter.pushObjective;
             }
             if (SceneConfig.Current != null && !string.IsNullOrEmpty(SceneConfig.Current.objective))
             {
@@ -169,7 +170,7 @@ namespace Starbind.Core
                 if (Profile.victories > 0)
                     return "研究新書頁，或再次前往森林";
                 if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Village" && World.ObjectiveTracker.TrainingDone)
-                    return "訓練完成！從南路前往月影森林";
+                    return "訓練完成！從南路前往紫幻森林";
                 return SceneConfig.Current.objective;
             }
             return "";

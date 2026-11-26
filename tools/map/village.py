@@ -456,7 +456,7 @@ objects = [
         ("12", "歐文（信差）", 28.6, 4.8, "up", 2.4, ["王子殿下也來到村子了，就在訓練場那邊。", "我得趕快把信送出去……可是森林的路被封了。"]),
     ]
 ] + [
-    {"kind": "exit", "rect": [20.0, -1.0, 6.0, 2.2], "scene": "Forest", "spawn": "spawn_from_village", "label": "前往月影森林"},
+    {"kind": "exit", "rect": [20.0, -1.0, 6.0, 2.2], "scene": "MoonveilForest", "spawn": "spawn_from_village", "label": "前往紫幻森林"},
 ]
 
 spawns = [{"id": s["id"], "x": round(s["x"] + DX, 3), "y": round(s["y"] + DY, 3)} for s in north["spawns"]]

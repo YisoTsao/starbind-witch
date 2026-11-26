@@ -80,6 +80,9 @@ namespace Starbind.UI
             var path = Find(grid, "Path");
             var cliff = Find(grid, "Cliff");
             var coll = Find(grid, "Collision");
+            var dark = Find(grid, "GroundDark");     // World Studio regions: canopy shade / forest floor
+            var paver = Find(grid, "Paver");
+            Color32 darkC = new Color32(0x2e, 0x24, 0x3e, 255), paverC = new Color32(0xa4, 0x96, 0xb4, 255);
 
             Color32 grassA = biome.HasValue ? biome.Value.a : forest ? new Color32(0x3f, 0x6e, 0x4a, 255) : interior ? new Color32(0x8e, 0x6a, 0x52, 255) : new Color32(0x74, 0xa2, 0x4e, 255);
             Color32 grassB = biome.HasValue ? biome.Value.b : forest ? new Color32(0x3a, 0x66, 0x45, 255) : interior ? new Color32(0x84, 0x62, 0x4c, 255) : new Color32(0x6c, 0x99, 0x49, 255);
@@ -92,14 +95,23 @@ namespace Starbind.UI
                 for (int x = 0; x < W; x++)
                 {
                     bool w = Has(water, x, y), p = Has(path, x, y), c = Has(cliff, x, y), solid = Has(coll, x, y);
+                    bool dk = Has(dark, x, y), pv = Has(paver, x, y);
                     // plateau rim cells are walkable-looking high ground (grass); only cliff faces are rock
-                    bool rim = c && cliff.GetTile(new Vector3Int(x, y, 0)) is TileBase tb && tb.name.Contains("rim");
+                    var ct = c ? cliff.GetTile(new Vector3Int(x, y, 0)) : null;
+                    bool rim = ct != null && ct.name.Contains("rim");
+                    if (ct != null && ct.name.Contains("stairs"))
+                    {
+                        c = false;
+                        p = true;
+                    }
                     for (int j = 0; j < Px; j++)
                         for (int i = 0; i < Px; i++)
                         {
                             uint h = (uint)((x * Px + i) * 73856093) ^ (uint)((y * Px + j) * 19349663);
                             Color32 col = ((h >> 7) & 3) == 0 ? grassB : grassA;
+                            if (dk) col = solid ? darkC : Shade(grassB, 0.78f);
                             if (p) col = ((h >> 9) & 7) == 0 ? Shade(pathC, 0.92f) : pathC;
+                            if (pv) col = paverC;
                             if (w)
                             {
                                 bool edge = (i == 0 && !Has(water, x - 1, y)) || (i == Px - 1 && !Has(water, x + 1, y)) ||
@@ -121,7 +133,15 @@ namespace Starbind.UI
                     continue;
                 string n = sr.sprite.name;
                 var bb = sr.bounds;
-                if (n.StartsWith("PROP_tree_blossom"))
+                if (n.StartsWith("PROP_mv_tree"))
+                    Blob(px, W, H, new Vector2(bb.center.x, bb.max.y - bb.extents.x * 0.8f), bb.extents.x * 0.7f, new Color32(0x7a, 0x40, 0xb0, 255));
+                else if (n.StartsWith("PROP_mv_crystal"))
+                    Blob(px, W, H, bb.center, Mathf.Min(bb.extents.x, 0.6f), new Color32(0xc0, 0x8c, 0xff, 255));
+                else if (n.StartsWith("PROP_mv_pillar") || n.StartsWith("PROP_mv_arch") || n.StartsWith("PROP_mv_shrine") || n.StartsWith("PROP_mv_rock_large"))
+                    Blob(px, W, H, bb.center, Mathf.Min(bb.extents.x, 0.7f), new Color32(0xa8, 0xa0, 0xbc, 255));
+                else if (n.StartsWith("PROP_mv_tent") || n.StartsWith("PROP_mv_merchant"))
+                    Box(px, W, H, bb.min.x + 0.1f, bb.min.y + 0.2f, bb.max.x - 0.1f, bb.min.y + bb.size.y * 0.7f, new Color32(0x8a, 0x5c, 0xc9, 255), new Color32(0x5a, 0x38, 0x8a, 255));
+                else if (n.StartsWith("PROP_tree_blossom"))
                     Blob(px, W, H, new Vector2(bb.center.x, bb.max.y - bb.extents.x * 0.8f), bb.extents.x * 0.85f, new Color32(0xe8, 0x8c, 0xc4, 255));
                 else if (n.StartsWith("PROP_tree") || n.StartsWith("PROP_forest_oak") || n.StartsWith("PROP_forest_pine"))
                     Blob(px, W, H, new Vector2(bb.center.x, bb.max.y - bb.extents.x * 0.8f), bb.extents.x * 0.8f, forest ? new Color32(0x24, 0x4c, 0x34, 255) : new Color32(0x3a, 0x6e, 0x3e, 255));
@@ -184,6 +204,7 @@ namespace Starbind.UI
             "Mine" => (new Color32(0x4a, 0x44, 0x5e, 255), new Color32(0x44, 0x3e, 0x58, 255), new Color32(0x8a, 0x76, 0x60, 255), new Color32(0x22, 0x2a, 0x5a, 255), new Color32(0x2a, 0x24, 0x3a, 255)),
             "Lake" => (new Color32(0x5e, 0x8a, 0x7a, 255), new Color32(0x56, 0x80, 0x72, 255), new Color32(0xb8, 0xc4, 0xd8, 255), new Color32(0x3a, 0x6a, 0xb4, 255), new Color32(0x2c, 0x40, 0x50, 255)),
             "Observatory" => (new Color32(0xe4, 0xec, 0xf4, 255), new Color32(0xd8, 0xe2, 0xee, 255), new Color32(0x9a, 0x94, 0xa4, 255), new Color32(0x8a, 0xb8, 0xdc, 255), new Color32(0x5a, 0x5c, 0x70, 255)),
+            "MoonveilForest" => (new Color32(0x52, 0x6e, 0x40, 255), new Color32(0x4c, 0x66, 0x3c, 255), new Color32(0xa8, 0x7c, 0x68, 255), new Color32(0x2c, 0x3c, 0x9a, 255), new Color32(0x5a, 0x4a, 0x6e, 255)),
             "Citadel" => (new Color32(0x3e, 0x30, 0x4e, 255), new Color32(0x38, 0x2a, 0x48, 255), new Color32(0x6e, 0x4e, 0x86, 255), new Color32(0x12, 0x08, 0x1e, 255), new Color32(0x1e, 0x14, 0x2a, 255)),
             _ => null,
         };
@@ -199,6 +220,7 @@ namespace Starbind.UI
         static string ExitLabel(string scene) => scene switch
         {
             "Forest" => "月影森林",
+            "MoonveilForest" => "紫幻森林",
             "Village" => "星露村",
             "Workshop" => "魔女小屋",
             "Mine" => "星核礦坑",

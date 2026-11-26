@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Starbind.Gameplay::Starbind.Progression.ChapterDefinition
   id: forest
   order: 1
-  scene: Forest
-  title: "\u6708\u5F71\u68EE\u6797"
+  scene: MoonveilForest
+  title: "\u7D2B\u5E7B\u68EE\u6797"
   bossId: mushroom_king
   bossName: "\u6708\u8755\u83C7\u738B"
-  arenaName: "\u83C7\u738B\u68F2\u5730"
+  arenaName: "\u9996\u9818\u7A7A\u5730"
   eliteId: spore_elite
   victoryFlag: defeat_mushroom_king
   requiresFlag: 
   entrySpawn: spawn_from_village
   returnSpawn: spawn_from_forest
-  introNotice: "\u6708\u5F71\u68EE\u6797\u3000Z01 \u68EE\u6797\u5165\u53E3"
-  pushObjective: "\u5411\u5317\u6DF1\u5165\u68EE\u6797\uFF0C\u524D\u5F80\u83C7\u738B\u68F2\u5730"
+  introNotice: "\u7D2B\u5E7B\u68EE\u6797\u3000\u68EE\u6797\u5165\u53E3"
+  pushObjective: "\u8ABF\u67E5\u68EE\u6797\u6DF1\u8655\u7684\u7570\u5E38\u9B54\u529B"
   bossObjective: "\u64CA\u6557\u6708\u8755\u83C7\u738B"
   rewardSpells: []
   rewardNote: 

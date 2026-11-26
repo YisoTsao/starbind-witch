@@ -52,9 +52,11 @@ namespace Starbind.UI
 
             // ---- zone (top-right) and the minimap under it
             var zone = UIKit.Panel9(root, "Zone", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -24), new Vector2(440, 124));
-            zoneText = UIKit.Label(zone.transform, "Name", "", 28, UIKit.Gold, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -14), new Vector2(400, 36));
-            objectiveText = UIKit.Label(zone.transform, "Objective", "", 21, UIKit.Text, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -52), new Vector2(400, 30));
-            timerText = UIKit.Label(zone.transform, "Timer", "", 21, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -84), new Vector2(400, 30));
+            // references/02 layout: centred gold title between stars, then the objective line with a diamond bullet
+            zoneText = UIKit.Label(zone.transform, "Name", "", 28, UIKit.Gold, TextAnchor.UpperCenter, new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -12), new Vector2(400, 36));
+            UIKit.Image(zone.transform, "Rule", new Color(0.83f, 0.66f, 0.32f, 0.55f), new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -50), new Vector2(392, 2));
+            objectiveText = UIKit.Label(zone.transform, "Objective", "", 21, UIKit.Text, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(22, -56), new Vector2(400, 30));
+            timerText = UIKit.Label(zone.transform, "Timer", "", 21, UIKit.Muted, TextAnchor.UpperRight, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -86), new Vector2(400, 30));
             var mini = UIKit.Panel9(root, "MiniMap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-24, -170), new Vector2(330, 252));
             MiniMap = mini.gameObject.AddComponent<MiniMap>();
             MiniMap.Build(mini.rectTransform);
@@ -69,6 +71,7 @@ namespace Starbind.UI
 
             // ---- skill bar (bottom)
             var bar = UIKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 46), new Vector2(900, 150));
+            skillBar = bar;
             float x = -380;
             staff = MakeSlot(bar, "Staff", x, "左鍵", "ICON_staff"); x += 108;
             q = MakeSlot(bar, "Q", x, "Q", null); x += 108;
@@ -160,6 +163,89 @@ namespace Starbind.UI
 
         public void Bind(PlayerController p) => player = p;
 
+        // ------------------------------------------------------------------ touch layout
+        RectTransform skillBar;
+        readonly System.Collections.Generic.Dictionary<RectTransform, (Vector2 anchor, Vector2 pivot, Vector2 pos, Vector2 size)> desktopLayout =
+            new System.Collections.Generic.Dictionary<RectTransform, (Vector2, Vector2, Vector2, Vector2)>();
+
+        public bool TouchLayout { get; private set; }
+
+        /// <summary>Gamepad control each skill slot presses when it is used as a touch button
+        /// (the virtual pad from the Input System on-screen controls; StarbindControls binds them).</summary>
+        public System.Collections.Generic.IEnumerable<(Image frame, string controlPath)> TouchSlots()
+        {
+            yield return (staff.frame, "<Gamepad>/rightTrigger");
+            yield return (q.frame, "<Gamepad>/buttonWest");
+            yield return (e.frame, "<Gamepad>/buttonNorth");
+            yield return (r.frame, "<Gamepad>/rightShoulder");
+            yield return (dash.frame, "<Gamepad>/leftShoulder");
+            yield return (pot1.frame, "<Gamepad>/dpad/left");
+            yield return (pot2.frame, "<Gamepad>/dpad/right");
+        }
+
+        /// <summary>Touch play: the skill bar becomes a thumb cluster in the bottom-right corner (big
+        /// staff button, spells and dash on an arc around it, potions beside), key caps hidden. The
+        /// slots keep their icons, cooldowns and counts. false restores the keyboard layout.</summary>
+        public void SetTouchLayout(bool touch)
+        {
+            if (skillBar == null || touch == TouchLayout)
+                return;
+            TouchLayout = touch;
+            var place = new (Slot s, Vector2 c, float size)[]
+            {
+                (staff, new Vector2(-150, 150), 168), (dash, new Vector2(-350, 80), 108), (q, new Vector2(-340, 248), 108),
+                (e, new Vector2(-236, 352), 108), (r, new Vector2(-84, 352), 108), (pot1, new Vector2(-500, 60), 88), (pot2, new Vector2(-500, 166), 88),
+            };
+            Remember(skillBar);
+            foreach (var (s, _, _) in place)
+                Remember(s.frame.rectTransform);
+            for (int i = 0; i < autos.Length; i++)
+                Remember(autos[i].frame.rectTransform);
+            if (!touch)
+            {
+                foreach (var kv in desktopLayout)
+                {
+                    kv.Key.anchorMin = kv.Key.anchorMax = kv.Value.anchor;
+                    kv.Key.pivot = kv.Value.pivot;
+                    kv.Key.anchoredPosition = kv.Value.pos;
+                    kv.Key.sizeDelta = kv.Value.size;
+                }
+            }
+            else
+            {
+                skillBar.anchorMin = skillBar.anchorMax = new Vector2(1, 0);
+                skillBar.pivot = new Vector2(1, 0);
+                skillBar.anchoredPosition = new Vector2(-24, 24);
+                skillBar.sizeDelta = new Vector2(600, 520);
+                foreach (var (s, c, size) in place)
+                    Put(s.frame.rectTransform, c, size);
+                for (int i = 0; i < autos.Length; i++)
+                    Put(autos[i].frame.rectTransform, new Vector2(-610 + i * 72, 300), 62);
+            }
+            foreach (var (s, _, _) in place)
+            {
+                s.frame.raycastTarget = touch;
+                s.key.gameObject.SetActive(!touch);
+                var cap = s.frame.transform.Find("KeyCap");
+                if (cap != null)
+                    cap.gameObject.SetActive(!touch);
+            }
+        }
+
+        void Remember(RectTransform rt)
+        {
+            if (!desktopLayout.ContainsKey(rt))
+                desktopLayout[rt] = (rt.anchorMin, rt.pivot, rt.anchoredPosition, rt.sizeDelta);
+        }
+
+        static void Put(RectTransform rt, Vector2 centre, float size)
+        {
+            rt.anchorMin = rt.anchorMax = new Vector2(1, 0);
+            rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = centre;
+            rt.sizeDelta = new Vector2(size, size);
+        }
+
         void SetSpell(Slot s, RuntimeSpell spell, AbilityRunner runner)
         {
             s.frame.gameObject.SetActive(true);
@@ -219,11 +305,10 @@ namespace Starbind.UI
             statusText.text = combat.PerfectDodgeReady ? "完美閃避：下一發魔彈強化" : od ? "魔典超載" : "";
 
             var zm = ZoneMap.Current;
-            if (zm != null && zm.TryGet(player.transform.position, out var zone))
-                zoneText.text = zone.displayName;
-            else
-                zoneText.text = GameSession.Instance.SceneTitle;
-            objectiveText.text = GameSession.Instance.Objective();
+            string zoneName = zm != null && zm.TryGet(player.transform.position, out var zone) ? zone.displayName : GameSession.Instance.SceneTitle;
+            zoneText.text = string.IsNullOrEmpty(zoneName) ? "" : "✦ " + zoneName + " ✦";
+            string goal = GameSession.Instance.Objective();
+            objectiveText.text = string.IsNullOrEmpty(goal) ? "" : "◆ " + goal;
 
             var runner = player.GetComponent<AbilityRunner>();
             var build = player.Build;

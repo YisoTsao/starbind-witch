@@ -34,6 +34,13 @@ namespace Starbind.Controls
         public bool ChargeAltHeld => chargeAlt != null && chargeAlt.IsPressed();
         public bool PointerActive { get; private set; }
 
+        /// <summary>Set by the on-screen touch controls (UI/TouchControls): attacks and spells auto-aim
+        /// at the nearest enemy instead of the pointer, because a finger on a button is not an aim point.</summary>
+        public static bool TouchMode { get; set; }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void ResetStatics() => TouchMode = false;
+
         void Awake()
         {
             gameplay = actions.FindActionMap("Gameplay", true);
@@ -110,7 +117,13 @@ namespace Starbind.Controls
             hooks.Remove(a);
         }
 
-        void OnAim(InputAction.CallbackContext _) => PointerActive = true;
+        // only a real mouse or pen aims; touches also move <Pointer>/position but must not steer the aim
+        void OnAim(InputAction.CallbackContext ctx)
+        {
+            var device = ctx.control?.device;
+            if (device is Mouse || device is Pen)
+                PointerActive = true;
+        }
 
         void OnInteract(InputAction.CallbackContext _) => InteractPressed?.Invoke();
     }

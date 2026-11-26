@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475d03c418dcf4a0ba645ee1e2f9e2be, type: 3}
+  m_Name: REG_moonveil_forest
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Studio.RegionBlueprint
+  id: moonveil_forest
+  displayName: "\u7D2B\u5E7B\u68EE\u6797"
+  sceneName: MoonveilForest
+  chapterId: forest
+  objective: "\u8ABF\u67E5\u68EE\u6797\u6DF1\u8655\u7684\u7570\u5E38\u9B54\u529B"
+  width: 160
+  height: 120
+  seed: 20261126
+  biome: {fileID: 11400000, guid: d0ebeb82b067e423987f0f8c83f22c8d, type: 2}
+  pois:
+  - key: mouth
+    poi: {fileID: 11400000, guid: 05b5ebd1b671c48cdb41e1a46ddd2f98, type: 2}
+    position: {x: 77.5, y: 1.2}
+    zoneName: "\u68EE\u6797\u5165\u53E3"
+  - key: entrance
+    poi: {fileID: 11400000, guid: a4048e7bb9ad7442ba227ae241d238af, type: 2}
+    position: {x: 77.5, y: 10}
+    zoneName: 
+  - key: j1
+    poi: {fileID: 11400000, guid: 05b5ebd1b671c48cdb41e1a46ddd2f98, type: 2}
+    position: {x: 76, y: 33}
+    zoneName: "\u68EE\u6797\u5C0F\u5F91"
+  - key: altar
+    poi: {fileID: 11400000, guid: 02b43a0948098404c9eac63683f8c354, type: 2}
+    position: {x: 78, y: 61}
+    zoneName: 
+  - key: j3
+    poi: {fileID: 11400000, guid: 05b5ebd1b671c48cdb41e1a46ddd2f98, type: 2}
+    position: {x: 115, y: 68}
+    zoneName: "\u68EE\u6797\u5C0F\u5F91"
+  - key: boss
+    poi: {fileID: 11400000, guid: 1a8627478d26747a19714a14bf14ace4, type: 2}
+    position: {x: 129, y: 94}
+    zoneName: 
+  - key: camp
+    poi: {fileID: 11400000, guid: f6f1d4bd8317d4984b2f48e4d9d9aeb0, type: 2}
+    position: {x: 31, y: 38}
+    zoneName: 
+  - key: gathering
+    poi: {fileID: 11400000, guid: 9d73a559b2fe44f11aaae06389931d65, type: 2}
+    position: {x: 109, y: 40}
+    zoneName: 
+  - key: crystal
+    poi: {fileID: 11400000, guid: 8e3fd2c7333a6422a8b88460d9847837, type: 2}
+    position: {x: 131, y: 60}
+    zoneName: 
+  - key: lake
+    poi: {fileID: 11400000, guid: f8899281047024708847e99df1957b98, type: 2}
+    position: {x: 30, y: 68}
+    zoneName: 
+  - key: lakeshore
+    poi: {fileID: 11400000, guid: 05b5ebd1b671c48cdb41e1a46ddd2f98, type: 2}
+    position: {x: 40, y: 57}
+    zoneName: "\u5E7D\u5149\u6E56"
+  - key: mushroom
+    poi: {fileID: 11400000, guid: a22af804ff1e446039bbc0c9b2ca0bad, type: 2}
+    position: {x: 27, y: 95}
+    zoneName: 
+  - key: ancient
+    poi: {fileID: 11400000, guid: eeda335547a504bcbaa48b3f5faceb08, type: 2}
+    position: {x: 76, y: 99}
+    zoneName: 
+  - key: waterfall
+    poi: {fileID: 11400000, guid: b1f5140ab579448a5abacf1a88e0ecbc, type: 2}
+    position: {x: 101.5, y: 75}
+    zoneName: 
+  roads:
+  - from: mouth
+    to: entrance
+    kind: 0
+    via: []
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: entrance
+    to: j1
+    kind: 0
+    via:
+    - {x: 77, y: 22}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: j1
+    to: altar
+    kind: 0
+    via:
+    - {x: 78, y: 46}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: altar
+    to: j3
+    kind: 0
+    via:
+    - {x: 88, y: 62.5}
+    - {x: 96, y: 63.5}
+    - {x: 105, y: 64}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: j3
+    to: boss
+    kind: 0
+    via:
+    - {x: 124, y: 72}
+    - {x: 130.5, y: 76.5}
+    - {x: 130.5, y: 85}
+    width: 0
+    meander: 0
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: j1
+    to: camp
+    kind: 1
+    via:
+    - {x: 64, y: 35}
+    - {x: 48, y: 37.5}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: j1
+    to: gathering
+    kind: 1
+    via:
+    - {x: 90, y: 36}
+    - {x: 100, y: 38}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: gathering
+    to: crystal
+    kind: 1
+    via:
+    - {x: 118, y: 47}
+    - {x: 125, y: 53}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: j3
+    to: crystal
+    kind: 2
+    via:
+    - {x: 123, y: 65}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: altar
+    to: lakeshore
+    kind: 1
+    via:
+    - {x: 68, y: 58.5}
+    - {x: 60, y: 57.5}
+    - {x: 51, y: 57.5}
+    width: 0
+    meander: -1
+    brokenBridge: 1
+    vineGateAt: 0
+  - from: lakeshore
+    to: mushroom
+    kind: 1
+    via:
+    - {x: 24, y: 57.5}
+    - {x: 15, y: 64}
+    - {x: 14, y: 77}
+    - {x: 19, y: 88}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: altar
+    to: ancient
+    kind: 1
+    via:
+    - {x: 86, y: 68}
+    - {x: 84.5, y: 79}
+    - {x: 80, y: 90}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: ancient
+    to: mushroom
+    kind: 2
+    via:
+    - {x: 62, y: 101}
+    - {x: 46, y: 100}
+    - {x: 36, y: 97}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  - from: camp
+    to: lakeshore
+    kind: 2
+    via:
+    - {x: 28, y: 46}
+    - {x: 31, y: 52}
+    - {x: 36, y: 55.5}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0.45
+  - from: j3
+    to: waterfall
+    kind: 2
+    via:
+    - {x: 108, y: 72}
+    width: 0
+    meander: -1
+    brokenBridge: 0
+    vineGateAt: 0
+  water:
+  - kind: 0
+    points:
+    - {x: 30, y: 68}
+    size: {x: 13, y: 6.5}
+    endPond: 0
+  - kind: 1
+    points:
+    - {x: 42, y: 65}
+    - {x: 48, y: 61.5}
+    - {x: 52, y: 56.5}
+    - {x: 54, y: 50}
+    - {x: 56, y: 45}
+    size: {x: 2.4, y: 0}
+    endPond: 2.8
+  - kind: 1
+    points:
+    - {x: 113, y: 121}
+    - {x: 108, y: 106}
+    - {x: 104, y: 92}
+    - {x: 103, y: 84}
+    - {x: 102, y: 77}
+    - {x: 100.5, y: 70}
+    - {x: 100, y: 63}
+    - {x: 98, y: 55}
+    - {x: 95, y: 49}
+    size: {x: 2.6, y: 0}
+    endPond: 3
+  cliffs:
+  - line:
+    - {x: 88, y: 82}
+    - {x: 100, y: 81}
+    - {x: 112, y: 80}
+    - {x: 124, y: 79.5}
+    - {x: 136, y: 80}
+    - {x: 150, y: 81}
+    - {x: 159.5, y: 82}
+    stairs:
+    - {x: 130.5, y: 5}
+    gateStairs: 1
+  exits:
+  - rect:
+      serializedVersion: 2
+      x: 75
+      y: 0
+      width: 5
+      height: 1
+    scene: Village
+    spawn: spawn_from_forest
+    label: "\u661F\u9732\u6751"
+  entryPoi: entrance
+  entrySpawn: {x: 77.5, y: 3.5}
+  entrySafeRadius: 10

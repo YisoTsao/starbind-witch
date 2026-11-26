@@ -318,7 +318,13 @@ def wisp_frames():
 
 
 def boss_frames():
-    """Eclipse Mushroom King, 96x96: idle x4 + windup x2 (frames 4-5)."""
+    """Eclipse Mushroom King, 96x96: idle x4 + windup x2 (frames 4-5). Moonveil purple version lives in
+    moonveil_creatures.py (written by moonveil_art.py); this is the older white draft kept for reference."""
+    import moonveil_creatures
+    return moonveil_creatures.boss_frames()
+
+
+def boss_frames_v1():
     out = []
     cap = [c("#c8a0f0"), c("#9a6ad0"), c("#6a3ea8"), c("#48287a"), c("#301a58")]
     stem = [c("#f4ead8"), c("#dccab0"), c("#b49c80")]

@@ -12,6 +12,10 @@ namespace Starbind.Core
         [TextArea] public string objective = "";
         /// <summary>ChapterDefinition id for run scenes (forest, mine, ...); empty in safe scenes.</summary>
         public string chapterId = "";
+        /// <summary>Optional: replaces the chapter's intro notice / push objective in this scene (a World
+        /// Studio region that runs an existing chapter, e.g. Moonveil Forest running chapter 1).</summary>
+        public string runIntro = "";
+        public string runObjective = "";
 
         public static SceneConfig Current { get; private set; }
 

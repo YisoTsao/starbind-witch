@@ -91,7 +91,7 @@ namespace Starbind.Tests
         // ------------------------------------------------------------------ forest
         IEnumerator LoadForestQuiet()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             var run = RunManager.Current;
             Assert.IsNotNull(run);
             yield return null;
@@ -217,7 +217,7 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator StormStaffAddsAnArcEveryThirdCast()
         {
-            yield return Load("Forest", new Save.ProfileData { equippedStaff = "storm_staff" });
+            yield return Load("MoonveilForest", new Save.ProfileData { equippedStaff = "storm_staff" });
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             player.Vitals.Health.InvulnerableUntil = 9999f;

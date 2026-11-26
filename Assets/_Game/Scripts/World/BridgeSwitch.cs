@@ -14,13 +14,17 @@ namespace Starbind.World
         [SerializeField] SpriteRenderer lever;
         [SerializeField] SpriteRenderer bridge;
         [SerializeField] Collider2D gap;
+        [SerializeField] string repairedSprite = "PROP_bridge_stone_draft";
+        [SerializeField] string leverOnSprite = "PROP_lever_on_draft";
         public bool Repaired { get; private set; }
+        public Collider2D Gap => gap;
 
-        public void Configure(SpriteRenderer leverSr, SpriteRenderer bridgeSr, Collider2D gapCollider)
+        public void Configure(SpriteRenderer leverSr, SpriteRenderer bridgeSr, Collider2D gapCollider, string repaired = "PROP_bridge_stone_draft")
         {
             lever = leverSr;
             bridge = bridgeSr;
             gap = gapCollider;
+            repairedSprite = repaired;
         }
 
         void OnEnable() => GetComponent<Interactable>().Interacted += Pull;
@@ -32,8 +36,8 @@ namespace Starbind.World
                 return;
             Repaired = true;
             var db = GameDatabase.Instance;
-            if (lever != null) lever.sprite = db.Sprite("PROP_lever_on_draft");
-            if (bridge != null) bridge.sprite = db.Sprite("PROP_bridge_stone_draft");
+            if (lever != null) lever.sprite = db.Sprite(leverOnSprite);
+            if (bridge != null) bridge.sprite = db.Sprite(repairedSprite);
             if (gap != null) gap.enabled = false;
             if (bridge != null)
             {

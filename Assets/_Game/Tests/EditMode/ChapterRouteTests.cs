@@ -59,11 +59,13 @@ namespace Starbind.Tests
                 }
                 var texture = (RenderTexture)map.RenderMap(new Rect(0, 0, 512, 512));
                 var previous = RenderTexture.active;
-                var frame = new Texture2D(512, 512);
+                // read the whole target: on a Retina display the preview texture is 2x the requested rect,
+                // and reading only 512x512 saw one corner of the map (the old forest/lake failures)
+                var frame = new Texture2D(texture.width, texture.height);
                 try
                 {
                     RenderTexture.active = texture;
-                    frame.ReadPixels(new Rect(0, 0, 512, 512), 0, 0);
+                    frame.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0);
                     frame.Apply();
                     Assert.Greater(frame.GetPixels32().Distinct().Count(), 4, "tilemap and anchors must render");
                     var dir = Path.Combine(Application.dataPath, "../TestResults/graybox");

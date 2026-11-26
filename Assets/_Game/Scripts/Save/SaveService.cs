@@ -48,11 +48,25 @@ namespace Starbind.Save
                 string bak = Path + ".bak";
                 if (File.Exists(bak))
                     File.Delete(bak);
+#if UNITY_WEBGL && !UNITY_EDITOR
+                // browser file system (IDBFS): plain moves instead of File.Replace
+                File.Move(Path, bak);
+                File.Move(tmp, Path);
+#else
                 File.Replace(tmp, Path, bak);
+#endif
             }
             else
                 File.Move(tmp, Path);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            StarbindSyncFileSystem();                         // flush persistentDataPath to IndexedDB now
+#endif
         }
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        static extern void StarbindSyncFileSystem();
+#endif
 
         /// <summary>Never throws: returns defaults when nothing valid exists.</summary>
         public ProfileData Load()

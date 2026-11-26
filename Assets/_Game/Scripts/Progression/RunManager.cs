@@ -77,7 +77,8 @@ namespace Starbind.Progression
             Pickup.Collected += OnCollected;
             session.RefillRunPotions();
             session.Profile.runs++;
-            session.UI.Notice(Chapter.introNotice);
+            var scene = SceneConfig.Current;
+            session.UI.Notice(scene != null && !string.IsNullOrEmpty(scene.runIntro) ? scene.runIntro : Chapter.introNotice);
             Debug.Log($"[RunManager] {Chapter.id} run started, seed {seed}");
         }
 
@@ -95,9 +96,9 @@ namespace Starbind.Progression
             if (c == null)
             {
                 c = ScriptableObject.CreateInstance<ChapterDefinition>();
-                c.id = "forest"; c.order = 1; c.bossId = "mushroom_king"; c.bossName = "月蝕菇王"; c.arenaName = "菇王棲地";
-                c.eliteId = "spore_elite"; c.victoryFlag = "defeat_mushroom_king"; c.introNotice = "月影森林　Z01 森林入口";
-                c.returnSpawn = "spawn_from_forest"; c.title = "月影森林";
+                c.id = "forest"; c.order = 1; c.bossId = "mushroom_king"; c.bossName = "月蝕菇王"; c.arenaName = "首領空地";
+                c.eliteId = "spore_elite"; c.victoryFlag = "defeat_mushroom_king"; c.introNotice = "紫幻森林　森林入口";
+                c.returnSpawn = "spawn_from_forest"; c.title = "紫幻森林";
             }
             return c;
         }

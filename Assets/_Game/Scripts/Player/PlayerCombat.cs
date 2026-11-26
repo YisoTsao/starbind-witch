@@ -97,6 +97,9 @@ namespace Starbind.Player
         // ------------------------------------------------------------------ aim
         public Vector2 Center => (Vector2)transform.position + new Vector2(0, 0.45f);
 
+        /// <summary>Touch play: attacks aim at the nearest enemy within this range (tiles), else straight ahead.</summary>
+        public const float TouchAutoAimRange = 7.5f;
+
         public Vector2 AimPoint(Controls.PlayerInputReader input)
         {
             if (AimOverride.HasValue)
@@ -106,7 +109,14 @@ namespace Starbind.Player
                 var stick = input.AimStick;
                 if (stick.sqrMagnitude > 0.09f)
                     return Center + stick.normalized * 4f;
-                if (input.PointerActive)
+                if (Controls.PlayerInputReader.TouchMode)
+                {
+                    var world = CombatWorld.Instance;
+                    var target = world != null ? world.Nearest(Center, TouchAutoAimRange, Team.Player, enemiesOnly: true) : null;
+                    if (target != null)
+                        return target.Center;
+                }
+                else if (input.PointerActive)
                 {
                     if (cam == null)
                         cam = Camera.main;

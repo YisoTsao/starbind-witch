@@ -20,6 +20,7 @@ namespace Starbind.UI
     public sealed class GameUI : MonoBehaviour
     {
         public Hud Hud { get; private set; }
+        public TouchControls Touch { get; private set; }
         Canvas canvas;
         RectTransform modal;
         Text notice;
@@ -57,6 +58,8 @@ namespace Starbind.UI
             var hudRoot = UIKit.Stretch(transform, "HUD");
             Hud = hudRoot.gameObject.AddComponent<Hud>();
             Hud.Build(hudRoot);
+            Touch = gameObject.AddComponent<TouchControls>();
+            Touch.Build(this, Hud, (RectTransform)transform);
 
             // Keep timed messages below the status panel, clear of the boss and its attack lane.
             notice = UIKit.Label(transform, "Notice", "", 24, UIKit.Gold, TextAnchor.UpperLeft,
@@ -68,7 +71,7 @@ namespace Starbind.UI
             dialogueRoot = dlg.rectTransform;
             dialogueName = UIKit.Label(dialogueRoot, "Name", "", 30, UIKit.Gold, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(30, -18), new Vector2(600, 40));
             dialogueText = UIKit.Label(dialogueRoot, "Text", "", 28, UIKit.Text, TextAnchor.UpperLeft, new Vector2(0, 1), new Vector2(0, 1), new Vector2(30, -66), new Vector2(1140, 120));
-            UIKit.Label(dialogueRoot, "Hint", "F / Space / 左鍵 繼續", 20, UIKit.Muted, TextAnchor.LowerRight, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-20, 12), new Vector2(400, 30));
+            UIKit.Label(dialogueRoot, "Hint", "F / Space / 左鍵 / 點擊 繼續", 20, UIKit.Muted, TextAnchor.LowerRight, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-20, 12), new Vector2(400, 30));
             dialogueRoot.gameObject.SetActive(false);
 
             modal = UIKit.Stretch(transform, "Modal");
@@ -580,7 +583,8 @@ namespace Starbind.UI
             if (DialogueOpen && openPanel == null)
             {
                 if ((kb != null && (kb.fKey.wasPressedThisFrame || kb.spaceKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)) ||
-                    (mouse != null && mouse.leftButton.wasPressedThisFrame))
+                    (mouse != null && mouse.leftButton.wasPressedThisFrame) ||
+                    (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame))
                     AdvanceDialogue();
                 if (kb != null && kb.escapeKey.wasPressedThisFrame)
                     dialogueRoot.gameObject.SetActive(false);

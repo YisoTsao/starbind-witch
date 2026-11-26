@@ -69,3 +69,14 @@
 | 自然／月影／星痕學派、光束形態、迴響修飾、野火蔓延、5 張新升級卡、失控超載 | 完成 | ChapterContentTests、ChapterPlayTests |
 | 任務系統、星盤地區選擇器、玩家選擇結局 | 完成 | ChapterPlayTests |
 | 真人試玩（第 2 章～終章的節奏、難度、時長） | 未做 | 需使用者試玩 |
+
+## 2026-11-26 World & Visual Overhaul（WVO-001）
+
+| 項目 | 狀態 | 證據 |
+|---|---|---|
+| A. Witch World Studio（Biome/POI/Blueprint、MapData、圖層、生怪區、固定 seed） | 完成 | `WORLD_GENERATOR_SPEC.md`、EditMode `WorldStudioTests` 8/8 |
+| B. 紫幻森林 160×120 可玩區域（主路、支線、湖、兩河、3 橋、瀑布、懸崖石階、祭壇、採集、營地、Boss 區） | 完成（REF-DRAFT 美術） | `LEVEL_DESIGN.md`、`evidence/moonveil/M00–M12` |
+| C. 視覺規則（03 地形、04 物件放置、02 密度/比例/HUD） | 第一版 | `BIOME_DESIGN.md`、`UI_ART_DIRECTION.md` |
+| D. 效能與可維護性（Tilemap、Atlas、Prefab 共用、分塊、光源上限） | 完成；Player 實測 | `PERFORMANCE_REPORT.md` |
+| E. 文件同步 | 完成 | `PROJECT_STATE.md`、`MISSING_ASSETS.md` |
+| F. 紫幻森林取代第 1 章（WVO-002） | 完成 | DECISIONS WVO-1；EditMode 80/80、PlayMode 75/75；`evidence/final/`、`evidence/moonveil/` |

@@ -1,5 +1,7 @@
 # STORY_WORLD_QUESTS.md — 故事線、世界地圖與任務清單
 
+> 2026-11-26：第 1 章地圖已由「月影森林」改為**紫幻森林**（DECISIONS WVO-1）。本文件中第 1 章的「月影森林」請讀作紫幻森林；「菇王棲地」改稱首領空地（東北懸崖高台）。
+
 > 建立：2026-11-21｜上位規格：`GAME_DESIGN_V3.md` §2、§3.3–§3.4、§10.3、§11｜場景細節：`WORLD_STRUCTURE.md`
 > 對應實作：`tools/map/{village,workshop,forest}.py`（NPC 台詞、物件、區域）、`World/ObjectiveTracker.cs`（目標指引）、`World/Talkable.cs` 與 `Progression/RunManager.cs`（任務旗標）。
 >

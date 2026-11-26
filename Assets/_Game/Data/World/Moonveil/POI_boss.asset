@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c1738d49d847bf9ca294a4146ba2d, type: 3}
+  m_Name: POI_boss
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Studio.PoiDefinition
+  id: boss
+  kind: 8
+  displayName: "\u9996\u9818\u7A7A\u5730"
+  clearing: {x: 13, y: 9}
+  boundaryNoise: 0.22
+  ground: 0
+  paverRadius: 3.6
+  safe: 1
+  stamps:
+  - sprite: PROP_mv_magic_circle
+    offset: {x: 0, y: 0.4}
+    ground: 1
+  - sprite: PROP_mv_arch_ruin
+    offset: {x: 0, y: 8.2}
+    ground: 0
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: -9.4, y: 3}
+    ground: 0
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: 9.4, y: 3}
+    ground: 0
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: -7.8, y: -4.4}
+    ground: 0
+  - sprite: PROP_mv_pillar_tall
+    offset: {x: 7.8, y: -4.4}
+    ground: 0
+  - sprite: PROP_mv_lantern_stone
+    offset: {x: -3.2, y: 7.4}
+    ground: 0
+  - sprite: PROP_mv_lantern_stone
+    offset: {x: 3.2, y: 7.4}
+    ground: 0
+  objects:
+  - kind: boss_arena
+    offset: {x: 0, y: 1.2}
+    sprite: 
+    label: 
+    lines: []
+    flag: 0
+  clearCore: 8.5
+  roadStop: 3.6

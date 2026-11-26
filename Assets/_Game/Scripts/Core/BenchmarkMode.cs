@@ -12,7 +12,8 @@ using UnityEngine.SceneManagement;
 namespace Starbind.Core
 {
     /// <summary>Player-build performance check (GDD §13.7, §19): launched with
-    /// <c>-starbindBenchmark [-benchmarkOut file.json] [-benchmarkSeconds 10]</c> it loads the Forest,
+    /// <c>-starbindBenchmark [-benchmarkOut file.json] [-benchmarkSeconds 10] [-benchmarkScene MoonveilForest]</c>
+    /// it loads chapter 1 (Moonveil Forest, main road below the altar; or -benchmarkScene Forest for the legacy map),
     /// fights 60 enemies at the altar with auto spells and overdrive, records frame times and a
     /// screenshot, writes JSON and quits. Inert in normal play.</summary>
     public sealed class BenchmarkMode : MonoBehaviour
@@ -42,7 +43,10 @@ namespace Starbind.Core
             string outPath = Arg("-benchmarkOut", Path.Combine(Application.persistentDataPath, "benchmark.json"));
             float seconds = float.Parse(Arg("-benchmarkSeconds", "10"), System.Globalization.CultureInfo.InvariantCulture);
             GameSession.Instance.RedirectSaves(Path.Combine(Application.temporaryCachePath, "bench_saves"));
-            SceneManager.LoadScene("Forest");
+            string scene = Arg("-benchmarkScene", "MoonveilForest");
+            // fight spot: the forest altar clearing, or the main road below Moonveil's moon altar
+            var centre = scene == "MoonveilForest" ? new Vector2(78f, 47f) : new Vector2(32f, 39f);
+            SceneManager.LoadScene(scene);
             yield return null;
             yield return null;
             yield return new WaitForSecondsRealtime(1f);
@@ -51,7 +55,7 @@ namespace Starbind.Core
             var player = PlayerController.Current;
             player.InputEnabled = false;
             player.Vitals.Health.InvulnerableUntil = float.MaxValue;
-            player.Teleport(new Vector2(32f, 39f));
+            player.Teleport(centre);
             CameraRig.CameraFollow2D.Main.SnapToTarget();
             player.Build.AddAuto("frost_orbit");
             player.Combat.Resonance.ForceFill();
@@ -66,11 +70,11 @@ namespace Starbind.Core
             for (int w = 0; w < 30; w++)
             {
                 while (sp.Alive < EnemySpawner.MaxAlive)
-                    if (sp.SpawnAt(mix[i++ % mix.Length], sp.RandomAround(new Vector2(32f, 39f), 9f)) == null)
+                    if (sp.SpawnAt(mix[i++ % mix.Length], sp.RandomAround(centre, 9f)) == null)
                         break;
                 if (w == 0)
                 {
-                    var target = sp.AliveList.Count > 0 ? sp.AliveList[0].Center : new Vector2(32f, 42f);
+                    var target = sp.AliveList.Count > 0 ? sp.AliveList[0].Center : centre + new Vector2(0, 3f);
                     player.Combat.CastSlot(0, target);
                     player.Combat.CastSlot(1, target);
                 }
@@ -91,7 +95,7 @@ namespace Starbind.Core
                 bool upgrade = false, cast = false;
                 while (sp.Alive < EnemySpawner.MaxAlive)
                 {
-                    if (sp.SpawnAt(mix[i++ % mix.Length], sp.RandomAround(new Vector2(32f, 39f), 9f)) == null)
+                    if (sp.SpawnAt(mix[i++ % mix.Length], sp.RandomAround(centre, 9f)) == null)
                         break;
                     spawned++;
                 }
@@ -103,7 +107,7 @@ namespace Starbind.Core
                 if (Time.time > nextCast)
                 {
                     nextCast = Time.time + 0.8f;
-                    var target = sp.AliveList.Count > 0 ? sp.AliveList[0].Center : new Vector2(32f, 42f);
+                    var target = sp.AliveList.Count > 0 ? sp.AliveList[0].Center : centre + new Vector2(0, 3f);
                     player.Combat.CastSlot(0, target);
                     player.Combat.CastSlot(1, target);
                     cast = true;
@@ -125,7 +129,7 @@ namespace Starbind.Core
             yield return null;
             frames.Sort();
             float avg = frames.Average();
-            string json = $"{{\"build\":\"{Application.platform}\",\"unity\":\"{Application.unityVersion}\",\"screen\":\"{Screen.width}x{Screen.height}\"," +
+            string json = $"{{\"scene\":\"{scene}\",\"build\":\"{Application.platform}\",\"unity\":\"{Application.unityVersion}\",\"screen\":\"{Screen.width}x{Screen.height}\"," +
                           $"\"seconds\":{seconds},\"frames\":{frames.Count},\"avg_ms\":{avg:0.00},\"fps_avg\":{1000f / avg:0.0}," +
                           $"\"p95_ms\":{frames[(int)(frames.Count * 0.95f)]:0.00},\"p99_ms\":{frames[(int)(frames.Count * 0.99f)]:0.00},\"max_ms\":{frames[frames.Count - 1]:0.00}," +
                           $"\"enemies_target\":{EnemySpawner.MaxAlive},\"enemies_min_alive\":{minAlive},\"gc_total_mb\":{GC.GetTotalMemory(false) / 1048576f:0.0}," +

@@ -144,6 +144,101 @@ namespace Starbind.Tests
             CameraFollow2D.Main.SnapToTarget();
         }
 
+        /// <summary>Moonveil Forest (Witch World Studio): POI views with the HUD, a combat frame and a
+        /// half-resolution whole-map overview, into docs/evidence/moonveil.</summary>
+        [UnityTest]
+        public IEnumerator CaptureMoonveil()
+        {
+            outDir = Path.GetFullPath(Path.Combine(Application.dataPath, "../docs/evidence/moonveil"));
+            Directory.CreateDirectory(outDir);
+            try
+            {
+                yield return Load("MoonveilForest");
+                var run = RunManager.Current;
+                run.Director.Running = false;
+                EnemySpawner.Instance.DespawnAll();
+                player.Vitals.Health.InvulnerableUntil = 9999f;
+                var views = new (string name, Vector2 at)[]
+                {
+                    ("M01_entrance_gate", new Vector2(77.5f, 9f)), ("M02_moon_altar", new Vector2(78f, 59f)),
+                    ("M03_hidden_camp", new Vector2(31f, 37f)), ("M04_glimmer_lake", new Vector2(38f, 58.5f)),
+                    ("M05_waterfall_bridge", new Vector2(96f, 64f)), ("M06_boss_stairs", new Vector2(130.5f, 78f)),
+                    ("M07_boss_clearing", new Vector2(129f, 92f)), ("M08_crystal_grove", new Vector2(131f, 59f)),
+                    ("M09_mushroom_valley", new Vector2(27f, 93f)), ("M10_ancient_tree", new Vector2(76f, 96f)),
+                    ("M11_gathering_woods", new Vector2(109f, 39f)),
+                };
+                // first, before the boss clearing view starts the boss fight: combat readability on the road (references/02): mixed group, fire bolt + wind pull
+                yield return At(new Vector2(77.5f, 40f));
+                var sp = EnemySpawner.Instance;
+                var c = new Vector2(80f, 42f);
+                foreach (var id in new[] { "slime", "slime", "spore_shroom", "wisp", "root_guard" })
+                    sp.SpawnAt(id, sp.RandomAround(c, 1.6f));
+                yield return Wait(0.3f);
+                player.Combat.CastSlot(0, c);
+                yield return Wait(0.4f);
+                player.Combat.CastSlot(1, c);
+                yield return Wait(0.5f);
+                yield return Shot("M12_combat_on_the_road", 2);
+                EnemySpawner.Instance.DespawnAll();
+                foreach (var (name, at) in views)
+                {
+                    yield return At(at);
+                    yield return Shot(name, 3);
+                }
+                // Moonveil art pass 2: purple Eclipse Mushroom King (after its spawn puff clears), vine burn, lever
+                yield return At(new Vector2(129f, 89.5f));
+                yield return Wait(2.5f);
+                yield return Shot("M13_boss_moonveil", 3);
+                EnemySpawner.Instance.DespawnAll();
+                var vine = Object.FindAnyObjectByType<BurnableVine>();
+                yield return At((Vector2)vine.transform.position + new Vector2(0, -2.2f));
+                yield return Shot("M14_vine_moonveil", 3);
+                vine.Burn();
+                yield return Wait(0.16f);
+                yield return Shot("M15_vine_burning", 2);
+                var sw = Object.FindAnyObjectByType<BridgeSwitch>();
+                yield return At((Vector2)sw.transform.position + new Vector2(-2f, -1f));
+                yield return Shot("M16_bridge_lever_off", 3);
+                sw.GetComponent<Interactable>().Interact();
+                yield return Wait(0.6f);
+                yield return Shot("M17_bridge_lever_on", 3);
+                // phone layout (mobile browser build): stick, thumb cluster, interact and menu buttons
+                var touch = GameSession.Instance.UI.Touch;
+                touch.SetActive(true);
+                yield return At(new Vector2(78f, 40f));
+                yield return Shot("M18_touch_controls", 3);
+                touch.SetActive(false);
+                yield return OverviewScaled("M00_overview_half", 160, 120, 16);
+            }
+            finally
+            {
+                outDir = null;
+            }
+        }
+
+        /// <summary>Whole-map frame at `ppt` pixels per tile (32 = native) for large regions.</summary>
+        IEnumerator OverviewScaled(string name, float w, float h, int ppt)
+        {
+            var go = new GameObject("OverviewCamera");
+            var c = go.AddComponent<Camera>();
+            c.orthographic = true;
+            c.orthographicSize = h / 2f;
+            c.transform.position = new Vector3(w / 2f, h / 2f, -10f);
+            c.clearFlags = CameraClearFlags.SolidColor;
+            c.backgroundColor = Color.black;
+            c.cullingMask = ~(1 << 5);
+            var rt = new RenderTexture((int)(w * ppt), (int)(h * ppt), 24) { filterMode = FilterMode.Point };
+            c.targetTexture = rt;
+            for (int i = 0; i < 3; i++)
+                yield return null;
+            var t = Read(rt);
+            File.WriteAllBytes(Path.Combine(OutDir, name + ".png"), t.EncodeToPNG());
+            c.targetTexture = null;
+            rt.Release();
+            Object.Destroy(go);
+            Object.Destroy(t);
+        }
+
         /// <summary>Chapters 2-5: whole-map overview, entrance with HUD, the mechanism in action and the boss
         /// telegraph, plus the star-plate region list and the finale's ending choice (docs/evidence/chapters).</summary>
         [UnityTest]
@@ -319,18 +414,18 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator CaptureForestCombat()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             var run = RunManager.Current;
             run.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return At(new Vector2(32f, 3.0f));
+            yield return At(new Vector2(77.5f, 4f));
             yield return Shot("F01_forest_entrance_hud");
 
             // mixed group + fire bolt + wind pull -> fire tornado
-            yield return At(new Vector2(17f, 22.5f));
+            yield return At(new Vector2(77.5f, 40f));
             var sp = EnemySpawner.Instance;
-            var c = new Vector2(17f, 25.5f);
+            var c = new Vector2(77.5f, 43f);
             foreach (var id in new[] { "slime", "slime", "spore_shroom", "wisp", "root_guard", "slime" })
                 sp.SpawnAt(id, sp.RandomAround(c, 1.6f));
             yield return Wait(0.3f);
@@ -345,8 +440,8 @@ namespace Starbind.Tests
 
             // overload + shatter storm on a fresh group
             sp.DespawnAll();
-            yield return At(new Vector2(32f, 36f));
-            var g = new Vector2(32f, 39.5f);
+            yield return At(new Vector2(78f, 53.5f));
+            var g = new Vector2(78f, 57f);
             var group = Enumerable.Range(0, 7).Select(i => sp.SpawnAt("root_guard", g + new Vector2((i % 4) * 1.0f - 1.5f, (i / 4) * 1.0f))).Where(e => e != null).ToList();
             var world = CombatWorld.Instance;
             foreach (var e in group)
@@ -369,15 +464,15 @@ namespace Starbind.Tests
             player.Combat.TryOverdrive();
             string[] mix = { "slime", "spore_shroom", "wisp", "slime", "root_guard", "slime" };
             for (int i = 0; i < 70; i++)
-                sp.SpawnAt(mix[i % mix.Length], sp.RandomAround(new Vector2(32f, 39f), 9f));
-            yield return At(new Vector2(32f, 39f));
+                sp.SpawnAt(mix[i % mix.Length], sp.RandomAround(new Vector2(78f, 55f), 9f));
+            yield return At(new Vector2(78f, 55f));
             yield return Wait(1.2f);
             yield return Shot("F05_wave_60_enemies_overdrive_autos");
 
             // elite telegraphs
             sp.DespawnAll();
-            var elite = sp.SpawnAt("spore_elite", new Vector2(50f, 24f));
-            yield return At(new Vector2(47.5f, 22.5f));
+            var elite = sp.SpawnAt("spore_elite", new Vector2(109f, 41.5f));
+            yield return At(new Vector2(106.5f, 39.5f));
             yield return WaitUntilOrTimeout(() => Telegraph.Active > 0, 5f);
             yield return Wait(0.3f);
             yield return Shot("F06_elite_telegraph");
@@ -387,12 +482,12 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator CaptureBossAndResults()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             var run = RunManager.Current;
             run.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return At(new Vector2(32f, 55.6f));
+            yield return At(new Vector2(129f, 90.5f));
             yield return WaitUntilOrTimeout(() => Enemy.ActiveBoss != null, 3f);
             var boss = Enemy.ActiveBoss;
             yield return WaitUntilOrTimeout(() => Telegraph.Active > 0, 6f);
@@ -416,7 +511,7 @@ namespace Starbind.Tests
             run.Finish(true);
             yield return Shot("F11_results_victory");
             GameSession.Instance.UI.CloseModal();
-            yield return Overview("F00_forest_overview_native_2048", 64, 64);
+            yield return OverviewScaled("F00_forest_overview_half", 160, 120, 16);
         }
 
         /// <summary>2026-11-21 polish: big spell effects, new level-up cards, the three grimoire pages,
@@ -426,19 +521,19 @@ namespace Starbind.Tests
         public IEnumerator CapturePolish()
         {
             ObjectiveTracker.ResetStatics();
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             var run = RunManager.Current;
             run.Director.Running = false;
             var sp = EnemySpawner.Instance;
             sp.DespawnAll();
             player.Vitals.Health.InvulnerableUntil = 9999f;
             player.Build.Auto.Enabled = false;
-            var c = new Vector2(17f, 25.5f);
+            var c = new Vector2(77.5f, 43f);
 
             IEnumerator Group()
             {
                 sp.DespawnAll();
-                yield return At(new Vector2(17f, 22.3f));
+                yield return At(new Vector2(77.5f, 39.8f));
                 foreach (var id in new[] { "slime", "slime", "slime", "wisp" }) // root guards' red attack telegraphs would cover the spell
                     sp.SpawnAt(id, sp.RandomAround(c, 1.2f));
                 foreach (var e in sp.AliveList) e.Health.InvulnerableUntil = 9999f;
@@ -464,7 +559,7 @@ namespace Starbind.Tests
             yield return Group();
             player.Build.SetActive(0, "piercing_ice");
             impacts = VFX.SpellFx.ImpactEffects;
-            yield return At(new Vector2(17f, 21.0f)); // a little further back so the shard flies before it hits
+            yield return At(new Vector2(77.5f, 38.5f)); // a little further back so the shard flies before it hits
             player.Combat.CastSlot(0, c);
             yield return WaitUntilOrTimeout(() => VFX.SpellFx.ImpactEffects > impacts, 1.5f);
             yield return Shot("S04_piercing_ice_frost_nova", 3);
@@ -484,7 +579,7 @@ namespace Starbind.Tests
 
             // the redrawn flipbooks side by side (display only, no enemies): blast, frost nova, sky bolt, wind blades
             sp.DespawnAll();
-            yield return At(new Vector2(17f, 22.3f));
+            yield return At(new Vector2(77.5f, 39.8f));
             var vfx = VFX.VfxService.Instance;
             var o = P + new Vector2(0, 2.6f);
             vfx.Play("VFX_sky_bolt", o + new Vector2(1.2f, -0.8f), 0, 1.2f);

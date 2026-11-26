@@ -2415,6 +2415,301 @@ MonoBehaviour:
     walkFrames: 4
     frames:
     - {fileID: 8964231820341514173, guid: f146416bf1c904fad84fc75660e241c4, type: 3}
+  - name: PROP_mv_tree_lantern
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 9196237524709651651, guid: 6e9e00a8a76fc451596fe927342eb98a, type: 3}
+  - name: PROP_mv_tree_purple_a
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 1298933881448672936, guid: 2997d1d9e0c9542c18197074aba5720a, type: 3}
+  - name: PROP_mv_tree_wisteria
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -4107674360833665832, guid: 64eb3c30e2a044652ae6a372b55bc6a6, type: 3}
+  - name: PROP_mv_tree_purple_b
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2700167041582113236, guid: 94d162e00f20d47db9dd81a5e35ee291, type: 3}
+  - name: PROP_mv_tree_blossom
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -1296622161048005572, guid: 716e29cdd83264e3ab50b8f17371cff2, type: 3}
+  - name: PROP_mv_tree_pine
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -3396473976636692092, guid: 5ed49a3cffebc4052a62144d12690860, type: 3}
+  - name: PROP_mv_tree_dead
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2966145798418806970, guid: 053e66d3b6fd344ee908b150480fda4e, type: 3}
+  - name: PROP_mv_log_hollow
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 8940011856261008387, guid: ed85cea8d7af041c785a78f177b3f0fd, type: 3}
+  - name: PROP_mv_stump_roots
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 6156813010271053556, guid: 8c0b551ec0bf8466cbeb0d36e1c790d6, type: 3}
+  - name: PROP_mv_bush_dark
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -3136847173833075886, guid: 586a60b41cf1a4b26993680d70c00f71, type: 3}
+  - name: PROP_mv_bush_flower
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2541439621453932228, guid: 0099e2fb9aacc45c3afc313efdf5e6ff, type: 3}
+  - name: PROP_mv_bush_green
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -1479464504394655298, guid: 48813b2fd88a44b4982483f427b33324, type: 3}
+  - name: PROP_mv_bush_berry
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 723463854076184446, guid: be856e8ec294e4a0db87b0a58c96fb5e, type: 3}
+  - name: PROP_mv_rock_large
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -6679939592825488713, guid: 454fb16b9bdb14618a92745039e1dd64, type: 3}
+  - name: PROP_mv_rock_cluster
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3301232550606200030, guid: 539e9af0724ca4930908de5ebff23de0, type: 3}
+  - name: PROP_mv_rock_mossy
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 7476631890519005445, guid: cb0a7885cce03440381d03c6289c73dc, type: 3}
+  - name: PROP_mv_rock_small
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3571507074606049222, guid: 5ed76dcf13a4a45119918148386a7200, type: 3}
+  - name: PROP_mv_flowers_pink
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -5726299510484893503, guid: 4d58f42292ba2403caa47781f50f7294, type: 3}
+  - name: PROP_mv_flowers_violet
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -1083065766552339487, guid: 9f7b6b99ee09d4217b0061f8afeb0fc6, type: 3}
+  - name: PROP_mv_lavender
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 8973198415802367972, guid: 14bfdfd18f72e418da302560ce276ca1, type: 3}
+  - name: PROP_mv_bellflower
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 1231765229185600495, guid: 80b376dc9620e40b5bd1a6a023bebf98, type: 3}
+  - name: PROP_mv_mushroom_giant
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 4370827684494728686, guid: e78f441ffed7541c892dea900fccedec, type: 3}
+  - name: PROP_mv_mushroom_pair
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -6734201269663245771, guid: 4df9daac7047c4fa8865812a6b5395a3, type: 3}
+  - name: PROP_mv_mushroom_tall
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 223722565319034836, guid: 00f5a1a109054469c8c45b695c160aec, type: 3}
+  - name: PROP_mv_mushroom_shelf
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2204659798143084996, guid: be89ebc895d8b402ba4329abf4c17cfb, type: 3}
+  - name: PROP_mv_crystal_violet
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -5964846920685496236, guid: 4f8704fe6a2774400bfc0f20ed646b96, type: 3}
+  - name: PROP_mv_crystal_blue
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -5153971647509286316, guid: 140bc7207167e48bf976085d23c640b7, type: 3}
+  - name: PROP_mv_crystal_small
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -3239566752209015944, guid: e370cd540163d4951a3c1400cd6dcec7, type: 3}
+  - name: PROP_mv_reeds
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 7126816125506162130, guid: d096687dd670940f2a9f1685918cf5ac, type: 3}
+  - name: PROP_mv_lilypads
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -5319932092127634156, guid: d10e02493f09d486abb9f5e7c2604857, type: 3}
+  - name: PROP_mv_pillar_tall
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -4738242134798653194, guid: 9b7ff6b1020d844798ccbd3d695d93f4, type: 3}
+  - name: PROP_mv_pillar_short
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -4306817649183831683, guid: d809ee8f0bb854154a56be843d72da9e, type: 3}
+  - name: PROP_mv_pillars_broken
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -242013656195577619, guid: a7ed8dd70e48c44c89e3ee807d5c454c, type: 3}
+  - name: PROP_mv_arch_ruin
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 2463701865891971310, guid: 9def1636adc6e489cab8deef41c03ad6, type: 3}
+  - name: PROP_mv_shrine_moon
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3722952528344829549, guid: 646339b7830864de396ea065f3bbad48, type: 3}
+  - name: PROP_mv_stone_circle
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -8180459520667735320, guid: 5684623f9a2a0481fb07d98d7cf28ccf, type: 3}
+  - name: PROP_mv_lamp_post
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 4769430150026678617, guid: da8ba668064cb41d496556973336e945, type: 3}
+  - name: PROP_mv_lamp_crook
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 8740135672883963543, guid: 39b5d8a37d1824f8db1f7cbb167934b4, type: 3}
+  - name: PROP_mv_lantern_hang
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3450807138335999520, guid: fe51fc8e3b78d41a9b2538ab0134536c, type: 3}
+  - name: PROP_mv_lantern_stone
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 8750777724913486126, guid: 69e5b98037ec7483e96f96c7c5efc5b3, type: 3}
+  - name: PROP_mv_signpost
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 7546955182639505245, guid: 116ee83ae14ef4775a404cb2d8ea592c, type: 3}
+  - name: PROP_mv_bridge
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 4986121459202993035, guid: 9ebb79f053669438b960268fce65f40c, type: 3}
+  - name: PROP_mv_tent
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 7598158708428151719, guid: b3970ee3c53574dbea675870b5626355, type: 3}
+  - name: PROP_mv_campfire_set
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -7774856116313551421, guid: dfb0231c062084753a6ece42fb1a633e, type: 3}
+  - name: PROP_mv_merchant_cart
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -3006844460693707107, guid: 7a3f87d0084fe431e9eb4d90fd8cc217, type: 3}
+  - name: PROP_mv_bridge_broken
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 4187598886568647572, guid: 1f06a9c785bda481bbedfdf772a39861, type: 3}
+  - name: PROP_mv_bridge_vertical
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -1031538574800706209, guid: 0a35a62ac36d248e6916050166e8901c, type: 3}
+  - name: PROP_mv_magic_circle
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3728673843995459549, guid: 5cc4439327bab4325bc5b87b7ef18e59, type: 3}
+  - name: PROP_mv_vine
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2563603785644055402, guid: aaec356907b84461cae4f5b284dea3c0, type: 3}
+  - name: PROP_mv_vine_burn_0
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 7001167678331075037, guid: cd3fde7af7b164831aee71dba13a0e56, type: 3}
+  - name: PROP_mv_vine_burn_1
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -1685752985824816497, guid: 80266f89ac2b84283876410cae3d4bf2, type: 3}
+  - name: PROP_mv_vine_burn_2
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3544859491397899255, guid: 530ec7b40b4d649f1b86d160d258f443, type: 3}
+  - name: PROP_mv_vine_burnt
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3024426707615157446, guid: 035af60366b99418a8e280065d504026, type: 3}
+  - name: PROP_mv_lever
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 3181339601854868737, guid: 3a0c984571778464f914eaeafce5fcf5, type: 3}
+  - name: PROP_mv_lever_on
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 5583025096165474069, guid: 3aa16d3c520734b9cb3d416542078400, type: 3}
+  - name: PROP_mv_shadow_s
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -2703984931737612896, guid: 5634e50de7d41407582065057746ef0b, type: 3}
+  - name: PROP_mv_shadow_m
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: 4002525547810782320, guid: 9c003efcf2ac547f3ac62342dfeca3a8, type: 3}
+  - name: PROP_mv_shadow_l
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -8708131735103847651, guid: 873837773f3a24273abd1a3851724640, type: 3}
+  - name: PROP_mv_shadow_xl
+    fps: 1
+    walkFrames: 4
+    frames:
+    - {fileID: -6155152450820772511, guid: 67a556fa6d7344a78935ced2753be282, type: 3}
   spells:
   - {fileID: 11400000, guid: 200f5a2148ed342e194f10a7cead665b, type: 2}
   - {fileID: 11400000, guid: 8d34506e890d546f5bbf781656a8abbd, type: 2}

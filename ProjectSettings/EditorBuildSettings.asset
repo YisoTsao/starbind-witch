@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Workshop.unity
     guid: 59b6756a68125435f92626dc76dc0e73
   - enabled: 1
-    path: Assets/_Game/Scenes/Forest.unity
-    guid: 01759e9ac1ab0427091e16adf2605152
+    path: Assets/_Game/Scenes/Regions/MoonveilForest.unity
+    guid: a4cae994055ee4ad5980853fa18eab08
   - enabled: 1
     path: Assets/_Game/Scenes/Mine.unity
     guid: 4bf366c6fe084482cb9a6e4d9ffc8395

@@ -200,7 +200,7 @@ namespace Starbind.Tests
             Assert.AreEqual(40 * UI.MapData.Px, d.Texture.height);
             Assert.That(d.Pois.Count(p => p.kind == "villager"), Is.EqualTo(12), "villagers on the map");
             Assert.That(d.Pois.Count(p => p.kind == "npc"), Is.GreaterThanOrEqualTo(5), "named NPCs (Ella, Kain, Lia, Lorne, prince)");
-            Assert.That(d.Pois.Any(p => p.kind == "exit" && p.label == "月影森林"), "forest exit");
+            Assert.That(d.Pois.Any(p => p.kind == "exit" && p.label == "紫幻森林"), "forest exit (chapter 1: Moonveil Forest)");
             Assert.That(d.Pois.Any(p => p.kind == "door"), "cottage door");
             Assert.That(d.Pois.Any(p => p.kind == "star"), "star plate");
             // water, path and grass get different colours
@@ -231,11 +231,11 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator MiniMapShowsForestEnemies()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             yield return null;
             var mini = GameSession.Instance.UI.Hud.MiniMap;
             Assert.IsNotNull(mini.Shown, "forest map built");
-            Assert.AreEqual(64 * UI.MapData.Px, mini.Shown.Texture.width);
+            Assert.AreEqual(160 * UI.MapData.Px, mini.Shown.Texture.width);
             var e = EnemySpawner.Instance.SpawnAt("slime", (Vector2)player.transform.position + new Vector2(3, 0));
             Assert.IsNotNull(e);
             yield return null;
@@ -361,7 +361,7 @@ namespace Starbind.Tests
         // ------------------------------------------------------------------ forest
         IEnumerator LoadForestQuiet()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             yield return null;
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
@@ -373,14 +373,17 @@ namespace Starbind.Tests
         {
             yield return LoadForestQuiet();
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return TeleportTo(new Vector2(32f, 46.2f));
-            yield return Hold(Vector2.up, 1.2f);
-            Assert.That(P.y, Is.LessThan(48.0f), "broken bridge gap blocks");
+            // chapter 1 puzzles in Moonveil Forest: the lake-outflow bridge is broken until its lever is pulled
             var lever = Object.FindAnyObjectByType<BridgeSwitch>();
+            var gap = lever.Gap.bounds;
+            float side = Mathf.Sign(lever.transform.position.x - gap.center.x); // lever stands on the approach side
+            yield return TeleportTo(new Vector2(gap.center.x + side * (gap.extents.x + 1.6f), gap.center.y));
+            yield return Hold(new Vector2(-side, 0f), 1.4f);
+            Assert.That(Mathf.Abs(P.x - gap.center.x), Is.GreaterThan(gap.extents.x - 0.05f), "broken bridge gap blocks");
             lever.GetComponent<Interactable>().Interact();
             Assert.IsTrue(lever.Repaired);
-            yield return Hold(Vector2.up, 1.6f);
-            Assert.That(P.y, Is.GreaterThan(51.0f), "crossed the repaired bridge");
+            yield return Hold(new Vector2(-side, 0f), 2.2f);
+            Assert.That((P.x - gap.center.x) * side, Is.LessThan(-gap.extents.x), "crossed the repaired bridge");
 
             var vine = Object.FindAnyObjectByType<BurnableVine>();
             var h = vine.GetComponent<Health>();
@@ -395,8 +398,8 @@ namespace Starbind.Tests
         {
             yield return LoadForestQuiet();
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return TeleportTo(new Vector2(32f, 36.5f));
             var altar = Object.FindAnyObjectByType<StarAltar>();
+            yield return TeleportTo((Vector2)altar.transform.position + new Vector2(0f, -1.4f));
             altar.GetComponent<Interactable>().Interact();
             Assert.IsTrue(altar.Used);
             var director = RunManager.Current.Director;
@@ -415,7 +418,7 @@ namespace Starbind.Tests
         {
             yield return LoadForestQuiet();
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return TeleportTo(new Vector2(32f, 39f));
+            yield return TeleportTo(new Vector2(77.5f, 40f));
             var spawner = EnemySpawner.Instance;
             string[] mix = { "slime", "spore_shroom", "wisp", "slime", "root_guard" };
             for (int i = 0; i < 80; i++)
@@ -447,14 +450,15 @@ namespace Starbind.Tests
         {
             yield return Load("Village");
             var forestExit = Object.FindObjectsByType<AreaExit>(FindObjectsSortMode.None)
-                .Single(exit => exit.TargetScene == "Forest");
+                .Single(exit => exit.TargetScene == "MoonveilForest");
             yield return TeleportTo(forestExit.Area.center);
-            yield return WaitForScene("Forest");
+            yield return WaitForScene("MoonveilForest");
             RunManager.Current.Director.Running = false;
             EnemySpawner.Instance.DespawnAll();
             var h = player.Vitals.Health;
             h.InvulnerableUntil = 9999f;
-            yield return TeleportTo(new Vector2(32f, 55.6f));
+            var arenaRect = Object.FindAnyObjectByType<BossArena>().Trigger;
+            yield return TeleportTo(new Vector2(arenaRect.center.x, arenaRect.yMin + 1.5f));
             yield return WaitUntilOrTimeout(() => Enemy.ActiveBoss != null, 2f);
             var boss = Enemy.ActiveBoss;
             Assert.IsNotNull(boss, "entering the arena starts the boss");
@@ -509,10 +513,10 @@ namespace Starbind.Tests
         [UnityTest]
         public IEnumerator AmbientSpawnsRespectDistanceAndWalkableCells()
         {
-            yield return Load("Forest");
+            yield return Load("MoonveilForest");
             var director = RunManager.Current.Director;
             player.Vitals.Health.InvulnerableUntil = 9999f;
-            yield return TeleportTo(new Vector2(32f, 10f));
+            yield return TeleportTo(new Vector2(77.5f, 30f));
             director.Elapsed = 300f; // mid-run pacing
             var spawner = EnemySpawner.Instance;
             var bad = new List<string>();

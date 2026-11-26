@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c1738d49d847bf9ca294a4146ba2d, type: 3}
+  m_Name: POI_crystal
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Studio.PoiDefinition
+  id: crystal
+  kind: 7
+  displayName: "\u6C34\u6676\u6797\u5730"
+  clearing: {x: 10, y: 8}
+  boundaryNoise: 0.22
+  ground: 0
+  paverRadius: 0
+  safe: 0
+  stamps:
+  - sprite: PROP_mv_crystal_violet
+    offset: {x: -4.2, y: 3}
+    ground: 0
+  - sprite: PROP_mv_crystal_violet
+    offset: {x: 3.4, y: -3.2}
+    ground: 0
+  - sprite: PROP_mv_crystal_blue
+    offset: {x: 5.2, y: 3.2}
+    ground: 0
+  - sprite: PROP_mv_crystal_small
+    offset: {x: -5.4, y: -2.2}
+    ground: 0
+  - sprite: PROP_mv_crystal_small
+    offset: {x: 0.2, y: 5.2}
+    ground: 0
+  - sprite: PROP_mv_pillars_broken
+    offset: {x: -1.4, y: 6.2}
+    ground: 0
+  - sprite: PROP_mv_arch_ruin
+    offset: {x: 6.2, y: 5.6}
+    ground: 0
+  objects: []
+  clearCore: 3
+  roadStop: 0

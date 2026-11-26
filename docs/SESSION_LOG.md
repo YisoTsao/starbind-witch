@@ -1,5 +1,29 @@
 # 工作階段紀錄
 
+## 2026-11-26 +08:00｜WVO-003 美術第三輪與手機版
+
+- 使用者要求：紫色調月蝕菇王、紫幻藤蔓與拉桿、地形與樹木都要調整；參考圖授權確認；第 1 章要能在手機玩；最後 commit 並 push。
+- 授權：使用者表示「參考圖授權確認」，記入 DECISIONS WVO-2（approved，使用者陳述；Claude 無法查證）。
+- 美術：新增 `tools/art/moonveil_creatures.py`（程式繪製菇王 6 幀、藤蔓＋燃燒 3 幀＋燒毀、拉桿關/開、4 種接地陰影）；`moonveil_art.py` 草地改 `meadow_fill`、石板改 `flagstone_fill`（週期 Voronoi）、物件 `despeckle`；拼接檢查 0 錯誤。產生器把藤蔓／拉桿精靈寫進地圖 JSON；`BurnableVine` 播放燃燒幀；`BridgeSwitch` 可設定拉桿開啟圖；Boss 石階閘門改用紫幻藤蔓；`GameContentBuilder.AddContactShadow` 為紫幻森林的地面物件加陰影。
+- 手機：`TouchControls`（On-Screen Stick/Button → 虛擬手把）、`Hud.SetTouchLayout`、`PlayerInputReader.TouchMode`、`PlayerCombat` 自動瞄準、手把方向鍵綁定道具 1–3、對話可點擊、WebGL 建置入口（Gzip＋解壓後備、橫向）、`SaveService` 在 WebGL 用 jslib 同步 IndexedDB。
+- 驗證（專案副本，Unity 6000.6.8f1）：EditMode 80/80、PlayMode 77/77；macOS Player 126.6 MB；Benchmark 1080p 60 敵 avg 1.58 ms、p95 1.97 ms、最長 12.43 ms（首跑；第二次 9.72 ms），無超過 16.7 ms 的幀。證據 `docs/evidence/moonveil/M13`–`M18`。
+
+## 2026-11-26 +08:00｜紫幻森林取代第 1 章（WVO-002）
+
+- 使用者指示：用紫幻森林取代第 1 章月影森林，全部做完不中斷。WVO-1 approved。
+- 章節 forest.scene→MoonveilForest、標題紫幻森林、Boss 區首領空地、任務 M1-03 文字；village.py/village.json 出口；ObjectiveTracker、GameSession、RunManager 後備、BenchmarkMode 預設；舊 Forest.unity → Scenes/Dev/Legacy/Forest_v1.unity（不建置）。
+- 產生器 v1.1：Stairs 格、brokenBridge（拉桿在來路側）、vineGateAt（量測走廊寬）、地面貼花、依水流判斷橋向、森林碎塊清除、閘門關閉可達性驗證。美術：柱狀岩懸崖、石階、斷橋、直向橋、魔法陣。
+- 測試改寫：Combat/Flow/Polish/Evidence 全部改用紫幻森林與動態座標；新增 WorldStudioTests 3 例。修正 ChapterRouteTests 灰盒預覽在 Retina 只讀 1/4 畫面（既有 2 例失敗）。
+- 結果（副本，6000.6.8f1）：EditMode 80/80、PlayMode 75/75（含 Evidence）；macOS Player 126.3 MB 0 errors；第 1 章 1080p 60 敵平均 1.50 ms、p95 1.73 ms、最長 10.89 ms。截圖 docs/evidence/final/（第 1 章各畫面已換成紫幻森林）與 docs/evidence/moonveil/。
+- 未做：真人試玩、正式美術（含紫色調 Boss）、音樂。
+
+## 2026-11-26 +08:00｜World & Visual Overhaul 第一階段（WVO-001）
+
+- 基準 e97dcc9（feat/full-build-draft）。使用者要求依 `references/01`–`04` 分析並實作 Witch World Studio 與紫幻森林。參考圖位於 `references/`（指示寫 `docs/references/`）。
+- 新增：`tools/art/moonveil_art.py`（8 地形表＋45 物件，拼接/開放邊檢查 0 錯）、`Scripts/World/Studio/`（Biome/POI/Blueprint SO、WorldGenerator、WorldMapData、Validate）、`PeriodicTile`、`Editor/WorldStudio/`（World Studio 視窗、ArtImporter、Exporter、Pipeline、MoonveilPreset）、MoonveilForest 場景、文件 10 份。修改：GameContentBuilder（Studio 圖層、光、分塊、BuildRegionScene）、HUD 區名面板、MapData、SceneConfig/RunManager/GameSession（區域開場與目標覆蓋）、OcclusionFader、BenchmarkMode（-benchmarkScene）。
+- scratchpad 副本以 6000.6.8f1 驗證：EditMode 75/77（2 例為既有灰盒預覽失敗）、PlayMode 非 Evidence 68/68（含新 4 例；橋測試第一版不穩已改為依碰撞找通道）、CaptureMoonveil 通過。macOS Player 129.2 MB 0 errors；1080p 60 敵 Moonveil 平均 1.55 ms、p95 1.89 ms、最長 10.98 ms（M1 Pro）。截圖 docs/evidence/moonveil/。
+- 未做：真人試玩、正式美術、紫幻森林專屬敵人/Boss/任務、村莊出口改接。
+
 ## 2026-11-25 +08:00｜第 2 章～終章（CH2-5-001）
 
 - 基準 0fd0154。使用者試玩第一章，G4 通過；要求把後續關卡與美術全部完成。決定：採用草案（Q-1）、結局玩家選擇（Q-2）、美術做 G2 風格程式草稿。一次完成多章記為 SPEC_CONFLICTS C-33。

@@ -7,12 +7,16 @@ using UnityEngine;
 
 namespace Starbind.World
 {
-    /// <summary>Burnable vines (GDD §11.3): block a shortcut; any Fire hit burns them away.</summary>
+    /// <summary>Burnable vines (GDD §11.3): block a shortcut; any Fire hit burns them away. The blocker
+    /// opens at once; the sprites play the optional burn frames, then show the charred state.</summary>
     [RequireComponent(typeof(Health))]
     public sealed class BurnableVine : MonoBehaviour
     {
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] Collider2D blocker;
+        [SerializeField] string burntSprite = "PROP_vine_burnt_draft";
+        [SerializeField] string[] burnFrames = System.Array.Empty<string>();
+        const float BurnFrameTime = 0.12f;
         public bool Burnt { get; private set; }
         Health health;
 
@@ -44,8 +48,12 @@ namespace Starbind.World
         {
             Burnt = true;
             if (sprite != null)
-                foreach (var sr in sprite.GetComponentsInChildren<SpriteRenderer>())
-                    sr.sprite = GameDatabase.Instance.Sprite("PROP_vine_burnt_draft");
+            {
+                if (burnFrames != null && burnFrames.Length > 0 && isActiveAndEnabled)
+                    StartCoroutine(PlayBurn());
+                else
+                    ShowSprite(burntSprite);
+            }
             if (blocker != null)
                 blocker.enabled = false;
             health.enabled = false;
@@ -55,6 +63,25 @@ namespace Starbind.World
             v.Light(transform.position, new Color(1f, 0.6f, 0.2f), 3f, 1.6f, 0.6f);
             Sfx.Play("sfx_fire_hit", 0.9f);
             GameSession.Instance.UI.Notice("藤蔓燒盡，捷徑開啟");
+        }
+
+        System.Collections.IEnumerator PlayBurn()
+        {
+            foreach (var f in burnFrames)
+            {
+                ShowSprite(f);
+                yield return new WaitForSeconds(BurnFrameTime);
+            }
+            ShowSprite(burntSprite);
+        }
+
+        void ShowSprite(string name)
+        {
+            var s = GameDatabase.Instance.Sprite(name);
+            if (s == null)
+                return;
+            foreach (var sr in sprite.GetComponentsInChildren<SpriteRenderer>())
+                sr.sprite = s;
         }
     }
 }

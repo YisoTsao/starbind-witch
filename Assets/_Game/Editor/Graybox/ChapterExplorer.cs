@@ -56,7 +56,13 @@ namespace Starbind.Editor
         {
             var layer = new GameObject(name, typeof(Tilemap), typeof(TilemapRenderer));
             layer.transform.SetParent(root.transform, false);
-            layer.GetComponent<TilemapRenderer>().sortingOrder = order;
+            var r = layer.GetComponent<TilemapRenderer>();
+            r.sortingOrder = order;
+            // the preview scene has no 2D light: the default lit sprite material can render (nearly) black,
+            // so the graybox is drawn unlit and its tile colours show as authored
+            var unlit = Shader.Find("Universal Render Pipeline/2D/Sprite-Unlit-Default");
+            if (unlit != null)
+                r.sharedMaterial = new Material(unlit) { hideFlags = HideFlags.HideAndDontSave };
             return layer.GetComponent<Tilemap>();
         }
 
@@ -130,6 +136,9 @@ namespace Starbind.Editor
             var oldColor = markers.GetColor(cursor);
             Paint(markers, cursor, Color.white);
             preview.BeginPreview(rect, GUIStyle.none);
+            // the preview camera keeps the aspect of whatever it rendered last (in batch runs: not square),
+            // which cropped the map and hid most anchors; frame exactly the requested rect
+            cam.aspect = rect.width / rect.height;
             preview.Render(true);
             var result = preview.EndPreview();
             markers.SetTile(cursor, oldTile);

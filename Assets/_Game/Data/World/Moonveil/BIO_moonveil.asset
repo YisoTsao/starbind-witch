@@ -1,0 +1,669 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15af02f56e97d451ea34abe1c9c45c43, type: 3}
+  m_Name: BIO_moonveil
+  m_EditorClassIdentifier: Starbind.Gameplay::Starbind.World.Studio.BiomeDefinition
+  id: moonveil
+  displayName: "\u7D2B\u5E7B\u68EE\u6797"
+  ground: {fileID: 11400000, guid: 38396230ae16f42a9987c309e0ac95ad, type: 2}
+  darkGround: {fileID: 11400000, guid: d4c3c7b1bb5dd4b6f833aa2369152b5d, type: 2}
+  path: {fileID: 11400000, guid: d446278b008dd44f882ba071d9342afa, type: 2}
+  paver: {fileID: 11400000, guid: 734279d73549d488da0cdbb20c39c69b, type: 2}
+  water: {fileID: 11400000, guid: 7e092930bee064520876e303a1e11650, type: 2}
+  cliffFace: {fileID: 11400000, guid: 95f0c3ab3440c451ea3d2a7d520f2a6d, type: 2}
+  cliffRim: {fileID: 11400000, guid: 2eea1f5186ceb400a895e384f1792677, type: 2}
+  cliffWaterfall: {fileID: 11400000, guid: e421b0d8fe10740a8a42b10b4ac35d09, type: 2}
+  cliffStairs: {fileID: 11400000, guid: 9fb839c90ecbe4c718e2e5549fa740fc, type: 2}
+  details:
+  - {fileID: 11400000, guid: 9ccc83e5774dc4caf824d2a46c04614f, type: 2}
+  - {fileID: 11400000, guid: 8e7be7c598d384d7695db1df634a00aa, type: 2}
+  - {fileID: 11400000, guid: 7c5b310a7954a4cf0894c830848863d1, type: 2}
+  - {fileID: 11400000, guid: 6b62e04e655e04337995988918aed11f, type: 2}
+  - {fileID: 11400000, guid: 908533167debf449ba503e1d5c99b831, type: 2}
+  - {fileID: 11400000, guid: 4f8d2dc8c36c7456e990c7327a26399b, type: 2}
+  catalog:
+  - sprite: PROP_mv_tree_lantern
+    category: tree
+    pixelSize: {x: 164, y: 138}
+    box: {x: 1.2, y: 0.5, z: 0, w: 0.35}
+    fade: 1
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2.6, y: 0.8, z: 1.2, w: 1.9}
+  - sprite: PROP_mv_tree_purple_a
+    category: tree
+    pixelSize: {x: 128, y: 130}
+    box: {x: 1.1, y: 0.5, z: 0, w: 0.35}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tree_wisteria
+    category: tree
+    pixelSize: {x: 140, y: 124}
+    box: {x: 1.1, y: 0.5, z: 0, w: 0.35}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tree_purple_b
+    category: tree
+    pixelSize: {x: 124, y: 126}
+    box: {x: 1, y: 0.5, z: 0, w: 0.35}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tree_blossom
+    category: tree
+    pixelSize: {x: 110, y: 112}
+    box: {x: 0.6, y: 0.4, z: 0, w: 0.3}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tree_pine
+    category: tree
+    pixelSize: {x: 78, y: 120}
+    box: {x: 0.6, y: 0.4, z: 0, w: 0.3}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tree_dead
+    category: tree
+    pixelSize: {x: 100, y: 63}
+    box: {x: 0.8, y: 0.4, z: 0, w: 0.3}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_log_hollow
+    category: deadwood
+    pixelSize: {x: 81, y: 40}
+    box: {x: 2, y: 0.5, z: 0, w: 0.35}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_stump_roots
+    category: deadwood
+    pixelSize: {x: 83, y: 49}
+    box: {x: 1.4, y: 0.5, z: 0, w: 0.35}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bush_dark
+    category: bush
+    pixelSize: {x: 33, y: 24}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bush_flower
+    category: bush
+    pixelSize: {x: 36, y: 26}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bush_green
+    category: bush
+    pixelSize: {x: 37, y: 25}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bush_berry
+    category: bush
+    pixelSize: {x: 34, y: 25}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_rock_large
+    category: rock
+    pixelSize: {x: 62, y: 36}
+    box: {x: 1.6, y: 0.6, z: 0, w: 0.35}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_rock_cluster
+    category: rock
+    pixelSize: {x: 47, y: 27}
+    box: {x: 1.2, y: 0.45, z: 0, w: 0.25}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_rock_mossy
+    category: rock
+    pixelSize: {x: 37, y: 23}
+    box: {x: 1, y: 0.4, z: 0, w: 0.22}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_rock_small
+    category: rock
+    pixelSize: {x: 30, y: 13}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_flowers_pink
+    category: flower
+    pixelSize: {x: 34, y: 20}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_flowers_violet
+    category: flower
+    pixelSize: {x: 35, y: 21}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_lavender
+    category: flower
+    pixelSize: {x: 33, y: 25}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bellflower
+    category: flower
+    pixelSize: {x: 29, y: 24}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_mushroom_giant
+    category: mushroom
+    pixelSize: {x: 46, y: 35}
+    box: {x: 0.8, y: 0.35, z: 0, w: 0.2}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.75, g: 0.5, b: 1, a: 1}
+    light: {x: 2.2, y: 0.85, z: 0, w: 0.6}
+  - sprite: PROP_mv_mushroom_pair
+    category: mushroom
+    pixelSize: {x: 27, y: 23}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.75, g: 0.5, b: 1, a: 1}
+    light: {x: 1.4, y: 0.7, z: 0, w: 0.4}
+  - sprite: PROP_mv_mushroom_tall
+    category: mushroom
+    pixelSize: {x: 27, y: 26}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.75, g: 0.5, b: 1, a: 1}
+    light: {x: 1.4, y: 0.7, z: 0, w: 0.5}
+  - sprite: PROP_mv_mushroom_shelf
+    category: mushroom
+    pixelSize: {x: 38, y: 24}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.75, g: 0.5, b: 1, a: 1}
+    light: {x: 1.2, y: 0.55, z: 0, w: 0.3}
+  - sprite: PROP_mv_crystal_violet
+    category: crystal
+    pixelSize: {x: 46, y: 37}
+    box: {x: 0.9, y: 0.4, z: 0, w: 0.22}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.72, g: 0.5, b: 1, a: 1}
+    light: {x: 2.4, y: 0.9, z: 0, w: 0.8}
+  - sprite: PROP_mv_crystal_blue
+    category: crystal
+    pixelSize: {x: 32, y: 29}
+    box: {x: 0.7, y: 0.35, z: 0, w: 0.2}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.55, g: 0.65, b: 1, a: 1}
+    light: {x: 2, y: 0.85, z: 0, w: 0.6}
+  - sprite: PROP_mv_crystal_small
+    category: crystal
+    pixelSize: {x: 25, y: 20}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 0.72, g: 0.5, b: 1, a: 1}
+    light: {x: 1.3, y: 0.7, z: 0, w: 0.35}
+  - sprite: PROP_mv_reeds
+    category: shore
+    pixelSize: {x: 34, y: 30}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_lilypads
+    category: water
+    pixelSize: {x: 47, y: 20}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_pillar_tall
+    category: ruin
+    pixelSize: {x: 27, y: 61}
+    box: {x: 0.8, y: 0.4, z: 0, w: 0.22}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_pillar_short
+    category: ruin
+    pixelSize: {x: 21, y: 33}
+    box: {x: 0.8, y: 0.4, z: 0, w: 0.22}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_pillars_broken
+    category: ruin
+    pixelSize: {x: 78, y: 49}
+    box: {x: 2, y: 0.5, z: 0, w: 0.3}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_arch_ruin
+    category: ruin
+    pixelSize: {x: 82, y: 68}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 1
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_shrine_moon
+    category: ruin
+    pixelSize: {x: 90, y: 75}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 1
+    hasLight: 1
+    lightColor: {r: 0.95, g: 0.78, b: 0.5, a: 1}
+    light: {x: 2.4, y: 0.8, z: 0, w: 0.6}
+  - sprite: PROP_mv_stone_circle
+    category: ruin
+    pixelSize: {x: 70, y: 38}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_lamp_post
+    category: light
+    pixelSize: {x: 28, y: 48}
+    box: {x: 0.35, y: 0.25, z: -0.25, w: 0.12}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2.4, y: 0.85, z: 0.35, w: 1.05}
+  - sprite: PROP_mv_lamp_crook
+    category: light
+    pixelSize: {x: 27, y: 48}
+    box: {x: 0.35, y: 0.25, z: -0.1, w: 0.12}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2.4, y: 0.85, z: -0.1, w: 0.95}
+  - sprite: PROP_mv_lantern_hang
+    category: light
+    pixelSize: {x: 12, y: 33}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 1.6, y: 0.7, z: 0, w: 0.5}
+  - sprite: PROP_mv_lantern_stone
+    category: light
+    pixelSize: {x: 16, y: 34}
+    box: {x: 0.45, y: 0.3, z: 0, w: 0.15}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2, y: 0.8, z: 0, w: 0.8}
+  - sprite: PROP_mv_signpost
+    category: camp
+    pixelSize: {x: 37, y: 57}
+    box: {x: 0.35, y: 0.25, z: 0, w: 0.12}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bridge
+    category: bridge
+    pixelSize: {x: 127, y: 68}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_tent
+    category: camp
+    pixelSize: {x: 154, y: 86}
+    box: {x: 3.6, y: 1, z: 0, w: 0.6}
+    fade: 1
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2.6, y: 0.8, z: -1.4, w: 2}
+  - sprite: PROP_mv_campfire_set
+    category: camp
+    pixelSize: {x: 98, y: 60}
+    box: {x: 0.9, y: 0.5, z: 0.2, w: 0.4}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.62, b: 0.3, a: 1}
+    light: {x: 3.2, y: 1, z: 0.25, w: 0.6}
+  - sprite: PROP_mv_merchant_cart
+    category: camp
+    pixelSize: {x: 120, y: 83}
+    box: {x: 3.2, y: 0.9, z: 0, w: 0.5}
+    fade: 0
+    hasLight: 1
+    lightColor: {r: 1, g: 0.78, b: 0.45, a: 1}
+    light: {x: 2.2, y: 0.75, z: -1.6, w: 2}
+  - sprite: PROP_mv_bridge_broken
+    category: bridge
+    pixelSize: {x: 127, y: 68}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_bridge_vertical
+    category: bridge
+    pixelSize: {x: 96, y: 150}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_magic_circle
+    category: decal
+    pixelSize: {x: 160, y: 160}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_vine
+    category: mechanism
+    pixelSize: {x: 32, y: 44}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_vine_burn_0
+    category: mechanism
+    pixelSize: {x: 32, y: 44}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_vine_burn_1
+    category: mechanism
+    pixelSize: {x: 32, y: 44}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_vine_burn_2
+    category: mechanism
+    pixelSize: {x: 32, y: 44}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_vine_burnt
+    category: mechanism
+    pixelSize: {x: 32, y: 44}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_lever
+    category: mechanism
+    pixelSize: {x: 24, y: 32}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_lever_on
+    category: mechanism
+    pixelSize: {x: 24, y: 32}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_shadow_s
+    category: shadow
+    pixelSize: {x: 24, y: 8}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_shadow_m
+    category: shadow
+    pixelSize: {x: 40, y: 12}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_shadow_l
+    category: shadow
+    pixelSize: {x: 64, y: 18}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: PROP_mv_shadow_xl
+    category: shadow
+    pixelSize: {x: 96, y: 26}
+    box: {x: 0, y: 0, z: 0, w: 0}
+    fade: 0
+    hasLight: 0
+    lightColor: {r: 1, g: 1, b: 1, a: 1}
+    light: {x: 0, y: 0, z: 0, w: 0}
+  rules:
+  - id: edge_undergrowth
+    sprites:
+    - PROP_mv_bush_dark
+    - PROP_mv_bush_green
+    - PROP_mv_bush_flower
+    - PROP_mv_bush_berry
+    - PROP_mv_lavender
+    - PROP_mv_bellflower
+    - PROP_mv_rock_mossy
+    - PROP_mv_bush_dark
+    habitat: 1
+    density: 70
+    spacing: 1.15
+    roadClearance: 1
+    biasKinds: 
+    biasRadius: 12
+    biasBoost: 4
+    onlyNearBias: 0
+  - id: clearing_rocks
+    sprites:
+    - PROP_mv_rock_large
+    - PROP_mv_rock_cluster
+    - PROP_mv_rock_mossy
+    - PROP_mv_rock_small
+    habitat: 2
+    density: 2
+    spacing: 3
+    roadClearance: 1
+    biasKinds: 
+    biasRadius: 12
+    biasBoost: 4
+    onlyNearBias: 0
+  - id: clearing_flowers
+    sprites:
+    - PROP_mv_flowers_pink
+    - PROP_mv_flowers_violet
+    - PROP_mv_lavender
+    - PROP_mv_bellflower
+    - PROP_mv_bush_flower
+    habitat: 2
+    density: 4
+    spacing: 2
+    roadClearance: 1
+    biasKinds: 0600000004000000i
+    biasRadius: 13
+    biasBoost: 3
+    onlyNearBias: 0
+  - id: clearing_deadwood
+    sprites:
+    - PROP_mv_log_hollow
+    - PROP_mv_stump_roots
+    habitat: 2
+    density: 0.7
+    spacing: 4
+    roadClearance: 2
+    biasKinds: 
+    biasRadius: 12
+    biasBoost: 4
+    onlyNearBias: 0
+  - id: mushrooms
+    sprites:
+    - PROP_mv_mushroom_pair
+    - PROP_mv_mushroom_tall
+    - PROP_mv_mushroom_shelf
+    - PROP_mv_mushroom_giant
+    habitat: 2
+    density: 0.8
+    spacing: 2.2
+    roadClearance: 1
+    biasKinds: 0300000002000000i
+    biasRadius: 14
+    biasBoost: 9
+    onlyNearBias: 0
+  - id: crystals
+    sprites:
+    - PROP_mv_crystal_small
+    - PROP_mv_crystal_violet
+    - PROP_mv_crystal_blue
+    - PROP_mv_crystal_small
+    habitat: 2
+    density: 1.2
+    spacing: 2.4
+    roadClearance: 1
+    biasKinds: 07000000i
+    biasRadius: 13
+    biasBoost: 9
+    onlyNearBias: 1
+  - id: ruins
+    sprites:
+    - PROP_mv_pillar_short
+    - PROP_mv_pillars_broken
+    - PROP_mv_pillar_tall
+    habitat: 2
+    density: 0.35
+    spacing: 4
+    roadClearance: 2
+    biasKinds: 010000000800000007000000i
+    biasRadius: 16
+    biasBoost: 5
+    onlyNearBias: 0
+  - id: shore
+    sprites:
+    - PROP_mv_reeds
+    - PROP_mv_reeds
+    - PROP_mv_rock_mossy
+    - PROP_mv_bellflower
+    habitat: 4
+    density: 13
+    spacing: 2.2
+    roadClearance: 1
+    biasKinds: 
+    biasRadius: 12
+    biasBoost: 4
+    onlyNearBias: 0
+  - id: lilies
+    sprites:
+    - PROP_mv_lilypads
+    habitat: 5
+    density: 4
+    spacing: 3
+    roadClearance: 1
+    biasKinds: 
+    biasRadius: 12
+    biasBoost: 4
+    onlyNearBias: 0
+  wallTrees:
+  - PROP_mv_tree_purple_a
+  - PROP_mv_tree_purple_b
+  - PROP_mv_tree_wisteria
+  - PROP_mv_tree_lantern
+  - PROP_mv_tree_pine
+  - PROP_mv_tree_blossom
+  - PROP_mv_tree_dead
+  wallTreeWeights:
+  - 3
+  - 3
+  - 2.2
+  - 0.5
+  - 1.3
+  - 1
+  - 0.25
+  treeSpacing: 2.7
+  deepForestKeep: 0.75
+  bridgeSprite: PROP_mv_bridge
+  bridgeVerticalSprite: PROP_mv_bridge_vertical
+  bridgeBrokenSprite: PROP_mv_bridge_broken
+  roadLantern: PROP_mv_lamp_post
+  vineSprite: PROP_mv_vine
+  vineBurntSprite: PROP_mv_vine_burnt
+  vineBurnFrames:
+  - PROP_mv_vine_burn_0
+  - PROP_mv_vine_burn_1
+  - PROP_mv_vine_burn_2
+  leverSprite: PROP_mv_lever
+  leverOnSprite: PROP_mv_lever_on
+  lanternSpacing: 13
+  flowerCoverage: 0.17
+  cloverChance: 0.05
+  globalLight: {r: 0.94, g: 0.9, b: 1, a: 1}
+  globalIntensity: 1
+  background: {r: 0.07058824, g: 0.05490196, b: 0.11764706, a: 1}
+  characterDim: 0.06
+  ambientMotes: 34
